@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-white ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Site de divulgação</a>
+        <a class="navbar-brand text-white" href="#">Site de divulgação</a>
 
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -11,16 +11,16 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 
-                <li class="nav-item dropdown">
-                    <a style='color:white'class="nav-link dropdown-toggle" href="#" role="button"
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Menu do site
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a style='color:black'class="dropdown-item" href="{{route('empresa')}}">Empresa</a></li>
-                        <li><a style='color:black'class="dropdown-item" href="{{route('produto')}}">Produtos</a></li>
+                        <li><a class="dropdown-item" href="{{route('empresa')}}">Empresa</a></li>
+                        <li><a class="dropdown-item" href="{{route('produto')}}">Produtos</a></li>
                         <li>
-                            <hr style='color:black' class="dropdown-divider">
+                            <hr  class="dropdown-divider">
                         </li>
 
                     </ul>
