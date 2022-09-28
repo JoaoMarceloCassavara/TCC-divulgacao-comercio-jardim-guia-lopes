@@ -6,7 +6,7 @@
 
     @forelse ($empresas as $empresa)
     <div class="card">
-        <img src="{{ $empresa->imagem }}"  class="card-img-top" alt="...">
+        <img src="{{ $empresa->imagem }}"  class="card-img-top" alt="Imagem da Empresa">
         <div class="card-body">
             <h5  class="card-title">{{ $empresa->nome }}</h5>
             <p class="card-text">{{ $empresa->descricao }}</p>

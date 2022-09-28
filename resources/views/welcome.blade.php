@@ -6,7 +6,7 @@
         <a class="m-2  card-link" href="{{ route('produto', ['id' => $produto->id]) }}">
             <div class="card shadow p-4">
 
-                <img src="{{ $produto->imagem }}" width="245" height="245" alt="...">
+                <img src="{{ $produto->imagem }}" width="245" height="245" alt="Imagem do Produto">
 
                 <div class="card-body text-center text-white">
                     <h5 class="card-title">{{ $produto->nome }}</h5>

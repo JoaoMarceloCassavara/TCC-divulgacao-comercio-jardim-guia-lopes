@@ -3,7 +3,7 @@
 @section('conteudo')
 <section class="d-flex flex-wrap justify-content-evenly align-items-center ">
 <div id="cardapio" class="card shadow " >
-    <img src="{{ $produto?->imagem }}" height="500"  class="card-img-top" alt="...">
+    <img src="{{ $produto?->imagem }}" height="500"  class="card-img-top" alt="Imagem do Produto">
     <div class="card-body">
       <h5 class="card-title">{{ $produto->nome }}</h5>
       <p class="card-text">{{ $produto->descricao }}</p>
