@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Produto;
+use App\Modelsz\Produto;
 use App\Models\Empresa;
 use App\Models\Categoria;
 use App\Models\Pedido;
