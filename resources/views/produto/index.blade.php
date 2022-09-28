@@ -6,7 +6,7 @@
         <a class="m-2  card-link" href="{{ route('produto.visualizar', ['id' => $produto->id]) }}">
             <div class="card shadow p-4">
 
-                <img src="{{ $produto->imagem }}" width="245" height="245" alt="Imagem do produto">
+                <img src="{{Voyager::image( $produto->imagem) }}" width="245" height="245" alt="Imagem do produto">
 
                 <div class="card-body text-center text-white">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
