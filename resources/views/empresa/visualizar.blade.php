@@ -5,7 +5,7 @@
 
 
     <div class="card mb-3">
-        <img  src="{{ $empresa->imagem }}"width="700" height="300" alt="Imagem da Empresa">
+        <img  src="{{Voyager::image( $empresa->imagem) }}"width="700" height="300" alt="Imagem da Empresa">
         <div class="card-body">
           <h3 class="card-title">{{ $empresa->nome }}</h3>
           <p class="card-text">{{ $empresa->descricao }} </p>
@@ -21,7 +21,7 @@
         <div class="card shadow h-100" >
             <div class="w3grayscale">
                 <div class="w3-half">
-                    <img src="{{ $produto->imagem }}"width="250" height="250" class="flex-shrink-0 me-3"
+                    <img src="{{Voyager::image( $produto->imagem) }}"width="250" height="250" class="flex-shrink-0 me-3"
                         alt="...">
                     <div>
                         <div class="card-body" >
