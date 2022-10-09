@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<section class="card-com d-flex flex-wrap justify-content-evenly align-items-center ">
+<section class=" d-flex flex-wrap index_produto">
     @forelse ($produtos as $produto)
         <a class="m-2  card-link" href="{{ route('produto.visualizar', ['id' => $produto->id]) }}">
             <div class="card shadow p-4">
@@ -20,4 +20,5 @@
         <p>Nenhum produto cadastrado para essa empresa</p>
     @endforelse
 </section>
+
 @endsection
