@@ -5,7 +5,7 @@
 
 
     <div class="card mb-3">
-        <img  src="{{Voyager::image( $empresa->imagem) }}"width="700" height="300" alt="Imagem da Empresa">
+        <img  src="{{Voyager::image( $empresa->foto) }}"width="700" height="300" alt="Imagem da Empresa">
         <div class="card-body">
           <h3 class="card-title">{{ $empresa->nome }}</h3>
           <p class="card-text">{{ $empresa->descricao }} </p>
