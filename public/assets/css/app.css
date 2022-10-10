@@ -625,18 +625,41 @@ margin: 10px;
 
 nav.navbar {
 
-    width: 100%;
-    height: 84px;
+width: 100%;
+height: 84px;
 
-    background: #83A603;
-    color: white !important;
+background: #83A603;
+color: white !important;
 }
 
-.icone-carrinho-compras {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #565902;
+.link-primary {
+margin-right: 20px;
+
+
+font-family: Inter;
+font-size: 17px;
+font-weight: 800;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+}
+.login{
+height: 47px;
+width: 119px;
+left: 1063px;
+top: 16px;
+
+background: rgba(64, 1, 1, 0.72);
+border-radius: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: center;
+
+color: #FFFFFF;
+
 }
 
 .menu-pesquisa {
