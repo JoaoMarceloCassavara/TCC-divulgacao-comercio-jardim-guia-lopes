@@ -31,7 +31,7 @@
 <h1>Produto</h1>
 <section class=" d-flex flex-wrap index_produto">
     @forelse ($produtos as $produto)
-    <a class="m-2  card-link" href="{{ route('produto.visualizar', ['id' => $produto->id]) }}">
+    <a class="m-4  card-link" href="{{ route('produto.visualizar', ['id' => $produto->id]) }}">
             <div class="card shadow p-4">
 
                 <img src="{{Voyager::image( $produto->imagem) }}" width="245" height="245" alt="Imagem do produto">
