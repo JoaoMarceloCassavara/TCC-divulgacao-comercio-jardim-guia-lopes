@@ -591,36 +591,73 @@ section#mapa form#mapaForm :-ms-input-placeholder {
 .card-link,
 .card {
 
-    background: rgba(64, 1, 1, 0.85);
-    border-radius: 14px;
+background: rgba(64, 1, 1, 0.85);
+border-radius: 14px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: center;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
 
-    color: #FFFFFF;
+color: #FFFFFF;
 
 
 
 }
-.produtos{
-    display:inline-block;
+
+.produtos {
+display: inline-block;
 margin: 10px;
 
 }
-.index_produto{
-    margin-left: 20px;
-    margin-top: -5%;
+
+.index_produto {
+margin-left: 20px;
+padding-top: 5%;
+padding-bottom: 60px;
 }
 
 .card-img-top {
 
-    object-fit: contain;
-    margin-top:30px;
-    padding: 20px;
+object-fit: contain;
+margin-top: 30px;
+padding: 20px;
+}
+
+
+.Categoria_produto {
+margin-left: 22px;
+padding-top: 1px;
+}
+
+.rounded-pill {
+height: 78.54545593261719px;
+width: 108px;
+border-radius: 19px;
+margin-bottom: 5px;
+margin-top: 50px;
+margin-right: 2px;
+
+
+}
+
+.card-categoria {
+width: 200px;
+height: 200px;
+left: 788.73px;
+top: 389px;
+
+background: rgba(219, 236, 156, 0.85);
+border-radius: 50%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
 }
 
 nav.navbar {
@@ -643,7 +680,8 @@ line-height: 24px;
 letter-spacing: 0em;
 text-align: left;
 }
-.login{
+
+.login {
 height: 47px;
 width: 119px;
 left: 1063px;
@@ -664,19 +702,19 @@ color: #FFFFFF;
 
 .menu-pesquisa {
 
-    width: 330px;
-    height: 48px;
-    background: rgba(86, 89, 2, 0.72);
-    border-radius: 24px;
+width: 330px;
+height: 48px;
+background: rgba(86, 89, 2, 0.72);
+border-radius: 24px;
 }
 
-.visualizar_empresa{
+.visualizar_empresa {
 padding: 30px;
 }
-.logo{
-    margin-left: 46%;
 
-    font-family: Inter;
+.logo {
+margin-left: 46%;
+font-family: Inter;
 font-size: 30px;
 font-weight: 800;
 line-height: 36px;
@@ -684,34 +722,34 @@ letter-spacing: 0em;
 text-align: left;
 
 }
-.Visualizar_empresa_img{
-    height: 357px;
-    width: 670px;
-    left: 56px;
-    top: 158px;
-    border-radius: 10px;
-}
-.Visualizar_empresa_logo{
-    border-radius: 50%;
 
-    height: 150px;
+.Visualizar_empresa_img {
+height: 357px;
+width: 670px;
+left: 56px;
+top: 158px;
+border-radius: 10px;
+}
+
+.Visualizar_empresa_logo {
+border-radius: 50%;
+height: 150px;
 width: 150px;
 left: 316px;
 top: 440px;
-margin-top:-17%;
+margin-top: -17%;
 margin-left: 50%;
 
 }
 
-.visualizar_descricao_empresa{
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 17px;
-    letter-spacing: 0em;
-    text-align: left;
-
-    margin-left: 200px;
+.visualizar_descricao_empresa {
+font-family: Inter;
+font-size: 14px;
+font-weight: 700;
+line-height: 17px;
+letter-spacing: 0em;
+text-align: left;
+margin-left: 200px;
 
 
 }
