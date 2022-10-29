@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Categoria extends Model
+class CategoriaProduto extends Model
 {
-
+    
 }
