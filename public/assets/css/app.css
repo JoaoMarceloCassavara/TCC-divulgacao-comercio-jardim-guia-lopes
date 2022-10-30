@@ -753,3 +753,34 @@ margin-left: 200px;
 
 
 }
+.cardlogin{
+    padding-top: 6%;
+    padding-left: 15%;
+    padding-right:15% ;
+
+
+}
+.card-header{
+    padding-bottom: 30px;
+}
+.login-logar{
+    height: 47px;
+    width: 119px;
+    left: 1063px;
+    top: 16px;
+    margin-left: 10%;
+
+    background: rgba(64, 1, 1, 0.72);
+    border-radius: 24px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: center;
+
+    color: #FFFFFF;
+}
+.login-password{
+    margin-bottom: 10px;
+}
