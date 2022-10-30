@@ -28,13 +28,7 @@
 
             </ul>
             <form class="d-flex">
-                <input class="form-control me-2 menu-pesquisa" type="pesquisa" placeholder="Pesquisa" aria-label="Pesquisa">
-
-
-
-
-                {{-- <a  class="btn btn-outline-success" type="submit">Pesquisa</a> --}}
-            </form>
+                <input class="form-control me-2 menu-pesquisa" type="pesquisa" placeholder="Pesquisa" aria-label="Pesquisa"></form>
             <a href="#" class="link-primary text-white ">Criar Conta</a>
 
             <a type="button" class="btn btn-dark login" href="#">Login</a>
