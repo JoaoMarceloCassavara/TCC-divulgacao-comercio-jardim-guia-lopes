@@ -16,18 +16,25 @@
                 </div>
             </a>
 
-        @empty
-            <p>Nenhum produto cadastrado para essa empresa</p>
+ @empty
+            <p>Nenhum produto cadastrado</p>
         @endforelse
     </section>
-    <section class="Categoria_produto" >
-        <div class="card-categoria">
-            <img src="https://conteudo.imguol.com.br/c/entretenimento/fa/2019/04/18/legumes-e-verduras-1555620381375_v2_600x600.jpg.webp"
+    <section class="Categoria_produto d-flex" >
+
+        @forelse ($categoria_produtos as $categoria_produto)
+        <a class="m-4  " href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
+        <div class="card-categoria m-2">
+            <img src="{{ Voyager::image($categoria_produto->imagem) }}"
                 class="rounded-pill" alt="Imagem da categoria">
             <div class="card-body text-center">
-                <h5 class="card-title">Verduras</h5>
+                <h5 class="card-title">{{ $categoria_produto->nome }}</h5>
 
             </div>
         </div>
+        </a>
+        @empty
+        <p>Nenhuma Categoria Pruduto cadastrado</p>
+    @endforelse
     </section>
 @endsection
