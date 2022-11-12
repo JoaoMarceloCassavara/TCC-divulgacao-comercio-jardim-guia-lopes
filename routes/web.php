@@ -52,13 +52,13 @@ Route::get('/empresa/{id}', function ($id) {
 })->name('empresa.visualizar');
 
 
-Route::get('/categoria/{id}', function ($id) {
+Route::get('/categoria-produto/{id}', function ($id) {
     $categoria_produto = CategoriaProduto::find($id);
     $produtos = Produto::where('categoria_produto',$categoria_produto->id)->get();
     return view('produto.categoria',compact('produtos', 'categoria_produto'));
 })->name('produto.categoria');
 
-Route::get('/categoria/{id}', function ($id) {
+Route::get('/categoria-empresa/{id}', function ($id) {
     $categoria_empresa = CategoriaEmpresa::find($id);
     $empresas = Empresa::where('categoria_empresa',$categoria_empresa->id)->get();
     return view('empresa.categoria',compact('empresas', 'categoria_empresa'));
