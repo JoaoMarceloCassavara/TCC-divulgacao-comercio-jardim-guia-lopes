@@ -13,7 +13,7 @@
       <div class="col-md-8">
         <div class="titulo_empresa">
           <h5 class="nome_empresa">{{ $empresa->nome }}</h5>
-          <h6 class="categoria_empresa">Categoria Empresa</h6>
+          <h6 class="categoria_empresa">{{ $categoria_empresa->nome }}</h6>
           <p class="localizacao-empre">11km</p>
 
         </div>
