@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
 use App\Models\Empresa;
 use App\Models\Categoria;
+use App\Models\CategoriaEmpresa;
 use App\Models\CategoriaProduto;
 use App\Models\Pedido;
 use App\Models\User;
@@ -39,7 +40,8 @@ Route::get('/produto/{id}', function ($id) {
 
 Route::get('/empresa', function () {
     $empresas = Empresa::all();
-    return view('empresa.index',compact('empresas'));
+    $categoria_empresas = CategoriaEmpresa::all();
+    return view('empresa.index',compact('empresas', 'categoria_empresas'));
 })->name('empresa');
 
 
@@ -55,6 +57,12 @@ Route::get('/categoria/{id}', function ($id) {
     $produtos = Produto::where('categoria_produto',$categoria_produto->id)->get();
     return view('produto.categoria',compact('produtos', 'categoria_produto'));
 })->name('produto.categoria');
+
+Route::get('/categoria/{id}', function ($id) {
+    $categoria_empresa = CategoriaEmpresa::find($id);
+    $empresas = Empresa::where('categoria_empresa',$categoria_empresa->id)->get();
+    return view('empresa.categoria',compact('empresas', 'categoria_empresa'));
+})->name('empresa.categoria');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

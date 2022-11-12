@@ -2,24 +2,7 @@
 
 @section('conteudo')
 
-<section class=" d-flex index_produto" >
-
-    @forelse ($categoria_empresas as $categoria_empresa)
-    <a class="m-4  " href="{{ route('empresa.categoria', ['id' => $categoria_empresa->id]) }}">
-    <div class="card-categoria m-2">
-        <img src="{{ Voyager::image($categoria_empresa->imagem) }}"
-            class="rounded-pill" alt="Imagem da categoria">
-        <div class="card-body text-center">
-            <h5 class="card-title">{{ $categoria_empresa->nome }}</h5>
-
-        </div>
-    </div>
-    </a>
-    @empty
-    <p>Nenhuma Categoria Empresa cadastrado</p>
-@endforelse
-</section>
-<section class=" d-flex flex-wrap index_empresa">
+<section class=" d-flex flex-wrap index_produto">
     @forelse ($empresas as $empresa)
     <a class="m-4 " href="{{route('empresa.visualizar',['id'=>$empresa->id])}}">
 <div class="card-empresa mb-3 ">
