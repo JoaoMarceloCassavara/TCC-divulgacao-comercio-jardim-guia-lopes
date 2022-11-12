@@ -591,179 +591,259 @@ section#mapa form#mapaForm :-ms-input-placeholder {
 .card-link,
 .card {
 
-background: rgba(64, 1, 1, 0.85);
-border-radius: 14px;
+    background: rgba(64, 1, 1, 0.85);
+    border-radius: 14px;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
-font-size: 12px;
-line-height: 15px;
-text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
 
-color: #FFFFFF;
+    color: #FFFFFF;
+
+
+
+}
+
+.card-empresa {
+
+    background: rgba(64, 1, 1, 0.65);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+
+    color: #FFFFFF;
 
 
 
 }
 
 .produtos {
-display: inline-block;
-margin: 10px;
+    display: inline-block;
+    margin: 10px;
 
 }
 
 .index_produto {
-margin-left: 20px;
-padding-top: 4%;
-padding-bottom: 60px;
+    margin-left: 20px;
+    padding-top: 4%;
+    padding-bottom: 60px;
+}
+.index_empresa {
+    margin-left: 20px;
+    padding-top: 4%;
+    padding-bottom: 60px;
+}
+
+.index-empresa {
+    width: 503px;
+    height: 211.21px;
+    left: 55px;
+    top: 416px;
+
+    background: rgba(64, 1, 1, 0.65);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.foto_empresa {
+
+
+    width: 150px;
+    height: 150px;
+    left: calc(50% - 150px/2 - 441.5px);
+    top: 447px;
+
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+.titulo_empresa{
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 70px;
+
+}
+.nome_empresa{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+
+}
+.categoria_empresa{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+}
+.localizacao-empre{
+margin-right: 100px;
 }
 
 .card-img-top {
 
-object-fit: contain;
-margin-top: 30px;
-padding: 20px;
+    object-fit: contain;
+    margin-top: 30px;
+    padding: 20px;
 }
 
 
 .Categoria_produto {
-margin-left: 22px;
-padding-top: 1px;
+    margin-left: 22px;
+    padding-top: 1px;
 }
 
 .rounded-pill {
-height: 78.54545593261719px;
-width: 108px;
-border-radius: 19px;
-margin-bottom: 5px;
-margin-top: 50px;
-margin-right: 2px;
+    height: 78.54545593261719px;
+    width: 108px;
+    border-radius: 19px;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    margin-right: 2px;
 
 
 }
 
 .card-categoria {
-width: 200px;
-height: 200px;
-left: 788.73px;
-top: 389px;
+    width: 200px;
+    height: 200px;
+    left: 788.73px;
+    top: 389px;
 
-background: rgba(219, 236, 156, 0.85);
-border-radius: 50%;
+    background: rgba(219, 236, 156, 0.85);
+    border-radius: 50%;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
-font-size: 12px;
-line-height: 15px;
-text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
 }
 
 nav.navbar {
 
-width: 100%;
-height: 84px;
+    width: 100%;
+    height: 84px;
 
-background: #83A603;
-color: white !important;
+    background: #83A603;
+    color: white !important;
 }
 
 .link-primary {
-margin-right: 20px;
+    margin-right: 20px;
 
 
-font-family: Inter;
-font-size: 17px;
-font-weight: 800;
-line-height: 24px;
-letter-spacing: 0em;
-text-align: left;
+    font-family: Inter;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
 }
 
 .login {
-height: 47px;
-width: 119px;
-left: 1063px;
-top: 16px;
+    height: 47px;
+    width: 119px;
+    left: 1063px;
+    top: 16px;
 
-background: rgba(64, 1, 1, 0.72);
-border-radius: 24px;
+    background: rgba(64, 1, 1, 0.72);
+    border-radius: 24px;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
-font-size: 20px;
-line-height: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: center;
 
-color: #FFFFFF;
+    color: #FFFFFF;
 
 }
 
 .menu-pesquisa {
 
-width: 330px;
-height: 48px;
-background: rgba(86, 89, 2, 0.72);
-border-radius: 24px;
+    width: 330px;
+    height: 48px;
+    background: rgba(86, 89, 2, 0.72);
+    border-radius: 24px;
 }
 
 .visualizar_empresa {
-padding: 30px;
+    padding: 30px;
 }
 
 .logo {
-margin-left: 46%;
-font-family: Inter;
-font-size: 30px;
-font-weight: 800;
-line-height: 36px;
-letter-spacing: 0em;
-text-align: left;
+    margin-left: 46%;
+    font-family: Inter;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
 
 }
 
 .Visualizar_empresa_img {
-height: 357px;
-width: 670px;
-left: 56px;
-top: 158px;
-border-radius: 10px;
+    height: 357px;
+    width: 670px;
+    left: 56px;
+    top: 158px;
+    border-radius: 10px;
 }
 
 .Visualizar_empresa_logo {
-border-radius: 50%;
-height: 150px;
-width: 150px;
-left: 316px;
-top: 440px;
-margin-top: -17%;
-margin-left: 50%;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    left: 316px;
+    top: 440px;
+    margin-top: -17%;
+    margin-left: 50%;
 
 }
 
 .visualizar_descricao_empresa {
-font-family: Inter;
-font-size: 14px;
-font-weight: 700;
-line-height: 17px;
-letter-spacing: 0em;
-text-align: left;
-margin-left: 200px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-left: 200px;
 
 
 }
-.cardlogin{
+
+.cardlogin {
     padding-top: 6%;
     padding-left: 15%;
-    padding-right:15% ;
+    padding-right: 15%;
 
 
 }
-.card-header{
+
+.card-header {
     padding-bottom: 30px;
 }
-.login-logar{
+
+.login-logar {
     height: 47px;
     width: 119px;
     left: 1063px;
@@ -781,6 +861,7 @@ margin-left: 200px;
 
     color: #FFFFFF;
 }
-.login-password{
+
+.login-password {
     margin-bottom: 10px;
 }

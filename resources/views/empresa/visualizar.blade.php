@@ -13,7 +13,7 @@
       <div class="col-md-8">
         <div class="card-body  visualizar_descricao_empresa">
           <h5 class="fw-bolder">Sobre o Negócio</h5>
-          <p class="fw-lighter">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="fw-lighter">{{ $empresa->descricao }}</p>
 
           <h6 class="fw-bolder">Telefone</h6>
           <p class="fw-lighter">{{ $empresa->telefone}}</p>

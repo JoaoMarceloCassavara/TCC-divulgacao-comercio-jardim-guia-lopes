@@ -1,29 +1,27 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<section class="d-flex flex-wrap justify-content-evenly align-items-center ">
-
-
+<section class=" d-flex flex-wrap index_empresa">
     @forelse ($empresas as $empresa)
-    <div class="card">
-        <img src="{{Voyager::image( $empresa->foto) }}"  class="card-img-top" alt="Imagem da Empresa">
-        <div class="card-body">
-            <h5  class="card-title">{{ $empresa->nome }}</h5>
-            <p class="card-text">{{ $empresa->descricao }}</p>
-            <a class="btn btn-primary"   href="{{route('empresa.visualizar',['id'=>$empresa->id])}}">Perfil da empresa </a>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{ $empresa->email }}</li>
-            <li class="list-group-item">Whats: {{ $empresa->whats }}</li>
-            <li class="list-group-item"> {{ $empresa->redessociais }}</li>
-            <li class="list-group-item"> {{ $empresa->localizacao }}</li>
-            <li class="list-group-item">{{ $empresa->tempoentrega }}</li>
-            <li class="list-group-item">{{ $empresa->avaliacao }}</li>
-        </ul>
-    </div>
-    @empty
-        <p>Nenhuma empresa cadastrada</p>
-@endforelse
+    <a class="m-4 " href="{{route('empresa.visualizar',['id'=>$empresa->id])}}">
+<div class="card-empresa mb-3 ">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{Voyager::image( $empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa">
+      </div>
+      <div class="col-md-8">
+        <div class="titulo_empresa">
+          <h5 class="nome_empresa">{{ $empresa->nome }}</h5>
+          <h6 class="categoria_empresa">Categoria Empresa</h6>
+          <p class="localizacao-empre">11km</p>
 
+        </div>
+      </div>
+    </div>
+  </div>
+  </a>
+  @empty
+  <p>Nenhuma empresa cadastrada</p>
+@endforelse
 </section>
 @endsection
