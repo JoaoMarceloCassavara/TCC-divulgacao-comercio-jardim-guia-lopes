@@ -610,7 +610,7 @@ section#mapa form#mapaForm :-ms-input-placeholder {
 .card-empresa {
 
     background: rgba(64, 1, 1, 0.65);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
 
     font-family: 'Inter';
@@ -632,11 +632,12 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 }
 
-.index_produto {
+.index_padding {
     margin-left: 20px;
     padding-top: 4%;
     padding-bottom: 60px;
 }
+
 .index_empresa {
     margin-left: 20px;
     padding-top: 2px;
@@ -656,13 +657,15 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 20px;
     border-radius: 50%;
 }
-.titulo_empresa{
+
+.titulo_empresa {
     margin-top: 30px;
     margin-left: 50px;
     margin-right: 70px;
 
 }
-.nome_empresa{
+
+.nome_empresa {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 800;
@@ -671,25 +674,20 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
 
 }
-.categoria_empresa{
+
+.categoria_empresa {
     margin-top: 15px;
     margin-bottom: 10px;
     font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
-font-size: 14px;
-line-height: 17px;
-text-align: center;
-}
-.localizacao-empre{
-margin-right: 100px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
 }
 
-.card-img-top {
-
-    object-fit: contain;
-    margin-top: 30px;
-    padding: 20px;
+.localizacao-empre {
+    margin-right: 100px;
 }
 
 
@@ -698,7 +696,7 @@ margin-right: 100px;
     padding-top: 1px;
 }
 
-.rounded-pill {
+.imagem-categoria-produto {
     height: 78.54545593261719px;
     width: 108px;
     border-radius: 19px;
@@ -708,6 +706,18 @@ margin-right: 100px;
 
 
 }
+.imagem-categoria-empresa{
+    height: 100px;
+width: 113px;
+margin-left: 38px;
+border-radius: 19px;
+margin-top: 36px;
+
+
+
+}
+
+
 
 .card-categoria {
     width: 200px;
@@ -725,6 +735,18 @@ margin-right: 100px;
     line-height: 15px;
     text-align: center;
 }
+
+.card-categoria-empresa {
+    width: 200px;
+    height: 200px;
+    left: 84px;
+    top: 187px;
+
+    background: linear-gradient(rgba(219, 236, 156, 0.85) 60%,
+            rgba(236, 243, 211, 0.85) 40%);
+    border-radius: 15px;
+}
+
 
 nav.navbar {
 

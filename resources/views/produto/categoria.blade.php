@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    <section class=" d-flex flex-wrap index_produto">
+    <section class=" d-flex flex-wrap index_padding">
         @forelse ($produtos as $produto)
 
                 <div class="card shadow p-4">

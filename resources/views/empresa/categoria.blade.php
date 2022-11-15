@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-<section class=" d-flex flex-wrap index_produto">
+<section class=" d-flex flex-wrap index_padding">
     @forelse ($empresas as $empresa)
     <a class="m-4 " href="{{route('empresa.visualizar',['id'=>$empresa->id])}}">
 <div class="card-empresa mb-3 ">

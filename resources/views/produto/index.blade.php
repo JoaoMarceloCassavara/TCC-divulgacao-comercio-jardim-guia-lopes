@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    <section class=" d-flex flex-wrap index_produto">
+    <section class=" d-flex flex-wrap index_padding">
         @forelse ($produtos as $produto)
             <a class="m-4  card-link" href="{{ route('produto.visualizar', ['id' => $produto->id]) }}">
                 <div class="card shadow p-4">
@@ -26,7 +26,7 @@
         <a class="m-4  " href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
         <div class="card-categoria m-2">
             <img src="{{ Voyager::image($categoria_produto->imagem) }}"
-                class="rounded-pill" alt="Imagem da categoria">
+                class="rounded-pill imagem-categoria-produto" alt="Imagem da categoria">
             <div class="card-body text-center">
                 <h5 class="card-title">{{ $categoria_produto->nome }}</h5>
 
