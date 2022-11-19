@@ -32,7 +32,7 @@
         @forelse ($produtos as $produto)
             <a class="m-2  card-link"
             {{-- botao Modal --}}
-            data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
           {{-- Final botao Modal --}}
             >
                 <div class="card shadow p-4">
@@ -47,19 +47,13 @@
                 </div>
             </a>
 
- @empty
-            <p>Nenhum produto cadastrado</p>
-        @endforelse
-    </section>
-
-
-    {{-- Inicio modal --}}
+            {{-- Inicio modal --}}
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="produto-modal-{{$produto->id}}" tabindex="-1" aria-labelledby="produto-modal-{{$produto->id}}Label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="produto-modal-{{$produto->id}}Label">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -86,12 +80,24 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-dark "         data-id="{{ $produto->id }}"
+            data-imagem="{{ Voyager::image($produto->imagem) }}"
+            data-preco="{{ $produto->preco }}"
+            data-nome="{{ $produto->nome }}"
+            onclick="adicionarItemNoCarrinho();">Adicionar ao carrinho</button>
         </div>
       </div>
     </div>
   </div>
 
   {{-- Final MOdal --}}
+
+ @empty
+            <p>Nenhum produto cadastrado</p>
+        @endforelse
+    </section>
+
+
+
 
 @endsection

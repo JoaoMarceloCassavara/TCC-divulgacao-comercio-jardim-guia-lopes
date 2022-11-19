@@ -64,6 +64,26 @@ Route::get('/categoria-empresa/{id}', function ($id) {
     return view('empresa.categoria',compact('empresas', 'categoria_empresa'));
 })->name('empresa.categoria');
 
+
+use Illuminate\Http\Request;
+
+
+// rota para permitidas apenas para usuários autenticados
+Route::middleware(['auth'])->group(function () {
+
+		// rota para adicionar as fotos selecionadas no carrinho
+    Route::post('/carrinho', function (Request $request) {
+        //TODO: criar pedido com status cadastrado
+        //adicionar os itens pedidos, usuário e data
+        // $carrinho = new Pedido();
+        // $carrinho->user_id = Auth::user()->id ?? 1;
+        //$carrinho->saveMany($request->fotos);
+        dd($request);
+        return view('carrinho.index', compact('carrinho'));
+    })->name('carrinho');
+
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
