@@ -35,15 +35,15 @@
 
                 <input class="form-control me-2 menu-pesquisa" type="pesquisa" placeholder="Pesquisa" aria-label="Pesquisa"></form>
 
-                
+                   <div class="carrinho">
                     <a id="carrinho" class="nav-link  position-relative"
                     data-bs-toggle="modal" data-bs-target="#carrinho-modal">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span id="carrinho-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>
                     </a>
+                   </div>
 
-
-            <a href="#" class="link-primary text-white ">Criar Conta</a>
+            <a href="#" class="link-criar-conta text-white ">Criar Conta</a>
 
             <a type="button" class="btn btn-dark login" href="{{route('login')}}">Login</a>
         </div>
