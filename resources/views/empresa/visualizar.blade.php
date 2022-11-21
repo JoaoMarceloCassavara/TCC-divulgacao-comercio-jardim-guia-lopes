@@ -26,8 +26,10 @@
     </div>
 
 
-
-    <h1>Produto</h1>
+{{-- Todos os Produtos --}}
+    <header>
+        <h1>Produtos</h1>
+    </header>
     <section class=" d-flex flex-wrap index_padding">
         @forelse ($produtos as $produto)
             <a class="m-2  card-link"
@@ -46,10 +48,10 @@
                     </div>
                 </div>
             </a>
-
+{{-- Todos os produtos Final --}}
             {{-- Inicio modal --}}
   <!-- Modal -->
-  <div class="modal fade" id="produto-modal-{{$produto->id}}" tabindex="-1" aria-labelledby="produto-modal-{{$produto->id}}Label" aria-hidden="true">
+    <div class="modal fade" id="produto-modal-{{$produto->id}}" tabindex="-1" aria-labelledby="produto-modal-{{$produto->id}}Label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content modal-margin">
         <div class="modal-header">
@@ -122,8 +124,8 @@
             <p>Nenhum produto cadastrado</p>
         @endforelse
     </section>
+{{-- Produto por categoria --}}
 
-
-
+{{-- Produto por categoria final --}}
 
 @endsection
