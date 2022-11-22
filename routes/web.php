@@ -25,6 +25,12 @@ Route::get('/', function () {
     return view('welcome',compact('produtos'));
 })->name('welcome');
 
+Route::get('/tipo_register', function () {
+    $produtos = Produto::all();
+    return view('auth.tipo_register',compact('produtos'));
+})->name('auth.tipo_register');
+
+
 Route::get('/produto', function () {
     $produtos = Produto::all();
     $categoria_produtos = CategoriaProduto::all();
@@ -65,6 +71,7 @@ Route::get('/categoria-empresa/{id}', function ($id) {
 })->name('empresa.categoria');
 
 
+
 use Illuminate\Http\Request;
 
 
@@ -81,6 +88,8 @@ Route::middleware(['auth'])->group(function () {
         dd($request);
         return view('carrinho.index', compact('carrinho'));
     })->name('carrinho');
+
+
 
 });
 
