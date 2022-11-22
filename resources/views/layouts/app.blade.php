@@ -133,7 +133,7 @@
                     `<tr class="cor-tbody">
                     <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
                     <td>
-                        <div class="card-modal">
+                        <div class="produto-pedido-modal">
                         <img src="${carrinho[propriedade].imagem}"class="modal-imagem " width="250" >
                         </div>
                     </td>

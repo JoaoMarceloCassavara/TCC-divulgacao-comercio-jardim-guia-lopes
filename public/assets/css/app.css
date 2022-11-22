@@ -2050,15 +2050,11 @@ margin-left: 25%;
 }
 
 .produto-pedido-modal{
+    width: 202px;
+height: 167px;
+left: 61px;
+top: 473px;
 
-    background: rgba(64, 1, 1, 0.72);
-    border-radius: 24px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: center;
-
-    color: #FFFFFF;
+background: rgba(64, 1, 1, 0.85);
+border-radius: 14px;
 }
