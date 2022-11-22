@@ -68,7 +68,7 @@
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="carrinho-modalLabel">Carrinho de compras</h1>
+                    <h1 class="modal-title fs-5 carrinho-titulo-font" id="carrinho-modalLabel">Carrinho de compras</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('carrinho') }}" method="POST">
@@ -120,9 +120,9 @@
         function preencherTabelaCarrinho(carrinho) {
             atualizarBotaoCarrinho();
             var table =
-                `<thead>
+                `<thead class="descricao-pedido">
                 <tr>
-                  <td colspan="2">Produto</td><td>Preço</td><td>Ações</td>
+                  <td colspan="2">Produto</td><td>Preço</td><td>Quatidade</td><td>Ações</td>
                 </tr>
             </thead>
             <tbody>
@@ -130,9 +130,9 @@
             `;
             for (var propriedade in carrinho) {
                 table +=
-                    `<tr>
+                    `<tr class="cor-tbody">
                     <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
-                    <td><img src="${carrinho[propriedade].imagem}" width="250" ></td>
+                    <td ><img src="${carrinho[propriedade].imagem}"class="modal-imagem " width="250" ></td>
                     <td>${carrinho[propriedade].nome}</td>
                     <td>${formatarPreco(carrinho[propriedade].preco)}</td>
                     <td>

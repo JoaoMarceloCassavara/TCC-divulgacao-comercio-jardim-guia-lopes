@@ -1568,7 +1568,7 @@ align-items: center;
     height: 270px;
     left: 197px;
     top: 580px;
-    background: rgba(64, 1, 1, 0.85);
+    background-color: rgba(64, 1, 1, 1);
     border-radius: 14px;
 
 
@@ -1998,4 +1998,31 @@ border-radius: 15px;
  display: flex;
  height: auto;
  width: auto;
+}
+.descricao-pedido{
+    background-color: rgba(86, 89, 2, 1);
+}
+.carrinho-titulo-font{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 36px;
+    padding: 10px;
+
+    color: #000000;
+
+}
+.cor-tbody{
+  background-color: rgba(86, 89, 2, 0.5);
+}
+.produto-pedido-modal{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #000000;
 }
