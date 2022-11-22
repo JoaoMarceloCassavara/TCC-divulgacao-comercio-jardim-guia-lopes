@@ -43,7 +43,7 @@
                     </a>
                    </div>
 
-            <a href="#" class="link-criar-conta text-white ">Criar Conta</a>
+            <a href="{{route('auth.tipo_register')}}" class="link-criar-conta text-white ">Criar Conta</a>
 
             <a type="button" class="btn btn-dark login" href="{{route('login')}}">Login</a>
         </div>

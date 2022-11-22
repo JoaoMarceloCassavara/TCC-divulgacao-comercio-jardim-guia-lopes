@@ -1944,7 +1944,7 @@ align-items: center;
 } */
 
 .card-modal {
-    width: 240px;
+   width: 240px;
     height: 270px;
     left: 197px;
     top: 580px;
@@ -1953,7 +1953,13 @@ align-items: center;
 
 
 
+
 }
+
+.cor-tbody{
+    background-color: rgba(86, 89, 2, 0.5);
+}
+
 
 .modal-imagem {
 
@@ -1993,6 +1999,34 @@ margin-top: 100px;
 height: 17vh    ;
 border-radius: 15px;
 }
+.botao-pedir{
+    width: 398.16px;
+    height: 102.47px;
+    left: 339.43px;
+    top: 342.76px;
+
+    background: #400101;
+    border-radius: 30px;
+}
+.text-pedir{
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 30px;
+   line-height: center;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+   margin-top: 21.235px;
+}
+.posicao-pedir{
+margin-top: 150px;
+margin-left: 25%;
+}
+
+
+
+
 .carrinho{
  margin-right: 30px;
  display: flex;
@@ -2014,15 +2048,17 @@ border-radius: 15px;
     color: #000000;
 
 }
-.cor-tbody{
-  background-color: rgba(86, 89, 2, 0.5);
-}
+
 .produto-pedido-modal{
+
+    background: rgba(64, 1, 1, 0.72);
+    border-radius: 24px;
+
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 36px;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: center;
 
-    color: #000000;
+    color: #FFFFFF;
 }

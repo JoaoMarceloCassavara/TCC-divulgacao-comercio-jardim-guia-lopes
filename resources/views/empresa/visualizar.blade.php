@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('conteudo')
+
     <div class="row g-0; visualizar_empresa">
         <div class="col-md-4">
             <img class="Visualizar_empresa_img" src="{{ Voyager::image($empresa->foto) }}" class="img-fluid rounded-start"
@@ -125,6 +126,14 @@
         @endforelse
     </section>
 {{-- Produto por categoria --}}
+
+    @forelse ($produtos as $produto)
+
+    {{}}
+
+    @empty
+
+    @endforelse
 
 {{-- Produto por categoria final --}}
 

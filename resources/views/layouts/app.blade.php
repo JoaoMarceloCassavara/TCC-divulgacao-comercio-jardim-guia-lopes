@@ -132,7 +132,11 @@
                 table +=
                     `<tr class="cor-tbody">
                     <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
-                    <td ><img src="${carrinho[propriedade].imagem}"class="modal-imagem " width="250" ></td>
+                    <td>
+                        <div class="card-modal">
+                        <img src="${carrinho[propriedade].imagem}"class="modal-imagem " width="250" >
+                        </div>
+                    </td>
                     <td>${carrinho[propriedade].nome}</td>
                     <td>${formatarPreco(carrinho[propriedade].preco)}</td>
                     <td>
