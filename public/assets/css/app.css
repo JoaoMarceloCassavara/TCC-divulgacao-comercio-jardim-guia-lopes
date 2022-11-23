@@ -1930,7 +1930,7 @@ color: #FFFFFF;
 
 
 
-
+/*Modal Produto*/
 .modal-margin {
     background-color: rgba(232, 229, 212, 1);
     border-radius: 15px;
@@ -1999,8 +1999,12 @@ margin-top: 100px;
 height: 17vh    ;
 border-radius: 15px;
 }
+/*Fim Modal Produto*/
+
+/*Tela Tipo_register*/
+
 .botao-pedir{
-    width: 398.16px;
+    width: 260px;
     height: 102.47px;
     left: 339.43px;
     top: 342.76px;
@@ -2012,18 +2016,47 @@ border-radius: 15px;
     font-family: 'Inter';
     font-style: italic;
     font-weight: 900;
-    font-size: 30px;
+    font-size: 25px;
    line-height: center;
     text-align: center;
     align-items: center;
     color: #FFFFFF;
-   margin-top: 21.235px;
+   margin-top: 31.235px;
 }
 .posicao-pedir{
 margin-top: 150px;
 margin-left: 25%;
 }
+.body-tipo-register{
+    background-color: rgba(219, 236, 156, 0.8);
+}
 
+.tipo-register{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+
+    width: 100vh;
+    height: 700px;
+    left: 255px;
+    top: 154px;
+}
+.ou_tipo_register{
+   margin-top: 27%;
+   margin-left: 41.5%;
+}
+.ou_tipo_register_text{
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 61px;
+    text-align: center;
+    color: #000000;
+    mix-blend-mode: darken;
+}
+
+/*Fim Tela Tipo_register*/
 
 
 
