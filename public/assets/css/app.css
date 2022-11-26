@@ -1479,78 +1479,6 @@ nav.navbar {
 
 
 }
-
-.card-login {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-
-    width: 676px;
-    height: 700px;
-    left: 255px;
-    top: 154px;
-
-
-
-
-}
-
-.card-header-login {
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 10px;
-    /* or 33% */
-    color: #000000;
-
-    margin-top: 60px;
-
-    margin-bottom: 20%;
-}
-
-.body-login {
-    background-color: rgba(219, 236, 156, 0.8);
-}
-
-.login-itens {
-    /* Email, senha, telefone barra de prenchimento */
-    width: 424px;
-    height: 48px;
-
-    top: 464px;
-
-    background: rgba(181, 187, 17, 0.72);
-    border-radius: 24px;
-    margin-left: 35%;
-    margin-top: 50px;
-
-}
-.botao-login{
-    width: 150px;
-height: 50px;
-left: 439px;
-top: 760px;
-
-background: #400101;
-border-radius: 24px;
-}
-.login-text{
-
-font-style: normal;
-font-weight: 600;
-font-size: 25px;
-
-
-color: #FFFFFF;
-}
-
-
-
-
-
-
 /* .modal-content {
     background-color: rgba(232, 229, 212, 1);
     border-radius: 15px;
@@ -1790,22 +1718,6 @@ nav.navbar {
     text-align: left;
 }
 
-.login {
-
-
-    background: rgba(64, 1, 1, 0.72);
-    border-radius: 24px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: center;
-
-    color: #FFFFFF;
-
-}
-
 .menu-pesquisa {
 
     width: 330px;
@@ -1857,6 +1769,88 @@ nav.navbar {
     text-align: left;
     margin-left: 200px;
 
+
+}
+/* Login Usuario normal */
+
+.card-login {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+
+    width: 676px;
+    height: 700px;
+    left: 255px;
+    top: 154px;
+
+
+
+
+}
+
+.card-header-login {
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 10px;
+    /* or 33% */
+    color: #000000;
+
+    margin-top: 60px;
+
+    margin-bottom: 20%;
+}
+
+.body-login {
+    background-color: rgba(219, 236, 156, 0.8);
+}
+
+.login-itens {
+    /* Email, senha, telefone barra de prenchimento */
+    width: 424px;
+    height: 48px;
+
+    top: 464px;
+
+    background: rgba(181, 187, 17, 0.72);
+    border-radius: 24px;
+    margin-left: 35%;
+    margin-top: 50px;
+
+}
+.botao-login{
+    width: 150px;
+height: 50px;
+left: 439px;
+top: 760px;
+
+background: #400101;
+border-radius: 24px;
+}
+.login-text{
+
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+
+
+color: #FFFFFF;
+}
+.login {
+
+
+    background: rgba(64, 1, 1, 0.72);
+    border-radius: 24px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: center;
+
+    color: #FFFFFF;
 
 }
 
@@ -1928,6 +1922,8 @@ color: #FFFFFF;
 
 
 
+
+/* Fim Login Usuario Normal */
 
 
 /*Modal Produto*/
@@ -2005,7 +2001,7 @@ border-radius: 15px;
 
 .botao-pedir{
     width: 260px;
-    height: 102.47px;
+    height: 90px;
     left: 339.43px;
     top: 342.76px;
 
@@ -2016,17 +2012,14 @@ border-radius: 15px;
     font-family: 'Inter';
     font-style: italic;
     font-weight: 900;
-    font-size: 25px;
+    font-size: 23px;
    line-height: center;
     text-align: center;
     align-items: center;
     color: #FFFFFF;
-   margin-top: 31.235px;
+   margin-top: 22px;
 }
-.posicao-pedir{
-margin-top: 150px;
-margin-left: 25%;
-}
+
 .body-tipo-register{
     background-color: rgba(219, 236, 156, 0.8);
 }
@@ -2037,28 +2030,56 @@ margin-left: 25%;
     padding: 10px;
 
     width: 100vh;
-    height: 700px;
+    height: 600px;
     left: 255px;
     top: 154px;
 }
 .ou_tipo_register{
-   margin-top: 27%;
-   margin-left: 41.5%;
+
 }
 .ou_tipo_register_text{
     font-family: 'Inter';
     font-style: italic;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 20px;
     line-height: 61px;
     text-align: center;
     color: #000000;
     mix-blend-mode: darken;
 }
+.bottom_deseja_pedir{
+margin-left: 14%;
+margin-top: 20px;
+}
+.bottom_deseja_vender{
+margin-left: 48%;
+}
+.padding_bottom_deseja_pedir{
+    margin-top:100px
+}
+.header_tipo_register{
+    margin-top: 39px;
 
+
+}
+.text_header_tipo_register{
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 29px;
+    line-height: 61px;
+    text-align: center;
+    color: #000000;
+    mix-blend-mode: darken;
+}
+.index_padding-tipo-register {
+    margin-left: 20px;
+    padding-top: 4%;
+    padding-bottom:2%;
+}
 /*Fim Tela Tipo_register*/
 
-
+/* Modal Pedido */
 
 .carrinho{
  margin-right: 30px;
@@ -2091,3 +2112,4 @@ top: 473px;
 background: rgba(64, 1, 1, 0.85);
 border-radius: 14px;
 }
+/* Fim modal pedido */

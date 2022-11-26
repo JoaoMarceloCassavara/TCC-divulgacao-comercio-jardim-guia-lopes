@@ -25,10 +25,14 @@ Route::get('/', function () {
     return view('welcome',compact('produtos'));
 })->name('welcome');
 
+
 Route::get('/tipo_register', function () {
-    $produtos = Produto::all();
-    return view('auth.tipo_register',compact('produtos'));
+    return view('auth.tipo_register');
 })->name('auth.tipo_register');
+
+Route::get('/registrar_empresario', function () {
+    return view('auth.registrar_empresario');
+})->name('auth.registrar_empresario');
 
 
 Route::get('/produto', function () {
