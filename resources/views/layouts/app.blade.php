@@ -134,11 +134,16 @@
                     <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
                     <td>
                         <div class="produto-pedido-modal">
-                        <img src="${carrinho[propriedade].imagem}"class="modal-imagem " width="250" >
+                        <img src="${carrinho[propriedade].imagem}"class="modal_imagem_pedido " width="250" >
+
                         </div>
                     </td>
-                    <td>${carrinho[propriedade].nome}</td>
+
+                        <td class="nome_pedido_modal">${carrinho[propriedade].nome}</td>
+
+
                     <td>${formatarPreco(carrinho[propriedade].preco)}</td>
+                    <td>quantidade</td>
                     <td>
                         <button class="btn btn-default" onclick="removerItemDoCarrinho(${propriedade});"><i class="fa-solid fa-trash"></i></button>
                     </td>

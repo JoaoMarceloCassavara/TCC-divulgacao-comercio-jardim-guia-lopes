@@ -2104,12 +2104,26 @@ margin-left: 48%;
 }
 
 .produto-pedido-modal{
-    width: 202px;
-height: 167px;
+    width: 220px;
+height: 175px;
 left: 61px;
 top: 473px;
+margin-top: 20px;
+margin-bottom: 20px;
+margin-left: 20px;
 
 background: rgba(64, 1, 1, 0.85);
 border-radius: 14px;
+}
+.modal_imagem_pedido{
+    width: 165px;
+    height: 130px;
+    margin-left: 27.5px;
+    margin-top: 22.5px;
+    border-radius: 10px;
+}
+.nome_pedido_modal{
+    margin-left: 200px;
+
 }
 /* Fim modal pedido */

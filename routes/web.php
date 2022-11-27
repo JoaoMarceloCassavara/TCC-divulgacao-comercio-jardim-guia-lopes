@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\Fortify\CreateNewUser;
 use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
 use App\Models\Empresa;
@@ -8,6 +9,10 @@ use App\Models\CategoriaEmpresa;
 use App\Models\CategoriaProduto;
 use App\Models\Pedido;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +38,18 @@ Route::get('/tipo_register', function () {
 Route::get('/registrar_empresario', function () {
     return view('auth.registrar_empresario');
 })->name('auth.registrar_empresario');
+
+Route::post('/registrar_empresario', function (Request $request) {
+//    dd($request);
+   $create_user = new CreateNewUser();
+   $usuario = $create_user->create($request->all());
+    
+
+     $role = \App\Models\Role::where('name', '=', 'empresario')->first() ;
+     $usuario->role_id = $role->id;
+     $usuario->save();
+    return redirect()->route('home');
+     })->name('register.empresario');
 
 
 Route::get('/produto', function () {
@@ -76,7 +93,7 @@ Route::get('/categoria-empresa/{id}', function ($id) {
 
 
 
-use Illuminate\Http\Request;
+
 
 
 // rota para permitidas apenas para usuários autenticados

@@ -42,10 +42,37 @@
                         <span id="carrinho-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>
                     </a>
                    </div>
+                   @guest
+
 
             <a href="{{route('auth.tipo_register')}}" class="link-criar-conta text-white ">Criar Conta</a>
 
             <a type="button" class="btn btn-dark login" href="{{route('login')}}">Login</a>
+
+            @else
+
+            <span class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('home') }}"> Dashboard </a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </span>
+
+        @endguest
+
         </div>
     </div>
 </nav>
