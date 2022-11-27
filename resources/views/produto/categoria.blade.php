@@ -96,7 +96,7 @@
 
 
 @empty
-        <p>Nenhum produto cadastrado</p>
+        <p>Nenhum produto para essa categoria   </p>
     @endforelse
 </section>
 @endsection

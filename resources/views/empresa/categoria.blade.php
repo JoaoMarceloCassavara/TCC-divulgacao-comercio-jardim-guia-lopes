@@ -22,7 +22,7 @@
   </div>
   </a>
   @empty
-  <p>Nenhuma empresa cadastrada</p>
+  <p>Nenhuma empresa para essa categoria</p>
 @endforelse
 </section>
 @endsection
