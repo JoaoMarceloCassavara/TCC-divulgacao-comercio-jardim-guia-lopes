@@ -101,13 +101,13 @@
     <section class="Categoria_produto d-flex" >
 
         @forelse ($categoria_produtos as $categoria_produto)
-        <a  href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
+        <a class="marcacao_a_remov" href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
         <div class="card-categoria m-3">
             <img src="{{ Voyager::image($categoria_produto->imagem) }}"
 
                 class=" imagem-categoria-produto" alt="Imagem da categoria">
             <div class="card-body text-center">
-                <h5 class="card-title">{{ $categoria_produto->nome }}</h5>
+                <h5 class="card-title text-black">{{ $categoria_produto->nome }}</h5>
 
             </div>
         </div>

@@ -45,7 +45,7 @@
                    @guest
 
 
-            <a href="{{route('auth.tipo_register')}}" class="link-criar-conta text-white ">Criar Conta</a>
+            <a href="{{route('auth.tipo_register')}}" class="link-criar-conta text-white marcacao_a_remov ">Criar Conta</a>
 
             <a type="button" class="btn btn-dark login" href="{{route('login')}}">Login</a>
 
