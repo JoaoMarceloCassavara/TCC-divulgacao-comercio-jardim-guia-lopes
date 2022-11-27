@@ -43,7 +43,7 @@ Route::post('/registrar_empresario', function (Request $request) {
 //    dd($request);
    $create_user = new CreateNewUser();
    $usuario = $create_user->create($request->all());
-    
+
 
      $role = \App\Models\Role::where('name', '=', 'empresario')->first() ;
      $usuario->role_id = $role->id;
@@ -92,6 +92,24 @@ Route::get('/categoria-empresa/{id}', function ($id) {
 })->name('empresa.categoria');
 
 
+
+Route::get('/produtos/buscar', function (Request $request) {
+
+    //  dd($request->filtro);
+    $categoria_produtos =App\Models\CategoriaProduto::where('nome', 'LIKE',"{$request->filtro}%")->get();
+    $produtos =App\Models\Produto::where('nome', 'LIKE',"{$request->filtro}%")->get();
+// dd($livros);
+    return view('produto.index',compact('produtos','categoria_produtos'));
+})->name('pesquisas.buscar');
+
+// Route::get('/empresas/buscar', function (Request $request) {
+
+//     //  dd($request->filtro);
+//     $categoria_empresas =App\Models\CategoriaEmpresa::where('nome', 'LIKE',"{$request->filtro}%")->get();
+//     $empresas =App\Models\Empresa::where('nome', 'LIKE',"{$request->filtro}%")->get();
+// // dd($livros);
+//     return view('empresa.index',compact('empresas','categoria_empresas'));
+// })->name('pesquisas.buscar');
 
 
 

@@ -113,7 +113,7 @@
         </div>
         </a>
         @empty
-        <p>Nenhuma Categoria Pruduto cadastrado</p>
+        <p>Nenhuma Categoria Produto cadastrado</p>
     @endforelse
     </section>
 @endsection

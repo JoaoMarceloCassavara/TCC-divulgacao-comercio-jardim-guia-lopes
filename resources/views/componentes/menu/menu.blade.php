@@ -29,11 +29,10 @@
 
 
             </ul>
-            <form class="d-flex">
-
-
-
-                <input class="form-control me-2 menu-pesquisa" type="pesquisa" placeholder="Pesquisa" aria-label="Pesquisa"></form>
+            <form action="{{route ('pesquisas.buscar')}}" class="d-flex">
+                <input class="form-control me-2 menu-pesquisa" type="search" placeholder="Pesquisa" aria-label="Search" name="filtro" value="{{request()->filtro}}">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
 
                    <div class="carrinho">
                     <a id="carrinho" class="nav-link  position-relative"

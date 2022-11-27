@@ -4,7 +4,7 @@
 
 <section class=" d-flex flex-wrap index_padding">
     @forelse ($empresas as $empresa)
-    <a class="m-4 " href="{{route('empresa.visualizar',['id'=>$empresa->id])}}">
+    <a class="m-2 " href="{{route('empresa.visualizar',['id'=>$empresa->id])}}">
 <div class="card-empresa mb-3 ">
     <div class="row g-0">
       <div class="col-md-4">
@@ -22,7 +22,7 @@
   </div>
   </a>
   @empty
-  <p>Nenhuma empresa para essa categoria</p>
+  <p>Nenhuma empresa cadastrada para essa categoria</p>
 @endforelse
 </section>
 @endsection
