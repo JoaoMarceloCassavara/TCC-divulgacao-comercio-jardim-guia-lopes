@@ -23,7 +23,7 @@
     </section>
     <section class=" d-flex flex-wrap index_empresa">
         @forelse ($empresas as $empresa)
-            <a class="m-4 marcacao_a_remov " href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}">
+            <a class="m-2 marcacao_a_remov " href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}">
                 <div class="card-empresa mb-3 ">
                     <div class="row g-0">
                         <div class="col-md-4">
