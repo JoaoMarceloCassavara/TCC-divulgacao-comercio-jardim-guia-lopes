@@ -1373,6 +1373,10 @@ border-radius: 14px;
     font-size: 12px;
     line-height: 15px;
     text-align: center;
+
+}
+.marcacao_a_remov{
+    text-decoration: none;
 }
 
 .card-categoria-empresa {
@@ -1385,8 +1389,6 @@ border-radius: 14px;
             rgba(236, 243, 211, 0.85) 40%);
     border-radius: 15px;
 }
-
-
 nav.navbar {
 
     width: 100%;
