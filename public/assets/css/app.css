@@ -1345,14 +1345,21 @@ border-radius: 14px;
 
 .imagem-categoria-empresa {
     height: 100px;
-    width: 113px;
-    margin-left: 41px;
+    width: 120px;
+    margin-left: 40px;
     border-radius: 19px;
-    margin-top: 36px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.card-categoria-empresa {
+    width: 200px;
+    height: 200px;
+    left: 84px;
+    top: 187px;
 
-
-
-
+    background: linear-gradient(rgba(219, 236, 156, 0.85) 60%,
+            rgba(236, 243, 211, 0.85) 40%);
+    border-radius: 15px;
 }
 
 
@@ -1379,16 +1386,6 @@ border-radius: 14px;
     text-decoration: none;
 }
 
-.card-categoria-empresa {
-    width: 200px;
-    height: 200px;
-    left: 84px;
-    top: 187px;
-
-    background: linear-gradient(rgba(219, 236, 156, 0.85) 60%,
-            rgba(236, 243, 211, 0.85) 40%);
-    border-radius: 15px;
-}
 nav.navbar {
 
     width: 100%;
