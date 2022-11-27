@@ -11,7 +11,7 @@
 
                     <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
 
-                    <div class="card-body text-center text-white">
+                    <div class="card-body">
                         <h5 class="card-title">{{ $produto->nome }}</h5>
                         <p class="card-text">{{ $produto->descricao }}</p>
                         <p class="card-text">Preço${{ $produto->preco }} </p>
