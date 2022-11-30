@@ -24,4 +24,11 @@ class Produto extends Model
         }
         return $query->where('user_id', $user->getKey());
     }
+
+    public function categoria()
+    {
+        return $this->belongsTo(CategoriaProduto::class,'categoria_produto_id', 'id');
+    }
+
+
 }

@@ -23,4 +23,22 @@ class Empresa extends Model
         }
         return $query->where('user_id', $user->getKey());
     }
+/**
+     * mapear relacionamento tem-um/pertence-a-um
+     * usando Voyager
+     */
+    public function categoria()
+    {
+        return $this->belongsTo(CategoriaEmpresa::class,'categoria_empresa_id', 'id');
+    }
+
+
+     /**
+     * Relacionamento Um para Muitos (tem muitos)
+     */
+    public function produtos()
+    {
+        return $this->hasMany(Produto::class,'empresa_id','id')->orderBy('categoria_produto_id', 'ASC');
+    }
+
 }

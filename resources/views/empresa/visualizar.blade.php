@@ -45,6 +45,7 @@
                     <div class="card-body text-center text-white">
                         <h5 class="card-title">{{ $produto->nome }}</h5>
                         <p class="card-text">{{ $produto->descricao }}</p>
+                        <p class="card-text">{{ $produto->categoria->nome }}</p>
                         <p class="card-text">Preço${{ $produto->preco }} </p>
                     </div>
                 </div>

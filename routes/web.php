@@ -75,6 +75,7 @@ Route::get('/empresa', function () {
 Route::get('/empresa/{id}', function ($id) {
     $empresa = Empresa::find($id);
     $produtos = Produto::where('empresa_id',$empresa->id)->get();
+    
     return view('empresa.visualizar',compact('empresa', 'produtos'));
 })->name('empresa.visualizar');
 
