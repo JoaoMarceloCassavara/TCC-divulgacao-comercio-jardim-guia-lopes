@@ -1490,19 +1490,6 @@ nav.navbar {
     display: flex;
 align-items: center;
 } */
-
-.card-modal {
-    width: 240px;
-    height: 270px;
-    left: 197px;
-    top: 580px;
-    background-color: rgba(64, 1, 1, 1);
-    border-radius: 14px;
-
-
-
-}
-
 .modal-imagem {
 
 
@@ -1515,18 +1502,6 @@ align-items: center;
 
 }
 
-.modal-font-produto {
-
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
-font-size: 40px;
-line-height: 48px;
-}
-.card-text-modal{
- margin-left: 140px;
-}
 .link-criar-conta{
     margin-right: 20px;
 
@@ -1537,60 +1512,6 @@ line-height: 48px;
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-}
-
-.menu-pesquisa {
-
-    width: 330px;
-    height: 48px;
-    background: rgba(86, 89, 2, 0.72);
-    border-radius: 24px;
-}
-
-.visualizar_empresa {
-    padding: 30px;
-}
-
-.logo {
-    margin-left: 46%;
-    font-family: Inter;
-    font-size: 30px;
-    font-weight: 800;
-    line-height: 36px;
-    letter-spacing: 0em;
-    text-align: left;
-
-}
-
-.Visualizar_empresa_img {
-    height: 357px;
-    width: 670px;
-    left: 56px;
-    top: 158px;
-    border-radius: 10px;
-}
-
-.Visualizar_empresa_logo {
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    left: 316px;
-    top: 440px;
-    margin-top: -17%;
-    margin-left: 50%;
-
-}
-
-.visualizar_descricao_empresa {
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 17px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin-left: 200px;
-
-
 }
 /* Login Usuario normal */
 
@@ -1608,88 +1529,6 @@ line-height: 48px;
 
 
 }
-
-.card-header-login {
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 10px;
-    /* or 33% */
-    color: #000000;
-
-    margin-top: 60px;
-
-    margin-bottom: 20%;
-}
-
-.body-login {
-    background-color: rgba(219, 236, 156, 0.8);
-}
-
-.login-itens {
-    /* Email, senha, telefone barra de prenchimento */
-    width: 424px;
-    height: 48px;
-
-    top: 464px;
-
-    background: rgba(181, 187, 17, 0.72);
-    border-radius: 24px;
-    margin-left: 35%;
-    margin-top: 50px;
-
-}
-.botao-login{
-    width: 150px;
-height: 50px;
-left: 439px;
-top: 760px;
-
-background: #400101;
-border-radius: 24px;
-}
-.login-text{
-
-font-style: normal;
-font-weight: 600;
-font-size: 25px;
-
-
-color: #FFFFFF;
-}
-.login {
-
-
-    background: rgba(64, 1, 1, 0.72);
-    border-radius: 24px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: center;
-
-    color: #FFFFFF;
-
-}
-
-.card-login {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-
-    width: 676px;
-    height: 700px;
-    left: 255px;
-    top: 154px;
-
-
-
-
-}
-
 .card-header-login {
 
     font-family: 'Inter';
@@ -1776,20 +1615,6 @@ align-items: center;
 .cor-tbody{
     background-color: rgba(86, 89, 2, 0.5);
 }
-
-
-.modal-imagem {
-
-
-    width: 180px;
-    height: 155px;
-    margin-left: 6px;
-    margin-top: 31px;
-    border-radius: 10px;
-
-
-}
-
 .modal-font-produto {
 
 
