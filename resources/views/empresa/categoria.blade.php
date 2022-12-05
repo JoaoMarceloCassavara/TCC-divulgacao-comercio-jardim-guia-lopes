@@ -4,8 +4,8 @@
 
 <section class=" d-flex flex-wrap index_padding">
     @forelse ($empresas as $empresa)
-    <a class="m-2 " href="{{route('empresa.visualizar',['id'=>$empresa->id])}}">
-<div class="card-empresa mb-3 ">
+    <a class="marcacao_a_remov" href="{{route('empresa.visualizar',['id'=>$empresa->id])}}">
+<div class="card-empresa mb-3 m-2 ">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{Voyager::image( $empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa">

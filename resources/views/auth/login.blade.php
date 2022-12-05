@@ -34,7 +34,7 @@
                     {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
                     <div class="col-md-6">
-                        <input id="password" type="password"  placeholder="Senha" class="form-control login-itens @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <input id="password" type="password"  placeholder="Senha" class="form-control  login-itens @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                         @error('password')
                             <span class="invalid-feedback" role="alert">

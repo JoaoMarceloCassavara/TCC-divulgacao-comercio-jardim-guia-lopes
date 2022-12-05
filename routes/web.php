@@ -75,20 +75,20 @@ Route::get('/empresa', function () {
 Route::get('/empresa/{id}', function ($id) {
     $empresa = Empresa::find($id);
     $produtos = Produto::where('empresa_id',$empresa->id)->get();
-    
+
     return view('empresa.visualizar',compact('empresa', 'produtos'));
 })->name('empresa.visualizar');
 
 
 Route::get('/categoria-produto/{id}', function ($id) {
     $categoria_produto = CategoriaProduto::find($id);
-    $produtos = Produto::where('categoria_produto',$categoria_produto->id)->get();
+    $produtos = Produto::where('categoria_produto_id',$categoria_produto->id)->get();
     return view('produto.categoria',compact('produtos', 'categoria_produto'));
 })->name('produto.categoria');
 
 Route::get('/categoria-empresa/{id}', function ($id) {
     $categoria_empresa = CategoriaEmpresa::find($id);
-    $empresas = Empresa::where('categoria_empresa',$categoria_empresa->id)->get();
+    $empresas = Empresa::where('categoria_empresa_id',$categoria_empresa->id)->get();
     return view('empresa.categoria',compact('empresas', 'categoria_empresa'));
 })->name('empresa.categoria');
 
