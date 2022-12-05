@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-white sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Site de divulgação</a>
+        {{-- <a class="navbar-brand text-white" href="#">Site de divulgação</a> --}}
+        <a class="navbar-brand text-white" href="{{route('produto')}}">
+            <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            Site de divulgação
+          </a>
 
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
