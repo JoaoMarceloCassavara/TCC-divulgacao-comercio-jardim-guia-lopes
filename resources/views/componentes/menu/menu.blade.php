@@ -43,7 +43,7 @@
             @guest
                 <a href="{{route('auth.tipo_register')}}" class="link-criar-conta text-white marcacao_a_remov ">Criar Conta</a>
 
-                <a type="button" class="btn btn-dark login" href="{{route('login')}}">Login</a>
+                <a type="button" class="btn btn-dark botao_login_menu" href="{{route('login')}}">Login</a>
             @else
 
                 <span class="nav-item dropdown">
