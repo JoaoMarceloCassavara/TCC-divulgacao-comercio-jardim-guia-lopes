@@ -30,5 +30,10 @@ class Produto extends Model
         return $this->belongsTo(CategoriaProduto::class,'categoria_produto_id', 'id');
     }
 
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class,'empresa_id', 'id');
+    }
+
 
 }
