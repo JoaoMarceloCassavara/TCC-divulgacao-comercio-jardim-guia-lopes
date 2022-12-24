@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<section class=" d-flex flex-wrap index_padding">
+<section class=" index_padding">
 
     @forelse ($produtos as $produto)
-        <a class="m-2  card-link"
+        <a
         {{-- botao Modal --}}
         data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
         {{-- Final botao Modal --}}>
-            <div class="card shadow p-4">
+            <div class="card-link">
 
                 <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
 
-                <div class="card-body">
+                <div class="card-componente">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
                     <p class="card-text">{{ $produto->descricao }}</p>
                     <p class="card-text">Preço${{ $produto->preco }} </p>

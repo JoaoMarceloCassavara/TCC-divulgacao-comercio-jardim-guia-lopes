@@ -586,6 +586,7 @@ section#mapa form#mapaForm :-ms-input-placeholder {
     font-size: 0.9rem;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap');
 
 html {
@@ -1182,6 +1183,8 @@ section#mapa form#mapaForm :-ms-input-placeholder {
 
     background-color: rgba(64, 1, 1, 1);
     border-radius: 14px;
+    padding: 30px;
+    margin: 10px;
 
     font-family: 'Inter';
     font-style: normal;
@@ -1198,18 +1201,23 @@ section#mapa form#mapaForm :-ms-input-placeholder {
     margin-left: 20px;
     padding-top: 4%;
     padding-bottom: 60px;
+    display: flex;
 }
 
-.imagem-produto{
+.imagem-produto {
     border-radius: 14px;
 
-    }
+}
 
-    .produtos {
-        display: inline-block;
-        margin: 10px;
+.produtos {
+    display: inline-block;
+    margin: 10px;
 
-    }
+}
+
+.card-componente {
+    margin: 15px
+}
 
 
 /*FIM Card Produto*/
@@ -1219,46 +1227,68 @@ section#mapa form#mapaForm :-ms-input-placeholder {
 /* estrelas */
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
-fieldset, label { margin: 0; padding: 0; }
+fieldset,
+label {
+    margin: 0;
+    padding: 0;
+}
+
 /* body{ margin: 20px; } */
-h1 { font-size: 1.5em; margin: 10px; }
+h1 {
+    font-size: 1.5em;
+    margin: 10px;
+}
 
 /****** Style Star Rating Widget *****/
 
 .rating {
-  border: none;
-  float: left;
+    border: none;
+    float: left;
 }
 
-.rating > input { display: none; }
-.rating > label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
+.rating>input {
+    display: none;
 }
 
-.rating > .half:before {
-  content: "\f089";
-  position: absolute;
+.rating>label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
 }
 
-.rating > label {
-  color: rgba(0, 0, 0, 0.75);
- float: right;
+.rating>.half:before {
+    content: "\f089";
+    position: absolute;
+}
+
+.rating>label {
+    color: rgba(0, 0, 0, 0.75);
+    float: right;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
 
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.rating>input:checked~label,
+/* show gold star when clicked */
+.rating:not(:checked)>label:hover,
+/* hover current star */
+.rating:not(:checked)>label:hover~label {
+    color: #FFD700;
+}
 
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+/* hover previous stars in list */
+
+.rating>input:checked+label:hover,
+/* hover current star when changing rating */
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+/* lighten current selection */
+.rating>input:checked~label:hover~label {
+    color: #FFED85;
+}
+
 /* estrelas */
 
 .card-empresa {
@@ -1360,6 +1390,7 @@ h1 { font-size: 1.5em; margin: 10px; }
     margin-top: 40px;
     margin-bottom: 10px;
 }
+
 .card-categoria-empresa {
     width: 200px;
     height: 200px;
@@ -1391,7 +1422,8 @@ h1 { font-size: 1.5em; margin: 10px; }
     text-align: center;
 
 }
-.marcacao_a_remov{
+
+.marcacao_a_remov {
     text-decoration: none;
 }
 
@@ -1415,6 +1447,7 @@ nav.navbar {
     letter-spacing: 0em;
     text-align: left;
 }
+
 .menu-pesquisa {
 
     width: 330px;
@@ -1468,6 +1501,7 @@ nav.navbar {
 
 
 }
+
 /* .modal-content {
     background-color: rgba(232, 229, 212, 1);
     border-radius: 15px;
@@ -1491,7 +1525,7 @@ align-items: center;
 
 }
 
-.link-criar-conta{
+.link-criar-conta {
     margin-right: 20px;
 
 
@@ -1502,6 +1536,7 @@ align-items: center;
     letter-spacing: 0em;
     text-align: left;
 }
+
 /* Login Usuario normal */
 .botao_login_menu {
     height: 47px;
@@ -1521,6 +1556,7 @@ align-items: center;
     color: #FFFFFF;
 
 }
+
 .card-login {
     margin: 0 auto;
     width: 50%;
@@ -1529,6 +1565,7 @@ align-items: center;
     left: 255px;
     top: 154px;
 }
+
 .card-header-login {
 
     font-family: 'Inter';
@@ -1549,10 +1586,11 @@ align-items: center;
     background-repeat: no-repeat;
 
 }
-::-webkit-input-placeholder{
+
+::-webkit-input-placeholder {
     color: white;
     font-weight: bold;
-  }
+}
 
 
 .login-itens {
@@ -1564,20 +1602,22 @@ align-items: center;
     margin-left: 35%;
     margin-top: 50px;
 }
-.botao-login{
-width: 150px;
-height: 50px;
-left: 439px;
-top: 760px;
-background: #400101;
-border-radius: 24px;
-}
-.login-text{
 
-font-style: normal;
-font-weight: 600;
-font-size: 25px;
-color: #FFFFFF;
+.botao-login {
+    width: 150px;
+    height: 50px;
+    left: 439px;
+    top: 760px;
+    background: #400101;
+    border-radius: 24px;
+}
+
+.login-text {
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    color: #FFFFFF;
 }
 
 
@@ -1590,17 +1630,18 @@ color: #FFFFFF;
 .modal-margin {
     background-color: rgba(232, 229, 212, 1);
     border-radius: 15px;
-   right: 95px;
-   width: 90vh;
+    right: 95px;
+    width: 90vh;
 
 }
+
 /* .modal-center{
     display: flex;
 align-items: center;
 } */
 
 .card-modal {
-   width: 240px;
+    width: 240px;
     height: 270px;
     left: 197px;
     top: 580px;
@@ -1612,40 +1653,47 @@ align-items: center;
 
 }
 
-.cor-tbody{
+.cor-tbody {
     background-color: rgba(86, 89, 2, 0.5);
 }
+
 .modal-font-produto {
 
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
-font-size: 40px;
-line-height: 48px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
 }
-.card-text-modal{
- margin-left: 90px;
+
+.card-text-modal {
+    margin-left: 90px;
 }
-.paragrafo-pedido{
+
+.paragrafo-pedido {
     margin-left: 10px;
 }
-.rating{
+
+.rating {
     margin-right: 20px;
 }
-.input-ajuste{
-margin-top: 100px;
+
+.input-ajuste {
+    margin-top: 100px;
 }
-.input-campo-modal{
- width: 42vh;
-height: 17vh    ;
-border-radius: 15px;
+
+.input-campo-modal {
+    width: 42vh;
+    height: 17vh;
+    border-radius: 15px;
 }
+
 /*Fim Modal Produto*/
 
 /*Tela Tipo_register*/
 
-.botao-pedir{
+.botao-pedir {
     width: 260px;
     height: 90px;
     left: 339.43px;
@@ -1654,23 +1702,24 @@ border-radius: 15px;
     background: #400101;
     border-radius: 30px;
 }
-.text-pedir{
+
+.text-pedir {
     font-family: 'Inter';
     font-style: italic;
     font-weight: 900;
     font-size: 23px;
-   line-height: center;
+    line-height: center;
     text-align: center;
     align-items: center;
     color: #FFFFFF;
-   margin-top: 22px;
+    margin-top: 22px;
 }
 
-.body-tipo-register{
+.body-tipo-register {
     background-color: rgba(219, 236, 156, 0.8);
 }
 
-.tipo-register{
+.tipo-register {
     margin: auto;
     width: 50%;
     padding: 10px;
@@ -1680,10 +1729,10 @@ border-radius: 15px;
     left: 255px;
     top: 154px;
 }
-.ou_tipo_register{
 
-}
-.ou_tipo_register_text{
+.ou_tipo_register {}
+
+.ou_tipo_register_text {
     font-family: 'Inter';
     font-style: italic;
     font-weight: 400;
@@ -1693,22 +1742,27 @@ border-radius: 15px;
     color: #000000;
     mix-blend-mode: darken;
 }
-.bottom_deseja_pedir{
-margin-left: 14%;
-margin-top: 20px;
+
+.bottom_deseja_pedir {
+    margin-left: 14%;
+    margin-top: 20px;
 }
-.bottom_deseja_vender{
-margin-left: 48%;
+
+.bottom_deseja_vender {
+    margin-left: 48%;
 }
-.padding_bottom_deseja_pedir{
-    margin-top:100px
+
+.padding_bottom_deseja_pedir {
+    margin-top: 100px
 }
-.header_tipo_register{
+
+.header_tipo_register {
     margin-top: 39px;
 
 
 }
-.text_header_tipo_register{
+
+.text_header_tipo_register {
     font-family: 'Inter';
     font-style: italic;
     font-weight: 800;
@@ -1718,25 +1772,29 @@ margin-left: 48%;
     color: #000000;
     mix-blend-mode: darken;
 }
+
 .index_padding-tipo-register {
     margin-left: 20px;
     padding-top: 4%;
-    padding-bottom:2%;
+    padding-bottom: 2%;
 }
+
 /*Fim Tela Tipo_register*/
 
 /* Modal Pedido */
 
-.carrinho{
- margin-right: 30px;
- display: flex;
- height: auto;
- width: auto;
+.carrinho {
+    margin-right: 30px;
+    display: flex;
+    height: auto;
+    width: auto;
 }
-.descricao-pedido{
+
+.descricao-pedido {
     background-color: rgba(86, 89, 2, 1);
 }
-.carrinho-titulo-font{
+
+.carrinho-titulo-font {
 
     font-family: 'Inter';
     font-style: normal;
@@ -1749,27 +1807,30 @@ margin-left: 48%;
 
 }
 
-.produto-pedido-modal{
+.produto-pedido-modal {
     width: 220px;
-height: 175px;
-left: 61px;
-top: 473px;
-margin-top: 20px;
-margin-bottom: 20px;
-margin-left: 20px;
+    height: 175px;
+    left: 61px;
+    top: 473px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
 
-background: rgba(64, 1, 1, 0.85);
-border-radius: 14px;
+    background: rgba(64, 1, 1, 0.85);
+    border-radius: 14px;
 }
-.modal_imagem_pedido{
+
+.modal_imagem_pedido {
     width: 165px;
     height: 130px;
     margin-left: 27.5px;
     margin-top: 22.5px;
     border-radius: 10px;
 }
-.nome_pedido_modal{
+
+.nome_pedido_modal {
     margin-left: 200px;
 
 }
+
 /* Fim modal pedido */
