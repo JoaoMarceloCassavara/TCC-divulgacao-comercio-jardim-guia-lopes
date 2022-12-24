@@ -1175,7 +1175,7 @@ section#mapa form#mapaForm :-ms-input-placeholder {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-
+/*Card Produto*/
 
 .card-link,
 .card {
@@ -1193,6 +1193,28 @@ section#mapa form#mapaForm :-ms-input-placeholder {
 
     color: #FFFFFF;
 }
+
+.index_padding {
+    margin-left: 20px;
+    padding-top: 4%;
+    padding-bottom: 60px;
+}
+
+.imagem-produto{
+    border-radius: 14px;
+
+    }
+
+    .produtos {
+        display: inline-block;
+        margin: 10px;
+
+    }
+
+
+/*FIM Card Produto*/
+
+
 
 /* estrelas */
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
@@ -1258,21 +1280,8 @@ h1 { font-size: 1.5em; margin: 10px; }
 
 }
 
-.produtos {
-    display: inline-block;
-    margin: 10px;
 
-}
-.imagem-produto{
-border-radius: 14px;
 
-}
-
-.index_padding {
-    margin-left: 20px;
-    padding-top: 4%;
-    padding-bottom: 60px;
-}
 
 .index_empresa {
     margin-left: 20px;
