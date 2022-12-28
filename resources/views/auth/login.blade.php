@@ -19,7 +19,7 @@
                 {{-- <div class="row mb-3"> --}}
                     {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> --}}
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 login-itens-align">
                         <input id="email" type="email" placeholder="Email" class="form-control login-itens @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
@@ -33,7 +33,7 @@
                 {{-- <div class="row mb-3"> --}}
                     {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 login-itens-align">
                         <input id="password" type="password"  placeholder="Senha" class="form-control  login-itens @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                         @error('password')
@@ -44,13 +44,13 @@
                     </div>
                 {{-- </div> --}}
 
-                <div class="row mb-3">
+                <div class="row mb-3 me-lembrar">
                     <div class="col-md-6 offset-md-4">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                             <label class="form-check-label" for="remember">
-                                {{ __('Remember Me') }}
+                                {{ __('Me Lembrar') }}
                             </label>
                         </div>
                     </div>
@@ -62,11 +62,14 @@
                         <h6 class="login-text text-center">   {{ __('Login') }}</h6>
                         </button>
 
+                            <div class="esqueci_senha">
                         @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
+                            <a class="marcacao_a_remov esqueci_senha_cor text-success" href="{{ route('password.request') }}">
+                                {{ __('Esqueci minha senha :(') }}
                             </a>
                         @endif
+
+                </div>
                     </div>
                 </div>
             </form>
