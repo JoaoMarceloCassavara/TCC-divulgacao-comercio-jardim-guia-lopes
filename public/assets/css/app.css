@@ -1732,9 +1732,7 @@ align-items: center;
 
 }
 
-.cor-tbody {
-    background-color: rgba(86, 89, 2, 0.5);
-}
+
 
 .modal-font-produto {
 
@@ -1795,10 +1793,13 @@ align-items: center;
 }
 
 .body-tipo-register {
-    background-color: rgba(219, 236, 156, 0.8);
+    background-image: url(/assets/images/imagem_de_fundo/Imagem_login.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
 }
 
-.tipo-register {
+/* .tipo-register {
     margin: auto;
     width: 50%;
     padding: 10px;
@@ -1807,7 +1808,7 @@ align-items: center;
     height: 600px;
     left: 255px;
     top: 154px;
-}
+} */
 
 .ou_tipo_register {}
 
@@ -1910,6 +1911,9 @@ align-items: center;
 .nome_pedido_modal {
     margin-left: 200px;
 
+}
+.cor-tbody {
+    background-color: rgba(86, 89, 2, 0.5);
 }
 
 /* Fim modal pedido */
