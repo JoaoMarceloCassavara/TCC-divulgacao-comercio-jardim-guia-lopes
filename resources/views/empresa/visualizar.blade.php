@@ -33,7 +33,7 @@
     </header>
     <section class=" d-flex flex-wrap index_padding">
         @forelse ($produtos as $produto)
-            <a
+          <a
         {{-- botao Modal --}}
         data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
         {{-- Final botao Modal --}}>

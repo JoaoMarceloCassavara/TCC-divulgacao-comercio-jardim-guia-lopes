@@ -12,7 +12,16 @@
         </button>
         <div class="collapse navbar-collapse  justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown ">
+                <li class="nav-item ">
+                    <a class="nav-link active text-white link-success" aria-current="page" href="{{route('welcome')}}">Inicio</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link active text-white link-success" aria-current="page" href="{{route('produto')}}">Produtos</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link active text-white link-success" aria-current="page" href="{{route('empresa')}}">Empresas</a>
+                  </li>
+                {{-- <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Menu do site
@@ -25,7 +34,7 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> --}}
             </ul>
             <form action="{{route ('pesquisas.buscar')}}" class="d-flex">
                 <input class="form-control me-2 menu-pesquisa" type="search" placeholder="Pesquisa" aria-label="Search" name="filtro" value="{{request()->filtro}}">
