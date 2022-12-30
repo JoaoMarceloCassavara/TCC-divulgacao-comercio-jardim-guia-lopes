@@ -1771,7 +1771,7 @@ align-items: center;
 /*Tela Tipo_register*/
 
 .botao-pedir {
-    width: 260px;
+    width: 290px;
     height: 90px;
     left: 339.43px;
     top: 342.76px;
@@ -1808,7 +1808,7 @@ align-items: center;
     height: 600px;
     left: 255px;
     top: 154px;
-} 
+}
 
 .ou_tipo_register {}
 
@@ -1816,20 +1816,24 @@ align-items: center;
     font-family: 'Inter';
     font-style: italic;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 40px;
     line-height: 61px;
     text-align: center;
+
     color: #000000;
+
     mix-blend-mode: darken;
+    margin: 10px;
 }
 
 .bottom_deseja_pedir {
-    margin-left: 14%;
-    margin-top: 20px;
+  margin: 0 auto;
+  margin-left: 15% ;
 }
 
 .bottom_deseja_vender {
-    margin-left: 48%;
+    margin: 0 auto;
+    margin-left: 45%;
 }
 
 .padding_bottom_deseja_pedir {
@@ -1837,7 +1841,7 @@ align-items: center;
 }
 
 .header_tipo_register {
-    margin-top: 39px;
+    margin-top: 10px;
 
 
 }
@@ -1857,6 +1861,11 @@ align-items: center;
     margin-left: 20px;
     padding-top: 4%;
     padding-bottom: 2%;
+}
+.tipo_register-cidade{
+margin-left: 30px;
+margin-top: 9px;
+color: rgba(86, 89, 2, 0.6);
 }
 
 /*Fim Tela Tipo_register*/
