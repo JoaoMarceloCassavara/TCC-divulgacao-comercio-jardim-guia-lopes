@@ -1904,6 +1904,7 @@ color: rgba(86, 89, 2, 0.6);
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
+    padding: 25px;
 
     background: rgba(64, 1, 1, 0.85);
     border-radius: 14px;
@@ -1912,9 +1913,7 @@ color: rgba(86, 89, 2, 0.6);
 .modal_imagem_pedido {
     width: 165px;
     height: 130px;
-    margin-left: 27.5px;
-    margin-top: 22.5px;
-    border-radius: 10px;
+   align-items: center;
 }
 
 .nome_pedido_modal {
@@ -1923,6 +1922,18 @@ color: rgba(86, 89, 2, 0.6);
 }
 .cor-tbody {
     background-color: rgba(86, 89, 2, 0.5);
+}
+.pedido_produto_text{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+margin-left: 5px;
+    color: #000000;
+}
+.nome_produto_pedido{
+    
 }
 
 /* Fim modal pedido */
