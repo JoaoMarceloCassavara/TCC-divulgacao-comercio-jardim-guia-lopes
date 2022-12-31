@@ -26,9 +26,9 @@ class AvaliacaoEmpresa extends Model
         return $query->where('user_id', $user->getKey());
     }
 
-    // public function categoria()
-    // {
-    //     return $this->belongsTo(CategoriaEmpresa::class,'categoria_empresa_id', 'id');
-    // }
+     public function empresa()
+     {
+         return $this->belongsTo(Empresa::class,'empresa_id', 'id');
+     }
 
 }

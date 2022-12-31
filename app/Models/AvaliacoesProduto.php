@@ -24,4 +24,9 @@ class AvaliacoesProduto extends Model
         }
         return $query->where('user_id', $user->getKey());
     }
+
+    public function produto()
+    {
+        return $this->belongsTo(Produto::class,'produto_id', 'id');
+    }
 }
