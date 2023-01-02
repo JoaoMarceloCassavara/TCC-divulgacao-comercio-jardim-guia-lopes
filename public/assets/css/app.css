@@ -1501,6 +1501,26 @@ nav.navbar {
 
 
 }
+.redes-sociais{
+    list-style: none;
+    display: flex;
+}
+.icone-rede-social{
+    margin: 9px;
+}
+.text-redes-sociais{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 14px;
+line-height: 17px;
+
+color: #000000;
+
+}
+.div-redes-sociais{
+margin-top: 20px;
+}
 
 /* .modal-content {
     background-color: rgba(232, 229, 212, 1);
@@ -1933,7 +1953,7 @@ margin-left: 5px;
     color: #000000;
 }
 .nome_produto_pedido{
-    
+
 }
 
 /* Fim modal pedido */
