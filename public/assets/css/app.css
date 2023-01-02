@@ -1957,3 +1957,32 @@ margin-left: 5px;
 }
 
 /* Fim modal pedido */
+
+
+      /* Rodapé .... */
+
+.footer{
+    background-color: rgba(86, 89, 2, 1);
+}
+.text-rodape{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    margin: 10px;
+}
+.text-margin-footer{
+    margin: 10px;
+}
+.margin-icons-footer{
+margin: 10px;
+}
+
+
+
+
+      /* Fim Rodapé... */
