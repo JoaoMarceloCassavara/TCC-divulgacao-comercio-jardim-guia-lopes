@@ -112,7 +112,17 @@ Route::get('/produtos/buscar', function (Request $request) {
 //     return view('empresa.index',compact('empresas','categoria_empresas'));
 // })->name('pesquisas.buscar');
 
+Route::get('/fale_conosco', function () {
+    return view('rodape.fale_conosco');
+})->name('fale_conosco');
 
+Route::get('/quem_somos', function () {
+    return view('rodape.quem_somos');
+})->name('quem_somos');
+
+Route::get('/saiba_mais', function () {
+    return view('rodape.saiba_mais');
+})->name('saiba_mais');
 
 
 // rota para permitidas apenas para usuários autenticados

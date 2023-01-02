@@ -42,13 +42,13 @@
         <div class="row align-items-center">
             <div class="col-lg-4 text-lg-start d-flex">
             <div class="text-margin-footer">
-                <a class="text-rodape text-white link-success" href="">Saiba Mais</a>
+                <a class="text-rodape text-white link-success" href="{{route('saiba_mais')}}">Saiba Mais</a>
                 </div>
                 <div class="text-margin-footer">
-                <a class="text-rodape text-white link-success" href="">Quem Somos</a>
+                <a class="text-rodape text-white link-success" href="{{route('quem_somos')}}">Quem Somos</a>
                    </div>
                <div class="text-margin-footer">
-                 <a class="text-rodape text-white link-success" href="">Fale conosco</a>
+                 <a class="text-rodape text-white link-success" href="{{route('fale_conosco')}}">Fale conosco</a>
               </div>
             </div>
             <div class="col-lg-4 my-3 my-lg-0">
