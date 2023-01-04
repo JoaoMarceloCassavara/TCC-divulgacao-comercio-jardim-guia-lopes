@@ -29,4 +29,9 @@ class AvaliacoesProduto extends Model
     {
         return $this->belongsTo(Produto::class,'produto_id', 'id');
     }
+
+    public function usuario()
+    {
+        return $this->belongsTo(User::class,'user_id', 'id');
+    }
 }

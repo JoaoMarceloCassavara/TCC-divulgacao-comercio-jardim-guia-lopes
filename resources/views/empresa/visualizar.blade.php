@@ -25,6 +25,7 @@
                   <div class="div-redes-sociais">
                     <h5 class="text-redes-sociais">Faça seu pedido direto com o produtor </h5>
                 <ul class="redes-sociais">
+                    @isset($empresa->whatsapp)
                     <li class="icone-rede-social">
                         <a href="{{ $empresa->whatsapp }}">
                             <svg width="38" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,6 +52,8 @@
 
                         </a>
                     </li>
+                    @endisset
+                    @isset($empresa->facebook)
                     <li class="icone-rede-social">
                         <a href="{{ $empresa->facebook}}">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +63,8 @@
 
                         </a>
                     </li>
-
+                    @endisset
+                    @isset($empresa->instagram)
                     <li class="icone-rede-social">
                         <a href="{{ $empresa->instagram}}">
                             <svg width="36" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,6 +102,8 @@
                                 </svg>
                         </a>
                     </li>
+                    @endisset
+                    @isset($empresa->twitter)
                     <li class="icone-rede-social">
                         <a href="{{ $empresa->twitter}}">
                             <svg width="39" height="38" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,6 +112,7 @@
 
                         </a>
                     </li>
+                    @endisset
                 </ul>
             </div>
 

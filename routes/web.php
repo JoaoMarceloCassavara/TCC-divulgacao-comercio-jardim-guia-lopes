@@ -48,8 +48,19 @@ Route::post('/registrar_empresario', function (Request $request) {
      $role = \App\Models\Role::where('name', '=', 'empresario')->first() ;
      $usuario->role_id = $role->id;
      $usuario->save();
-    return redirect()->route('home');
+    return redirect()->route('empresa.cadastrar');
      })->name('register.empresario');
+     
+
+     Route::get('/registrar_empresa', function () {
+        return view('empresa.cadastrar');
+    })->name('empresa.cadastrar');
+    Route::post('/empresa/salvar', function (Request $request) {
+           dd($request);
+
+           return redirect()->route('home');
+             })->name('empresa.salvar');
+
 
 
 Route::get('/produto', function () {

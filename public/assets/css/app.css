@@ -2061,7 +2061,15 @@ margin-left: 45px;
     align-items: center;
 }
 
-
-
-
       /* Fim Cadastro Empresario */
+
+#form-buscar{
+    position: relative;
+}
+
+#form-buscar button{
+    position: absolute;
+    right: 0.5rem;
+    height: 100%;
+    border-radius: 0 50% 50% 0;
+}

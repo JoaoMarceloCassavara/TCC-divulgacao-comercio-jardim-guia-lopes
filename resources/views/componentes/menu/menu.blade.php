@@ -11,7 +11,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse  justify-content-between" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav">
                 <li class="nav-item ">
                     <a class="nav-link active text-white link-success" aria-current="page" href="{{route('welcome')}}">Inicio</a>
                   </li>
@@ -21,26 +21,15 @@
                   <li class="nav-item ">
                     <a class="nav-link active text-white link-success" aria-current="page" href="{{route('empresa')}}">Empresas</a>
                   </li>
-                {{-- <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Menu do site
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('empresa')}}">Empresa</a></li>
-                        <li><a class="dropdown-item" href="{{route('produto')}}">Produtos</a></li>
-                        <li>
-                            <hr  class="dropdown-divider">
-                        </li>
-
-                    </ul>
-                </li> --}}
             </ul>
-            <form action="{{route ('pesquisas.buscar')}}" class="d-flex">
+            <form id="form-buscar" action="{{route ('pesquisas.buscar')}}" class="d-flex">
                 <input class="form-control me-2 menu-pesquisa" type="search" placeholder="Pesquisa" aria-label="Search" name="filtro" value="{{request()->filtro}}">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success" type="submit">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </button>
             </form>
 
+            <div class="d-flex align-items-center">
             <div class="carrinho">
                 <a id="carrinho" class="nav-link  position-relative"
                     data-bs-toggle="modal" data-bs-target="#carrinho-modal">
@@ -75,6 +64,7 @@
                     </div>
                 </span>
             @endguest
+            </div>
 
         </div>
     </div>

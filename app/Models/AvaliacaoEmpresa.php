@@ -30,5 +30,10 @@ class AvaliacaoEmpresa extends Model
      {
          return $this->belongsTo(Empresa::class,'empresa_id', 'id');
      }
+     
+     public function usuario()
+     {
+         return $this->belongsTo(User::class,'user_id', 'id');
+     }
 
 }
