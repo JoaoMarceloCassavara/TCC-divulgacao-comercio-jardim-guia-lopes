@@ -50,16 +50,9 @@ Route::post('/registrar_empresario', function (Request $request) {
      $usuario->save();
     return redirect()->route('empresa.cadastrar');
      })->name('register.empresario');
-     
 
-     Route::get('/registrar_empresa', function () {
-        return view('empresa.cadastrar');
-    })->name('empresa.cadastrar');
-    Route::post('/empresa/salvar', function (Request $request) {
-           dd($request);
 
-           return redirect()->route('home');
-             })->name('empresa.salvar');
+
 
 
 
@@ -84,10 +77,21 @@ Route::get('/empresa', function () {
 
 
 Route::get('/empresa/{id}', function ($id) {
+    $limite = 5;
     $empresa = Empresa::find($id);
+    $categorias = [];
+    // $categorias_produtos = Produto::joinRelationship('categoria')->get();
+    $categorias_produtos = $empresa->produtos()
+        ->with('empresa')
+        ->join('categoria_produtos','categoria_produtos.id', '=', 'produtos.categoria_produto_id')
+        ->get(['categoria_produtos.*']);
+    //dd($categorias_produtos);
+    foreach($categorias_produtos as $categoria){
+        $categorias[$categoria->nome] = Produto::where('categoria_produto_id',$categoria->id)->where('empresa_id',$id)->take($limite)->get();
+    }
     $produtos = Produto::where('empresa_id',$empresa->id)->get();
 
-    return view('empresa.visualizar',compact('empresa', 'produtos'));
+    return view('empresa.visualizar',compact('empresa', 'produtos', 'categorias'));
 })->name('empresa.visualizar');
 
 
@@ -138,6 +142,27 @@ Route::get('/saiba_mais', function () {
 
 // rota para permitidas apenas para usuários autenticados
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/registrar_empresa', function () {
+        return view('empresa.cadastrar');
+    })->name('empresa.cadastrar');
+    Route::post('/empresa/salvar', function (Request $request) {
+     $quantidadeEmpresaCadastradas=Empresa::where('user_id',Auth::user()->id )->count();
+     if($quantidadeEmpresaCadastradas == 0){
+
+           $empresa= new Empresa();
+           $empresa->user_id = Auth::user()->id;
+           $empresa->cnpj=$request->cnpj;
+           $empresa->cpf=$request->cpf;
+           $empresa->endereco=$request->endereco;
+           $empresa->telefone=$request->telefone;
+           $empresa->nome=$request->nome;
+        //    dd($empresa);
+        $empresa->save();
+    }
+           return redirect()->route('home');
+             })->name('empresa.salvar');
+
 
 		// rota para adicionar as fotos selecionadas no carrinho
     Route::post('/carrinho', function (Request $request) {

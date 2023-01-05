@@ -32,9 +32,31 @@
                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> --}}
 
                     <div class="col-md-6 register-itens-empresario-align">
-                        <input id="name" type="text" placeholder="CNPJ ou CPF" class="form-control register-itens-empresario @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="nome" type="text" placeholder="Nome da Empresa" class="form-control register-itens-empresario @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
 
-                        @error('name')
+                        @error('nome')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+
+                    <div class="col-md-6 register-itens-empresario-align">
+                        <input id="cnpj" type="text" placeholder="CNPJ" class="form-control register-itens-empresario @error('cnpj') is-invalid @enderror" name="cnpj" value="{{ old('cnpj') }}" required autocomplete="cnpj" autofocus>
+
+                        @error('cnpj')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+
+                    <div class="col-md-6 register-itens-empresario-align">
+                        <input id="cpf" type="number" placeholder="CPF" class="form-control register-itens-empresario @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf') }}" required autocomplete="cpf" autofocus>
+
+                        @error('cpf')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -61,7 +83,7 @@
                     <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
                     <div class="col-md-6 register-itens-empresario-align">
-                        <input id="telefone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Telefone" class="form-control register-itens-empresario @error('telefone') is-invalid @enderror" name="telefone" required autocomplete="telefone">
+                        <input id="telefone" type="tel" pattern="[0-9]{2}-[0-9]{4,5}-[0-9]{4}" placeholder="Telefone 99-9999-9999" class="form-control register-itens-empresario @error('telefone') is-invalid @enderror" name="telefone" required autocomplete="telefone">
 
                         @error('telefone')
                             <span class="invalid-feedback" role="alert">
