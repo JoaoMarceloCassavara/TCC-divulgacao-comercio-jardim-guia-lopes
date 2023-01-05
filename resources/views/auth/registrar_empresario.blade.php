@@ -22,7 +22,7 @@
     </div>
 
      <div class="cadastro_empresario">
-        <div class="header-register-empresario text-center">{{ __('Cadastrar seu Negócio') }}</div>
+        <div class="header-register-empresario text-center">{{ __('Cadastrar') }}</div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('register.empresario') }}">
@@ -82,7 +82,7 @@
                 <div class="row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="botao-register-empresario">
-                            <h6 class="register-text-empresario"> {{ __('Cadastrar') }}</h6>
+                            <h6 class="register-text-empresario"> {{ __('Continuar') }}</h6>
                         </button>
                     </div>
                 </div>

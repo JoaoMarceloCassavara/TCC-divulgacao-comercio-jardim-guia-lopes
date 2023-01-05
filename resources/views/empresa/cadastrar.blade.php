@@ -7,7 +7,7 @@
 
     <div class="nome-logo">
         <h1 class="text-register-empresario">Divulgue seu <br>
-            negócio em <br>
+            negócio em
             nosso site!</h1>
             <svg class="logo_do_site" width="239" height="199" viewBox="0 0 239 199" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="239" height="199" fill="url(#pattern0)"/>
@@ -22,7 +22,7 @@
     </div>
 
      <div class="cadastro_empresario">
-        <div class="header-register-empresario text-center">{{ __('Cadastrar seu Negócio') }}</div>
+        <div class="header-register-empresario text-center">{{ __('Informações sobre a sua empresa!') }}</div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('empresa.salvar') }}">
@@ -32,7 +32,7 @@
                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> --}}
 
                     <div class="col-md-6 register-itens-empresario-align">
-                        <input id="name" type="text" placeholder="Nome" class="form-control register-itens-empresario @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="name" type="text" placeholder="CNPJ ou CPF" class="form-control register-itens-empresario @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> --}}
 
                     <div class="col-md-6 register-itens-empresario-align">
-                        <input id="email" type="email" placeholder="Email" class="form-control register-itens-empresario @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                        <input id="endereco" type="text" placeholder="Endereço" class="form-control register-itens-empresario @error('endereco') is-invalid @enderror" name="endereco" value="{{ old('endereco') }}" required autocomplete="endereco">
 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -61,9 +61,9 @@
                     <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
                     <div class="col-md-6 register-itens-empresario-align">
-                        <input id="password" type="password" placeholder="Senha" class="form-control register-itens-empresario @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                        <input id="telefone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Telefone" class="form-control register-itens-empresario @error('telefone') is-invalid @enderror" name="telefone" required autocomplete="telefone">
 
-                        @error('password')
+                        @error('telefone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -74,9 +74,7 @@
                 {{-- <div class="row mb-3">
                     <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> --}}
 
-                    <div class="col-md-6 register-itens-empresario-align">
-                        <input id="password-confirm" type="password" placeholder="Repita Senha" class="form-control register-itens-empresario" name="password_confirmation" required autocomplete="new-password">
-                    </div>
+
                 {{-- </div> --}}
 
                 <div class="row mb-0">
