@@ -126,22 +126,23 @@
 
       <a class="text-black fw-bold" href="{{route('produto')}}">Ver tudo <i class="fa-solid fa-chevron-right"></i></a>
     </div>
-      @forelse ($produtos as $produto)
-      <a
-      {{-- botao Modal --}}
-      data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
-      {{-- Final botao Modal --}}>
-          <div class="card-link">
+    <section class=" d-flex index_padding">
+        @forelse ($produtos as $produto)
+        <a
+        {{-- botao Modal --}}
+        data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
+        {{-- Final botao Modal --}}>
+            <div class="card-link">
 
-              <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
+                <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
 
-              <div class="card-componente">
-                  <h5 class="card-title">{{ $produto->nome }}</h5>
-                  <p class="card-text">{{ $produto->descricao }}</p>
-                  <p class="card-text">Preço${{ $produto->preco }} </p>
-              </div>
-          </div>
-      </a>
+                <div class="card-componente">
+                    <h5 class="card-title">{{ $produto->nome }}</h5>
+                    <p class="card-text">{{ $produto->descricao }}</p>
+                    <p class="card-text">Preço${{ $produto->preco }} </p>
+                </div>
+            </div>
+        </a>
 
           {{-- Inicio modal --}}
           <!-- Modal -->
@@ -213,7 +214,7 @@
               <p>Nenhum produto cadastrado</p>
           @endif
       @endforelse
-
+    </section>
 
 
 @endforeach
