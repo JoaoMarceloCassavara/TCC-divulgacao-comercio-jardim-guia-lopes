@@ -22,7 +22,7 @@
                     <a class="nav-link active text-white link-success" aria-current="page" href="{{route('empresa')}}">Empresas</a>
                   </li>
             </ul>
-            <form id="form-buscar" action="{{route ('pesquisas.buscar')}}" class="d-flex">
+            <form id="form-buscar" action="{{route ('filtro')}}" class="d-flex">
                 <input class="form-control me-2 menu-pesquisa" type="search" placeholder="Pesquisa" aria-label="Search" name="filtro" value="{{request()->filtro}}">
                 <button class="btn btn-outline-success" type="submit">
                     <i class="fa-sharp fa-solid fa-magnifying-glass"></i>

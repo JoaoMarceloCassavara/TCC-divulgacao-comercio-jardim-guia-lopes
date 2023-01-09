@@ -109,14 +109,14 @@ Route::get('/categoria-empresa/{id}', function ($id) {
 
 
 
-Route::get('/produtos/buscar', function (Request $request) {
+Route::get('/filtro/pesquisa', function (Request $request) {
 
     //  dd($request->filtro);
-    $categoria_produtos = App\Models\CategoriaProduto::where('nome', 'LIKE',"{$request->filtro}%")->get();
-    $produtos = App\Models\Produto::where('nome', 'LIKE',"{$request->filtro}%")->get();
 
-    return view('produto.index', compact('produtos','categoria_produtos'));
-})->name('pesquisas.buscar');
+    $produtos = Produto::where('nome','LIKE',"%{$request->filtro}%")->get();
+    // $empresas = Empresa::where('nome','LIKE',"%{$request->filtro}%")->get();
+    return view('welcome', compact('produtos'));
+})->name('filtro');
 
 // Route::get('/empresas/buscar', function (Request $request) {
 
