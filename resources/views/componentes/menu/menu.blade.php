@@ -30,17 +30,8 @@
             </form>
 
             <div class="d-flex align-items-center">
-            <div class="carrinho">
-                <a id="carrinho" class="nav-link  position-relative"
-                    data-bs-toggle="modal" data-bs-target="#carrinho-modal">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="carrinho-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>
-                </a>
-            </div>
 
             @guest
-                <a href="{{route('auth.tipo_register')}}" class="link-criar-conta text-white marcacao_a_remov ">Criar Conta</a>
-
                 <a type="button" class="btn btn-dark botao_login_menu" href="{{route('login')}}">Login</a>
             @else
 
@@ -64,6 +55,13 @@
                     </div>
                 </span>
             @endguest
+            <div class="carrinho mx-3">
+                <a id="carrinho" class="nav-link  position-relative"
+                    data-bs-toggle="modal" data-bs-target="#carrinho-modal">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="carrinho-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>
+                </a>
+            </div>
             </div>
 
         </div>

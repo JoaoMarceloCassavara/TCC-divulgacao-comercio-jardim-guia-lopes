@@ -41,4 +41,9 @@ class Empresa extends Model
         return $this->hasMany(Produto::class,'empresa_id','id')->orderBy('categoria_produto_id', 'ASC');
     }
 
+    // public function avaliacoes() avaliacao empresa de muitos para muitos
+    // {
+    //     return $this->hasMany(Postagem::class,'category_id','id')->orderBy('created_at', 'DESC');
+    // }
+
 }

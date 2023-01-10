@@ -26,8 +26,11 @@ use Illuminate\Validation\Rule;
 */
 
 Route::get('/', function () {
+    $categoria_produtos = CategoriaProduto::all();
+    $categoria_empresas = CategoriaEmpresa::all();
     $produtos = Produto::all();
-    return view('welcome',compact('produtos'));
+    $empresas = Empresa::all();
+    return view('welcome',compact('produtos','empresas','categoria_produtos', 'categoria_empresas'));
 })->name('welcome');
 
 
@@ -110,13 +113,13 @@ Route::get('/categoria-empresa/{id}', function ($id) {
 
 
 Route::get('/filtro/pesquisa', function (Request $request) {
-
     //  dd($request->filtro);
-
     $produtos = Produto::where('nome','LIKE',"%{$request->filtro}%")->get();
-    // $empresas = Empresa::where('nome','LIKE',"%{$request->filtro}%")->get();
-    return view('welcome', compact('produtos'));
+    $empresas = Empresa::where('nome','LIKE',"%{$request->filtro}%")->get();
+    return view('busca', compact('produtos','empresas'));
 })->name('filtro');
+
+
 
 // Route::get('/empresas/buscar', function (Request $request) {
 

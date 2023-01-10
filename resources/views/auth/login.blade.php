@@ -57,19 +57,22 @@
                 </div>
 
                 <div class="row mb-0">
-                    <div class="col-md-8 offset-md-4">
+                    <div class="col text-center">
                         <button type="submit" class="botao-login">
                         <h6 class="login-text text-center">   {{ __('Login') }}</h6>
                         </button>
 
-                            <div class="esqueci_senha">
                         @if (Route::has('password.request'))
+                            <div class="esqueci_senha">
                             <a class="marcacao_a_remov esqueci_senha_cor text-success" href="{{ route('password.request') }}">
                                 {{ __('Esqueci minha senha :(') }}
                             </a>
+                        </div>
                         @endif
+                        <div class="mt-3">
+                        <a href="{{route('auth.tipo_register')}}" class="btn btn-outline-dark ">Criar Conta</a>
+                      </div>
 
-                </div>
                     </div>
                 </div>
             </form>

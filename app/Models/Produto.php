@@ -35,5 +35,10 @@ class Produto extends Model
         return $this->belongsTo(Empresa::class,'empresa_id', 'id');
     }
 
+    // public function avaliacoes() avaliacao produto de muitos para muitos
+    // {
+    //     return $this->hasMany(Postagem::class,'category_id','id')->orderBy('created_at', 'DESC');
+    // }
+
 
 }
