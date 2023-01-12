@@ -2045,3 +2045,10 @@ margin-left: 45px;
     height: 100%;
     border-radius: 0 50% 50% 0;
 }
+
+.carousel-item{
+visibility: hidden;
+}
+.active{
+    visibility: visible;
+}

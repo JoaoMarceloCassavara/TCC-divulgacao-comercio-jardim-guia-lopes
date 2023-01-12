@@ -30,7 +30,8 @@ Route::get('/', function () {
     $categoria_empresas = CategoriaEmpresa::all();
     $produtos = Produto::all();
     $empresas = Empresa::all();
-    return view('welcome',compact('produtos','empresas','categoria_produtos', 'categoria_empresas'));
+    $empresas_famosas = Empresa::where('avaliacao', '>=',4)->take(5)->get();
+    return view('welcome',compact('produtos','empresas','categoria_produtos', 'categoria_empresas','empresas_famosas'));
 })->name('welcome');
 
 

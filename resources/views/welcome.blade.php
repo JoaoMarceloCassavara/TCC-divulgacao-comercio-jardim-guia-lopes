@@ -2,28 +2,10 @@
 
 @section('conteudo')
 <header class="pt-5"><h1>O que procura de Lojas</h1></header>
-<section class=" d-flex flex-wrap py-5">
-    @forelse ($categoria_empresas as $categoria_empresa)
-        <a class="m-4 marcacao_a_remov " href="{{ route('empresa.categoria', ['id' => $categoria_empresa->id]) }}">
-
-            <div class="card-categoria-empresa ">
-
-                <img src="{{ Voyager::image($categoria_empresa->imagem) }}" class=" imagem-categoria-empresa" alt="Imagem da categoria">
-
-                <div class="card-body text-center">
-                    <h5 class="card-title text-black">{{ $categoria_empresa->nome }}</h5>
-
-                </div>
-            </div>
-            </div>
-        </a>
-    @empty
-        <p>Nenhuma Categoria Empresa cadastrado</p>
-    @endforelse
-    </section>
-<header class="pt-5"><h1>Lojas Famosas</h1></header>
+@include('componentes.carrossel')
+<header class="pt-5"><h1>Lojas Bem avaliadas</h1></header>
     <section class=" d-flex flex-wrap py-5 ">
-    @forelse ($empresas as $empresa)
+    @forelse ($empresas_famosas as $empresa)
             <div class="card-empresa">
                 <div class="row g-0">
                     <div class="col-md-4">
