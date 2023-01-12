@@ -2,14 +2,13 @@
 
 @section('conteudo')
 
-    <section class=" d-flex flex-wrap index_padding">
-
+    <section class="d-flex flex-wrap py-5">
         @forelse ($produtos as $produto)
         <a
         {{-- botao Modal --}}
         data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
         {{-- Final botao Modal --}}>
-            <div class="card-link">
+            <div class="card-link m-2 p-4">
 
                 <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
 
@@ -93,8 +92,7 @@
         @endforelse
     </section>
 
-    <section class="Categoria_produto d-flex" >
-
+    <section class="d-flex flex-wrap py-5 ms-4" >
         @forelse ($categoria_produtos as $categoria_produto)
         <a class="marcacao_a_remov" href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
         <div class="card-categoria m-3">

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    <header class=" d-flex index_padding">
-
+<header class="pt-5"><h1>O que procura de Lojas</h1></header>
+    <section class="d-flex flex-wrap py-5">
         @forelse ($categoria_empresas as $categoria_empresa)
             <a class="m-4 marcacao_a_remov " href="{{ route('empresa.categoria', ['id' => $categoria_empresa->id]) }}">
 
@@ -20,8 +20,8 @@
         @empty
             <p>Nenhuma Categoria Empresa cadastrado</p>
         @endforelse
-        </header>
-    <section class=" d-flex flex-wrap index_empresa">
+    </section>
+    <section class=" d-flex flex-wrap py-5">
         @forelse ($empresas as $empresa)
 
                 <div class="card-empresa">

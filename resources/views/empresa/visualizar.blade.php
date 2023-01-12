@@ -132,7 +132,7 @@
         {{-- botao Modal --}}
         data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
         {{-- Final botao Modal --}}>
-            <div class="card-link">
+            <div class="card-link m-2 p-4">
 
                 <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
 
