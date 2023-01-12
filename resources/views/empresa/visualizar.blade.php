@@ -121,12 +121,12 @@
     </div>
 {{-- Produto por categoria --}}
 @foreach ($categorias as $nomeDaCategoria => $produtos)
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between p-3">
       <h1>{{$nomeDaCategoria}}</h1>
 
       <a class="text-black fw-bold" href="{{route('produto')}}">Ver tudo <i class="fa-solid fa-chevron-right"></i></a>
     </div>
-    <section class=" d-flex index_padding">
+    <section class="d-flex flex-wrap py-4">
         @forelse ($produtos as $produto)
         <a
         {{-- botao Modal --}}
