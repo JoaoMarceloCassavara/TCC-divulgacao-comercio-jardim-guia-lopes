@@ -2,11 +2,13 @@
 @section('conteudo')
     <section class="d-flex py-5 ps-5">
         <div class="visualizar_icones_empresa position-relative">
-            <img src="{{ Voyager::image($empresa->foto) }}"width="700" height="400" class="rounded-3"
+            <img src="{{ Voyager::image($empresa->foto) }}"width="800" height="400" class="rounded-3"
                 alt="Imagem da Empresa">
             <div class="position-absolute logo_empresa">
-                <img src="{{ Voyager::image($empresa->logo) }}"width="200" height="200" alt="Logo da Empresa" class="rounded-circle border border-dark">
-                <h5 class="fs-2 fw-bold py-2">{{ $empresa->nome }}</h5>
+                <img src="{{ Voyager::image($empresa->logo) }}"width="155" height="155" alt="Logo da Empresa" class="rounded-circle border border-dark">
+            </div>
+            <div class="nome_empresa_visualizar text-center">
+                <h5 class="fs-2 fw-bold  ">{{ $empresa->nome }}</h5>
             </div>
         </div>
 
@@ -14,11 +16,11 @@
             <h5 class="fw-bold">Sobre o Negócio</h5>
             <p class="">{{ $empresa->descricao }}</p>
 
-            <h6 class="">Telefone</h6>
-                <p class="fw-lighter">{{ $empresa->telefone }}</p>
+            <h6 class="fw-bold">Telefone</h6>
+                <p class="">{{ $empresa->telefone }}</p>
 
 
-                <h6 class="">Endereço</h6>
+                <h6 class="fw-bold">Endereço</h6>
                 <p class="">{{ $empresa->endereco }}</p>
 
                 <div class="div-redes-sociais">
