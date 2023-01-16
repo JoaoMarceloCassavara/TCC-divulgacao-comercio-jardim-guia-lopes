@@ -1342,16 +1342,7 @@ background-color: rgba(64, 1, 1, 0.65);
 .localizacao-empre {
     margin-right: 100px;
 }
-.imagem-categoria-produto {
-    height: 78.54545593261719px;
-    width: 108px;
-    border-radius: 19px;
-    margin-bottom: 5px;
-    margin-top: 25%;
-    margin-right: flex;
 
-
-}
 
 .imagem-categoria-empresa {
     height: 100px;
@@ -1375,7 +1366,7 @@ background-color: rgba(64, 1, 1, 0.65);
 
 
 
-.card-categoria {
+/* .card-categoria {
     width: 190px;
     height: 190px;
     left: 788.73px;
@@ -1392,6 +1383,22 @@ background-color: rgba(64, 1, 1, 0.65);
     line-height: 15px;
     text-align: center;
 
+} */
+
+/* .imagem-categoria-produto {
+    height: 78.54545593261719px;
+    width: 108px;
+    border-radius: 19px;
+    margin-bottom: 5px;
+    margin-top: 25%;
+    margin-right: flex;
+
+
+} */
+.card_categoria_produto{
+    background: linear-gradient(rgba(219, 236, 156, 0.85)50%,
+    rgba(236, 243, 211, 0.85) 50%);
+    
 }
 
 .marcacao_a_remov {

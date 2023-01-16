@@ -1,6 +1,26 @@
 @extends('layouts.app')
 
 @section('conteudo')
+
+<header class="pt-5 ps-4"><h1>A procura por Produtos</h1></header>
+
+<section class="d-flex flex-wrap py-4 ps-5">
+    @forelse ($categoria_produtos as $categoria_produto)
+    <div class="card_categoria_produto rounded-3 p-5 m-3">
+        <img src="{{ Voyager::image($categoria_produto->imagem) }}" width="120" height="95" class="rounded-3" alt="Imagem Da categoria Dos Produtos">
+        <div class="text-center">
+        <h1>{{ $categoria_produto->nome }}</h1>
+    </div>
+    </div>
+
+
+
+    @empty
+        <p>Nenhuma empresa cadastrada</p>
+    @endforelse
+</section>
+
+
 <header class="pt-5 ps-4"><h1>Todos os produtos</h1></header>
     <section class="d-flex flex-wrap py-4 ps-5">
         @forelse ($produtos as $produto)
@@ -91,24 +111,6 @@
             {{-- @endif --}}
         @endforelse
     </section>
-    <header class="pt-5 ps-4"><h1>A procura por Produtos</h1></header>
-    <section class="d-flex flex-wrap py-4 ps-5" >
-        @forelse ($categoria_produtos as $categoria_produto)
-        <a class="marcacao_a_remov" href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
-        <div class="card-categoria m-3">
-            <img src="{{ Voyager::image($categoria_produto->imagem) }}"
 
-                class=" imagem-categoria-produto" alt="Imagem da categoria">
-            <div class="card-body text-center">
-                <h5 class="card-title text-black">{{ $categoria_produto->nome }}</h5>
 
-            </div>
-        </div>
-        </a>
-        @empty
-            {{-- @if(sizeof($produtos) == 0) --}}
-                <p class="alert alert-success">Nenhuma Categoria Produto cadastrado</p>
-            {{-- @endif --}}
-    @endforelse
-    </section>
 @endsection
