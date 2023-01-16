@@ -6,7 +6,7 @@
 <header class="pt-5"><h1>Lojas Bem avaliadas</h1></header>
     <section class=" d-flex flex-wrap py-5 ">
     @forelse ($empresas_famosas as $empresa)
-            <div class="card-empresa">
+            <div class="card-empresa p-3 m-2">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="{{ Voyager::image($empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa">
@@ -51,7 +51,7 @@
 <header class="pt-5"><h1>Lojas</h1></header>
     <section class=" d-flex flex-wrap py-5 ">
     @forelse ($empresas as $empresa)
-            <div class="card-empresa">
+            <div class="card-empresa p-3 m-1">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="{{ Voyager::image($empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa">

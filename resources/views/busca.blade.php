@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<section class=" index_padding">
-
+<header class="pt-5"><h1 class="fw-bold">Buscando por <span class="text-danger" >{{request()->filtro}}</span></h1></header>
+<section class="d-flex flex-wrap py-5">
     @forelse ($produtos as $produto)
-        <a
-        {{-- botao Modal --}}
-        data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
-        {{-- Final botao Modal --}}>
-            <div class="card-link">
+    <a
+    {{-- botao Modal --}}
+    data-bs-toggle="modal" data-bs-target="#produto-modal-{{$produto->id}}"
+    {{-- Final botao Modal --}}>
+        <div class="card-link m-2 p-4">
 
-                <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
+            <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
 
-                <div class="card-componente">
-                    <h5 class="card-title">{{ $produto->nome }}</h5>
-                    <p class="card-text">{{ $produto->descricao }}</p>
-                    <p class="card-text">Preço${{ $produto->preco }} </p>
-                </div>
+            <div class="card-componente">
+                <h5 class="card-title">{{ $produto->nome }}</h5>
+                <p class="card-text">{{ $produto->descricao }}</p>
+                <p class="card-text">Preço${{ $produto->preco }} </p>
             </div>
-        </a>
+        </div>
+    </a>
 
         {{-- Inicio modal --}}
         <!-- Modal -->
@@ -87,13 +87,15 @@
 
     @empty
 
-            <p class="alert alert-info">Não encontrado nenhum Produto com o nome {{request()->filtro}}</p>
+    <p class="alert alert-success">Não encontrado nenhum Produto com o nome: {{request()->filtro}}</p>
+
     @endforelse
 </section>
-<section class=" d-flex flex-wrap index_empresa">
+<header class="pt-5"><h1 class="fw-bold">Buscando por <span class="text-danger" >{{request()->filtro}}</span></h1></header>
+<section class=" d-flex flex-wrap py-5">
     @forelse ($empresas as $empresa)
 
-            <div class="card-empresa">
+            <div class="card-empresa p-3 m-2">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="{{ Voyager::image($empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa">
@@ -112,9 +114,8 @@
             </div>
 
     @empty
-        <p>Nenhuma empresa cadastrada</p>
+    <p class="alert alert-success">Não encontrado nenhuma Empresa com esse nome: {{request()->filtro}}</p>
     @endforelse
 </section>
-
 
 @endsection
