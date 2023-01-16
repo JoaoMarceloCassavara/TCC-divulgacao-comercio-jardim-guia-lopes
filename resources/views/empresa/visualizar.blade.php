@@ -163,7 +163,7 @@
                                     <div class="col-md-4">
                                         <div class="card-modal shadow p-4 m-2 ">
                                             <img src="{{ Voyager::image($produto->imagem) }}" class="modal-imagem"
-                                                class="imagem-produto  alt="Imagem do produto">
+                                                class="imagem-produto"  alt="Imagem do produto">
                                         </div>
                                     </div>
 
