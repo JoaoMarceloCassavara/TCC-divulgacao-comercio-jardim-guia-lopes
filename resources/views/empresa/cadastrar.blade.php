@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<header  class="body-register_empresario">
+<div  class="body-register_empresario">
 
 <section class="register_empresario">
 
     <div class="nome-logo">
         <h1 class="text-register-empresario">Divulgue seu <br>
-            negócio em
+            negócio em <br>
             nosso site!</h1>
             <svg class="logo_do_site" width="239" height="199" viewBox="0 0 239 199" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="239" height="199" fill="url(#pattern0)"/>
@@ -22,7 +22,7 @@
     </div>
 
      <div class="cadastro_empresario">
-        <div class="header-register-empresario text-center">{{ __('Informações sobre a sua empresa!') }}</div>
+        <div class="header-register-empresario text-center py-5">{{ __('Informações sobre a sua empresa!') }}</div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('empresa.salvar') }}">
@@ -113,5 +113,5 @@
 
 
 </section>
-</header>
+</div>
 @endsection

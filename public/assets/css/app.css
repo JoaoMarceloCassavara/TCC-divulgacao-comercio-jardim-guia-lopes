@@ -1288,7 +1288,8 @@ h1 {
     background: rgba(64, 1, 1, 0.65);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    width: max-content;
+    max-width:490px ;
+    max-height: 220px;
 
 
 }
@@ -1912,7 +1913,7 @@ margin: 10px;
 .cadastro_empresario{
 background-color: rgba(255, 255, 255, 1);
 border-radius: 27px;
-height: 500px;
+height: 600px;
 width: 40%;
 }
 .register_empresario{
@@ -1927,7 +1928,7 @@ width: 40%;
     font-size: 30px;
     line-height: 10px;
     /* or 33% */
-   margin: 50px;
+
 
 
     color: #000000;
