@@ -2,25 +2,21 @@
 
 @section('conteudo')
 <header class="pt-5"><h1>O que procura de Lojas</h1></header>
-    <section class="d-flex flex-wrap py-5">
-        @forelse ($categoria_empresas as $categoria_empresa)
-            <a class="m-4 marcacao_a_remov " href="{{ route('empresa.categoria', ['id' => $categoria_empresa->id]) }}">
-
-                <div class="card-categoria-empresa ">
-
-                    <img src="{{ Voyager::image($categoria_empresa->imagem) }}" class=" imagem-categoria-empresa" alt="Imagem da categoria">
-
-                    <div class="card-body text-center">
-                        <h5 class="card-title text-black">{{ $categoria_empresa->nome }}</h5>
-
-                    </div>
+<section class="d-flex flex-wrap py-4 ps-5">
+    @forelse ($categoria_empresas as $categoria_empresa)
+        <a class="marcacao_a_remov text-black" href="{{ route('empresa.categoria', ['id' => $categoria_empresa->id]) }}">
+            <div class="card_categoria_produto rounded-3 p-5 m-3">
+                <img src="{{ Voyager::image($categoria_empresa->imagem) }}" width="120" height="95" class="rounded-3"
+                    alt="Imagem Da categoria Dos Produtos">
+                <div class="text-center ">
+                    <p class="fs-5 card-title">{{ $categoria_empresa->nome }}</p>
                 </div>
-                </div>
-            </a>
-        @empty
-            <p>Nenhuma Categoria Empresa cadastrado</p>
-        @endforelse
-    </section>
+            </div>
+        </a>
+    @empty
+        <p>Nenhuma empresa cadastrada</p>
+    @endforelse
+</section>
     <section class=" d-flex flex-wrap py-5">
         @forelse ($empresas as $empresa)
 
