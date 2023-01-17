@@ -14,7 +14,7 @@
             </div>
         </a>
     @empty
-        <p>Nenhuma empresa cadastrada</p>
+        <p class="alert alert-success">Nenhuma empresa cadastrada</p>
     @endforelse
 </section>
     <section class=" d-flex flex-wrap py-5">

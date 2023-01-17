@@ -8,7 +8,7 @@
     <section class="d-flex flex-wrap py-4 ps-5">
         @forelse ($categoria_produtos as $categoria_produto)
             <a class="marcacao_a_remov text-black" href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
-                <div class="card_categoria_produto rounded-3 p-5 m-3">
+                <div class="card_categoria_produto rounded-3 p-5 m-2">
                     <img src="{{ Voyager::image($categoria_produto->imagem) }}" width="120" height="95" class="rounded-3"
                         alt="Imagem Da categoria Dos Produtos">
                     <div class="text-center py-2">
@@ -17,7 +17,7 @@
                 </div>
             </a>
         @empty
-            <p>Nenhuma empresa cadastrada</p>
+            <p class="alert alert-success">Nenhuma categoria para Produto cadastrada</p>
         @endforelse
     </section>
 

@@ -232,9 +232,7 @@
                 {{-- Final MOdal --}}
 
             @empty
-                {{-- @if (sizeof($categoria_produtos) == 0) --}}
                     <p class="alert alert-success">Nenhum produto cadastrado para essa empresa</p>
-                {{-- @endif --}}
             @endforelse
         </section>
     @endforeach
