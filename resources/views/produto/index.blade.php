@@ -11,7 +11,7 @@
                 <div class="card_categoria_produto rounded-3 p-5 m-3">
                     <img src="{{ Voyager::image($categoria_produto->imagem) }}" width="120" height="95" class="rounded-3"
                         alt="Imagem Da categoria Dos Produtos">
-                    <div class="text-center ">
+                    <div class="text-center py-2">
                         <p class="fs-5 card-title">{{ $categoria_produto->nome }}</p>
                     </div>
                 </div>

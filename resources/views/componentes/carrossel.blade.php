@@ -6,80 +6,63 @@
                 @else
                     <div class="carousel-item d-flex justify-content-center">
             @endif
-            <a class="m-4 marcacao_a_remov "
+            <a class="m-4 marcacao_a_remov text-black"
                 href="{{ route('empresa.categoria', ['id' => $categoria_empresas[$posicao]->id]) }}">
-
-                <div class="card-categoria-empresa ">
-
-                    <img src="{{ Voyager::image($categoria_empresas[$posicao]->imagem) }}"
-                        class=" imagem-categoria-empresa" alt="Imagem da categoria">
-
-                    <div class="card-body text-center">
-                        <h5 class="card-title text-black">{{ $categoria_empresas[$posicao]->nome }}</h5>
-
+                <div class="card_categoria_produto rounded-3 p-5 m-2">
+                    <img src="{{ Voyager::image($categoria_empresas[$posicao]->imagem) }}" width="120" height="95" class="rounded-3"
+                        alt="Imagem Da categoria Dos Produtos">
+                    <div class="text-center py-2">
+                        <p class="fs-5 card-title">{{ $categoria_empresas[$posicao]->nome }}</p>
                     </div>
                 </div>
             </a>
             @if ($posicao + 1 < count($categoria_empresas))
-                <a class="m-4 marcacao_a_remov "
+                <a class="m-4 marcacao_a_remov text-black "
                     href="{{ route('empresa.categoria', ['id' => $categoria_empresas[$posicao + 1]->id]) }}">
-
-                    <div class="card-categoria-empresa ">
-
-                        <img src="{{ Voyager::image($categoria_empresas[$posicao + 1]->imagem) }}"
-                            class=" imagem-categoria-empresa" alt="Imagem da categoria">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-black">{{ $categoria_empresas[$posicao + 1]->nome }}</h5>
-
+                    <div class="card_categoria_produto rounded-3 p-5 m-2">
+                        <img src="{{ Voyager::image($categoria_empresas[$posicao +1]->imagem) }}" width="120" height="95" class="rounded-3"
+                            alt="Imagem Da categoria Dos Produtos">
+                        <div class="text-center py-2">
+                            <p class="fs-5 card-title">{{ $categoria_empresas[$posicao +1]->nome }}</p>
                         </div>
                     </div>
                 </a>
             @endif
             @if ($posicao + 2 < count($categoria_empresas))
-                <a class="m-4 marcacao_a_remov "
+                <a class="m-4 marcacao_a_remov text-black "
                     href="{{ route('empresa.categoria', ['id' => $categoria_empresas[$posicao + 2]->id]) }}">
 
-                    <div class="card-categoria-empresa ">
-
-                        <img src="{{ Voyager::image($categoria_empresas[$posicao + 2]->imagem) }}"
-                            class=" imagem-categoria-empresa" alt="Imagem da categoria">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-black">{{ $categoria_empresas[$posicao + 2]->nome }}</h5>
-
+                    <div class="card_categoria_produto rounded-3 p-5 m-2">
+                        <img src="{{ Voyager::image($categoria_empresas[$posicao +2]->imagem) }}" width="120" height="95" class="rounded-3"
+                            alt="Imagem Da categoria Dos Produtos">
+                        <div class="text-center py-2">
+                            <p class="fs-5 card-title">{{ $categoria_empresas[$posicao +2]->nome }}</p>
                         </div>
                     </div>
                 </a>
             @endif
             @if ($posicao + 3 < count($categoria_empresas))
-                <a class="m-4 marcacao_a_remov "
+                <a class="m-4 marcacao_a_remov text-black"
                     href="{{ route('empresa.categoria', ['id' => $categoria_empresas[$posicao + 3]->id]) }}">
 
-                    <div class="card-categoria-empresa ">
-
-                        <img src="{{ Voyager::image($categoria_empresas[$posicao + 3]->imagem) }}"
-                            class=" imagem-categoria-empresa" alt="Imagem da categoria">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-black">{{ $categoria_empresas[$posicao + 3]->nome }}</h5>
-
+                    <div class="card_categoria_produto rounded-3 p-5 m-2">
+                        <img src="{{ Voyager::image($categoria_empresas[$posicao +3]->imagem) }}" width="120" height="95" class="rounded-3"
+                            alt="Imagem Da categoria Dos Produtos">
+                        <div class="text-center py-2">
+                            <p class="fs-5 card-title ">{{ $categoria_empresas[$posicao +3]->nome }}</p>
                         </div>
                     </div>
                 </a>
             @endif
             @if ($posicao + 4 < count($categoria_empresas))
-                <a class="m-4 marcacao_a_remov "
+                <a class="m-4 marcacao_a_remov text-black"
                     href="{{ route('empresa.categoria', ['id' => $categoria_empresas[$posicao + 4]->id]) }}">
 
-                    <div class="card-categoria-empresa ">
-
-                        <img src="{{ Voyager::image($categoria_empresas[$posicao + 4]->imagem) }}"
-                            class=" imagem-categoria-empresa" alt="Imagem da categoria">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-black">{{ $categoria_empresas[$posicao + 4]->nome }}</h5>
-
+                    <div class="card_categoria_produto rounded-3 p-5 m-2">
+                        <img src="{{ Voyager::image($categoria_empresas[$posicao +4]->imagem) }}" width="120" height="95" class="rounded-3"
+                            alt="Imagem Da categoria Dos Produtos">
+                        <div class="text-center py-2">
+                            <p class="fs-5 card-title ">{{ $categoria_empresas[$posicao +4]->nome }}</p>
                         </div>
                     </div>
                 </a>
