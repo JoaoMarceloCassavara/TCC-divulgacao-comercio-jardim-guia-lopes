@@ -7,6 +7,7 @@ use App\Models\Empresa;
 use App\Models\Categoria;
 use App\Models\CategoriaEmpresa;
 use App\Models\CategoriaProduto;
+use App\Models\PedidoProduto;
 use App\Models\Pedido;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -168,15 +169,41 @@ Route::middleware(['auth'])->group(function () {
              })->name('empresa.salvar');
 
 
-		// rota para adicionar as fotos selecionadas no carrinho
+
     Route::post('/carrinho', function (Request $request) {
-        //TODO: criar pedido com status cadastrado
-        //adicionar os itens pedidos, usuário e data
-        // $carrinho = new Pedido();
-        // $carrinho->user_id = Auth::user()->id ?? 1;
-        //$carrinho->saveMany($request->fotos);
-        dd($request);
-        return view('carrinho.index', compact('carrinho'));
+        //criar vetor fazio com varialvel pedido vai guardar uma lista
+        $pedidos = [];
+       //criando um vetor fazio com variavel pedidosPorEmpresa que vai guardar uma empresa e uma lista de produtos
+        $pedidosPorEmpresa = [];
+				//separar os produtos por empresa
+        foreach ($request->produtos as $produto_id) {
+            //buscando por um produto com o (id)= $produto_id que esta sendo passado pelo request
+            $produto = Produto::find($produto_id);
+            //adiciona ao vetor pedidosPorEmpresa com a chave empresa id o produto
+            $pedidosPorEmpresa[$produto->empresa()->first()->id][] = $produto;
+        }
+				//para cada empresa criar um pedido
+        foreach ($pedidosPorEmpresa as $empresa_id => $produtos) {
+            //Criando um objeto Pedido
+            $pedido = new Pedido();
+            //prenche a coluna user_id com um usuario logado
+            $pedido->user_id = Auth::user()->id;
+
+            $pedido->empresa_id = $empresa_id;
+            //Salva na tabela pedidos as colunas que foram prenchidas
+            $pedido->save();
+            //para cada produto criar iten pedido
+            foreach($produtos as $produto){
+                $itemPedido = new PedidoProduto();
+                $itemPedido->pedido_id = $pedido->id;
+                $itemPedido->produto_id = $produto->id;
+                $itemPedido->save();
+
+            }
+
+            $pedidos[] = $pedido;
+        }
+        return view('pedido.index', compact('pedidos'));
     })->name('carrinho');
 
 

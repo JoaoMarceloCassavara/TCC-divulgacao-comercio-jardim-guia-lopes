@@ -18,7 +18,7 @@
                     <div class="col-md-8">
                         <div class="titulo_empresa">
                             <h5 class="nome_empresa text-white">{{ $empresa->nome }}</h5>
-                            <h6 class="categoria_empresa text-white">{{ $empresa->categoria->nome }}</h6>
+                            <h6 class="categoria_empresa text-white">{{ $empresa?->categoria?->nome }}</h6>
                             <p class="localizacao-empre text-white">11km</p>
                             <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
                                 href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i
@@ -66,7 +66,7 @@
                     <div class="col-md-8">
                         <div class="titulo_empresa">
                             <h5 class="nome_empresa text-white">{{ $empresa->nome }}</h5>
-                            <h6 class="categoria_empresa text-white">{{ $empresa->categoria->nome }}</h6>
+                            <h6 class="categoria_empresa text-white">{{ $empresa?->categoria?->nome }}</h6>
                             <p class="localizacao-empre text-white">11km</p>
                             <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
                                 href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
-    // belongmany produto
-    // belong to usuario fazer 
+    // belong to empresa empresa_id
+    // belong to usuario user_id
+    //belongtomany pedido produto
 }

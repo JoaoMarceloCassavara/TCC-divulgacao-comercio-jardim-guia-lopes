@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PedidoProduto extends Model
 {
-    
+     //belogto produto
+     //belgongto pedido
 }
