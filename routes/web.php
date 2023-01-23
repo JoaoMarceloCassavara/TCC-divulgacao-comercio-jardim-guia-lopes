@@ -206,7 +206,11 @@ Route::middleware(['auth'])->group(function () {
         return view('pedido.index', compact('pedidos'));
     })->name('carrinho');
 
-
+    Route::get('/lista/pedidos', function () {
+        $pedidos = Pedido::where('user_id',Auth::user()->id )->count();
+        $produtos = Produto::all();
+        return view('pedido.listar_pedido', compact('pedidos', 'produtos'));
+    })->name('listaPedido');
 
 });
 

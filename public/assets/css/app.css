@@ -1283,40 +1283,11 @@ h1 {
 
 /* estrelas */
 
-.card-empresa {
 
-    background: rgba(64, 1, 1, 0.65);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    max-width:490px ;
-    max-height: 220px;
-
-
-}
 .botao_conferir_produto{
 background-color: rgba(64, 1, 1, 0.65);
 }
-.foto_empresa {
 
-
-    width: 150px;
-    height: 150px;
-    left: calc(50% - 150px/2 - 441.5px);
-    top: 447px;
-
-    /* margin-left: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px; */
-    border-radius: 50%;
-}
-
-.titulo_empresa {
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-right: 70px;
-    width: max-content;
-
-}
 
 .nome_empresa {
     font-family: 'Inter';
@@ -1325,23 +1296,8 @@ background-color: rgba(64, 1, 1, 0.65);
     font-size: 20px;
     line-height: 24px;
     text-align: center;
-
 }
 
-.categoria_empresa {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-}
-
-.localizacao-empre {
-    margin-right: 100px;
-}
 
 
 .imagem-categoria-empresa {
@@ -2024,3 +1980,29 @@ padding-top: 7.2vh;
 
 
 /* Visualizar Empresa Topo Fim */
+
+
+/* Card da Empresa */
+.card_empresa{
+background-color: rgba(64, 1, 1, 0.65);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 15px;
+width: 490px;
+max-width:490px ;
+max-height: 220px;
+}
+
+/* Card da Empresa Fim */
+
+/* Card Lista de Pedidos */
+.card_lista_pedidos{
+background-color: #83A603;
+border-radius: 10px 10px 0px 0px;
+width: 120vh;
+margin: 0 auto;
+}
+.card_lista_pedidos_produto{
+background-color: rgba(232, 229, 212, 1);
+}
+
+/* Card Lista de Pedidos Fim  */
