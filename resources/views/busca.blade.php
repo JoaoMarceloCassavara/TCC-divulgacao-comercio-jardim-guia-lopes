@@ -10,7 +10,7 @@
     {{-- Final botao Modal --}}>
         <div class="card-link m-2 p-4">
 
-            <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto">
+            <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"  alt="Imagem do produto" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
 
             <div class="card-componente">
                 <h5 class="card-title">{{ $produto->nome }}</h5>
@@ -34,7 +34,7 @@
                     <section class=" d-flex flex-wrap index_padding">
                         <div class="col-md-4">
                             <div class="card-modal shadow p-4 m-2 ">
-                                <img src="{{ Voyager::image($produto->imagem) }}" class="modal-imagem" class="imagem-produto  alt="Imagem do produto">
+                                <img src="{{ Voyager::image($produto->imagem) }}" class="modal-imagem" class="imagem-produto"  alt="Imagem do produto"onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                             </div>
                         </div>
 
@@ -98,7 +98,7 @@
             <div class="card-empresa p-3 m-2">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{ Voyager::image($empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa">
+                        <img src="{{ Voyager::image($empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                     </div>
                     <div class="col-md-8">
                         <div class="titulo_empresa">

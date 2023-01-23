@@ -11,7 +11,7 @@
             <div class="card-link m-2 p-4">
 
                 <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"
-                    alt="Imagem do produto">
+                    alt="Imagem do produto"onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
 
                 <div class="card-componente">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
@@ -37,7 +37,7 @@
                             <div class="col-md-4">
                                 <div class="card-modal shadow p-4 m-2 ">
                                     <img src="{{ Voyager::image($produto->imagem) }}" class="modal-imagem"
-                                        class="imagem-produto  alt="Imagem do produto">
+                                        class="imagem-produto"  alt="Imagem do produto"onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                                 </div>
                             </div>
 

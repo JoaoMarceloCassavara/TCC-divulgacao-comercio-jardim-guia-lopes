@@ -8,7 +8,7 @@
             <div class="card-empresa p-4 m-2">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{ Voyager::image($empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa">
+                        <img src="{{ Voyager::image($empresa->logo) }}" class=" foto_empresa" alt="Logo Empresa " onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                     </div>
                     <div class="col-md-8">
                         <div class="titulo_empresa">

@@ -40,5 +40,12 @@ class Produto extends Model
         return $this->hasMany(AvaliacoesProduto::class,'avaliacao','id');
     }
 
+    public function pedidos()
+{
+    return $this->belongsToMany(Pedido::class, 'pedido_produtos', 'produto_id','pedido_id')
+    //->withPivot('avaliacao','quantidade')
+    ;
+}
+
 
 }

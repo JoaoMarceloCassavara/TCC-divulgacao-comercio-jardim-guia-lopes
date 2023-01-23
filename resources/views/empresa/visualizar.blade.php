@@ -3,9 +3,9 @@
     <section class="d-flex py-5 ps-5">
         <div class="visualizar_icones_empresa position-relative">
             <img src="{{ Voyager::image($empresa->foto) }}"width="800" height="400" class="rounded-3"
-                alt="Imagem da Empresa">
+                alt="Imagem da Empresa" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
             <div class="position-absolute logo_empresa">
-                <img src="{{ Voyager::image($empresa->logo) }}"width="155" height="155" alt="Logo da Empresa" class="rounded-circle border border-dark">
+                <img src="{{ Voyager::image($empresa->logo) }}"width="155" height="155" alt="Logo da Empresa" class="rounded-circle border border-dark" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
             </div>
             <div class="nome_empresa_visualizar text-center">
                 <h5 class="fs-2 fw-bold  ">{{ $empresa->nome }}</h5>
@@ -136,7 +136,7 @@
                     <div class="card-link m-2 p-4">
 
                         <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185"
-                            class="imagem-produto" alt="Imagem do produto">
+                            class="imagem-produto" alt="Imagem do produto" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
 
                         <div class="card-componente">
                             <h5 class="card-title">{{ $produto->nome }}</h5>
@@ -163,7 +163,7 @@
                                     <div class="col-md-4">
                                         <div class="card-modal shadow p-4 m-2 ">
                                             <img src="{{ Voyager::image($produto->imagem) }}" class="modal-imagem"
-                                                class="imagem-produto"  alt="Imagem do produto">
+                                                class="imagem-produto"  alt="Imagem do produto" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                                         </div>
                                     </div>
 

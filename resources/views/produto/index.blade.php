@@ -10,7 +10,7 @@
             <a class="marcacao_a_remov text-black" href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
                 <div class="card_categoria_produto rounded-3 p-5 m-2">
                     <img src="{{ Voyager::image($categoria_produto->imagem) }}" width="120" height="95" class="rounded-3"
-                        alt="Imagem Da categoria Dos Produtos">
+                        alt="Imagem Da categoria Dos Produtos" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                     <div class="text-center py-2">
                         <p class="fs-5 card-title">{{ $categoria_produto->nome }}</p>
                     </div>
@@ -32,7 +32,7 @@
                 <div class="card-link m-2 p-4">
 
                     <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"
-                        alt="Imagem do produto">
+                        alt="Imagem do produto" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
 
                     <div class="card-componente">
                         <h5 class="card-title">{{ $produto->nome }}</h5>
@@ -58,7 +58,7 @@
                                 <div class="col-md-4">
                                     <div class="card-modal shadow p-4 m-2 ">
                                         <img src="{{ Voyager::image($produto->imagem) }}" class="modal-imagem"
-                                            class="imagem-produto  alt="Imagem do produto">
+                                            class="imagem-produto"  alt="Imagem do produto"onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                                     </div>
                                 </div>
 
