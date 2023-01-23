@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<header class="pt-5 ps-5">
-    <h1>Meus Pedidos</h1>
-</header>
-    @forelse ($produtos as $produto)
+    <header class="pt-5 ps-5">
+        <h1>Meus Pedidos</h1>
+    </header>
+    @forelse ($pedidos as $pedido)
         <section class="py-3">
             <div class="card_lista_pedidos">
-                <p class="fw-bold fs-5 m-1">Pedido N°{{ $produto->id }}</p>
-
+                <p class="fw-bold fs-5 m-1">Pedido N°{{ $pedido->id }}</p>
+                @forelse ($pedido->produtos as $produto )
                 <div class="card_lista_pedidos_produto py-5 d-flex justify-content-around">
                     <div class="d-flex">
                         <img src="https://cdn.awsli.com.br/600x700/305/305913/produto/10002147/laranja-f4abaf7d.jpg"width="150"
@@ -22,13 +22,16 @@
                     <div class="">
                         <a type="button" class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov">Comprar novamente</a>
                         <a type="button" class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov">Avaliar o produto</a>
-                        <a type="button" class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov">Avaliar o vendedor</a>
+                        <a type="button" class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov">Avaliar Empresa</a>
                         <h6 class="d-block my-2 fw-bold">Total do pedido R${{ $produto->preco }} </h6>
 
 
 
                     </div>
                 </div>
+                @empty
+                @endforelse
+
             </div>
         </section>
     @empty

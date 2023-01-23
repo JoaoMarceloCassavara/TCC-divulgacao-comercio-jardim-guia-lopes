@@ -27,25 +27,29 @@ class Produto extends Model
 
     public function categoria()
     {
-        return $this->belongsTo(CategoriaProduto::class,'categoria_produto_id', 'id');
+        return $this->belongsTo(CategoriaProduto::class, 'categoria_produto_id', 'id');
     }
 
     public function empresa()
     {
-        return $this->belongsTo(Empresa::class,'empresa_id', 'id');
+        return $this->belongsTo(Empresa::class, 'empresa_id', 'id');
     }
 
     public function avaliacoes()
     {
-        return $this->hasMany(AvaliacoesProduto::class,'avaliacao','id');
+        return $this->hasMany(AvaliacoesProduto::class, 'produto_id', 'id');
     }
 
     public function pedidos()
-{
-    return $this->belongsToMany(Pedido::class, 'pedido_produtos', 'produto_id','pedido_id')
-    //->withPivot('avaliacao','quantidade')
-    ;
-}
+    {
+        return $this->belongsToMany(Pedido::class, 'pedido_produtos', 'produto_id', 'pedido_id')
+            //->withPivot('avaliacao','quantidade')
+        ;
+    }
 
-
+    // obter preco formatado em reais formatados 
+    public function getPreco()
+    {
+        return 'R$ ' . number_format($this->preco, 2, ',', '.');
+    }
 }

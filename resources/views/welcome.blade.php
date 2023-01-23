@@ -50,7 +50,7 @@
     <section class=" d-flex flex-wrap py-5">
         @forelse ($empresas as $empresa)
                 <div class="card_empresa d-flex p-4 m-2 ">
-                    <img src="{{ Voyager::image($empresa->logo) }}"height="160" width="160" class="rounded-circle" alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                    <img src="{{ Voyager::image($empresa->logo) }}"height="160" width="160" class="rounded-circle" alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/produto_padrao.jpg') }}';">
                     <div class="col-md-8 ">
                         <h5 class="text-white text-center nome_empresa py-2">{{ $empresa->nome }}</h5>
                         <h6 class=" text-white ps-5">{{ $empresa?->categoria?->nome }}</h6>

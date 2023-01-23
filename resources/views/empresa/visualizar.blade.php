@@ -235,7 +235,17 @@
                     <p class="alert alert-success">Nenhum produto cadastrado para essa empresa</p>
             @endforelse
         </section>
-    @endforeach
 
+    @endforeach
+    @forelse ($empresa->avaliacoes as $avaliacao )
+    {{$avaliacao->avaliacao}}
+    {{$avaliacao->descricao}}
+    {{$avaliacao->updated_at}}
+    {{$avaliacao->usuario->name}}
+    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" class="modal-imagem"
+                                                class="imagem-produto"  alt="Imagem do produto" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+ @empty
+
+ @endforelse
     {{-- Produto por categoria final --}}
 @endsection

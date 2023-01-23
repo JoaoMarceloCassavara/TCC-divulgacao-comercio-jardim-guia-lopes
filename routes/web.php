@@ -206,15 +206,20 @@ Route::middleware(['auth'])->group(function () {
         return view('pedido.index', compact('pedidos'));
     })->name('carrinho');
 
+
+
     Route::get('/lista/pedidos', function () {
-        $pedidos = Pedido::where('user_id',Auth::user()->id )->count();
+        $pedidos = Pedido::where('user_id',Auth::user()->id )->get();
+            // $produtos = Produto::all();
+    //  dd($pedidos->produtos()->get());
 
-        $produtos = Produto::all();
-
-        return view('pedido.listar_pedido', compact('pedidos', 'produtos'));
+    // return $pedidos;
+        return view('pedido.listar_pedido', compact('pedidos'));
     })->name('listaPedido');
 
 });
+
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

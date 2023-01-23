@@ -43,7 +43,7 @@ class Empresa extends Model
 
     public function avaliacoes() // avaliacao empresa de muitos para muitos
     {
-        return $this->hasMany(AvaliacaoEmpresa::class,'avaliacao','id');
+        return $this->hasMany(AvaliacaoEmpresa::class,'empresa_id','id');
     }
 
 }

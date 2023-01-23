@@ -37,7 +37,7 @@
                     <div class="card-componente">
                         <h5 class="card-title">{{ $produto->nome }}</h5>
                         <p class="card-text">{{ $produto->descricao }}</p>
-                        <p class="card-text">Preço${{ $produto->preco }} </p>
+                        <p class="card-text">Preço {{ $produto->getPreco()}} </p>
                     </div>
                 </div>
             </a>
