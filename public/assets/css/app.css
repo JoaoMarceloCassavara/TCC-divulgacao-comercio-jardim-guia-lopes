@@ -2006,3 +2006,20 @@ background-color: rgba(232, 229, 212, 1);
 }
 
 /* Card Lista de Pedidos Fim  */
+
+/* Avaliação Produto */
+.card_avaliacao_produto{
+background-color: rgb(205, 218, 159);
+width: 100vh;
+
+}
+.descricao-avaliacao{
+
+
+}
+.textarea-avaliacao{
+    width: 100vh;
+    background-color:rgb(205, 218, 159) ;
+}
+
+/* Avaliação Produto Fim */

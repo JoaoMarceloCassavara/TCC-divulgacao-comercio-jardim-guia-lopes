@@ -145,7 +145,11 @@ Route::get('/saiba_mais', function () {
 })->name('saiba_mais');
 
 
-// rota para permitidas apenas para usuários autenticados
+
+
+
+
+// Rota para permitidas apenas para usuários autenticados
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/registrar_empresa', function () {
@@ -217,7 +221,15 @@ Route::middleware(['auth'])->group(function () {
         return view('pedido.listar_pedido', compact('pedidos'));
     })->name('listaPedido');
 
+
+    Route::get('/avaliar/produto', function () {
+        $pedidos = Pedido::where('user_id',Auth::user()->id )->get();
+
+        return view('pedido.avaliar_pedido_produto', compact('pedidos'));
+    })->name('avaliarproduto');
+
 });
+
 
 
 
