@@ -2013,13 +2013,20 @@ background-color: rgb(205, 218, 159);
 width: 100vh;
 
 }
-.descricao-avaliacao{
-
-
-}
 .textarea-avaliacao{
     width: 100vh;
     background-color:rgb(205, 218, 159) ;
 }
 
 /* Avaliação Produto Fim */
+
+
+/* Mostrar avalição da empresa */
+.card_avalicao_empresa{
+background-color: rgb(108, 140, 132);
+width: 150vh;
+margin: 0 auto
+}
+
+
+/* Mostrar avalição da empresa  Fim  */
