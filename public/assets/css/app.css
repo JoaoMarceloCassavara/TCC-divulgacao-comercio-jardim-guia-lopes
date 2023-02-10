@@ -1595,13 +1595,7 @@ font-size: 18px;
 
 
 /*Modal Produto*/
-.modal-margin {
-    background-color: rgba(232, 229, 212, 1);
-    border-radius: 15px;
-    right: 95px;
-    width: 90vh;
 
-}
 
 /* .modal-center{
     display: flex;
@@ -1999,10 +1993,11 @@ margin: 0 auto
 
 .card_avaliacao_produto{
     background-color: rgba(217, 217, 217, 1);
-    /* width: 150vh; */
+    width: 150vh;
     margin: 0 auto
 }
 .modal-produto{
-width: 120vh;
+    background-color: rgba(232, 229, 212, 1);
 }
+
 /* Mostrar Avaliação empresa Fim */
