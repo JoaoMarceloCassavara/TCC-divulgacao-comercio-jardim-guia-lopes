@@ -2023,7 +2023,7 @@ width: 100vh;
 
 /* Mostrar avalição da empresa */
 .card_avalicao_empresa{
-background-color: rgb(108, 140, 132);
+background-color: rgba(217, 217, 217, 1);
 width: 150vh;
 margin: 0 auto
 }
