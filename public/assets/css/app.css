@@ -1196,10 +1196,7 @@ section#mapa form#mapaForm :-ms-input-placeholder {
     color: #FFFFFF;
 }
 
-.imagem-produto {
-    border-radius: 14px;
 
-}
 
 .produtos {
     display: inline-block;
@@ -1413,16 +1410,8 @@ margin-top: 20px;
     display: flex;
 align-items: center;
 } */
-.modal-imagem {
-
-
-    width: 180px;
-    height: 155px;
-    margin-left: 6px;
-    margin-top: 31px;
-    border-radius: 10px;
-
-
+.modal-card-produto{
+background-color: rgba(64, 1, 1, 0.85);
 }
 
 .link-criar-conta {
@@ -1631,19 +1620,6 @@ align-items: center;
 
 
 }
-
-
-
-.modal-font-produto {
-
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 48px;
-}
-
 .card-text-modal {
     margin-left: 90px;
 }
@@ -2007,18 +1983,6 @@ background-color: rgba(232, 229, 212, 1);
 
 /* Card Lista de Pedidos Fim  */
 
-/* Avaliação Produto */
-.card_avaliacao_produto{
-background-color: rgb(205, 218, 159);
-width: 100vh;
-
-}
-.textarea-avaliacao{
-    width: 100vh;
-    background-color:rgb(205, 218, 159) ;
-}
-
-/* Avaliação Produto Fim */
 
 
 /* Mostrar avalição da empresa */
@@ -2030,3 +1994,15 @@ margin: 0 auto
 
 
 /* Mostrar avalição da empresa  Fim  */
+
+/* Mostrar Avaliação empresa  */
+
+.card_avaliacao_produto{
+    background-color: rgba(217, 217, 217, 1);
+    /* width: 150vh; */
+    margin: 0 auto
+}
+.modal-produto{
+width: 120vh;
+}
+/* Mostrar Avaliação empresa Fim */
