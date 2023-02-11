@@ -273,20 +273,19 @@
             @endforelse
         </section>
     @endforeach
+    <hr class="border border-dark ">
     <header class="py-5 ps-5">
-        <h1 class="fw-bold">Avaliação da empresa</h1>
+        <h1 class="fw-bold">Avaliações</h1>
     </header>
     @forelse ($empresa->avaliacoes as $avaliacao)
-        <div class="card_avalicao_empresa rounded-3">
-            <div class="d-flex justify-content-around  m-4 p-2">
-                <div class="d-flex">
-                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" class="modal-imagem"
-                        class="imagem-produto" alt="Imagem do produto"
+        <div class="card_avaliacao_empresa rounded-3">
+            <div class="d-flex bd-highlight mb-3  m-4">
+                <div class="d-flex align-items-center">
+                    <div class="py-5 flex-shrink-0">
+                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="160" height="140"
+                         alt="Imagem do produto"
                         onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
-
-                    <div class="ps-3 py-5">
-                        <p>{{ $avaliacao->usuario->name }}</p>
-                        {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
+                         <div>
                         <fieldset class="rating">
                             <input type="radio" id="star5" name="rating" value="5" /><label class="full"
                                 for="star5" title="Awesome - 5 stars"></label>
@@ -309,6 +308,12 @@
                             <input type="radio" id="starhalf" name="rating" value="half" /><label class="half"
                                 for="starhalf" title="Sucks big time - 0.5 stars"></label>
                         </fieldset>
+                    </div>
+                    </div>
+                    <div class="py-5 flex-grow-1 ms-3 p-2 bd-highlight">
+                        <p class="text-brea">{{ $avaliacao->usuario->name }} </p>
+                        {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
+
 
                         <p>{{ $avaliacao->updated_at }}</p>
 
@@ -316,7 +321,7 @@
 
                 </div>
 
-                <div class="d-flex align-items-center w-50 p-3">
+                <div class="d-flex align-items-center w-50 p-3 ms-auto p-2 bd-highlight ">
 
                     <p class="text-break">{{ $avaliacao->descricao }}</p>
 

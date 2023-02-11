@@ -1980,9 +1980,9 @@ background-color: rgba(232, 229, 212, 1);
 
 
 /* Mostrar avalição da empresa */
-.card_avalicao_empresa{
+.card_avaliacao_empresa{
 background-color: rgba(217, 217, 217, 1);
-width: 150vh;
+width: 170vh;
 margin: 0 auto
 }
 
@@ -1992,9 +1992,10 @@ margin: 0 auto
 /* Mostrar Avaliação empresa  */
 
 .card_avaliacao_produto{
-    background-color: rgba(217, 217, 217, 1);
-    /* width: 150vh; */
-    margin: 0 auto
+    /* background-color: rgba(255, 255, 255, 0.258); */
+    width: 140vh;
+    margin: 0 auto;
+
 }
 .modal-produto{
     background-color: rgba(232, 229, 212, 1);

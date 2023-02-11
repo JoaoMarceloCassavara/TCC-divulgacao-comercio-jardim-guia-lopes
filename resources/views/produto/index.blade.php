@@ -48,7 +48,7 @@
             <!-- Modal -->
             <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
                 aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true">
-                <div class="modal-dialog modal-lg ">
+                <div class="modal-dialog modal-xl ">
                     <div class="modal-content modal-produto">
                         <div class="modal-header">
                             <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
@@ -119,16 +119,17 @@
                                 carrinho</button>
                         </div>
                         <hr class="border border-dark ">
-                        <div class="">
-                        <header class="ps-3"><p class="fw-bold fs-4">Avaliações</p></header>
+
+                        <header class="ps-3 py-4"><p class="fw-bold fs-4">Avaliações</p></header>
                         @forelse ($produto->avaliacoes as $avaliacao)
-                        <div class="card_avaliacao_produto rounded-3">
-                            <div class="d-flex justify-content-around ">
-                                <div class="d-flex" >
-                                    <div class="py-4">
-                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="160" height="140" alt="Imagem do produto"
-                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
-                                        <div class="py-2">
+                        <div class="card_avaliacao_produto rounded-3 shadow  mb-5 bg-body rounde">
+                            <div class="d-flex bd-highlight mb-3  m-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="py-5 flex-shrink-0">
+                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="160" height="140"
+                                         alt="Imagem do produto" class="rounded-circle"
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
+                                         <div>
                                         <fieldset class="rating">
                                             <input type="radio" id="star5" name="rating" value="5" /><label class="full"
                                                 for="star5" title="Awesome - 5 stars"></label>
@@ -153,18 +154,18 @@
                                         </fieldset>
                                     </div>
                                     </div>
-                                    <div class=" py-4">
-                                        <div class="w-50">
-                                        <p>{{ $avaliacao->usuario->name }}</p>
+                                    <div class="py-5 flex-grow-1 ms-3 p-2 bd-highlight">
+                                        <p class="text-brea">{{ $avaliacao->usuario->name }} </p>
                                         {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
-                                    </div>
+
+
                                         <p>{{ $avaliacao->updated_at }}</p>
 
                                     </div>
 
                                 </div>
 
-                                <div class="d-flex align-items-center w-50 p-3">
+                                <div class="d-flex align-items-center w-50 p-3 ms-auto p-2 bd-highlight ">
 
                                     <p class="text-break">{{ $avaliacao->descricao }}</p>
 
@@ -173,9 +174,14 @@
                             </div>
 
                         </div>
+
+
+
+
+
                     @empty
                     @endforelse
-                        </div>
+
                     </div>
                 </div>
             </div>
