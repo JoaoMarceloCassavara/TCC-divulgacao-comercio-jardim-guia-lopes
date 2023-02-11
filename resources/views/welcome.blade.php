@@ -22,7 +22,7 @@
             </div>
         </div>
 @empty
-    <p>Nenhuma empresa cadastrada</p>
+<p class="alert alert-success">Nenhuma empresa cadastrada</p>
 @endforelse
     </section>
     <header class="pt-5">
@@ -41,7 +41,7 @@
                 </div>
             </a>
         @empty
-            <p>Nenhuma empresa cadastrada</p>
+        <p class="alert alert-success">Nenhuma categoria cadastrada para produro</p>
         @endforelse
     </section>
     <header class="pt-5">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
         @empty
-            <p>Nenhuma empresa cadastrada</p>
+        <p class="alert alert-success">Nenhuma empresa cadastrada</p>
         @endforelse
     </section>
 @endsection

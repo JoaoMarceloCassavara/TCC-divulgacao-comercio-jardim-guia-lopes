@@ -33,7 +33,7 @@
                     </div>
                 </div>
         @empty
-            <p>Nenhuma empresa cadastrada</p>
+        <p class="alert alert-success">Nenhuma empresa cadastrada</p>
         @endforelse
     </section>
 @endsection

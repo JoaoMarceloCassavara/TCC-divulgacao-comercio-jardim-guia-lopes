@@ -57,14 +57,14 @@
                         <div class="modal-body">
                             <div class="d-flex ps-5 ">
                                 <div class="modal-card-produto p-4 rounded-3">
-                                    <img src="{{ Voyager::image($produto->imagem) }}" width="160" height="140"
+                                    <img src="{{ Voyager::image($produto->imagem) }}" width="170" height="160"
                                         class="rounded-3" alt="Imagem do produto"
                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                                 </div>
 
-                                <div class="ps-5">
+                                <div class="ps-4">
 
-                                    <h5 class="">{{ $produto->nome }}</h5>
+                                    <p class=" fw-bold fs-3">{{ $produto->nome }}</p >
                                     <fieldset class="rating">
                                         <input type="radio" id="star5" name="rating"
                                             value="5" /><label class="full" for="star5"
@@ -97,13 +97,9 @@
                                             value="half" /><label class="half" for="starhalf"
                                             title="Sucks big time - 0.5 stars"></label>
                                     </fieldset>
-                                    <p>Pedidos</p>
-
-                                    <div class="py-2">
-                                        <p>Avaliações do produto</p>
-
-
-                                    </div>
+                                    <div class="py-5">
+                                    <p class="fw-bold fs-5">Pedidos</p>
+                                </div>
                                 </div>
 
 
@@ -180,6 +176,7 @@
 
 
                     @empty
+                    <p class="alert alert-success">Nenhuma avaliação cadastrada para esse produto</p>
                     @endforelse
 
                     </div>
