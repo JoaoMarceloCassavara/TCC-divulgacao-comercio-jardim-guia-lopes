@@ -48,7 +48,7 @@
             <!-- Modal -->
             <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
                 aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true">
-                <div class="modal-dialog modal-xl ">
+                <div class="modal-dialog modal-lg ">
                     <div class="modal-content modal-produto">
                         <div class="modal-header">
                             <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
@@ -99,7 +99,11 @@
                                     </fieldset>
                                     <p>Pedidos</p>
 
+                                    <div class="py-2">
+                                        <p>Avaliações do produto</p>
 
+
+                                    </div>
                                 </div>
 
 
@@ -119,45 +123,50 @@
                         <header class="ps-3"><p class="fw-bold fs-4">Avaliações</p></header>
                         @forelse ($produto->avaliacoes as $avaliacao)
                         <div class="card_avaliacao_produto rounded-3">
-                            <div class="d-flex justify-content-between m-4">
-                                <div class="d-flex justify-content-evenly" >
+                            <div class="d-flex justify-content-around ">
+                                <div class="d-flex" >
                                     <div class="py-4">
-                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="140" alt="Imagem do produto"
+                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="160" height="140" alt="Imagem do produto"
                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
-                                   <div class="py-2">
+                                        <div class="py-2">
                                         <fieldset class="rating">
-                                            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                                            <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                                            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                                            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                                            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                                            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                                            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                            <input type="radio" id="star5" name="rating" value="5" /><label class="full"
+                                                for="star5" title="Awesome - 5 stars"></label>
+                                            <input type="radio" id="star4half" name="rating" value="4 and a half" /><label
+                                                class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                            <input type="radio" id="star4" name="rating" value="4" /><label class="full"
+                                                for="star4" title="Pretty good - 4 stars"></label>
+                                            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label
+                                                class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                            <input type="radio" id="star3" name="rating" value="3" /><label class="full"
+                                                for="star3" title="Meh - 3 stars"></label>
+                                            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label
+                                                class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                            <input type="radio" id="star2" name="rating" value="2" /><label class="full"
+                                                for="star2" title="Kinda bad - 2 stars"></label>
+                                            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label
+                                                class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                            <input type="radio" id="star1" name="rating" value="1" /><label class="full"
+                                                for="star1" title="Sucks big time - 1 star"></label>
+                                            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half"
+                                                for="starhalf" title="Sucks big time - 0.5 stars"></label>
                                         </fieldset>
                                     </div>
                                     </div>
-                                    <div class="w-50">
-
-                                        <p class="fw-bold text-break">{{ $avaliacao->usuario->name }}</p>
-
-
+                                    <div class=" py-4">
+                                        <div class="w-50">
+                                        <p>{{ $avaliacao->usuario->name }}</p>
                                         {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
-
-
-
+                                    </div>
                                         <p>{{ $avaliacao->updated_at }}</p>
-
 
                                     </div>
 
                                 </div>
 
-                                 <div class="d-flex align-items-center w-100 ">
+                                <div class="d-flex align-items-center w-50 p-3">
 
-                                    <p class="text-break ">{{ $avaliacao->descricao }}</p>
+                                    <p class="text-break">{{ $avaliacao->descricao }}</p>
 
                                 </div>
 

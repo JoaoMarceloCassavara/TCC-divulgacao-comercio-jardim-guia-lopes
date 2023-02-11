@@ -1993,7 +1993,7 @@ margin: 0 auto
 
 .card_avaliacao_produto{
     background-color: rgba(217, 217, 217, 1);
-    width: 150vh;
+    /* width: 150vh; */
     margin: 0 auto
 }
 .modal-produto{
