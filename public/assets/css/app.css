@@ -1989,7 +1989,7 @@ margin: 0 auto
 
 /* Mostrar avalição da empresa  Fim  */
 
-/* Mostrar Avaliação empresa  */
+/* Mostrar Produto */
 
 .card_avaliacao_produto{
     /* background-color: rgba(255, 255, 255, 0.258); */
@@ -2001,4 +2001,16 @@ margin: 0 auto
     background-color: rgba(232, 229, 212, 1);
 }
 
-/* Mostrar Avaliação empresa Fim */
+/* Mostrar Avaliação Produto Fim */
+
+/* Adicionar Avaliação Produto */
+.card_avaliacao_produto_add{
+    background-color: rgba(236, 243, 211, 1);
+    width: 100vh;
+
+}
+.textarea-avaliacao{
+    background-color: rgba(236, 243, 211, 1);
+}
+
+/* Adicionar Avaliação Produto Fim */

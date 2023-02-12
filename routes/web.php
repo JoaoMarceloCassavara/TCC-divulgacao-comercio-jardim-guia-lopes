@@ -222,11 +222,26 @@ Route::middleware(['auth'])->group(function () {
     })->name('listaPedido');
 
 
-    Route::get('/avaliar/produto', function () {
-        $pedidos = Pedido::where('user_id',Auth::user()->id )->get();
+    Route::get('/avaliar/produto/{id}', function ($id) {
+        $pedido = Pedido::where('user_id',Auth::user()->id )->find($id)->get();
+        // $pedido = Pedido::find($id);
+        // $produto =PedidoProduto::where('pedido_id',$pedido->id)->get();
 
-        return view('pedido.avaliar_pedido_produto', compact('pedidos'));
+
+
+        return view('pedido.avaliar_pedido_produto', compact('pedido'));
     })->name('avaliarproduto');
+
+
+    Route::get('/avaliar/empresa/{id}', function ($id) {
+        $pedido = Pedido::where('user_id',Auth::user()->id )->find($id)->get();
+        // $pedido = Pedido::find($id);
+        // $produto =PedidoProduto::where('pedido_id',$pedido->id)->get();
+
+
+
+        return view('pedido.avaliar_pedido_empresa', compact('pedido'));
+    })->name('avaliarempresa');
 
 });
 
