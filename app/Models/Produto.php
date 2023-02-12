@@ -47,7 +47,7 @@ class Produto extends Model
         ;
     }
 
-    // obter preco formatado em reais formatados 
+    // obter preco formatado em reais formatados
     public function getPreco()
     {
         return 'R$ ' . number_format($this->preco, 2, ',', '.');

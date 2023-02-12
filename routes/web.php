@@ -223,13 +223,22 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/avaliar/produto/{id}', function ($id) {
-        $pedido = Pedido::where('user_id',Auth::user()->id )->find($id)->get();
-        // $pedido = Pedido::find($id);
-        // $produto =PedidoProduto::where('pedido_id',$pedido->id)->get();
+        $pedido = PedidoProduto::find($id);
+
+        $produto = Produto::where('user_id',$pedido->id)->get();
+        // $produto->pivot->avaliacao;
+
+
+        // $pedido =Pedido::where('user_id',$produto->id)->get();
+        // return $pedido;
+        // return $produto;
+        // dd($pedido);
+        // dd($produto);
 
 
 
-        return view('pedido.avaliar_pedido_produto', compact('pedido'));
+
+        return view('pedido.avaliar_pedido_produto', compact('pedido','produto'));
     })->name('avaliarproduto');
 
 
