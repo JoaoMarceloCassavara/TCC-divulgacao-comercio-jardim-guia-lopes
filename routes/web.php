@@ -222,10 +222,11 @@ Route::middleware(['auth'])->group(function () {
     })->name('listaPedido');
 
 
-    Route::get('/avaliar/produto/{id}', function ($id) {
-        $pedido = PedidoProduto::find($id);
+    Route::get('/avaliar/pedido/{id}/produto/{produto_id}', function ($id, $produto_id) {
+        $pedido = Pedido::find($id);
+        $produto = Produto::find($id);
 
-        $produto = Produto::where('user_id',$pedido->id)->get();
+        // $produto = Produto::where('user_id',$pedido->id)->get();
         // $produto->pivot->avaliacao;
 
 
@@ -233,7 +234,7 @@ Route::middleware(['auth'])->group(function () {
         // return $pedido;
         // return $produto;
         // dd($pedido);
-        // dd($produto);
+        dd($produto);
 
 
 

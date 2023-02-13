@@ -11,7 +11,14 @@
             <img src="https://cdn.awsli.com.br/600x700/305/305913/produto/10002147/laranja-f4abaf7d.jpg"width="150"
                 height="150" class="" alt="Imagem do produto Pedido">
             <div class="ps-4">
-                <h3>{{ $pedido->produto_id}}</h3>
+
+
+
+                {{-- <h3>{{ $pedido?->produto?->nome}}</h3> --}}
+                 {{-- {{ $pedido->id }} --}}
+                {{-- {{$produto->id}} --}}
+                {{-- <h3>{{ $pedido->id}}</h3> --}}
+
                 {{-- {{$produto->pivot->avaliacao;}} --}}
 
                 <h1>Laranja</h1>
@@ -61,5 +68,6 @@
         <div class="py-3 mb-3 ps-5 ">
             <a type="button" class="btn btn-success p-2">Enviar sua avaliação</a>
         </div>
+
     </section>
 @endsection
