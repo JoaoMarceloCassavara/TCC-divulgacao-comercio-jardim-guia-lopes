@@ -234,7 +234,7 @@ Route::middleware(['auth'])->group(function () {
         // return $pedido;
         // return $produto;
         // dd($pedido);
-        dd($produto);
+        // dd($produto);
 
 
 

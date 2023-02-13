@@ -15,7 +15,7 @@
                                 height="150" class="" alt="Imagem do produto Pedido">
                             <div class="cold-m-8 ps-4">
                                 <h3>{{ $produto->nome }}</h3>
-                                <p>Vendinha de frutas do Seu Zé</p>
+                                <p>{{$produto->empresa->nome}}</p>
                                 <p>Entregue em 23/01/2022 às 14:25</p>
                             </div>
                         </div>
