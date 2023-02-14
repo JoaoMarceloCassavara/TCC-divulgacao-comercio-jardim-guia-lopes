@@ -8,7 +8,7 @@
 
     <section class="py-1">
         <div class="card_avaliacao_produto_add p-4 d-flex rounded-3 ms-5">
-            <img src="https://cdn.awsli.com.br/600x700/305/305913/produto/10002147/laranja-f4abaf7d.jpg"width="150"
+            <img src="{{ Voyager::image($produto->imagem) }}"width="150"
                 height="150" class="" alt="Imagem do produto Pedido">
             <div class="ps-4">
 

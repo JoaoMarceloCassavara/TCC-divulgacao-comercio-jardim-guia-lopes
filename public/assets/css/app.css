@@ -2006,7 +2006,18 @@ margin: 0 auto
 
 /* Adicionar Avaliação Produto Fim */
 
-.icone_rede_social_site{
-    text-decoration: none;
-    list-style: none;
+/* Adicionar avaliação empresa */
+.card_avaliacao_empresa_add{
+
 }
+
+
+/* Adcionar avaliação empresa Fim */
+/* Rodape */
+.icone_rede_social_site{
+text-decoration: none;
+list-style: none;
+
+}
+
+/* Rodape fim */

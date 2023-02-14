@@ -2,21 +2,22 @@
 
 @section('conteudo')
 
-<header class="py-5 ps-4 ">
+<header class="py-4 ps-4 ">
     <h1 class="fw-bold">Avalie a empresa</h1>
 </header>
 
 
 <section class="py-1">
-    <div class="card_avaliacao_produto_add p-4 d-flex rounded-3 ms-5">
-        <img src="https://cdn.awsli.com.br/600x700/305/305913/produto/10002147/laranja-f4abaf7d.jpg"width="150"
-            height="150" class="" alt="Imagem do produto Pedido">
+    <div class="card_avaliacao_empresa_add p-4 d-flex rounded-3 ms-5">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCkpig5kJDo40eQdCpRChBlcc71sTraWPxBVN8uU53KPM9utdu3pbzyAsKb8P1JnBtMtc&usqp=CAU"width="450"
+            height="350" class="rounded-3" alt="Imagem da empresa">
         <div class="ps-4">
             {{-- <h3>{{ $pedido->nome}}</h3> --}}
 
-            <h1>Laranja</h1>
-            <p>Vendinha de frutas do Seu Zé</p>
-            <p>Entregue em 23/01/2022 às 14:25</p>
+            <h1 class="fw-bold">Joanzinho verduras </h1>
+            <div class="w-75">
+            <p class="fs5 text-break">descrição ssicissssssssssssssssssssssssssssssssssssssssssscjudhschsicsichsijcisjcijcijcisjcijsijcicjisjijvdffffffffffffffcsssssssssssssssssffffff</p>
+        </div>
         </div>
     </div>
     <div class="py-5 ps-4">
@@ -53,8 +54,8 @@
         <h1 class="fw-bold">Descrição da avaliação</h1>
 
         <div class="form-floating ">
-            <textarea class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px; width:750px"></textarea>
-            <label for="floatingTextarea2">Do que gostou no produto? Compraria novamente? Alguma recomendação?</label>
+            <textarea class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px; width:800px"></textarea>
+            <label for="floatingTextarea2">Do que gostou da empresa? Compraria novamente os produtos dessa empresa? Alguma recomendação?</label>
         </div>
     </div>
     <hr>
