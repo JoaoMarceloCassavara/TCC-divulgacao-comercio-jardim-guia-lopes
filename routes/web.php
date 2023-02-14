@@ -224,7 +224,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/avaliar/pedido/{id}/produto/{produto_id}', function ($id, $produto_id) {
         $pedido = Pedido::find($id);
-        $produto = Produto::find($id);
+        $produto = Produto::find($produto_id);
 
         // $produto = Produto::where('user_id',$pedido->id)->get();
         // $produto->pivot->avaliacao;

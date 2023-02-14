@@ -16,13 +16,13 @@
 
                 {{-- <h3>{{ $pedido?->produto?->nome}}</h3> --}}
                  {{-- {{ $pedido->id }} --}}
-                {{-- {{$produto->id}} --}}
+                {{-- {{$produto->nome}} --}}
                 {{-- <h3>{{ $pedido->id}}</h3> --}}
 
                 {{-- {{$produto->pivot->avaliacao;}} --}}
 
-                <h1>Laranja</h1>
-                <p>Vendinha de frutas do Seu Zé</p>
+                <h1>{{$produto->nome}}</h1>
+                <p>{{$produto->empresa->nome}}</p>
                 <p>Entregue em 23/01/2022 às 14:25</p>
             </div>
         </div>
