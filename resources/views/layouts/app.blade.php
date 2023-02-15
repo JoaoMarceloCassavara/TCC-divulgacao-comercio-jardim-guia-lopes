@@ -94,7 +94,7 @@
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 carrinho-titulo-font" id="carrinho-modalLabel">Carrinho de compras</h1>
+                    <h1 class="modal-title" id="carrinho-modalLabel">Carrinho de compras</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('carrinho') }}" method="POST">
@@ -146,9 +146,9 @@
         function preencherTabelaCarrinho(carrinho) {
             atualizarBotaoCarrinho();
             var table =
-                `<thead class="descricao-pedido">
+                `<thead class="descricao-pedido ">
                 <tr>
-                  <td colspan="2">Produto</td><td>Preço</td><td>Quatidade</td><td>Ações</td>
+                  <td class="fs-4 ps-5">Produtos</td><td class="text-white">Preço</td><td class="text-white">Quatidade</td><td class="text-white">Ações</td>
                 </tr>
             </thead>
             <tbody>
@@ -158,19 +158,22 @@
                 table +=
                     `<tr class="cor-tbody">
                     <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
-                    <td>
-                        <div class="produto-pedido-modal">
-                        <img src="${carrinho[propriedade].imagem}"class="modal_imagem_pedido " width="250" >
 
+                       <td>
+                        <div class="d-flex ps-5 py-3">
+                            <div class="card_carrinho p-3 rounded-3">
+                            <img src="${carrinho[propriedade].imagem}"class="modal_imagem_pedido " width="250" >
+                          </div>
+                       <div class="ps-4 py-2">
+                       <p class="fs-5 text-white">${carrinho[propriedade].nome}</p>
+                       <p class="text-white">${carrinho[propriedade].descricao}</p>
                         </div>
+                    </div>
                     </td>
 
-                        <td class="nome_pedido_modal">${carrinho[propriedade].nome}</td>
-
-
-                    <td>${formatarPreco(carrinho[propriedade].preco)}</td>
-                    <td>quantidade</td>
-                    <td>
+                    <td class="py-4">${formatarPreco(carrinho[propriedade].preco)}</td>
+                    <td class="py-4">quantidade</td>
+                    <td class="py-4">
                         <button class="btn btn-default" onclick="removerItemDoCarrinho(${propriedade});"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>`;

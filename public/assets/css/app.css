@@ -1753,32 +1753,7 @@ color: rgba(86, 89, 2, 0.6);
     background-color: rgba(86, 89, 2, 1);
 }
 
-.carrinho-titulo-font {
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 30px;
-    line-height: 36px;
-    padding: 10px;
-
-    color: #000000;
-
-}
-
-.produto-pedido-modal {
-    width: 220px;
-    height: 175px;
-    left: 61px;
-    top: 473px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    padding: 25px;
-
-    background: rgba(64, 1, 1, 0.85);
-    border-radius: 14px;
-}
 
 .modal_imagem_pedido {
     width: 165px;
@@ -1786,10 +1761,7 @@ color: rgba(86, 89, 2, 0.6);
    align-items: center;
 }
 
-.nome_pedido_modal {
-    margin-left: 200px;
 
-}
 .cor-tbody {
     background-color: rgba(86, 89, 2, 0.5);
 }
@@ -2021,3 +1993,12 @@ list-style: none;
 }
 
 /* Rodape fim */
+
+
+/* Carrinho de compra */
+.card_carrinho{
+background-color: rgba(64, 1, 1, 0.85);
+}
+
+/* Carrinho de compra Fim */
+
