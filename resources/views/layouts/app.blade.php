@@ -41,9 +41,9 @@
     <div class="container">
         <div class="d-flex justify-content-between  align-items-center">
                 <ul class="d-flex icone_rede_social_site">
-                    <li class="p-3"><a class="icone_rede_social_site link-success text-white fs-5" href="{{route('saiba_mais')}}">Saiba Mais</a></li>
-                    <li class="p-3"><a class="icone_rede_social_site link-success text-white fs-5" href="{{route('quem_somos')}}">Quem Somos</a></li>
-                    <li class="p-3"><a class="icone_rede_social_site link-success text-white fs-5" href="{{route('fale_conosco')}}">Fale conosco</a></li>
+                    <li class="ps-4"><a class="icone_rede_social_site link-success text-white fs-5" href="{{route('saiba_mais')}}">Saiba Mais</a></li>
+                    <li class="ps-4"><a class="icone_rede_social_site link-success text-white fs-5" href="{{route('quem_somos')}}">Quem Somos</a></li>
+                    <li class="ps-4"><a class="icone_rede_social_site link-success text-white fs-5" href="{{route('fale_conosco')}}">Fale conosco</a></li>
                 </ul>
                 <div class="d-flex icone_rede">
                         <a class="margin-icons-footer" href="">

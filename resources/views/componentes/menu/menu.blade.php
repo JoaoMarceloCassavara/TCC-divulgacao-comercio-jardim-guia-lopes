@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-white sticky-top py-5">
     <div class="container-fluid">
         {{-- <a class="navbar-brand text-white" href="#">Site de divulgação</a> --}}
         <a class="navbar-brand text-white" href="{{route('welcome')}}">
