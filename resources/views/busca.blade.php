@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('conteudo')
+<header class="pt-5">
+    <h1 class="fw-bold">Buscando por <span class="text-danger">
+            {{ request()->filtro }}
+            @empty(request()->filtro)
+                Todos
+            @endempty
+        </span></h1>
+</header>
     <!-- Tabs navs -->
     <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
         <li class="nav-item" role="presentation">
@@ -15,14 +23,14 @@
     <!-- Tabs navs -->
     <div class="tab-content" id="ex1-content">
         <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
-            <header class="pt-5">
+            {{-- <header class="pt-5">
                 <h1 class="fw-bold">Buscando por <span class="text-danger">
                         {{ request()->filtro }}
                         @empty(request()->filtro)
                             Todos
                         @endempty
                     </span></h1>
-            </header>
+            </header> --}}
 
             <section class="d-flex flex-wrap py-5">
 
@@ -59,7 +67,7 @@
                                         <div class="col-md-4">
                                             <div class="card-modal shadow p-4 m-2 ">
                                                 <img src="{{ Voyager::image($produto->imagem) }}" class="modal-imagem"
-                                                    class="imagem-produto  alt="Imagem do produto">
+                                                      alt="Imagem do produto">
                                             </div>
                                         </div>
 
@@ -139,14 +147,14 @@
             </section>
         </div>
         <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-            <header class="pt-5">
+            {{-- <header class="pt-5">
                 <h1 class="fw-bold">Buscando por <span class="text-danger">
                         {{ request()->filtro }}
                         @empty(request()->filtro)
                             Todos
                         @endempty
                     </span></h1>
-            </header>
+            </header> --}}
             <section class=" d-flex flex-wrap py-5">
                 @forelse ($empresas as $empresa)
                     <div class="card_empresa d-flex p-4 m-2 ">

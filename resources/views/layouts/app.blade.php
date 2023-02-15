@@ -107,8 +107,8 @@
                         <h4 class="text-center text-success">Total: <span id="valor-total">$ 0,00</span></h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-dark">Efetuar pedido</button>
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-danger">Efetuar pedido</button>
 
                     </div>
                 </form>
