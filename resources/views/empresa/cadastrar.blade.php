@@ -83,7 +83,7 @@
                     <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
                     <div class="col-md-6 register-itens-empresario-align">
-                        <input id="telefone" type="tel" pattern="[0-9]{2}-[0-9]{4,5}-[0-9]{4}" placeholder="Telefone 99-9999-9999" class="form-control register-itens-empresario @error('telefone') is-invalid @enderror" name="telefone" required autocomplete="telefone">
+                        <input id="telefone" type="tel" pattern="(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})" placeholder="Telefone (99)99999-9999" class="form-control register-itens-empresario @error('telefone') is-invalid @enderror" name="telefone" required autocomplete="telefone">
 
                         @error('telefone')
                             <span class="invalid-feedback" role="alert">

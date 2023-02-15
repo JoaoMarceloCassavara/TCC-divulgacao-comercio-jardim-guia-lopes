@@ -5,7 +5,9 @@
         <h1 class="fw-bold">Avalie seu peddido</h1>
     </header>
 
-
+    <form method="POST" action="{{ route('avaliacao.produto.salvar') }}">
+        @csrf
+        <input type="hidden" name="produto_id" value="{{$produto->id}}">
     <section class="py-1">
         <div class="card_avaliacao_produto_add p-4 d-flex rounded-3 ms-5">
             <img src="{{ Voyager::image($produto->imagem) }}"width="150"
@@ -30,6 +32,7 @@
             <h1 class="fw-bold">Classifique o produto</h1>
 
             <div class="ps-4">
+                <input type="range" name="avaliacao">
                 <fieldset class="rating">
                     <input type="radio" id="star5" name="rating" value="5" /><label class="full"
                         for="star5" title="Awesome - 5 stars"></label>
@@ -60,14 +63,15 @@
             <h1 class="fw-bold">Descrição da avaliação</h1>
 
             <div class="form-floating ">
-                <textarea class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px; width:750px"></textarea>
+                <textarea name="descricao" class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px; width:750px"></textarea>
                 <label for="floatingTextarea2">Do que gostou no produto? Compraria novamente? Alguma recomendação?</label>
             </div>
         </div>
         <hr>
         <div class="py-3 mb-3 ps-5 ">
-            <a type="button" class="btn btn-success p-2">Enviar sua avaliação</a>
+            <button type="submit" class="btn btn-success p-2">Enviar sua avaliação</button>
         </div>
 
     </section>
+   </form>
 @endsection

@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AvaliacoesProduto extends Model
 {
+    protected $fillable = [
+        'produto_id',
+        'avaliacao',
+        'descricao',
+        'user_id',
+    ];
     public function save(array $options = [])
     {
         // If no author has been assigned, assign the current user's id as the author of the post
@@ -34,4 +40,5 @@ class AvaliacoesProduto extends Model
     {
         return $this->belongsTo(User::class,'user_id', 'id');
     }
+
 }

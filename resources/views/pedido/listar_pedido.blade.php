@@ -31,7 +31,7 @@
 
 
                                 <a type="button"
-                                class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov" href="{{route('avaliarempresa', ['id' => $pedido->id])}}">Avaliar
+                                class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov" href="{{route('avaliarempresa', ['id' => $pedido->id, 'empresa_id'=>$pedido->empresa->id])}}">Avaliar
                                 Empresa</a>
                             <h6 class="d-block my-2 fw-bold">Total do pedido R${{ $produto->preco }} </h6>
 
