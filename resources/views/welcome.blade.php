@@ -2,11 +2,11 @@
 
 @section('conteudo')
     <header class="pt-5">
-        <h1>O que procura de Lojas</h1>
+        <h1>A procura de Produtores</h1>
     </header>
     @include('componentes.carrossel')
     <header class="pt-5">
-        <h1>Lojas Bem avaliadas</h1>
+        <h1>Produtores Bem avaliadas</h1>
     </header>
     <section class=" d-flex flex-wrap py-5 ">
         @forelse ($empresas_famosas as $empresa)
@@ -81,7 +81,7 @@
         @endforelse
     </section>
     <header class="pt-5">
-        <h1>Lojas</h1>
+        <h1>Produtores</h1>
     </header>
     <section class=" d-flex flex-wrap py-5">
         @forelse ($empresas as $empresa)

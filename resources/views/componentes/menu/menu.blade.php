@@ -19,7 +19,7 @@
                     <a class="nav-link active text-white link-success" aria-current="page" href="{{route('produto')}}">Produtos</a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link active text-white link-success" aria-current="page" href="{{route('empresa')}}">Empresas</a>
+                    <a class="nav-link active text-white link-success" aria-current="page" href="{{route('empresa')}}">Produtores</a>
                   </li>
             </ul>
             <form id="form-buscar" action="{{route ('filtro')}}" class="d-flex">

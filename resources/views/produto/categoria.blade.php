@@ -10,7 +10,7 @@
                 {{-- Final botao Modal --}}>
                 <div class="card-link m-2 p-4">
 
-                    <img src="{{ Voyager::image($produto->imagem) }}" width="210" height="185" class="imagem-produto"
+                    <img src="{{ Voyager::image($produto->imagem) }}" width="200" height="185" class="rounded-2"
                         alt="Imagem do produto"
                         onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
 

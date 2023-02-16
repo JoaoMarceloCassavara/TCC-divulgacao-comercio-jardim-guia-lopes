@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <header class="pt-5">
-        <h1>O que procura de Lojas</h1>
+        <h1>A procura de Produtores</h1>
     </header>
     <section class="d-flex flex-wrap py-4 ps-5">
         @forelse ($categoria_empresas as $categoria_empresa)
@@ -19,6 +19,9 @@
             <p class="alert alert-success">Nenhuma empresa cadastrada</p>
         @endforelse
     </section>
+    <header class="pt-5">
+        <h1>Produtores</h1>
+    </header>
     <section class=" d-flex flex-wrap py-5">
         @forelse ($empresas as $empresa)
         <div class="card_empresa d-flex align-items-center  m-3 p-4">
