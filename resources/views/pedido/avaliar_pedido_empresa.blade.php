@@ -5,18 +5,20 @@
 <header class="py-4 ps-4 ">
     <h1 class="fw-bold">Avalie a empresa</h1>
 </header>
-
+ <form method="POST" action="{{route('avaliacao.empresa.salvar')}}">
+ @csrf
+ <input type="hidden" name="empresa_id" value="{{$empresa->id}}">
 
 <section class="py-1">
     <div class="card_avaliacao_empresa_add p-4 d-flex rounded-3 ms-5">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCkpig5kJDo40eQdCpRChBlcc71sTraWPxBVN8uU53KPM9utdu3pbzyAsKb8P1JnBtMtc&usqp=CAU"width="450"
+        <img src="{{ Voyager::image($empresa->foto) }}"width="450"
             height="350" class="rounded-3" alt="Imagem da empresa">
         <div class="ps-4">
             {{-- <h3>{{ $pedido->nome}}</h3> --}}
 
-            <h1 class="fw-bold">Joanzinho verduras </h1>
+            <h1 class="fw-bold">{{$empresa->nome}}</h1>
             <div class="w-75">
-            <p class="fs5 text-break">descrição ssicissssssssssssssssssssssssssssssssssssssssssscjudhschsicsichsijcisjcijcijcisjcijsijcicjisjijvdffffffffffffffcsssssssssssssssssffffff</p>
+            <p class="fs5 text-break">{{$empresa->descricao}}</p>
         </div>
         </div>
     </div>
@@ -24,6 +26,7 @@
         <h1 class="fw-bold">Classifique a empresa</h1>
 
         <div class="ps-4">
+            <input type="range" name="avaliacao">
             <fieldset class="rating">
                 <input type="radio" id="star5" name="rating" value="5" /><label class="full"
                     for="star5" title="Awesome - 5 stars"></label>
@@ -54,13 +57,14 @@
         <h1 class="fw-bold">Descrição da avaliação</h1>
 
         <div class="form-floating ">
-            <textarea class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px; width:800px"></textarea>
+            <textarea  name="descricao" class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px; width:800px"></textarea>
             <label for="floatingTextarea2">Do que gostou da empresa? Compraria novamente os produtos dessa empresa? Alguma recomendação?</label>
         </div>
     </div>
     <hr>
     <div class="py-3 mb-3 ps-5 ">
-        <a type="button" class="btn btn-success p-2">Enviar sua avaliação</a>
+        <button type="submit" class="btn btn-success p-2">Enviar sua avaliação</button>
     </div>
 </section>
+</form>
 @endsection

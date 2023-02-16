@@ -2,6 +2,7 @@
 
 use App\Actions\Fortify\CreateNewUser;
 use App\Models\AvaliacoesProduto;
+use App\Models\AvaliacaoEmpresa;
 use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
 use App\Models\Empresa;
@@ -261,15 +262,37 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-    Route::get('/avaliar/empresa', function () {
-        $pedido = Pedido::where('user_id', Auth::user()->id)->get();
+    Route::get('/avaliar/pedido/{id}/empresa/{empresa_id}', function ($id, $empresa_id) {
+        // $pedido = Pedido::where('user_id', Auth::user()->id)->get();
         // $pedido = Pedido::find($id);
         // $empresa = Empresa::find($empresa_id);
+        $pedido = Pedido::find($id);
+        $empresa = Empresa::find($empresa_id);
+    //  dd($empresa);
 
-
-
-        return view('pedido.avaliar_pedido_empresa', compact('pedido'));
+        return view('pedido.avaliar_pedido_empresa', compact('pedido', 'empresa'));
     })->name('avaliarempresa');
+
+
+    Route::post('/avaliar/empresa/salvar', function (Request $request) {
+        $empresa_id = $request->empresa_id;
+     //    dd($request);
+         $usuario_logado = Auth::user();
+         $avaliacao_empresa = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->where('user_id', Auth::user()->id)
+             ->firstOrNew(
+                 ['empresa_id' => $empresa_id],
+                 ['user_id' =>  Auth::user()->id],
+             );
+         $avaliacao_empresa->descricao = $request->descricao;
+         $avaliacao_empresa->avaliacao = $request->avaliacao;
+
+         $avaliacao_empresa->save();
+
+         return redirect()->route('listaPedido');
+     })->name('avaliacao.empresa.salvar');
+
+
+
 });
 
 
