@@ -17,13 +17,12 @@
                                 <h3>{{ $produto->nome }}</h3>
                                 <p>{{$produto->empresa->nome}}</p>
                                 <p>Pedido feito: {{$produto->created_at}}</p>
-                                <p>Entregue em 23/01/2022 às 14:25</p>
+                                @isset($pedido->data_entrega)
+                                <p>Entregue em: {{$pedido->data_entrega}}</p>
+                                @endisset
                             </div>
                         </div>
                         <div class="">
-                            <a type="button"
-                                class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov">Comprar
-                                novamente</a>
                             <a type="button" class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov"
                                 href="{{ route('avaliarproduto', ['id' => $pedido->id, 'produto_id' => $produto->id]) }}">Avaliar o produto</a>
 
