@@ -65,6 +65,7 @@
                                 <div class="ps-4">
 
                                     <p class=" fw-bold fs-3">{{ $produto->nome }}</p >
+                                        <input class="rating py-2" type="range" value="{{$produto->avaliacao}}" disabled>
                                     <fieldset class="rating">
                                         <input type="radio" id="star5" name="rating"
                                             value="5" /><label class="full" for="star5"
@@ -98,7 +99,7 @@
                                             title="Sucks big time - 0.5 stars"></label>
                                     </fieldset>
                                     <div class="py-5">
-                                    <p class="fw-bold fs-5">Pedidos</p>
+                                    <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count()}}</p>
                                 </div>
                                 </div>
 

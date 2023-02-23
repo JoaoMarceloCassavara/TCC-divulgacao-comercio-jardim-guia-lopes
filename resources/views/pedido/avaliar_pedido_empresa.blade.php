@@ -26,7 +26,7 @@
         <h1 class="fw-bold">Classifique a empresa</h1>
 
         <div class="ps-4">
-            <input type="range" name="avaliacao">
+            <input class="rating" type="range" name="avaliacao" min="0" max="5" step="0.5">
             <fieldset class="rating">
                 <input type="radio" id="star5" name="rating" value="5" /><label class="full"
                     for="star5" title="Awesome - 5 stars"></label>

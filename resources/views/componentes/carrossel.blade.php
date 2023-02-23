@@ -71,7 +71,7 @@
     </div>
     @endfor
 </div>
-<button class="carousel-control-prev" type="button" data-bs-target="#carousel-categorias-empresas"
+<button class="carousel-control-prev  mr-5" type="button" data-bs-target="#carousel-categorias-empresas"
     data-bs-slide="prev">
     <span class="carousel-control-prev-icon btn btn-dark rounded-circle" aria-hidden="true"></span>
     <span class="visually-hidden">Anterior</span>

@@ -72,7 +72,9 @@ Route::get('/produto', function () {
 Route::get('/produto/{id}', function ($id) {
 
     $produto = Produto::find($id);
-    return view('produto.visualizar', compact('produto'));
+    $numeros_pedido = PedidoProduto::where('produto_id',$produto->id)->count();
+    // $empresas = Empresa::where('categoria_empresa_id', $categoria_empresa->id)->get();
+    return view('produto.visualizar', compact('produto','numeros_pedido'));
 })->name('produto.visualizar');
 
 
@@ -120,7 +122,10 @@ Route::get('/filtro/pesquisa', function (Request $request) {
     //  dd($request->filtro);
     $produtos = Produto::where('nome', 'LIKE', "%{$request->filtro}%")->get();
     $empresas = Empresa::where('nome', 'LIKE', "%{$request->filtro}%")->get();
-    return view('busca', compact('produtos', 'empresas'));
+    $categorias = CategoriaProduto::where('nome', 'LIKE', "%{$request->filtro}%")->get();
+    // dd($categorias, $empresas, $produtos);
+
+    return view('busca', compact('produtos', 'empresas','categorias'));
 })->name('filtro');
 
 
@@ -257,6 +262,13 @@ Route::middleware(['auth'])->group(function () {
 
         $avaliacao_produto->save();
 
+        $produto = Produto::find($produto_id);
+        if(empty($produto->avaliacao)){
+           $produto->avaliacao = $request->avaliacao;
+        }
+        $produto->avaliacao = ($produto->avaliacao + $request->avaliacao)/2;
+
+        $produto->save();
         return redirect()->route('listaPedido');
     })->name('avaliacao.produto.salvar');
 
@@ -287,6 +299,14 @@ Route::middleware(['auth'])->group(function () {
          $avaliacao_empresa->avaliacao = $request->avaliacao;
 
          $avaliacao_empresa->save();
+
+         $empresa = Empresa::find($empresa_id);
+         if(empty($empresa->avaliacao)){
+            $empresa->avaliacao = $request->avaliacao;
+         }
+         $empresa->avaliacao = ($empresa->avaliacao + $request->avaliacao)/2;
+
+         $empresa->save();
 
          return redirect()->route('listaPedido');
      })->name('avaliacao.empresa.salvar');

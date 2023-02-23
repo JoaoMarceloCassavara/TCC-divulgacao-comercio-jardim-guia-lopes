@@ -32,6 +32,7 @@
             <div class="ps-4">
                 <p class="text-white  fs-5 pt-4 ">{{ $empresa->nome }}</p>
                 <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
+                <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled>
                <fieldset class="rating py-2">
                     <input type="radio" id="star5" name="rating"
                         value="5" /><label class="full" for="star5"
