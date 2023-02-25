@@ -105,8 +105,21 @@
 
 
                             </div>
+                            <div class="d-flex">
+                            <div class="pt-5 ps-4">
+                                @isset($produto->video_curto)
 
 
+                            <iframe width="300" height="290" src="{{$produto->video_curto}}" title="{{$produto->nome}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            @endisset
+                        </div>
+                        <div class="pt-5 ps-3">
+                            <h1>Descrição</h1>
+                            <p>{{$produto->descricao}}</p>
+
+                        </div>
+
+                    </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
