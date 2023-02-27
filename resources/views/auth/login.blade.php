@@ -1,13 +1,8 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    {{--  placeholder="Pesquisa" --}}
 
-    <div class="body-login">
-
-
-
-        <section class="">
+        <section class="body-login">
             <div class="card-login shadow p-3 mb-5 bg-body rounded">
 
                 <div class="card-header-login text-center">{{ __('Login') }}</div>
@@ -87,10 +82,6 @@
 
 
             </div>
-    </div>
-
-
-    </section>
-
-    </div>
+        </section>
 @endsection
+
