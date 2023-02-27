@@ -1474,44 +1474,32 @@ background-color: rgba(64, 1, 1, 0.85);
     font-weight: bold;
 }
 .login-itens-align{
-   margin-left: 20%;
-    margin-top: 35px;
+    /* padding:  auto; */
+   /* padding-left: 20%;
+    padding-top: 35px; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin: auto;
 }
 
 .login-itens {
     /* Email, senha, telefone barra de prenchimento */
-    width: 424px;
+     /* width: 424px; */
     height: 48px;
-    top: 464px;
+    /* top: 464px; */
     /* border-radius: 24px; */
 
 }
 
 .botao-login {
     width: 180px;
-    height: 50px;
-   margin-top: 5px;
-    background: #400101;
-    border-radius: 5px;
-
+    background-color: #400101;
 }
-
-.login-text {
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 25px;
-    color: #FFFFFF;
-}
-
 .me-lembrar{
 margin-top: 15px;
 margin-right: 250px;
 }
-.esqueci_senha{
-margin: 0 auto;
-margin-top: 15px;
-}
+
 .esqueci_senha_cor{
 /* color: rgba(86, 89, 2, 1); */
 font-weight: 900;
@@ -1994,3 +1982,24 @@ background-color: rgba(64, 1, 1, 0.85);
 
 /* Carrinho de compra Fim */
 
+/* Redefinir Senha */
+.body_redefinir_senha{
+    background-image: url(/assets/images/imagem_de_fundo/Imagem_login.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.card_redefinir_senha{
+margin: 0 auto;
+width: 50% ;
+}
+.redefinir-senha-input{
+margin: auto;
+}
+.botao_redefinir_senha{
+background-color: #400101;
+}
+
+
+
+/* Redefinir Senha  Fim */
