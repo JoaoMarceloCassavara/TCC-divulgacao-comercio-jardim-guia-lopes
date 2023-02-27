@@ -22,7 +22,7 @@
     </div>
 
      <div class="cadastro_empresario">
-        <div class="text-center py-5"><h1>{{ __('Cadastre sua empresa') }}</h1></div>
+        <div class="text-center py-5"><h1 class="fw-bold">{{ __('Cadastre sua empresa') }}</h1></div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('empresa.salvar') }}">

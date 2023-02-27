@@ -5,7 +5,7 @@
 
     <section class="index_padding">
         <div class="card-register p-3 mb-5 bg-body rounded">
-                <div class="text-center py-4"><h1>{{ __('Cadastre-se agora') }}</h1></div>
+                <div class="text-center py-4"><h1 class="fw-bold">{{ __('Cadastre-se agora') }}</h1></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

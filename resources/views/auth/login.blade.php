@@ -5,7 +5,7 @@
         <section class="body-login">
             <div class="card-login shadow p-3 mb-5 bg-body rounded">
 
-                <div class="card-header-login text-center">{{ __('Login') }}</div>
+                <div class="text-center py-5"><h1 class="fw-bold">{{ __('Login') }}</h1></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -14,7 +14,7 @@
                         {{-- <div class="row mb-3"> --}}
                         {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> --}}
 
-                        <div class="col-md-6 login-itens-align py-2">
+                        <div class="col-md-6 login-itens-align pt-5 pb-2">
                             <input id="email" type="email" placeholder="Email"
                                 class="form-control login-itens @error('email') is-invalid @enderror" name="email"
                                 value="{{ old('email') }}" required autocomplete="email" autofocus>
