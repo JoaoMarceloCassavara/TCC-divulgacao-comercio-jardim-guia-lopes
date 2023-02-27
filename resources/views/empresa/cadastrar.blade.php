@@ -3,7 +3,7 @@
 @section('conteudo')
 <div  class="body-register_empresario">
 
-<section class="register_empresario">
+<section class="d-flex justify-content-evenly">
 
     <div class="nome-logo">
         <h1 class="text-register-empresario">Divulgue seu <br>
@@ -22,7 +22,7 @@
     </div>
 
      <div class="cadastro_empresario">
-        <div class="header-register-empresario text-center py-5">{{ __('Informações sobre a sua empresa!') }}</div>
+        <div class="text-center py-5"><h1>{{ __('Cadastre sua empresa') }}</h1></div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('empresa.salvar') }}">
@@ -31,7 +31,7 @@
                 {{-- <div class="row mb-3">
                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> --}}
 
-                    <div class="col-md-6 register-itens-empresario-align">
+                    <div class="col-md-6 register-itens-empresario-align  py-2">
                         <input id="nome" type="text" placeholder="Nome da Empresa" class="form-control register-itens-empresario @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
 
                         @error('nome')
@@ -42,7 +42,7 @@
                     </div>
 
 
-                    <div class="col-md-6 register-itens-empresario-align">
+                    <div class="col-md-6 register-itens-empresario-align  py-2">
                         <input id="cnpj" type="text" placeholder="CNPJ" class="form-control register-itens-empresario @error('cnpj') is-invalid @enderror" name="cnpj" value="{{ old('cnpj') }}" required autocomplete="cnpj" autofocus>
 
                         @error('cnpj')
@@ -53,7 +53,7 @@
                     </div>
 
 
-                    <div class="col-md-6 register-itens-empresario-align">
+                    <div class="col-md-6 register-itens-empresario-align  py-2">
                         <input id="cpf" type="number" placeholder="CPF" class="form-control register-itens-empresario @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf') }}" required autocomplete="cpf" autofocus>
 
                         @error('cpf')
@@ -67,7 +67,7 @@
                 {{-- <div class="row mb-3">
                     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> --}}
 
-                    <div class="col-md-6 register-itens-empresario-align">
+                    <div class="col-md-6 register-itens-empresario-align  py-2">
                         <input id="endereco" type="text" placeholder="Endereço" class="form-control register-itens-empresario @error('endereco') is-invalid @enderror" name="endereco" value="{{ old('endereco') }}" required autocomplete="endereco">
 
                         @error('email')
@@ -82,7 +82,7 @@
                 {{-- <div class="row mb-3">
                     <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
-                    <div class="col-md-6 register-itens-empresario-align">
+                    <div class="col-md-6 register-itens-empresario-align  py-2">
                         <input id="telefone" type="tel" pattern="(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})" placeholder="Telefone (99)99999-9999" class="form-control register-itens-empresario @error('telefone') is-invalid @enderror" name="telefone" required autocomplete="telefone">
 
                         @error('telefone')
@@ -99,10 +99,10 @@
 
                 {{-- </div> --}}
 
-                <div class="row mb-0">
-                    <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="botao-register-empresario">
-                            <h6 class="register-text-empresario"> {{ __('Cadastrar') }}</h6>
+                <div class="text-center">
+                    <div class="py-5">
+                        <button type="submit" class="botao-register-empresario btn btn-danger">
+                            <h4 class="text-white text-center"> {{ __('Cadastrar') }}</h4>
                         </button>
                     </div>
                 </div>
