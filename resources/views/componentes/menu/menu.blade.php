@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-white sticky-top py-5">
     <div class="container-fluid">
         {{-- <a class="navbar-brand text-white" href="#">Site de divulgação</a> --}}
-        <a class="navbar-brand text-white" href="{{route('welcome')}}">
-            <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            Janela do produtor
-        </a>
+        <div class="ps-2">
+        <a class="navbar-brand" href="{{route('welcome')}}">
+            <img src="/assets/images/logo_do_site/janela_do_produtor.png" alt="Logo do site" width="100" height="74" class="d-inline-block align-text-top rounded-3">
 
+        </a>
+    </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
