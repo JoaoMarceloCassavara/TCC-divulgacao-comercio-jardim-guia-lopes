@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <header class="pt-5 ps-4">
-        <h1>A procura por Produtos</h1>
+        <h4>A procura por Produtos</h4>
     </header>
 
     <section class="d-flex flex-wrap py-4 ps-5">
@@ -24,7 +24,7 @@
 
 
     <header class="pt-5 ps-4">
-        <h1>Todos os produtos</h1>
+        <h4>Todos os produtos</h4>
     </header>
     <section class="d-flex flex-wrap py-4 ps-5">
         @forelse ($produtos as $produto)
@@ -69,7 +69,7 @@
                                         <label for="avaliacao" class="rating-label">
                                             <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" disabled>
                                         </label>
-                                    <div class="py-5">
+                                    <div class="py-2">
                                     <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count()}}</p>
                                 </div>
                                 </div>
@@ -85,7 +85,7 @@
                             @endisset
                         </div>
                         <div class="pt-5 ps-3">
-                            <h1>Descrição</h1>
+                            <h4>Descrição</h4>
                             <p>{{$produto->descricao}}</p>
 
                         </div>
@@ -103,21 +103,21 @@
 
                         <header class="ps-3 py-4"><p class="fw-bold fs-4">Avaliações</p></header>
                         @forelse ($produto->avaliacoes as $avaliacao)
-                        <div class="card_avaliacao_produto rounded-3 shadow  mb-5 bg-body rounde">
-                            <div class="d-flex bd-highlight mb-3  m-3">
+                        <div class=" rounded-3 shadow ms-3 me-3  mb-5 bg-body rounde">
+                            <div class="d-flex p-2 bd-highlight mb-3  m-3 ">
                                 <div class="d-flex align-items-center">
-                                    <div class="py-5 flex-shrink-0">
-                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="160" height="140"
+                                    <div class="py-5 ">
+                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120"
                                          alt="Imagem do produto" class="rounded-circle"
                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
-                                         <div>
+                                         <div class="ps-2 pt-3">
                                             <label for="avaliacao" class="rating-label">
                                                 <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->usuario->avaliacao}}" disabled>
                                             </label>
                                     </div>
                                     </div>
-                                    <div class="py-5 flex-grow-1 ms-3 p-2 bd-highlight">
-                                        <p class="text-brea">{{ $avaliacao->usuario->name }} </p>
+                                    <div class="ps-3">
+                                        <p class="text-break w-auto ">{{ $avaliacao->usuario->name }} </p>
                                         {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
 
 
@@ -127,7 +127,7 @@
 
                                 </div>
 
-                                <div class="d-flex align-items-center w-50 p-3 ms-auto p-2 bd-highlight ">
+                                <div class="d-flex align-items-center w-50 p-3 ms-auto  ">
 
                                     <p class="text-break">{{ $avaliacao->descricao }}</p>
 

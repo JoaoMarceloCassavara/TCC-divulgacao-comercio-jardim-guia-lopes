@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <header class="pt-5 ps-5">
-        <h1>Meus Pedidos</h1>
+        <h4>Meus Pedidos</h4>
     </header>
     @forelse ($pedidos as $pedido)
         <section class="py-3">

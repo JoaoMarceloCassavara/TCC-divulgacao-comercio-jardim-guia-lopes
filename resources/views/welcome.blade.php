@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    <header class="pt-5">
-        <h1>A procura de Produtores</h1>
+    <header class="pt-5 ps-4">
+        <h4>A procura de Produtores</h4>
     </header>
     @include('componentes.carrossel')
-    <header class="pt-5">
-        <h1>Produtores Bem avaliadas</h1>
+    <header class="pt-5 ps-4">
+        <h4>Produtores Bem avaliadas</h4>
     </header>
     <section class=" d-flex flex-wrap py-5 ">
         @forelse ($empresas_famosas as $empresa)
@@ -32,8 +32,8 @@
             <p class="alert alert-success">Nenhuma empresa cadastrada</p>
         @endforelse
     </section>
-    <header class="pt-5">
-        <h1>O que procura de Produtos</h1>
+    <header class="pt-5 ps-4">
+        <h4>O que procura de Produtos</h4>
     </header>
     <section class="d-flex flex-wrap py-4 ps-5">
         @forelse ($categoria_produtos as $categoria_produto)
@@ -52,8 +52,8 @@
             <p class="alert alert-success">Nenhuma categoria cadastrada para produro</p>
         @endforelse
     </section>
-    <header class="pt-5">
-        <h1>Produtores</h1>
+    <header class="pt-5 ps-4">
+        <h4>Produtores</h4>
     </header>
     <section class=" d-flex flex-wrap py-5">
         @forelse ($empresas as $empresa)

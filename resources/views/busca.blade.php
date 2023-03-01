@@ -2,12 +2,12 @@
 
 @section('conteudo')
 <header class="py-4">
-    <h1 class="fw-bold">Buscando por <span class="text-danger">
+    <h4 class="fw-bold">Buscando por <span class="text-danger">
             {{ request()->filtro }}
             @empty(request()->filtro)
                 Todos
             @endempty
-        </span></h1>
+        </span></h4>
 </header>
     <!-- Tabs navs -->
     <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
