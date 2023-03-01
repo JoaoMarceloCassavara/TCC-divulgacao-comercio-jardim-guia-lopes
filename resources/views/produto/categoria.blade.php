@@ -12,7 +12,7 @@
 
                     <img src="{{ Voyager::image($produto->imagem) }}" width="200" height="185" class="rounded-2"
                         alt="Imagem do produto"
-                        onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
 
                     <div class="card-componente">
                         <h5 class="card-title">{{ $produto->nome }}</h5>
@@ -37,7 +37,7 @@
                                 <div class="modal-card-produto p-4 rounded-3">
                                     <img src="{{ Voyager::image($produto->imagem) }}" width="170" height="160"
                                         class="rounded-3" alt="Imagem do produto"
-                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
                                 </div>
 
                                 <div class="ps-4">

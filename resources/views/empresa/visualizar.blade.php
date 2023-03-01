@@ -3,11 +3,11 @@
     <section class="d-flex py-5 ps-5">
         <div class="visualizar_icones_empresa position-relative">
             <img src="{{ Voyager::image($empresa->foto) }}"width="800" height="400" class="rounded-3"
-                alt="Imagem da Empresa" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                alt="Imagem da Empresa" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
             <div class="position-absolute logo_empresa">
                 <img src="{{ Voyager::image($empresa->logo) }}"width="155" height="155" alt="Logo da Empresa"
                     class="rounded-circle border border-dark"
-                    onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
             </div>
             <div class="nome_empresa_visualizar text-center">
                 <h5 class="fs-2 fw-bold  ">{{ $empresa->nome }}</h5>
@@ -157,7 +157,7 @@
     {{-- Produto por categoria --}}
     @foreach ($categorias as $nomeDaCategoria => $produtos)
         <div class="d-flex justify-content-between p-3">
-            <h1>{{ $nomeDaCategoria }}</h1>
+            <h4>{{ $nomeDaCategoria }}</h4>
 
             <a class="text-black fw-bold" href="{{ route('produto') }}">Ver tudo <i
                     class="fa-solid fa-chevron-right"></i></a>
@@ -170,7 +170,7 @@
 
                         <img src="{{ Voyager::image($produto->imagem) }}" width="200" height="185" class="rounded-2"
                             alt="Imagem do produto"
-                            onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
 
                         <div class="card-componente">
                             <h5 class="card-title">{{ $produto->nome }}</h5>
@@ -195,7 +195,7 @@
                                     <div class="modal-card-produto p-4 rounded-3">
                                         <img src="{{ Voyager::image($produto->imagem) }}" width="170" height="160"
                                             class="rounded-3" alt="Imagem do produto"
-                                            onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
                                     </div>
 
                                     <div class="ps-4">
@@ -297,7 +297,7 @@
     @endforeach
     <hr class="border border-dark ">
     <header class="py-5 ps-5">
-        <h1 class="fw-bold">Avaliações</h1>
+        <h4 class="fw-bold">Avaliações</h4>
     </header>
     @forelse ($empresa->avaliacoes as $avaliacao)
         <div class="card_avaliacao_empresa rounded-3">

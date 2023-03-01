@@ -34,7 +34,7 @@
 
                     <img src="{{ Voyager::image($produto->imagem) }}" width="200" height="185" class="rounded-2"
                         alt="Imagem do produto"
-                        onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
 
                     <div class="card-componente">
                         <h5 class="card-title">{{ $produto->nome }}</h5>
@@ -109,7 +109,7 @@
                                     <div class="py-5 ">
                                     <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120"
                                          alt="Imagem do produto" class="rounded-circle"
-                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
                                          <div class="ps-2 pt-3">
                                             <label for="avaliacao" class="rating-label">
                                                 <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->usuario->avaliacao}}" disabled>

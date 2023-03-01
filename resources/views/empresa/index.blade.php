@@ -27,7 +27,7 @@
         <div class="card_empresa d-flex align-items-center  m-3 p-4">
             <div>
             <img src="{{ Voyager::image($empresa->logo) }}"height="130" width="130" class="rounded-circle"
-                alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/produto_padrao.jpg') }}';">
+                alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
             </div>
             <div class="ps-4">
                 <p class="text-white  fs-5 pt-4 ">{{ $empresa->nome }}</p>
