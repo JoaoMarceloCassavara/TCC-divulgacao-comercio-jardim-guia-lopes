@@ -3,7 +3,7 @@
 @section('conteudo')
 
 <header class="py-4 ps-4 ">
-    <h1 class="fw-bold">Avalie a empresa</h1>
+    <h4 class="fw-bold">Avalie a empresa</h4>
 </header>
  <form method="POST" action="{{route('avaliacao.empresa.salvar')}}">
  @csrf
@@ -16,14 +16,14 @@
         <div class="ps-4">
             {{-- <h3>{{ $pedido->nome}}</h3> --}}
 
-            <h1 class="fw-bold">{{$empresa->nome}}</h1>
+            <h4 class="fw-bold">{{$empresa->nome}}</h4>
             <div class="w-75">
             <p class="fs5 text-break">{{$empresa->descricao}}</p>
         </div>
         </div>
     </div>
     <div class="py-5 ps-4">
-        <h1 class="fw-bold">Classifique a empresa</h1>
+        <h4 class="fw-bold">Classifique a empresa</h4>
 
         <div class="ps-4">
             <input class="rating" type="range" name="avaliacao" min="0" max="5" step="0.5">
@@ -54,7 +54,7 @@
     </div>
 
     <div class="py-4 ps-4">
-        <h1 class="fw-bold">Descrição da avaliação</h1>
+        <h4 class="fw-bold">Descrição da avaliação</h4>
 
         <div class="form-floating ">
             <textarea  name="descricao" class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px; width:800px"></textarea>
