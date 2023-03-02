@@ -5,7 +5,7 @@
         <section class="body-login">
             <div class="card-login shadow p-3 mb-5 bg-body rounded">
 
-                <div class="text-center py-5"><h1 class="fw-bold">{{ __('Login') }}</h1></div>
+                <div class="text-center py-5"><h4 class="fw-bold">{{ __('Login') }}</h4></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
