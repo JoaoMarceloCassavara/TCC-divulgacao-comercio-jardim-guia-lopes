@@ -33,6 +33,7 @@
 
             <div class="ps-4">
                 <input class="rating" type="range" name="avaliacao" min="0" max="5" step="0.5">
+                <input type="range" class="form"  name="avaliacao" min="0" max="5" step="0.5" >
 
             </div>
 
