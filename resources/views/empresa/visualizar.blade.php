@@ -296,16 +296,18 @@
         </section>
     @endforeach
     <hr class="border border-dark ">
-    <header class="pt-5 pb-3 ps-5">
-        <h4 class="fw-bold">Avaliações</h4>
-    </header>
+
+    <section class="py-5">
+        <header class=" pb-3 ps-5">
+            <h4 class="fw-bold">Avaliações</h4>
+        </header>
     @forelse ($empresa->avaliacoes as $avaliacao)
         <div class="card_avaliacao_empresa rounded-3">
             <div class="d-flex bd-highlight mb-3  m-4">
                 <div class="d-flex align-items-center">
                     <div class="py-5 flex-shrink-0">
                     <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120"
-                         alt="Imagem do produto"
+                         alt="Imagem avatar"
                         onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                          <div class="ps-2 pt-3">
                             <label for="avaliacao" class="rating-label">
@@ -313,8 +315,8 @@
                             </label>
                     </div>
                     </div>
-                    <div class="py-5 flex-grow-1 ms-3 p-2 bd-highlight">
-                        <p class="text-brea">{{ $avaliacao->usuario->name }} </p>
+                    <div class="ps-3 pe-5">
+                        <p class="text-break w-auto">{{ $avaliacao->usuario->name }} </p>
                         {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
 
 
@@ -324,7 +326,7 @@
 
                 </div>
 
-                <div class="d-flex align-items-center w-50 p-3 ms-auto p-2 bd-highlight ">
+                <div class="d-flex align-items-center w-50 p-3 ms-auto">
 
                     <p class="text-break">{{ $avaliacao->descricao }}</p>
 
@@ -347,5 +349,6 @@
     @empty
     <p class="alert alert-success">Nenhuma avaliação cadastrada para essa empresa</p>
     @endforelse
+</section>
     {{-- Produto por categoria final --}}
 @endsection

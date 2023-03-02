@@ -12,7 +12,7 @@
 <section class="py-1">
     <div class="card_avaliacao_empresa_add p-4 d-flex rounded-3 ms-5">
         <img src="{{ Voyager::image($empresa->foto) }}"width="450"
-            height="350" class="rounded-3" alt="Imagem da empresa">
+            height="350" class="rounded-3" alt="Imagem da empresa" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
         <div class="ps-4">
             {{-- <h3>{{ $pedido->nome}}</h3> --}}
 

@@ -11,7 +11,7 @@
     <section class="py-1">
         <div class="card_avaliacao_produto_add p-4 d-flex rounded-3 ms-5">
             <img src="{{ Voyager::image($produto->imagem) }}"width="150"
-                height="150" class="" alt="Imagem do produto Pedido">
+                height="150" class="" alt="Imagem do produto Pedido" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
             <div class="ps-4">
 
 
