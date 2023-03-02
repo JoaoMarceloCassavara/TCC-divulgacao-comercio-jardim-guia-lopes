@@ -106,7 +106,7 @@
                         <div class=" rounded-3 shadow ms-3 me-3  mb-5 bg-body rounde">
                             <div class="d-flex p-2 bd-highlight mb-3  m-3 ">
                                 <div class="d-flex align-items-center">
-                                    <div class="py-5 ">
+                                    <div class="py-5 flex-shrink-0 ">
                                     <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120"
                                          alt="Imagem do produto" class="rounded-circle"
                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
