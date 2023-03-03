@@ -69,13 +69,15 @@ Route::get('/produto', function () {
     return view('produto.index', compact('produtos', 'categoria_produtos'));
 })->name('produto');
 
-Route::get('/produto/{id}', function ($id) {
+Route::get('empresa/{id}/categoria_produto/{categoria_id}', function ($id, $categoria_id) {
+    $empresa = Empresa::find($id);
+    $categoria_produto = CategoriaProduto::find($categoria_id);
+    $produtos = Produto::where('categoria_produto_id', $categoria_produto->id)->where('empresa_id', $id)->get();
 
-    $produto = Produto::find($id);
-    $numeros_pedido = PedidoProduto::where('produto_id',$produto->id)->count();
-    // $empresas = Empresa::where('categoria_empresa_id', $categoria_empresa->id)->get();
-    return view('produto.visualizar', compact('produto','numeros_pedido'));
-})->name('produto.visualizar');
+    // dd($produtos);
+
+    return view('produto.visualizar', compact('empresa','produtos', 'categoria_produto'));
+})->name('vermaisproduto');
 
 
 Route::get('/empresa', function () {

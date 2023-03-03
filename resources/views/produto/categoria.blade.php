@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <header class="pt-5 ps-4">
-        <h1>Produtos por categoria</h1>
+        <h4>Produtos por categoria</h4>
     </header>
     <section class="d-flex flex-wrap py-4 ps-5">
         @forelse ($produtos as $produto)
