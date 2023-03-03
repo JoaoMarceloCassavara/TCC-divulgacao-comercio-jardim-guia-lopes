@@ -1183,16 +1183,6 @@ section#mapa form#mapaForm :-ms-input-placeholder {
 
     background-color: rgba(64, 1, 1, 1);
     border-radius: 14px;
-
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: center;
-    text-decoration: none;
-
     color: #FFFFFF;
 }
 
@@ -1201,12 +1191,10 @@ section#mapa form#mapaForm :-ms-input-placeholder {
 .produtos {
     display: inline-block;
     margin: 10px;
-
 }
 
-.card-componente {
-    margin: 15px
-}
+
+
 
 
 /*FIM Card Produto*/

@@ -6,21 +6,33 @@
     </header>
     <section class="d-flex flex-wrap py-4 ps-5">
         @forelse ($produtos as $produto)
-            <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
-                {{-- Final botao Modal --}}>
-                <div class="card-link m-2 p-4">
+        <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
+            {{-- Final botao Modal --}}>
+            <div class="card-link m-2 p-4">
 
-                    <img src="{{ Voyager::image($produto->imagem) }}" width="200" height="185" class="rounded-2"
-                        alt="Imagem do produto"
-                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+                <img src="{{ Voyager::image($produto->imagem) }}" width="220" height="170" class="rounded-2"
+                    alt="Imagem do produto"
+                    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
 
-                    <div class="card-componente">
-                        <h5 class="card-title">{{ $produto->nome }}</h5>
-                        <p class="card-text">{{ $produto->descricao }}</p>
-                        <p class="card-text">Preço {{ $produto->getPreco() }} </p>
-                    </div>
+                <div class="p-1 text-center">
+                    <h5 class="pt-3">{{ $produto->nome }}</h5>
+                    <p class="">{{ $produto->empresa->nome }}</p>
+                    {{-- <div class="ps-5">
+                    <label for="avaliacao" class="rating-label">
+                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" disabled>
+                    </label>
+                </div> --}}
+                    <p class="pt-1">Preço {{ $produto->getPreco() }}
+                        @isset($produto->avaliacao)
+                        <span class="text-warning ps-1 "><i class="fa-sharp fa-solid fa-star"></i> {{$produto->avaliacao}}</span>
+                        @endisset
+                        @empty($produto->avaliacao)
+                        <span class="text-warning ps-1"><i class="fa-sharp fa-solid fa-star"></i> 0</span>
+                          @endempty
+                     </p>
                 </div>
-            </a>
+            </div>
+        </a>
 
             {{-- Inicio modal --}}
             <!-- Modal -->
