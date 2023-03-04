@@ -69,6 +69,8 @@ Route::get('/produto', function () {
     return view('produto.index', compact('produtos', 'categoria_produtos'));
 })->name('produto');
 
+
+
 Route::get('empresa/{id}/categoria_produto/{categoria_id}', function ($id, $categoria_id) {
     $empresa = Empresa::find($id);
     $categoria_produto = CategoriaProduto::find($categoria_id);

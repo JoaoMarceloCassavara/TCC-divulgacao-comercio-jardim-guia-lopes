@@ -165,7 +165,7 @@
         <div class="d-flex justify-content-between p-3">
             <h4>{{ $nomeDaCategoria }}</h4>
 
-            <a class="text-black fw-bold" href="{{route('home'/*'vermaisproduto', ['id' => $empresa->id,  'categoria_id' => $categoria_produto->id]*/) }}">Ver tudo <i
+            <a class="text-black fw-bold" href="{{route('vermaisproduto', ['id' => $empresa->id, 'categoria_id'=>$categoria_produto->id]) }}">Ver tudo <i
                     class="fa-solid fa-chevron-right"></i></a>
         </div>
         <section class="d-flex flex-wrap py-4 ps-5">
