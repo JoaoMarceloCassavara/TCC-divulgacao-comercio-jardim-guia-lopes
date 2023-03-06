@@ -76,7 +76,7 @@ Route::get('empresa/{id}/categoria_produto/{categoria_id}', function ($id, $cate
     $categoria_produto = CategoriaProduto::find($categoria_id);
     $produtos = Produto::where('categoria_produto_id', $categoria_produto->id)->where('empresa_id', $id)->get();
 
-    // dd($produtos);
+    // dd($categoria_produto);
 
     return view('produto.visualizar', compact('empresa','produtos', 'categoria_produto'));
 })->name('vermaisproduto');
