@@ -32,7 +32,7 @@
             <p class="">{{ $empresa->endereco }}</p>
 
             <div class="div-redes-sociais">
-                <p class="fw-bold fs-6">Faça seu pedido direto com o produtor </p>
+                <p class="fw-bold fs-6">Redes Sociais</p>
                 <ul class="redes-sociais">
                     @isset($empresa->whatsapp)
                         <li class="icone-rede-social">
