@@ -181,18 +181,18 @@
                     <div class="p-1 text-center">
                         <h5 class="pt-3">{{ $produto->nome }}</h5>
                         <p class="">{{ $produto->empresa->nome }}</p>
-                        {{-- <div class="ps-5">
+                        <div class="ps-5">
                         <label for="avaliacao" class="rating-label">
                             <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" disabled>
                         </label>
-                    </div> --}}
+                    </div>
                         <p class="pt-1">Preço {{ $produto->getPreco() }}
-                            @isset($produto->avaliacao)
+                            {{-- @isset($produto->avaliacao)
                             <span class="text-warning ps-1 "><i class="fa-sharp fa-solid fa-star"></i> {{$produto->avaliacao}}</span>
                             @endisset
                             @empty($produto->avaliacao)
                             <span class="text-warning ps-1"><i class="fa-sharp fa-solid fa-star"></i> 0</span>
-                              @endempty
+                              @endempty --}}
                          </p>
                     </div>
                 </div>
@@ -312,9 +312,9 @@
             @endforelse
         </section>
     @endforeach
-    <hr class="border border-dark ">
 
-    <section class="py-5">
+
+    <section class="py-5 section_body">
         <header class=" pb-3 ps-5">
             <h4 class="fw-bold">Avaliações</h4>
         </header>

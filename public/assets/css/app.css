@@ -1772,9 +1772,14 @@ background-color: rgba(232, 229, 212, 1);
 
 /* Mostrar avalição da empresa */
 .card_avaliacao_empresa{
-background-color: rgba(217, 217, 217, 1);
+    background-color: #a8b188;
+    ;
+
 width: 170vh;
 margin:  auto
+}
+.section_body{
+    background-color: rgba(232, 229, 212, 1);
 }
 
 
