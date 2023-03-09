@@ -1734,7 +1734,7 @@ padding-top: 20px;
 }
 .logo_empresa{
 top: 300px;
-left: 40%;
+padding-left: 40%;
 }
 .nome_empresa_visualizar{
 padding-top: 7.2vh;
@@ -1933,5 +1933,9 @@ background-color: #400101;
   }
 
 /* estrelas */
-
+.estrelas-center{
+    float: left;
+    padding-left: 43%;
+}
 /* Estrelas Avaliação Fim */
+

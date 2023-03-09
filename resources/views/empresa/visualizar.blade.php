@@ -10,13 +10,23 @@
                     onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
             </div>
             <div class="nome_empresa_visualizar text-center">
-                <h5 class="fs-2 fw-bold  ">{{ $empresa->nome }}</h5>
+                <h5 class="fs-2 fw-bold ">{{ $empresa->nome }}</h5>
+               <div class=" estrelas-center d-flex">
+
+                <label for="avaliacao" class="rating-label">
+                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao"
+                        type="range" max="5" step="0.5"
+                        value="{{ $empresa->avaliacao }}" disabled>
+                </label>
+
                 @isset($empresa->avaliacao)
-                <h5 class="text-warning"><i class="fa-sharp fa-solid fa-star"></i> {{$empresa->avaliacao}}</h5>
+                <h5 class="text-avaliacao-empresa"> {{$empresa->avaliacao}}</h5>
                 @endisset
                 @empty($empresa->avaliacao)
-                    <p class="text-warning"><i class="fa-sharp fa-solid fa-star"></i> 0</p>
+                    <p class="text-avaliacao-empresa"> 0</p>
                 @endempty
+
+            </div>
             </div>
         </div>
 
