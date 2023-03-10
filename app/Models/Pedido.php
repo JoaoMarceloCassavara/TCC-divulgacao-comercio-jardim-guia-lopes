@@ -3,13 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Auth; 
 
 class Pedido extends Model
 {
     // belong to empresa empresa_id
     // belong to usuario user_id
     //belongtomany pedido produto
+    public function scopeUsuario($query)
+    {
+        $user = Auth::user();
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+        if ($user->hasRole('atendente')) {
+            return $query;
+        }
+        return $query->where('user_id', $user->getKey());
+    }
 
     public function empresa()
     {
