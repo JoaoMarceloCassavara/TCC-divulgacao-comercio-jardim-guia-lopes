@@ -20,7 +20,7 @@
                 <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
                 {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
                 <label for="avaliacao" class="rating-label">
-                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao}}" disabled>
+                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao ?? 0}}" disabled>
                 </label>
                 <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
                     href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i
@@ -67,7 +67,7 @@
                     <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
                     {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
                     <label for="avaliacao" class="rating-label">
-                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao}}" disabled>
+                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao ?? 0}}" disabled>
                     </label>
                     <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
                         href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i

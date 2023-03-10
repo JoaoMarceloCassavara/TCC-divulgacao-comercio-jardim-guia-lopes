@@ -198,7 +198,7 @@
                 <div class="ps-5">
                     <label for="avaliacao" class="rating-label">
                         <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                            max="5" step="0.5" value="{{ $produto->avaliacao }}" disabled>
+                            max="5" step="0.5" value="{{ $produto->avaliacao ?? 0  }}" disabled>
                     </label>
                 </div>
                 <p class="pt-1">Preço {{ $produto->getPreco() }}
@@ -236,7 +236,7 @@
                             {{-- <input class="rating py-2" type="range" value="{{$produto->avaliacao}}" disabled> --}}
                             <label for="avaliacao" class="rating-label">
                                 <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                                    max="5" step="0.5" value="{{ $empresa->avaliacao }}" disabled>
+                                    max="5" step="0.5" value="{{ $produto->avaliacao ?? 0  }}" disabled>
                             </label>
                             <div class="py-2">
                                 <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count() }}</p>
@@ -288,7 +288,7 @@
                                         <label for="avaliacao" class="rating-label">
                                             <input class="rating rating--nojs" id="avaliacao" name="avaliacao"
                                                 type="range" max="5" step="0.5"
-                                                value="{{ $avaliacao->usuario->avaliacao }}" disabled>
+                                                value="{{ $avaliacao->avaliacao ?? 0  }}" disabled>
                                         </label>
                                     </div>
                                 </div>
@@ -355,7 +355,7 @@
                             <div class="ps-2 pt-3">
                                 <label for="avaliacao" class="rating-label">
                                     <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                                        max="5" step="0.5" value="{{ $avaliacao->avaliacao }}" disabled>
+                                        max="5" step="0.5" value="{{ $avaliacao->avaliacao ?? 0 }}" disabled>
                                 </label>
                             </div>
                         </div>

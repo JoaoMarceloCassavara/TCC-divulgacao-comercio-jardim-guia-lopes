@@ -7,26 +7,28 @@
                 {{-- Final botao Modal --}}>
                 <div class="card-link m-2 p-4">
 
-                    <img src="{{ Voyager::image($produto->imagem) }}" width="220" height="170" class="rounded-2"
+                    <img src="{{ Voyager::image($produto->imagem) }}" width="220" height="180" class="rounded-2"
                         alt="Imagem do produto"
                         onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
 
                     <div class="p-1 text-center">
                         <h5 class="pt-3">{{ $produto->nome }}</h5>
                         <p class="">{{ $produto->empresa->nome }}</p>
-                        {{-- <div class="ps-5">
-                        <label for="avaliacao" class="rating-label">
-                            <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" disabled>
-                        </label>
-                    </div> --}}
+
+                        <div class="ps-5 ">
+                            <label for="avaliacao" class="rating-label">
+                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
+                                    max="5" step="0.5" value="{{ $produto->avaliacao ?? 0 }}" disabled>
+                            </label>
+                        </div>
                         <p class="pt-1">Preço {{ $produto->getPreco() }}
-                            @isset($produto->avaliacao)
+                            {{-- @isset($produto->avaliacao)
                             <span class="text-warning ps-1 "><i class="fa-sharp fa-solid fa-star"></i> {{$produto->avaliacao}}</span>
                             @endisset
                             @empty($produto->avaliacao)
-                            <span class="text-warning ps-1"><i class="fa-sharp fa-solid fa-star"></i> 0</span>
-                              @endempty
-                         </p>
+                         <span class="text-warning ps-1"><i class="fa-sharp fa-solid fa-star"></i> 0</span>
+                           @endempty --}}
+                        </p>
                     </div>
                 </div>
             </a>
@@ -53,7 +55,7 @@
                                         <p class=" fw-bold fs-3">{{ $produto->nome }}</p >
                                             {{-- <input class="rating py-2" type="range" value="{{$produto->avaliacao}}" disabled> --}}
                                             <label for="avaliacao" class="rating-label">
-                                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao}}" disabled>
+                                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao ?? 0}}" disabled>
                                             </label>
                                         <div class="py-2">
                                         <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count()}}</p>
@@ -100,7 +102,7 @@
                                             onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
                                              <div class="ps-2 pt-3">
                                                 <label for="avaliacao" class="rating-label">
-                                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->usuario->avaliacao}}" disabled>
+                                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->avaliacao ?? 0}}" disabled>
                                                 </label>
                                         </div>
                                         </div>
