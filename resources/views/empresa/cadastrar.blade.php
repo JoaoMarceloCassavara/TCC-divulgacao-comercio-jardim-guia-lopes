@@ -6,9 +6,9 @@
 <section class="d-flex justify-content-evenly">
 
     <div class="nome-logo">
-        <h1 class="text-register-empresario">Divulgue seu <br>
+        <h4 class="text-register-empresario">Divulgue seu <br>
             negócio em <br>
-            nosso site!</h1>
+            nosso site!</h4>
             <svg class="logo_do_site" width="239" height="199" viewBox="0 0 239 199" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="239" height="199" fill="url(#pattern0)"/>
                 <defs>
@@ -22,7 +22,7 @@
     </div>
 
      <div class="cadastro_empresario">
-        <div class="text-center py-5"><h1 class="fw-bold">{{ __('Cadastre sua empresa') }}</h1></div>
+        <div class="text-center py-5"><h4 class="fw-bold">{{ __('Cadastre sua empresa') }}</h4></div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('empresa.salvar') }}">
@@ -91,6 +91,15 @@
                             </span>
                         @enderror
                     </div>
+                    <div class="col-md-6 register-itens-empresario-align  py-2">
+                        <select class="form-select" aria-label="Default select example" name="categoria_empresa_id" id="categoria_empresa_id" >
+                            <option selected>Selecione a categoria </option>
+                            @foreach ( $categoria_empresas as $categoria_empresa )
+                            <option value="{{$categoria_empresa->id}}">{{$categoria_empresa->nome}}</option>
+
+                            @endforeach
+                          </select>
+                        </div>
                 {{-- </div> --}}
 
                 {{-- <div class="row mb-3">

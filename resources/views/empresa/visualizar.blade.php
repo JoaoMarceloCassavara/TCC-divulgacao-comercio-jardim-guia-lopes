@@ -3,7 +3,8 @@
     <section class="d-flex py-5 ps-5">
         <div class="visualizar_icones_empresa position-relative">
             <img src="{{ Voyager::image($empresa->foto) }}"width="800" height="400" class="rounded-3"
-                alt="Imagem da Empresa" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
+                alt="Imagem da Empresa"
+                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
             <div class="position-absolute logo_empresa">
                 <img src="{{ Voyager::image($empresa->logo) }}"width="155" height="155" alt="Logo da Empresa"
                     class="rounded-circle border border-dark"
@@ -11,22 +12,21 @@
             </div>
             <div class="nome_empresa_visualizar text-center">
                 <h5 class="fs-2 fw-bold ">{{ $empresa->nome }}</h5>
-               <div class=" estrelas-center d-flex">
+                <div class=" estrelas-center d-flex">
 
-                <label for="avaliacao" class="rating-label">
-                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao"
-                        type="range" max="5" step="0.5"
-                        value="{{ $empresa->avaliacao }}" disabled>
-                </label>
+                    <label for="avaliacao" class="rating-label">
+                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5"
+                            step="0.5" value="{{ $empresa->avaliacao ?? 0 }}" disabled>
+                    </label>
 
-                @isset($empresa->avaliacao)
-                <h5 class="text-avaliacao-empresa"> {{$empresa->avaliacao}}</h5>
-                @endisset
-                @empty($empresa->avaliacao)
-                    <p class="text-avaliacao-empresa"> 0</p>
-                @endempty
+                    @isset($empresa->avaliacao)
+                        <h5 class="text-avaliacao-empresa"> {{ $empresa->avaliacao }}</h5>
+                    @endisset
+                    @empty($empresa->avaliacao)
+                        <p class="text-avaliacao-empresa"> 0</p>
+                    @endempty
 
-            </div>
+                </div>
             </div>
         </div>
 
@@ -115,8 +115,8 @@
                                         d="M0 12C0 15.2618 0.0144029 15.6701 0.0720144 16.948C0.129626 18.2258 0.336067 19.1001 0.628926 19.8639C0.936187 20.6517 1.34427 21.3243 2.0116 21.9872C2.67413 22.6501 3.34627 23.0681 4.13363 23.3707C4.89698 23.6685 5.77075 23.8703 7.04781 23.9279C8.32967 23.9856 8.73775 24 11.9928 24C15.2527 24 15.6607 23.9856 16.9378 23.9279C18.2148 23.8703 19.0886 23.6637 19.852 23.3707C20.6393 23.0633 21.3115 22.6549 21.974 21.9872C22.6365 21.3243 23.0542 20.6517 23.3567 19.8639C23.6543 19.1001 23.856 18.2258 23.9136 16.948C23.9712 15.6653 23.9856 15.257 23.9856 12C23.9856 8.73819 23.9712 8.32986 23.9136 7.05204C23.856 5.77422 23.6495 4.89992 23.3567 4.13611C23.0494 3.34828 22.6413 2.67574 21.974 2.01281C21.3163 1.34508 20.6441 0.931946 19.8568 0.629304C19.0934 0.331465 18.2196 0.129704 16.9426 0.0720576C15.6607 0.0144115 15.2527 0 11.9976 0C8.73775 0 8.32967 0.0144115 7.05261 0.0720576C5.77555 0.129704 4.90178 0.336269 4.13843 0.629304C3.35107 0.93675 2.67894 1.34508 2.0164 2.01281C1.35387 2.68054 0.936187 3.34828 0.633727 4.13611C0.336067 4.89992 0.129626 5.77422 0.0720144 7.05204C0.0144029 8.32986 0 8.73819 0 12ZM2.16523 12C2.16523 8.79584 2.17964 8.41153 2.23725 7.14812C2.29006 5.97598 2.4869 5.33707 2.65013 4.91914C2.86617 4.36189 3.13023 3.95837 3.55271 3.53563C3.97519 3.11289 4.37367 2.85829 4.93539 2.63251C5.35787 2.46918 5.9964 2.27222 7.16303 2.21938C8.42568 2.16173 8.80496 2.14732 12.012 2.14732C15.219 2.14732 15.5983 2.16173 16.861 2.21938C18.0324 2.27222 18.6709 2.46918 19.0886 2.63251C19.6455 2.84868 20.0488 3.11289 20.4713 3.53563C20.8938 3.95837 21.1482 4.35709 21.3739 4.91914C21.5371 5.34187 21.7339 5.98079 21.7868 7.14812C21.8444 8.41153 21.8588 8.79103 21.8588 12C21.8588 15.209 21.8444 15.5885 21.7868 16.8519C21.7339 18.024 21.5371 18.6629 21.3739 19.0809C21.1578 19.6381 20.8938 20.0416 20.4713 20.4644C20.0488 20.8871 19.6503 21.1417 19.0886 21.3675C18.6661 21.5308 18.0276 21.7278 16.861 21.7806C15.5983 21.8383 15.219 21.8527 12.012 21.8527C8.80496 21.8527 8.42568 21.8383 7.16303 21.7806C5.9916 21.7278 5.35307 21.5308 4.93539 21.3675C4.37848 21.1513 3.97519 20.8871 3.55271 20.4644C3.13023 20.0416 2.87578 19.6429 2.65013 19.0809C2.4869 18.6581 2.29006 18.0192 2.23725 16.8519C2.17483 15.5885 2.16523 15.2042 2.16523 12Z"
                                         fill="url(#paint2_linear_250_854)" />
                                     <defs>
-                                        <linearGradient id="paint0_linear_250_854" x1="20.2955" y1="1.8352" x2="2.93304"
-                                            y2="23.1076" gradientUnits="userSpaceOnUse">
+                                        <linearGradient id="paint0_linear_250_854" x1="20.2955" y1="1.8352"
+                                            x2="2.93304" y2="23.1076" gradientUnits="userSpaceOnUse">
                                             <stop stop-color="#AE3DAE" />
                                             <stop offset="0.0468721" stop-color="#B23BA6" />
                                             <stop offset="0.1216" stop-color="#BD368E" />
@@ -162,7 +162,7 @@
                         </li>
                     @endisset
                 </ul>
-                   <p>{!! $empresa->horario_funcionamento !!}</p>
+                <p>{!! $empresa->horario_funcionamento !!}</p>
 
             </div>
 
@@ -171,211 +171,222 @@
 
     </section>
     {{-- Produto por categoria --}}
-    @foreach ($categorias as $nomeDaCategoria => $produtos)
-        <div class="d-flex justify-content-between p-3">
+    @forelse ($categorias as $nomeDaCategoria => $produtos)
+         <div class="d-flex justify-content-between p-3">
             <h4>{{ $nomeDaCategoria }}</h4>
 
-            <a class="text-black fw-bold" href="{{route('vermaisproduto', ['id' => $empresa->id, 'categoria_id' => $empresa->categoria->id]) }}">Ver tudo <i
-                    class="fa-solid fa-chevron-right"></i></a>
-        </div>
-        <section class="d-flex flex-wrap py-4 ps-5">
+
             @forelse ($produtos as $produto)
-            <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
-                {{-- Final botao Modal --}}>
-                <div class="card-link m-2 p-4">
+                @if ($loop->first)
+                    <a class="text-black fw-bold"
+                        href="{{ route('vermaisproduto', ['id' => $empresa->id, 'categoria_id' => $produto->categoria->id]) }}">Ver
+                        tudo <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+          <section class="d-flex flex-wrap py-4 ps-5">
+           @endif
+           <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
+         {{-- Final botao Modal --}}>
+           <div class="card-link m-2 p-4">
 
-                    <img src="{{ Voyager::image($produto->imagem) }}" width="220" height="170" class="rounded-2"
-                        alt="Imagem do produto"
-                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+            <img src="{{ Voyager::image($produto->imagem) }}" width="220" height="170" class="rounded-2"
+                alt="Imagem do produto"
+                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
 
-                    <div class="p-1 text-center">
-                        <h5 class="pt-3">{{ $produto->nome }}</h5>
-                        <p class="">{{ $produto->empresa->nome }}</p>
-                        <div class="ps-5">
-                        <label for="avaliacao" class="rating-label">
-                            <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" disabled>
-                        </label>
-                    </div>
-                        <p class="pt-1">Preço {{ $produto->getPreco() }}
-                            {{-- @isset($produto->avaliacao)
+            <div class="p-1 text-center">
+                <h5 class="pt-3">{{ $produto->nome }}</h5>
+                <p class="">{{ $produto->empresa->nome }}</p>
+                <div class="ps-5">
+                    <label for="avaliacao" class="rating-label">
+                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
+                            max="5" step="0.5" value="{{ $produto->avaliacao }}" disabled>
+                    </label>
+                </div>
+                <p class="pt-1">Preço {{ $produto->getPreco() }}
+                    {{-- @isset($produto->avaliacao)
                             <span class="text-warning ps-1 "><i class="fa-sharp fa-solid fa-star"></i> {{$produto->avaliacao}}</span>
                             @endisset
                             @empty($produto->avaliacao)
                             <span class="text-warning ps-1"><i class="fa-sharp fa-solid fa-star"></i> 0</span>
                               @endempty --}}
-                         </p>
-                    </div>
+                </p>
+            </div>
+             </div>
+              </a>
+             {{-- Inicio modal --}}
+             <!-- Modal -->
+                 <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
+        aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl ">
+            <div class="modal-content modal-produto">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </a>
-                {{-- Inicio modal --}}
-                <!-- Modal -->
-                <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
-                    aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true">
-                    <div class="modal-dialog modal-xl ">
-                        <div class="modal-content modal-produto">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                    <div class="d-flex ps-5 ">
+                        <div class="modal-card-produto p-4 rounded-3">
+                            <img src="{{ Voyager::image($produto->imagem) }}" width="170" height="160"
+                                class="rounded-3" alt="Imagem do produto"
+                                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+                        </div>
+
+                        <div class="ps-4">
+
+                            <p class=" fw-bold fs-3">{{ $produto->nome }}</p>
+                            {{-- <input class="rating py-2" type="range" value="{{$produto->avaliacao}}" disabled> --}}
+                            <label for="avaliacao" class="rating-label">
+                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
+                                    max="5" step="0.5" value="{{ $empresa->avaliacao }}" disabled>
+                            </label>
+                            <div class="py-2">
+                                <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count() }}</p>
                             </div>
-                            <div class="modal-body">
-                                <div class="d-flex ps-5 ">
-                                    <div class="modal-card-produto p-4 rounded-3">
-                                        <img src="{{ Voyager::image($produto->imagem) }}" width="170" height="160"
-                                            class="rounded-3" alt="Imagem do produto"
-                                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
-                                    </div>
-
-                                    <div class="ps-4">
-
-                                        <p class=" fw-bold fs-3">{{ $produto->nome }}</p >
-                                            {{-- <input class="rating py-2" type="range" value="{{$produto->avaliacao}}" disabled> --}}
-                                            <label for="avaliacao" class="rating-label">
-                                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao}}" disabled>
-                                            </label>
-                                        <div class="py-2">
-                                        <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count()}}</p>
-                                    </div>
-                                    </div>
+                        </div>
 
 
-                                </div>
-                                <div class="d-flex">
-                                    <div class="pt-5 ps-4">
-                                        @isset($produto->video_curto)
-
-
-                                    <iframe width="300" height="290" src="{{$produto->video_curto}}" title="{{$produto->nome}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    @endisset
-                                </div>
-                                <div class="pt-5 ps-3">
-                                    <h4>Descrição</h4>
-                                    <p>{{$produto->descricao}}</p>
-
-                                </div>
-
-                            </div>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                <button type="button" class="btn btn-dark " data-id="{{ $produto->id }}"
-                                    data-imagem="{{ Voyager::image($produto->imagem) }}" data-preco="{{ $produto->preco }}"
-                                    data-nome="{{ $produto->nome }}" onclick="adicionarItemNoCarrinho();">Adicionar ao
-                                    carrinho</button>
-                            </div>
-                            <hr class="border border-dark ">
-
-                            <header class="ps-3 py-4"><p class="fw-bold fs-4">Avaliações</p></header>
-                            @forelse ($produto->avaliacoes as $avaliacao)
-                            <div class=" rounded-3 shadow ms-3 me-3  mb-5 bg-body rounde">
-                                <div class="d-flex p-2 bd-highlight mb-3  m-3 ">
-                                    <div class="d-flex align-items-center">
-                                        <div class="py-5 ">
-                                        <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120"
-                                             alt="Imagem do produto" class="rounded-circle"
-                                            onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
-                                             <div class="ps-2 pt-3">
-                                                <label for="avaliacao" class="rating-label">
-                                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->usuario->avaliacao}}" disabled>
-                                                </label>
-                                        </div>
-                                        </div>
-                                        <div class="ps-3">
-                                            <p class="text-break w-auto ">{{ $avaliacao->usuario->name }} </p>
-                                            {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
-
-
-                                            <p>{{ $avaliacao->updated_at }}</p>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="d-flex align-items-center w-50 p-3 ms-auto  ">
-
-                                        <p class="text-break">{{ $avaliacao->descricao }}</p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-
-
-                        @empty
-                        <p class="alert alert-success">Nenhuma avaliação cadastrada para esse produto</p>
-                        @endforelse
+                    </div>
+                    <div class="d-flex">
+                        <div class="pt-5 ps-4">
+                            @isset($produto->video_curto)
+                                <iframe width="300" height="290" src="{{ $produto->video_curto }}"
+                                    title="{{ $produto->nome }}" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            @endisset
+                        </div>
+                        <div class="pt-5 ps-3">
+                            <h4>Descrição</h4>
+                            <p>{{ $produto->descricao }}</p>
 
                         </div>
+
                     </div>
+
+
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                    <button type="button" class="btn btn-dark " data-id="{{ $produto->id }}"
+                        data-imagem="{{ Voyager::image($produto->imagem) }}" data-preco="{{ $produto->preco }}"
+                        data-nome="{{ $produto->nome }}" onclick="adicionarItemNoCarrinho();">Adicionar ao
+                        carrinho</button>
+                </div>
+                <hr class="border border-dark ">
 
-                {{-- Final MOdal --}}
+                <header class="ps-3 py-4">
+                    <p class="fw-bold fs-4">Avaliações</p>
+                </header>
+                @forelse ($produto->avaliacoes as $avaliacao)
+                    <div class=" rounded-3 shadow ms-3 me-3  mb-5 bg-body rounde">
+                        <div class="d-flex p-2 bd-highlight mb-3  m-3 ">
+                            <div class="d-flex align-items-center">
+                                <div class="py-5 ">
+                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140"
+                                        height="120" alt="Imagem do produto" class="rounded-circle"
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
+                                    <div class="ps-2 pt-3">
+                                        <label for="avaliacao" class="rating-label">
+                                            <input class="rating rating--nojs" id="avaliacao" name="avaliacao"
+                                                type="range" max="5" step="0.5"
+                                                value="{{ $avaliacao->usuario->avaliacao }}" disabled>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="ps-3">
+                                    <p class="text-break w-auto ">{{ $avaliacao->usuario->name }} </p>
+                                    {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
 
-            @empty
-                {{-- @if (sizeof($categoria_produtos) == 0) --}}
-                <p class="alert alert-success">Nenhum produto cadastrado</p>
-                {{-- @endif --}}
-            @endforelse
-        </section>
-    @endforeach
+
+                                    <p>{{ $avaliacao->updated_at }}</p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center w-50 p-3 ms-auto  ">
+
+                                <p class="text-break">{{ $avaliacao->descricao }}</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                @empty
+                    <p class="alert alert-success">Nenhuma avaliação cadastrada para esse produto</p>
+                @endforelse
+
+            </div>
+        </div>
+    </div>
+
+    {{-- Final MOdal --}}
+
+@empty
+    {{-- @if (sizeof($categoria_produtos) == 0) --}}
+    <p class="alert alert-success">Nenhum produto cadastrado</p>
+    {{-- @endif --}}
+    @endforelse
+</section>
+    @empty
+
+    <p class="alert alert-success">Nenhum produto cadastrado</p>
+
+
+    @endforelse
 
 
     <section class="py-5 section_body">
         <header class=" pb-3 ps-5">
             <h4 class="fw-bold">Avaliações</h4>
         </header>
-    @forelse ($empresa->avaliacoes as $avaliacao)
-        <div class="card_avaliacao_empresa rounded-3">
-            <div class="d-flex bd-highlight mb-3  m-4">
-                <div class="d-flex align-items-center">
-                    <div class="py-5 flex-shrink-0">
-                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120"
-                         alt="Imagem avatar"
-                        onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
-                         <div class="ps-2 pt-3">
-                            <label for="avaliacao" class="rating-label">
-                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->avaliacao}}" disabled>
-                            </label>
+        @forelse ($empresa->avaliacoes as $avaliacao)
+            <div class="card_avaliacao_empresa rounded-3">
+                <div class="d-flex bd-highlight mb-3  m-4">
+                    <div class="d-flex align-items-center">
+                        <div class="py-5 flex-shrink-0">
+                            <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120"
+                                alt="Imagem avatar"
+                                onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                            <div class="ps-2 pt-3">
+                                <label for="avaliacao" class="rating-label">
+                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
+                                        max="5" step="0.5" value="{{ $avaliacao->avaliacao }}" disabled>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="ps-3 pe-5">
+                            <p class="text-break w-auto">{{ $avaliacao->usuario->name }} </p>
+                            {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
+
+
+                            <p>{{ $avaliacao->updated_at }}</p>
+
+                        </div>
+
                     </div>
-                    </div>
-                    <div class="ps-3 pe-5">
-                        <p class="text-break w-auto">{{ $avaliacao->usuario->name }} </p>
-                        {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
 
+                    <div class="d-flex align-items-center w-50 p-3 ms-auto">
 
-                        <p>{{ $avaliacao->updated_at }}</p>
+                        <p class="text-break">{{ $avaliacao->descricao }}</p>
 
                     </div>
-
-                </div>
-
-                <div class="d-flex align-items-center w-50 p-3 ms-auto">
-
-                    <p class="text-break">{{ $avaliacao->descricao }}</p>
 
                 </div>
 
             </div>
 
-        </div>
 
 
 
 
-        {{--
-    {{$avaliacao->avaliacao}}
-    {{$avaliacao->descricao}}
-    {{$avaliacao->updated_at}}
-    {{$avaliacao->usuario->name}}
-    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" class="modal-imagem"
-                                                class="imagem-produto"  alt="Imagem do produto" onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';"> --}}
-    @empty
-    <p class="alert alert-success">Nenhuma avaliação cadastrada para essa empresa</p>
-    @endforelse
-</section>
+        @empty
+            <p class="alert alert-success">Nenhuma avaliação cadastrada para essa empresa</p>
+        @endforelse
+    </section>
     {{-- Produto por categoria final --}}
 @endsection

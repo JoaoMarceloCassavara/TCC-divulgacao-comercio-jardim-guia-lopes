@@ -13,10 +13,25 @@ class Produto extends Model
         if (!$this->user_id && Auth::user()) {
             $this->user_id = Auth::user()->getKey();
         }
+        if (!$this->empresa_id && Auth::user()) {
+            $this->empresa_id = Empresa::where('user_id', $this->user_id)->first()->id;
+        }
         return parent::save();
     }
 
     public function scopeUsuario($query)
+    {
+        $user = Auth::user();
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+        if ($user->hasRole('atendente')) {
+            return $query;
+        }
+        return $query->where('user_id', $user->getKey());
+    }
+
+    public function scopeEmpresa($query)
     {
         $user = Auth::user();
         if ($user->hasRole('admin')) {

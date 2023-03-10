@@ -164,7 +164,8 @@ Route::get('/saiba_mais', function () {
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/registrar_empresa', function () {
-        return view('empresa.cadastrar');
+        $categoria_empresas = CategoriaEmpresa::all();
+        return view('empresa.cadastrar', compact('categoria_empresas'));
     })->name('empresa.cadastrar');
     Route::post('/empresa/salvar', function (Request $request) {
         $quantidadeEmpresaCadastradas = Empresa::where('user_id', Auth::user()->id)->count();
@@ -177,6 +178,7 @@ Route::middleware(['auth'])->group(function () {
             $empresa->endereco = $request->endereco;
             $empresa->telefone = $request->telefone;
             $empresa->nome = $request->nome;
+            $empresa->categoria_empresa_id = $request->categoria_empresa_id;
             //    dd($empresa);
             $empresa->save();
         }

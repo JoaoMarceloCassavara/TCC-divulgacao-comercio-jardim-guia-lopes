@@ -1,6 +1,8 @@
 @extends('layouts.app')
+@section('menu')
 
-@section('conteudo')
+@endsection
+@section('conteudo') 
 
         <section class="body-login">
             <div class="card-login shadow p-3 mb-5 bg-body rounded">
