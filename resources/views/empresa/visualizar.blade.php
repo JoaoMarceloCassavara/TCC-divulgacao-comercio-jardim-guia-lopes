@@ -338,6 +338,46 @@
 
 
     @endforelse
+<hr class="border border-dark ">
+@isset($empresa->bibliografia_produtor)
+
+
+             <section>
+                <header>
+                    <h4>Sobre o Produtor(bibliografia)</h4>
+                </header>
+            <div class="border border-dark border border-2 card-bibliografia rounded-3 me-5 ms-5 ">
+           <div class="d-flex header-logo_nome pt-5">
+            <div>
+            <img src="{{ Voyager::image($empresa->logo) }}"width="110" height="110" alt="Logo da Empresa"
+            class="rounded-circle border border-dark"
+            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
+        </div>
+            <div class="ps-4 pt-3">
+    <h4 class="text-center">{{$empresa->nome}}</h4>
+    <p class="fw-bold ">Localização</p>
+       </div>
+           </div>
+
+           <div class="d-flex justify-content-evenly ">
+            <div class="pt-5">
+            <p class=" bibliografia_p w-75 ps-5">{{$empresa->bibliografia_produtor}}</p>
+        </div>
+            <div class="pe-5 pb-3">
+                <img src="{{ Voyager::image($empresa->foto) }}"width="600" height="550" class=""
+                alt="Imagem da Empresa"
+                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
+            </div>
+
+           </div>
+
+
+
+            </div>
+
+               </section>
+               @endisset
+
 
 
     <section class="py-5 section_body">

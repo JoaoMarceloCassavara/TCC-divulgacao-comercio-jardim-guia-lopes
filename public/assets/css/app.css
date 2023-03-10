@@ -1939,3 +1939,14 @@ background-color: #400101;
 }
 /* Estrelas Avaliação Fim */
 
+.card-bibliografia{
+margin: auto;
+
+}
+.bibliografia_p{
+    text-align: justify;
+    text-indent: 30px    ;
+}
+.header-logo_nome{
+    padding-left: 100px;
+}
