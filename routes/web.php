@@ -5,6 +5,7 @@ use App\Models\AvaliacoesProduto;
 use App\Models\AvaliacaoEmpresa;
 use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
+use App\Models\EmpresaDestaque;
 use App\Models\Empresa;
 use App\Models\Categoria;
 use App\Models\CategoriaEmpresa;
@@ -33,9 +34,10 @@ Route::get('/', function () {
     $categoria_produtos = CategoriaProduto::all();
     $categoria_empresas = CategoriaEmpresa::all();
     $produtos = Produto::all();
-    $empresas = Empresa::all();
+    $empresas = Empresa::where('ativo', true)->get();
+    $empresas_destaques = EmpresaDestaque::all();
     $empresas_famosas = Empresa::where('avaliacao', '>=', 4)->take(5)->get();
-    return view('welcome', compact('produtos', 'empresas', 'categoria_produtos', 'categoria_empresas', 'empresas_famosas'));
+    return view('welcome', compact('produtos', 'empresas', 'categoria_produtos', 'categoria_empresas', 'empresas_famosas','empresas_destaques'));
 })->name('welcome');
 
 
@@ -127,10 +129,14 @@ Route::get('/categoria-empresa/{id}', function ($id) {
 Route::get('/filtro/pesquisa', function (Request $request) {
     //  dd($request->filtro);
     $produtos = Produto::where('nome', 'LIKE', "%{$request->filtro}%")->get();
-    $empresas = Empresa::where('nome', 'LIKE', "%{$request->filtro}%")->get();
+    $nome_cidade = "%{$request->filtro}%";
+    $empresas = Empresa::whereHas('cidade', function($query) use ($nome_cidade) {
+        $query->where('nome', 'LIKE',$nome_cidade);
+    })->orWhere('nome', 'LIKE', "%{$request->filtro}%")->get();
     $categorias = CategoriaProduto::where('nome', 'LIKE', "%{$request->filtro}%")->get();
     // $cidades = Cidade::where('nome', 'LIKE', "%{$request->filtro}%")->get();
     // dd($categorias, $empresas, $produtos);
+    // dd($cidades);
 
     return view('busca', compact('produtos', 'empresas','categorias'));
 })->name('filtro');

@@ -361,7 +361,7 @@
 
            <div class="d-flex justify-content-evenly ">
             <div class="pt-5">
-            <p class=" bibliografia_p w-75 ps-5">{{$empresa->bibliografia_produtor}}</p>
+            <p class=" bibliografia_p w-75 ps-5">{!! $empresa->bibliografia_produtor !!}</p>
         </div>
             <div class="pe-5 pb-3">
                 <img src="{{ Voyager::image($empresa->foto) }}"width="600" height="550" class=""

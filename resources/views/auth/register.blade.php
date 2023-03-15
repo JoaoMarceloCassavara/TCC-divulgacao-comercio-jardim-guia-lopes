@@ -58,6 +58,16 @@
                             <div class="col-md-6 login-itens-align py-2">
                                 <input id="password-confirm" type="password" placeholder="Comfirmar Senha" class="form-control register-itens " name="password_confirmation" required autocomplete="new-password">
                             </div>
+
+                            <div class="col-md-6 register-itens-empresario-align  py-2">
+                                <select class="form-select" aria-label="Default select example" name="cidade_id" id="cidade_id" >
+                                    <option selected>Selecione a Cidade </option>
+                                    @foreach ( $cidades as $cidade )
+                                    <option value="{{$cidade->id}}">{{$cidade->nome}}</option>
+
+                                    @endforeach
+                                  </select>
+                                </div>
                         {{-- </div> --}}
 
                         <div class="text-center">

@@ -22,11 +22,7 @@
         <li class="nav-item" role="presentation">
             <a class="nav-link text-success" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab"
                 aria-controls="ex1-tabs-3" aria-selected="false">Categorias</a>
-        {{-- </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link text-success" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab"
-                aria-controls="ex1-tabs-4" aria-selected="false">Cidade</a>
-        </li> --}}
+        </li>
     </ul>
     <!-- Tabs navs -->
     <div class="tab-content" id="ex1-content">
@@ -375,39 +371,6 @@
         </div>
 
     </div>
-
-    {{-- <div class="tab-pane fade show active" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
-        @forelse ( $cidades as $cidade )
-        <section class=" d-flex flex-wrap py-5">
-            @forelse ($cidade->empresas as $empresa)
-        <div class="card_empresa d-flex align-items-center  m-3 p-4">
-            <div>
-            <img src="{{ Voyager::image($empresa->logo) }}"height="130" width="130" class="rounded-circle"
-                alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
-            </div>
-            <div class="ps-4">
-                <p class="text-white  fs-5 pt-4 ">{{ $empresa->nome }}</p>
-                <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
-                <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled>
-                <label for="avaliacao" class="rating-label">
-                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao}}" disabled>
-                </label>
-                <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
-                    href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i
-                        class="fa-sharp fa-solid fa-shop"></i> Confira os produtos
-                </a>
-            </div>
-        </div>
-    @empty
-        <p class="alert alert-success">Nenhuma empresa cadastrada</p>
-    @endforelse
-
-
-    @empty
-
-    @endforelse
-        </section>
-        </div> --}}
     <!-- Tabs content -->
 
     <script type="text/javascript" src="{{ asset('/vendor/mdb5/core.min.js') }}"></script>
