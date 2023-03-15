@@ -70,4 +70,9 @@ class Produto extends Model
     {
         return 'R$ ' . number_format($this->preco, 2, ',', '.');
     }
+
+    public function destaques()
+    {
+        return $this->hasMany(ProdutoDestaque::class,'produto_id','id');
+    }
 }

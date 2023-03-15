@@ -58,4 +58,9 @@ class User extends \TCG\Voyager\Models\User //implements MustVerifyEmail
     {
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }
+
+    public function cidade()
+    {
+        return $this->belongsTo(Cidade::class, 'cidade_id', 'id');
+    }
 }
