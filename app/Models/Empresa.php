@@ -54,4 +54,9 @@ class Empresa extends Model
         return $this->hasMany(EmpresaDestaque::class,'empresa_id','id');
     }
 
+    public function cidade()
+    {
+        return $this->belongsTo(Cidade::class,'cidade_id', 'id');
+    }
+
 }

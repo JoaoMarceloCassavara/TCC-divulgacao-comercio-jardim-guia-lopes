@@ -16,4 +16,10 @@ class Cidade extends Model
     {
         return $this->hasMany(User::class,'cidade_id','id');
     }
+
+    public function empresas()
+    {
+        return $this->hasMany(Empresa::class,'empresa_id','id');
+    }
+
 }
