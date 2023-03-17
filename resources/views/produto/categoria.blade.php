@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    <header class="pt-5 ps-4">
-        <h4>Produtos por categoria</h4>
-    </header>
+   <header>
+    <img src="{{ Voyager::image($categoria_produto->imagem) }}" height="250" class=" w-100"
+    alt="Imagem do produto"
+    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+
+   </header>
     <section class="d-flex flex-wrap py-4 ps-5">
         @forelse ($produtos as $produto)
         <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"

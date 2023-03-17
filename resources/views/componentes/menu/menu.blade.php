@@ -29,7 +29,7 @@
           <div class="d-flex align-items-center">
 
           @guest
-          <a type="button" class="btn btn-danger text-white text-center botao-login-menu p-2 rounded-3 fw-bold ">Login</a>
+          <a type="button" class="btn btn-danger text-white text-center botao-login-menu p-2 rounded-3 fw-bold " href="{{route('login')}}">Login</a>
           @else
 
               <span class="nav-item dropdown">

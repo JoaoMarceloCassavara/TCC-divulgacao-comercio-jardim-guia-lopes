@@ -26,8 +26,9 @@
         <h4 class="fw-bold">Classifique a empresa</h4>
 
         <div class="ps-4">
-            <input class="rating" type="range" name="avaliacao" min="0" max="5" step="0.5">
-            <input type="range" class="form"  name="avaliacao" min="0" max="5" step="0.5" >
+            <label for="avaliacao" class="rating-label">
+                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao}}" >
+            </label>
         </div>
 
     </div>
