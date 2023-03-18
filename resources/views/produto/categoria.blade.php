@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('conteudo')
-   <header>
-    <img src="{{ Voyager::image($categoria_produto->imagem) }}" height="250" class=" w-100"
+<header class="mb-5">
+    <div class="text-center position-relative">
+    <img src="{{ Voyager::image($categoria_produto->imagem) }}" height="300" class=" w-100  rounded-bottom"
     alt="Imagem do produto"
     onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+</div>
+<div class=" header_nome_categoria p-3 w-25 rounded-3 position-absolute">
+    <h3 class=" text-center">{{$categoria_produto->nome}}</h3>
+</div>
 
-   </header>
-    <section class="d-flex flex-wrap py-4 ps-5">
+</header>
+    <section class="d-flex flex-wrap pt-5 ps-5">
         @forelse ($produtos as $produto)
         <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
             {{-- Final botao Modal --}}>

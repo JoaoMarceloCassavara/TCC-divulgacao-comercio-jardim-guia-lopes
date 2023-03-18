@@ -1267,9 +1267,6 @@ background-color: rgba(64, 1, 1, 0.65);
 .card_categoria_produto{
     background: linear-gradient(rgba(219, 236, 156, 0.85)50%,
     rgba(236, 243, 211, 0.85) 50%);
-
-
-
 }
 
 .marcacao_a_remov {
@@ -1931,3 +1928,23 @@ margin: auto;
     padding-left: 100px;
 }
 /* Bibliografia do produtor fim */
+
+
+/* Categorias*/
+.header_nome_categoria{
+    background-color: rgb(167, 211, 5);
+    border: #000000 double  ;
+    border-width: 5px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* margin-top: 10px; */
+    top: 350px;
+    left: 37%;
+
+
+}
+.header_nome_categoria_mostrar{
+    padding-top: 7.5vh;
+}
+
+/* Categorias  Fim*/
