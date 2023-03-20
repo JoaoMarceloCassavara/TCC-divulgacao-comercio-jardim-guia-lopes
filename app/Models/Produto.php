@@ -75,4 +75,9 @@ class Produto extends Model
     {
         return $this->hasMany(ProdutoDestaque::class,'produto_id','id');
     }
+    public function cidade()
+    {
+        return $this->belongsTo(Cidade::class, 'cidade_id', 'id');
+    }
+
 }

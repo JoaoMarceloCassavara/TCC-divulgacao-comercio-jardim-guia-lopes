@@ -1932,13 +1932,13 @@ margin: auto;
 
 /* Categorias*/
 .header_nome_categoria{
-    background-color: rgb(167, 211, 5);
-    border: #000000 double  ;
+    background-color: rgb(64, 1, 1);
+    border: #000000  ;
     border-width: 5px;
     /* margin-left: auto;
     margin-right: auto; */
     /* margin-top: 10px; */
-    top: 350px;
+    top: 400px;
     left: 37%;
 
 
@@ -1946,5 +1946,17 @@ margin: auto;
 .header_nome_categoria_mostrar{
     padding-top: 7.5vh;
 }
+.categoria-imagem-categoria{
+width: 170vh;
+}
 
 /* Categorias  Fim*/
+/* Cidades mostrar */
+.card_cidade_mostrar{
+    background: linear-gradient(rgba(219, 236, 156, 0.85)50%,
+    rgba(236, 243, 211, 0.85) 50%);
+    /* background-color: #83A603; */
+    width: 220px;
+    height:290px;
+}
+/* Cidades mostrar Fim */

@@ -19,7 +19,11 @@ class Cidade extends Model
 
     public function empresas()
     {
-        return $this->hasMany(Empresa::class,'empresa_id','id');
+        return $this->hasMany(Empresa::class,'cidade_id','id');
+    }
+    public function produtos()
+    {
+        return $this->hasMany(Produto::class,'cidade_id','id');
     }
 
 }

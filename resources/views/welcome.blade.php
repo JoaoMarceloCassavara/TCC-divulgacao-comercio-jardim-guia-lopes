@@ -5,7 +5,7 @@
         <h4>A procura de Produtores</h4>
     </header>
     @include('componentes.carrossel')
-    <section class=" d-flex flex-wrap py-5">
+    <section class=" d-flex flex-wrap  pt-2 pb-5 ">
         @forelse ($empresas_destaques as $empresa_destaque)
             <div class="card_empresa d-flex align-items-center  m-3 p-4">
                 <div>
@@ -30,9 +30,9 @@
         @endforelse
     </section>
     <header class="pt-5 ps-4">
-        <h4>Produtores Bem avaliadas</h4>
+        <h4>Produtores Bem avaliados</h4>
     </header>
-    <section class=" d-flex flex-wrap py-5 ">
+    <section class=" d-flex flex-wrap pt-2 pb-5 ">
         @forelse ($empresas_famosas as $empresa)
         <div class="card_empresa d-flex align-items-center  m-3 p-4">
             <div>
@@ -59,7 +59,7 @@
     <header class="pt-5 ps-4">
         <h4>O que procura de Produtos</h4>
     </header>
-    <section class="d-flex flex-wrap py-4 ps-5">
+    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
         @forelse ($categoria_produtos as $categoria_produto)
             <a class="marcacao_a_remov text-black"
                 href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
@@ -75,11 +75,34 @@
         @empty
             <p class="alert alert-success">Nenhuma categoria cadastrada para produro</p>
         @endforelse
+    </section>  <header class="pt-5 ps-4">
+        <h4>Cidades</h4>
+    </header>
+
+    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
+        @forelse ($cidades as $cidade)
+         <a class="marcacao_a_remov text-black" href="{{ route('cidade_produto', ['id' => $cidade->id]) }}">
+            <div class="m-3 card_cidade_mostrar pt-5  d-inline-block  rounded-3">
+                <div class="text-center d-block ">
+                    <img src="{{ Voyager::image($cidade->imagem) }}" width="120" height="100" class="rounded-3"
+                    alt="Imagem Da cidade"
+                    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
+                </div>
+             <div class="text-center w-100 ps-3  pt-2 ">
+                <p class="fs-5 text-break ">{{ $cidade->nome }}</p>
+             </div>
+
+            </div>
+         </a>
+        @empty
+            <p class="alert alert-success">Nenhuma categoria para Produto cadastrada</p>
+        @endforelse
     </section>
+
     <header class="pt-5 ps-4">
         <h4>Produtores</h4>
     </header>
-    <section class=" d-flex flex-wrap py-5">
+    <section class=" d-flex flex-wrap pt-2 pb-5 ">
         @forelse ($empresas as $empresa)
             <div class="card_empresa d-flex align-items-center  m-3 p-4">
                 <div>

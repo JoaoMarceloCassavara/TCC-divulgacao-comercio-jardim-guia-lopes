@@ -1,20 +1,21 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<header class="mb-5">
+<header class="mb-5 ">
     <div class="text-center position-relative">
-    <img src="{{ Voyager::image($categoria_empresa->imagem) }}" height="300" class=" w-100  rounded-bottom"
+    <img src="{{ Voyager::image($categoria_empresa->imagem) }}" height="350" class="categoria-imagem-categoria rounded-bottom"
     alt="Imagem do produto"
-    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
+    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
 </div>
 <div class=" header_nome_categoria p-3 w-25 rounded-3 position-absolute">
-    <h3 class=" text-center">{{$categoria_empresa->nome}}</h3>
+    <h3 class=" text-center text-white">{{$categoria_empresa->nome}}</h3>
 </div>
-<div class="ps-5 header_nome_categoria_mostrar">
-    <h2>Produtores</h2>
+<div class="pt-5 ps-4 header_nome_categoria_mostrar">
+    <h4>Empresas: {{$categoria_empresa->nome}}</h4>
   </div>
+
 </header>
-<section class=" d-flex flex-wrap pt-5">
+<section class=" d-flex flex-wrap pt-1 pb-5">
     @forelse ($empresas as $empresa)
     <div class="card_empresa d-flex align-items-center  m-3 p-4">
         <div>

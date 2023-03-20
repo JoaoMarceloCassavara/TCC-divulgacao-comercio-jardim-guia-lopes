@@ -4,7 +4,7 @@
     <header class="pt-5 ps-4">
         <h4>A procura de Produtores</h4>
     </header>
-    <section class="d-flex flex-wrap py-4 ps-5">
+    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
         @forelse ($categoria_empresas as $categoria_empresa)
             <a class="marcacao_a_remov text-black" href="{{ route('empresa.categoria', ['id' => $categoria_empresa->id]) }}">
                 <div class="card_categoria_produto rounded-3 p-5 m-2">
@@ -22,7 +22,7 @@
     <header class="pt-5 ps-4">
         <h4>Produtores</h4>
     </header>
-    <section class=" d-flex flex-wrap py-5">
+    <section class=" d-flex flex-wrap pt-2 pb-5">
         @forelse ($empresas as $empresa)
         <div class="card_empresa d-flex align-items-center  m-3 p-4">
             <div>

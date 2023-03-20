@@ -34,10 +34,11 @@ Route::get('/', function () {
     $categoria_produtos = CategoriaProduto::all();
     $categoria_empresas = CategoriaEmpresa::all();
     $produtos = Produto::all();
+    $cidades = Cidade::all();
     $empresas = Empresa::where('ativo', true)->get();
     $empresas_destaques = EmpresaDestaque::all();
     $empresas_famosas = Empresa::where('avaliacao', '>=', 4)->take(5)->get();
-    return view('welcome', compact('produtos', 'empresas', 'categoria_produtos', 'categoria_empresas', 'empresas_famosas','empresas_destaques'));
+    return view('welcome', compact('produtos', 'empresas', 'categoria_produtos', 'categoria_empresas', 'empresas_famosas','empresas_destaques','cidades'));
 })->name('welcome');
 
 
@@ -73,6 +74,12 @@ Route::get('/produto', function () {
     return view('produto.index', compact('produtos', 'categoria_produtos'));
 })->name('produto');
 
+Route::get('/cidades{id}/produtos', function ($id) {
+    $cidade = Cidade::find($id);
+    $produtos = Produto::where('cidade_id', $cidade->id)->get();
+
+    return view('produto.produtos_cidades' ,compact('cidade', 'produtos'));
+})->name('cidade_produto');
 
 
 Route::get('empresa/{id}/categoria_produto/{categoria_id}', function ($id, $categoria_id) {

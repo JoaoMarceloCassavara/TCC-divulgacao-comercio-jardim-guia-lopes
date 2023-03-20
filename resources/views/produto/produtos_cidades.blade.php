@@ -1,32 +1,21 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    <header class="pt-5 ps-4">
-        <h4>A procura por Produtos</h4>
-    </header>
+<header class="mb-5 ">
+    <div class="text-center position-relative">
+    <img src="{{ Voyager::image($cidade->imagem) }}" height="350" class="categoria-imagem-categoria rounded-bottom"
+    alt="Imagem do produto"
+    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+</div>
+<div class=" header_nome_categoria p-3 w-25 rounded-3 position-absolute">
+    <h3 class=" text-center text-white">{{$cidade->nome}}</h3>
+</div>
+<div class="pt-5 ps-4 header_nome_categoria_mostrar">
+    <h4>Produtos de: {{$cidade->nome}}</h4>
+  </div>
 
-    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
-        @forelse ($categoria_produtos as $categoria_produto)
-            <a class="marcacao_a_remov text-black" href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
-                <div class="card_categoria_produto rounded-3 p-5 m-2">
-                    <img src="{{ Voyager::image($categoria_produto->imagem) }}" width="120" height="95" class="rounded-3"
-                        alt="Imagem Da categoria Dos Produtos"
-                        onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
-                    <div class="text-center py-2">
-                        <p class="fs-5 card-title">{{ $categoria_produto->nome }}</p>
-                    </div>
-                </div>
-            </a>
-        @empty
-            <p class="alert alert-success">Nenhuma categoria para Produto cadastrada</p>
-        @endforelse
-    </section>
-
-
-    <header class="pt-5 ps-4">
-        <h4>Todos os produtos</h4>
-    </header>
-    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
+</header>
+    <section class="d-flex flex-wrap pt-1 pb-5 ps-5">
         @forelse ($produtos as $produto)
             <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
                 {{-- Final botao Modal --}}>
