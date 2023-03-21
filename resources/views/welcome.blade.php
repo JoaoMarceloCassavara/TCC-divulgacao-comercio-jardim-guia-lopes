@@ -5,6 +5,9 @@
         <h4>A procura de Produtores</h4>
     </header>
     @include('componentes.carrossel')
+    <header class="pt-5 ps-4">
+        <h4>Produtores destaques da Janela do produtor</h4>
+    </header>
     <section class=" d-flex flex-wrap  pt-2 pb-5 ">
         @forelse ($empresas_destaques as $empresa_destaque)
             <div class="card_empresa d-flex align-items-center  m-3 p-4">

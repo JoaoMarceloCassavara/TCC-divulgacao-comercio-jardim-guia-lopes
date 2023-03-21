@@ -94,7 +94,7 @@ Route::get('empresa/{id}/categoria_produto/{categoria_id}', function ($id, $cate
 
 
 Route::get('/empresa', function () {
-    $empresas = Empresa::all();
+    $empresas = Empresa::where('ativo', true)->get();
     $categoria_empresas = CategoriaEmpresa::all();
     return view('empresa.index', compact('empresas', 'categoria_empresas'));
 })->name('empresa');
@@ -122,7 +122,8 @@ Route::get('/empresa/{id}', function ($id) {
 Route::get('/categoria-produto/{id}', function ($id) {
     $categoria_produto = CategoriaProduto::find($id);
     $produtos = Produto::where('categoria_produto_id', $categoria_produto->id)->get();
-    return view('produto.categoria', compact('produtos', 'categoria_produto'));
+    $produtos_famosos = Produto::where('avaliacao', '>=', 4)->take(5)->where('categoria_produto_id', $categoria_produto->id)->get();
+    return view('produto.categoria', compact('produtos', 'categoria_produto', 'produtos_famosos'));
 })->name('produto.categoria');
 
 Route::get('/categoria-empresa/{id}', function ($id) {
