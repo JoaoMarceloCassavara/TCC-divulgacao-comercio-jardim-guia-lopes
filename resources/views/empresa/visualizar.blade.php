@@ -201,7 +201,8 @@
                             max="5" step="0.5" value="{{ $produto->avaliacao ?? 0  }}" disabled>
                     </label>
                 </div>
-                <p class="pt-1">Preço {{ $produto->getPreco() }}
+                <p class="fw-bold fs-6">Pedidos {{ $produto->pedidos->count() }}</p>
+                <p class="pt-1 fw-bold fs-5">Preço {{ $produto->getPreco() }}
                     {{-- @isset($produto->avaliacao)
                             <span class="text-warning ps-1 "><i class="fa-sharp fa-solid fa-star"></i> {{$produto->avaliacao}}</span>
                             @endisset

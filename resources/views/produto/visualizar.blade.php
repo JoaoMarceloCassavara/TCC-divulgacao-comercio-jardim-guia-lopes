@@ -72,7 +72,8 @@
                                             max="5" step="0.5" value="{{ $produto->avaliacao ?? 0 }}" disabled>
                                     </label>
                                     <div class="py-2">
-                                        <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count() }}</p>
+                                        <p class="fw-bold fs-6">Pedidos {{ $produto->pedidos->count() }}</p>
+                                        <p class="pt-1 fw-bold fs-5">Preço {{ $produto->getPreco() }}
                                     </div>
                                 </div>
 
