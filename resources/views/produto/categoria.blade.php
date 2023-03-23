@@ -149,7 +149,11 @@
 
 
                     @empty
-                        <p class="alert alert-success">Nenhuma avaliação cadastrada para esse produto</p>
+                    <div class="ps-4">
+                        <div class="alert alert-success " role="alert">
+                          <p class="text-center">Nenhuma avaliação cadastrada para esse produto.</p>
+                        </div>
+                    </div>
                     @endforelse
 
                 </div>
@@ -160,7 +164,11 @@
 
     @empty
         {{-- @if (sizeof($categoria_produtos) == 0) --}}
-        <p class="alert alert-success">Nenhum produto cadastrado</p>
+        <div class="ps-4">
+            <div class="alert alert-success " role="alert">
+              <p class="text-center">Nenhum Produto cadastrado para essa categoria.</p>
+            </div>
+        </div>
         {{-- @endif --}}
     @endforelse
 </section>
@@ -301,7 +309,11 @@
 
 
                         @empty
-                            <p class="alert alert-success">Nenhuma avaliação cadastrada para esse produto</p>
+                        <div class="ps-4">
+                            <div class="alert alert-success w-25" role="alert">
+                              <p class="text-center">Nenhuma avaliação cadastrada para esse produto.</p>
+                            </div>
+                        </div>
                         @endforelse
 
                     </div>
@@ -312,7 +324,11 @@
 
         @empty
             {{-- @if (sizeof($categoria_produtos) == 0) --}}
-            <p class="alert alert-success">Nenhum produto cadastrado</p>
+            <div class="ps-4">
+                <div class="alert alert-success " role="alert">
+                  <p class="text-center">Nenhum Produto cadastrado para essa categoria.</p>
+                </div>
+            </div>
             {{-- @endif --}}
         @endforelse
     </section>

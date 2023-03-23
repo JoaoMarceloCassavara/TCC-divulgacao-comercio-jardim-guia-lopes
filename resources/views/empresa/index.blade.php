@@ -16,7 +16,11 @@
                 </div>
             </a>
         @empty
-            <p class="alert alert-success">Nenhuma empresa cadastrada</p>
+        <div class="ps-4">
+            <div class="alert alert-success " role="alert">
+              <p class="text-center">Nenhuma categoria para Produtor cadastrada.</p>
+            </div>
+        </div>
         @endforelse
     </section>
     <header class="pt-5 ps-4">
@@ -44,7 +48,11 @@
             </div>
         </div>
         @empty
-        <p class="alert alert-success">Nenhuma empresa cadastrada</p>
+        <div class="ps-4">
+            <div class="alert alert-success " role="alert">
+              <p class="text-center">Nenhum Produtor cadastrado.</p>
+            </div>
+        </div>
         @endforelse
     </section>
 @endsection

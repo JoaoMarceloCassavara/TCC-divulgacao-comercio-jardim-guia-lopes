@@ -44,6 +44,11 @@
             </div>
         </section>
     @empty
-        <p class="alert alert-success">Você não possui nenhum pedido!!</p>
+
+        <div class="ps-4 py-3">
+            <div class="alert alert-success w-25  " role="alert">
+              <p class="text-center">Você não possui nenhum pedido!!</p>
+            </div>
+        </div>
     @endforelse
 @endsection

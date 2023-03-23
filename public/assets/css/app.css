@@ -1308,10 +1308,10 @@ nav.navbar {
     display: flex;
 }
 .icone-rede-social{
-    margin: 9px;
+    padding: 7px;
 }
 .div-redes-sociais{
-margin-top: 20px;
+padding-top: 10px;
 }
 
 /* .modal-content {
@@ -1919,12 +1919,9 @@ background-color: #400101;
 /* Bibliografia do produtor  */
 .card-bibliografia{
 margin: auto;
+width: 190vh;
+}
 
-}
-.bibliografia_p{
-    text-align: justify;
-    text-indent: 30px    ;
-}
 .header-logo_nome{
     padding-left: 100px;
 }
@@ -1961,3 +1958,7 @@ width: 170vh;
     height:290px;
 }
 /* Cidades mostrar Fim */
+
+ /* Alerta tamanho */
+ 
+  /* Alerta tamanho FiM */

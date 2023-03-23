@@ -35,7 +35,11 @@
         </div>
     </div>
     @empty
-    <p class="alert alert-success">Nenhuma empresa cadastrada</p>
+    <div class="ps-4">
+        <div class="alert alert-success " role="alert">
+          <p class="text-center">Nenhuma empresa cadastrada para essa categoria.</p>
+        </div>
+    </div>
     @endforelse
 </section>
 @endsection

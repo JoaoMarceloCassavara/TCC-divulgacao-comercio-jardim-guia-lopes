@@ -27,12 +27,14 @@
                     @endempty
 
                 </div>
+
             </div>
         </div>
 
-        <div class="visualizar_informacao_empresa flex-grow-1 ms-3">
+
+        <div class="visualizar_informacao_empresa flex-grow-1 ps-3">
             <h5 class="fw-bold">Sobre o Negócio</h5>
-            <p class="">{!! $empresa->descricao !!}</p>
+            <p class="text-md-start">{!! $empresa->descricao !!}</p>
 
             <h6 class="fw-bold">Telefone</h6>
             <p class="">{{ $empresa->telefone }}</p>
@@ -40,6 +42,36 @@
 
             <h6 class="fw-bold">Endereço</h6>
             <p class="">{{ $empresa->endereco }}</p>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Horário de funcionamento
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content modal-produto">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Horário de funcionamento</h5>
+                        </div>
+
+                        <div class="modal-body">
+
+                            {!! $empresa->horario_funcionamento !!}
+                            @empty($empresa->horario_funcionamento)
+                                <div class="alert alert-success" role="alert">
+                                    <p>Esse produtor não possui nenhum horário de funcionamento cadastrado. </p>
+                                </div>
+
+                            @endempty
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="div-redes-sociais">
                 <p class="fw-bold fs-6">Redes Sociais</p>
@@ -162,31 +194,38 @@
                         </li>
                     @endisset
                 </ul>
-                <p>{!! $empresa->horario_funcionamento !!}</p>
+
 
             </div>
+
 
 
         </div>
 
     </section>
+    {{-- Horario de funncionamneto --}}
+    {{-- <header class="ps-5">
+        <p>{!! $empresa->horario_funcionamento !!}</p>
+    </header> --}}
     {{-- Produto por categoria --}}
     @forelse ($categorias as $nomeDaCategoria => $produtos)
-         <div class="d-flex justify-content-between p-3">
+        <div class="d-flex justify-content-between p-3">
             <h4>{{ $nomeDaCategoria }}</h4>
 
 
-            @forelse ($produtos as $produto)
+            @foreach ($produtos as $produto)
+
+
                 @if ($loop->first)
                     <a class="text-black fw-bold"
                         href="{{ route('vermaisproduto', ['id' => $empresa->id, 'categoria_id' => $produto->categoria->id]) }}">Ver
                         tudo <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-          <section class="d-flex flex-wrap py-4 ps-5">
-           @endif
-           <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
-         {{-- Final botao Modal --}}>
-           <div class="card-link m-2 p-4">
+        </div>
+        <section class="d-flex flex-wrap py-4 ps-5">
+    @endif
+    <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
+        {{-- Final botao Modal --}}>
+        <div class="card-link m-2 p-4">
 
             <img src="{{ Voyager::image($produto->imagem) }}" width="220" height="170" class="rounded-2"
                 alt="Imagem do produto"
@@ -198,7 +237,7 @@
                 <div class="ps-5">
                     <label for="avaliacao" class="rating-label">
                         <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                            max="5" step="0.5" value="{{ $produto->avaliacao ?? 0  }}" disabled>
+                            max="5" step="0.5" value="{{ $produto->avaliacao ?? 0 }}" disabled>
                     </label>
                 </div>
                 <p class="pt-1">Preço {{ $produto->getPreco() }}
@@ -210,11 +249,11 @@
                               @endempty --}}
                 </p>
             </div>
-             </div>
-              </a>
-             {{-- Inicio modal --}}
-             <!-- Modal -->
-                 <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
+        </div>
+    </a>
+    {{-- Inicio modal --}}
+    <!-- Modal -->
+    <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
         aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true">
         <div class="modal-dialog modal-xl ">
             <div class="modal-content modal-produto">
@@ -236,11 +275,11 @@
                             {{-- <input class="rating py-2" type="range" value="{{$produto->avaliacao}}" disabled> --}}
                             <label for="avaliacao" class="rating-label">
                                 <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                                    max="5" step="0.5" value="{{ $produto->avaliacao ?? 0  }}" disabled>
+                                    max="5" step="0.5" value="{{ $produto->avaliacao ?? 0 }}" disabled>
                             </label>
                             <div class="py-2">
                                 <p class="fw-bold fs-6">Pedidos {{ $produto->pedidos->count() }}</p>
-                                 <p class="pt-1 fw-bold fs-5">Preço {{ $produto->getPreco() }}
+                                <p class="pt-1 fw-bold fs-5">Preço {{ $produto->getPreco() }}
                             </div>
                         </div>
 
@@ -289,7 +328,7 @@
                                         <label for="avaliacao" class="rating-label">
                                             <input class="rating rating--nojs" id="avaliacao" name="avaliacao"
                                                 type="range" max="5" step="0.5"
-                                                value="{{ $avaliacao->avaliacao ?? 0  }}" disabled>
+                                                value="{{ $avaliacao->avaliacao ?? 0 }}" disabled>
                                         </label>
                                     </div>
                                 </div>
@@ -327,57 +366,52 @@
 
     {{-- Final MOdal --}}
 
+    @endforeach
+    </section>
 @empty
-    {{-- @if (sizeof($categoria_produtos) == 0) --}}
-    <p class="alert alert-success">Nenhum produto cadastrado</p>
-    {{-- @endif --}}
+<div class="ps-4">
+    <div class="alert alert-success w-25" role="alert">
+      <p class="text-center">Nenhum Produto cadastrado para o produtor: {{$empresa->nome}}.</p>
+    </div>
+</div>
     @endforelse
-</section>
-    @empty
+    <hr class="border border-dark ">
+    @isset($empresa->bibliografia_produtor)
+        <section>
+            <header class="ps-5 pb-3">
+                <h4>Bibliografia do Produtor</h4>
+            </header>
+            <div class="border border-dark border border-2 card-bibliografia rounded-3 ">
+                <div class="d-flex header-logo_nome pt-5">
+                    <div>
+                        <img src="{{ Voyager::image($empresa->logo) }}"width="110" height="110" alt="Logo da Empresa"
+                            class="rounded-circle border border-dark"
+                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
+                    </div>
+                    <div class="ps-4 pt-3">
+                        <h4 class="text-center">{{ $empresa->nome }}</h4>
+                        <p class="fw-bold ">{{ $empresa?->cidade?->nome }}</p>
+                    </div>
+                </div>
 
-    <p class="alert alert-success">Nenhum produto cadastrado</p>
+                <div class="d-flex justify-content-evenly py-2 ">
+                    <div class="pt-4 ps-3 pe-3">
+                        <p class="text-md-start">{!! $empresa->bibliografia_produtor !!}</p>
+                    </div>
+                    <div class="pe-5 pb-5">
+                        <img src="{{ Voyager::image($empresa->foto) }}"width="550" height="500" class="rounded-3"
+                            alt="Imagem da Empresa"
+                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
+                    </div>
 
-
-    @endforelse
-<hr class="border border-dark ">
-@isset($empresa->bibliografia_produtor)
-
-
-             <section>
-                <header>
-                    <h4>Sobre o Produtor(bibliografia)</h4>
-                </header>
-            <div class="border border-dark border border-2 card-bibliografia rounded-3 me-5 ms-5 ">
-           <div class="d-flex header-logo_nome pt-5">
-            <div>
-            <img src="{{ Voyager::image($empresa->logo) }}"width="110" height="110" alt="Logo da Empresa"
-            class="rounded-circle border border-dark"
-            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
-        </div>
-            <div class="ps-4 pt-3">
-    <h4 class="text-center">{{$empresa->nome}}</h4>
-    <p class="fw-bold ">Localização</p>
-       </div>
-           </div>
-
-           <div class="d-flex justify-content-evenly ">
-            <div class="pt-5">
-            <p class=" bibliografia_p w-75 ps-5">{!! $empresa->bibliografia_produtor !!}</p>
-        </div>
-            <div class="pe-5 pb-3">
-                <img src="{{ Voyager::image($empresa->foto) }}"width="600" height="550" class=""
-                alt="Imagem da Empresa"
-                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
-            </div>
-
-           </div>
+                </div>
 
 
 
             </div>
 
-               </section>
-               @endisset
+        </section>
+    @endisset
 
 
 
@@ -426,7 +460,11 @@
 
 
         @empty
-            <p class="alert alert-success">Nenhuma avaliação cadastrada para essa empresa</p>
+        <div class="ps-4">
+            <div class="alert alert-success w-25" role="alert">
+              <p class="text-center">Nenhuma Avaliação cadastrada para esse produtor: {{$empresa->nome}}.</p>
+            </div>
+        </div>
         @endforelse
     </section>
     {{-- Produto por categoria final --}}
