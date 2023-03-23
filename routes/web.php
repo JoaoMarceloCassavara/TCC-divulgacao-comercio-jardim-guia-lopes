@@ -42,6 +42,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 
+
 Route::get('/tipo_register', function () {
     return view('auth.tipo_register');
 })->name('auth.tipo_register');
@@ -198,6 +199,7 @@ Route::middleware(['auth'])->group(function () {
             $empresa->categoria_empresa_id = $request->categoria_empresa_id;
             //    dd($empresa);
             $empresa->save();
+            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailEmpresa($empresa));
         }
         return redirect()->route('home');
     })->name('empresa.salvar');
@@ -233,7 +235,7 @@ Route::middleware(['auth'])->group(function () {
                 $itemPedido->produto_id = $produto->id;
                 $itemPedido->save();
             }
-
+            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
             $pedidos[] = $pedido;
         }
         return view('pedido.index', compact('pedidos'));
@@ -334,6 +336,22 @@ Route::middleware(['auth'])->group(function () {
          return redirect()->route('listaPedido');
      })->name('avaliacao.empresa.salvar');
 
+     Route::get('/enviar_email', function(){
+        $user = new stdClass();
+        $user->name = 'João Marcelo';
+        $user->email = 'joaomarcelocassavara@gmail.com';
+        // $user = new User();
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+
+
+        //  return new \App\Mail\SendMailUser($user);
+        \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUser($user));
+    });
+
+
+
+     
 
 
 });

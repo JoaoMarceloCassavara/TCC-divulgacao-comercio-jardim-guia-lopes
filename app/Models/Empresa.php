@@ -34,6 +34,10 @@ class Empresa extends Model
     {
         return $this->belongsTo(CategoriaEmpresa::class,'categoria_empresa_id', 'id');
     }
+    public function usuario()
+    {
+        return $this->belongsTo(User::class,'user_id', 'id');
+    }
 
 
      /**

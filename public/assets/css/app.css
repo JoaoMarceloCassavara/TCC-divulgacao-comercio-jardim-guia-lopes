@@ -1285,13 +1285,14 @@ nav.navbar {
 
 .menu-pesquisa {
 
-    width: 330px;
+    /* width: 330px; */
     /*height: 48px; */
     background: rgba(86, 89, 2, 0.72);
     border-radius: 24px;
 }
 #form-buscar{
     position: relative;
+    flex-basis: 50vh;
 }
 
 #form-buscar button{
