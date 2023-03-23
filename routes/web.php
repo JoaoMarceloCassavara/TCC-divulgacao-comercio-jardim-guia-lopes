@@ -36,8 +36,8 @@ Route::get('/', function () {
     $produtos = Produto::all();
     $cidades = Cidade::all();
     $empresas = Empresa::where('ativo', true)->get();
-    $empresas_destaques = EmpresaDestaque::all();
-    $empresas_famosas = Empresa::where('avaliacao', '>=', 4)->take(5)->get();
+    $empresas_destaques = EmpresaDestaque::all()->where('ativo', true);
+    $empresas_famosas = Empresa::where('avaliacao', '>=', 4)->take(5)->where('ativo', true)->get();
     return view('welcome', compact('produtos', 'empresas', 'categoria_produtos', 'categoria_empresas', 'empresas_famosas','empresas_destaques','cidades'));
 })->name('welcome');
 
@@ -129,7 +129,7 @@ Route::get('/categoria-produto/{id}', function ($id) {
 
 Route::get('/categoria-empresa/{id}', function ($id) {
     $categoria_empresa = CategoriaEmpresa::find($id);
-    $empresas = Empresa::where('categoria_empresa_id', $categoria_empresa->id)->get();
+    $empresas = Empresa::where('categoria_empresa_id', $categoria_empresa->id)->where('ativo', true)->get();
     return view('empresa.categoria', compact('empresas', 'categoria_empresa'));
 })->name('empresa.categoria');
 
@@ -351,7 +351,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-     
+
 
 
 });
