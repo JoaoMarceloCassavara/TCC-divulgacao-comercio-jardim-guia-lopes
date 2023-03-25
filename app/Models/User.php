@@ -64,7 +64,7 @@ class User extends \TCG\Voyager\Models\User //implements MustVerifyEmail
         return $this->belongsTo(Cidade::class, 'cidade_id', 'id');
     }
 
-    public function Empresas()
+    public function empresas()
     {
         return $this->hasMany(Empresa::class,'user_id','id');
     }

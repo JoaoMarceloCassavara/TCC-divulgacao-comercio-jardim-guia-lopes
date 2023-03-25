@@ -1,47 +1,46 @@
+@extends('layouts.app')
+@section('menu')
+
+@endsection
+@section('conteudo')
+
 @component('mail::message')
 
 
-<h1>Notificações novas </h1>
-@component('mail::button', ['url' =>'http://localhost:8000/empresa/7'] )
-  Confira os novos Produtos
+<h1 class="text-center">Há um novo pedido</h1>
+@component('mail::button', ['url' =>'http://localhost:8000/admin/pedidos'] )
+  Clique aqui para visualizar os pedidos
 @endcomponent
-section class="py-3">
-            <div class="card_lista_pedidos">
-                <p class="fw-bold fs-5 m-1">Pedido N°{{ $pedido->id }}</p>
-                @forelse ($pedido->produtos as $produto)
-                    <div class="card_lista_pedidos_produto py-5 d-flex justify-content-around">
-                        <div class="d-flex">
-                            <img src="{{ Voyager::image($produto->imagem) }}"width="150"
-                                height="150" class="" alt="Imagem do produto Pedido">
-                            <div class="cold-m-8 ps-4">
-                                <h3>{{ $produto->nome }}</h3>
-                                <p>{{$produto->empresa->nome}}</p>
-                                <p>Pedido feito: {{$produto->created_at}}</p>
-                                @isset($pedido->data_entrega)
-                                <p>Entregue em: {{$pedido->data_entrega}}</p>
-                                @endisset
-                            </div>
-                        </div>
-                        <div class="">
-                            <a type="button" class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov"
-                                href="{{ route('avaliarproduto', ['id' => $pedido->id, 'produto_id' => $produto->id]) }}">Avaliar o produto</a>
+@component('mail::subcopy')
+@foreach ($pedido->produtos as $produto)
+<div class="card_pedido_email ps-5 pt-5 m-2 border border-5 border border-success  rounded-3">
+    <div class="d-flex">
+        <img src="{{ Voyager::image($produto->imagem) }}"width="170"
+            height="150" class="border border-5  border border-success rounded-3" alt="Imagem do produto Pedido">
+        <div class="cold-m-8 ps-2">
+            <p class="fs-4">{{ $produto->nome }}</p>
+            <p>{{$produto->empresa->nome}}</p>
+            <p>Pedido feito: {{$produto->created_at}}</p>
+            @isset($pedido->data_entrega)
+            <p>Entregue em: {{$pedido->data_entrega}}</p>
+            @endisset
+        </div>
+    </div>
+    <div class="py-3">
+        <h6 class="d-block my-2 fw-bold">Total do pedido: {{$produto->getPreco()}} </h6>
+    </div>
+    </div>
+    @component('mail::subcopy')
+
+    @endcomponent
+@endforeach
+@endcomponent
 
 
-
-
-                                <a type="button"
-                                class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov" href="{{route('avaliarempresa', ['id' => $pedido->id, 'empresa_id'=>$pedido->empresa->id])}}">Avaliar
-                                Empresa</a>
-                            <h6 class="d-block my-2 fw-bold">Total do pedido R${{$produto->getPreco()}} </h6>
-
-
-
-                        </div>
-                    </div>
-                @empty
-                @endforelse
-
-            </div>
-        </section>
 
 @endcomponent
+@section('rodape')
+
+@endsection
+
+@endsection

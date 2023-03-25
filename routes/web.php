@@ -56,10 +56,9 @@ Route::post('/registrar_empresario', function (Request $request) {
     //    dd($request);
     $create_user = new CreateNewUser();
     $usuario = $create_user->create($request->all());
-    $usuario->cidade_id = $request->cidade_id;
-
     $role = \App\Models\Role::where('name', '=', 'empresario')->first();
     $usuario->role_id = $role->id;
+    $usuario->cidade_id = $request->cidade_id;
     $usuario->save();
     return redirect()->route('empresa.cadastrar');
 })->name('register.empresario');
@@ -183,7 +182,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/registrar_empresa', function () {
         $categoria_empresas = CategoriaEmpresa::all();
-        return view('empresa.cadastrar', compact('categoria_empresas'));
+        $cidades = Cidade::all();
+        return view('empresa.cadastrar', compact('categoria_empresas', 'cidades'));
     })->name('empresa.cadastrar');
     Route::post('/empresa/salvar', function (Request $request) {
         $quantidadeEmpresaCadastradas = Empresa::where('user_id', Auth::user()->id)->count();
@@ -197,8 +197,10 @@ Route::middleware(['auth'])->group(function () {
             $empresa->telefone = $request->telefone;
             $empresa->nome = $request->nome;
             $empresa->categoria_empresa_id = $request->categoria_empresa_id;
+            $empresa->cidade_id = $request->cidade_id;
             //    dd($empresa);
             $empresa->save();
+            // return new \App\Mail\SendMailEmpresa($empresa);
             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailEmpresa($empresa));
         }
         return redirect()->route('home');
@@ -235,6 +237,7 @@ Route::middleware(['auth'])->group(function () {
                 $itemPedido->produto_id = $produto->id;
                 $itemPedido->save();
             }
+            // return new \App\Mail\SendMailPedido($pedido);
             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
             $pedidos[] = $pedido;
         }

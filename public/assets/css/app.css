@@ -1652,7 +1652,7 @@ margin: 10px;
 .cadastro_empresario{
 background-color: rgba(255, 255, 255, 1);
 border-radius: 27px;
-height: 600px;
+height: 700px;
 width: 40%;
 }
 
@@ -1742,7 +1742,10 @@ margin: 0 auto;
 .card_lista_pedidos_produto{
 background-color: rgba(232, 229, 212, 1);
 }
+.card_pedido_email{
+    background-color: rgba(232, 229, 212, 1);
 
+}
 /* Card Lista de Pedidos Fim  */
 
 
@@ -1960,5 +1963,6 @@ width: 170vh;
 /* Cidades mostrar Fim */
 
  /* Alerta tamanho */
- 
+
   /* Alerta tamanho FiM */
+
