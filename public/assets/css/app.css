@@ -1967,3 +1967,22 @@ width: 170vh;
 
   /* Alerta tamanho FiM */
 
+/* Card empresa em destaque */
+.card-empresa_destaque{
+background-color: rgba(232, 229, 212, 1);
+  width: 150vh;
+}
+.card_empresa_destaque{
+    background-color: rgba(64, 1, 1, 0.65);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: 450px;
+    height: 245px;
+    margin: 0 auto ;
+    }
+.card_header_empresa_destaque{
+    background-color: rgba(131, 166, 3, 1);
+    width: 150vh;
+    margin: 0 auto ;
+    }
+/* Card empresa em destaque Fim */
