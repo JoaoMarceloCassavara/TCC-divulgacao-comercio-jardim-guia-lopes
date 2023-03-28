@@ -239,6 +239,8 @@ Route::middleware(['auth'])->group(function () {
             }
             // return new \App\Mail\SendMailPedido($pedido);
             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
+            // return new \App\Mail\SendMailUsuario($pedido);
+            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUsuario($pedido));
             $pedidos[] = $pedido;
         }
         return view('pedido.index', compact('pedidos'));
