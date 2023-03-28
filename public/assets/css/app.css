@@ -1741,11 +1741,12 @@ margin: 0 auto;
 }
 .card_lista_pedidos_produto{
 background-color: rgba(232, 229, 212, 1);
-}
-.card_pedido_email{
-    background-color: rgba(232, 229, 212, 1);
 
 }
+/* .card_pedido_email{
+    background-color: rgba(232, 229, 212, 1);
+
+} */
 /* Card Lista de Pedidos Fim  */
 
 

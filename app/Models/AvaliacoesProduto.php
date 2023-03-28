@@ -28,8 +28,12 @@ class AvaliacoesProduto extends Model
         if ($user->hasRole('admin')) {
             return $query;
         }
+        if ($user->hasRole('atendente')) {
+            return $query;
+        }
         return $query->where('user_id', $user->getKey());
     }
+   
 
     public function produto()
     {

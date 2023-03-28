@@ -7,27 +7,30 @@
 @component('mail::message')
 
 
-<h1 class="text-center">Há um novo pedido</h1>
+<h1 style="text-align: center">Há um novo pedido</h1>
 @component('mail::button', ['url' =>'http://localhost:8000/admin/pedidos'] )
   Clique aqui para visualizar os pedidos
 @endcomponent
 @component('mail::subcopy')
 @foreach ($pedido->produtos as $produto)
-<div class="card_pedido_email ps-5 pt-5 m-2 border border-5 border border-success  rounded-3">
-    <div class="d-flex">
-        <img src="{{ Voyager::image($produto->imagem) }}"width="170"
-            height="150" class="border border-5  border border-success rounded-3" alt="Imagem do produto Pedido">
-        <div class="cold-m-8 ps-2">
-            <p class="fs-4">{{ $produto->nome }}</p>
-            <p>{{$produto->empresa->nome}}</p>
-            <p>Pedido feito: {{$produto->created_at}}</p>
-            @isset($pedido->data_entrega)
-            <p>Entregue em: {{$pedido->data_entrega}}</p>
-            @endisset
-        </div>
+<div style="background-color:  rgba(232, 229, 212, 1);padding:30px; border-radius:10px; border: 5px solid green; ">
+    <div style="text-align: center">
+        <img src="{{ Voyager::image($produto->imagem) }}"width="140"
+            height="120" style="border: 5px solid green;  border-radius:10px; " alt="Imagem do produto Pedido">
+            <h4>Produto: {{ $produto->nome }}</h4>
+            <h4>Produtor: {{$produto->empresa->nome}}</h4>
     </div>
-    <div class="py-3">
-        <h6 class="d-block my-2 fw-bold">Total do pedido: {{$produto->getPreco()}} </h6>
+    <div style="padding-left:25px; padding-top:27px">
+        <h2>Pedido Feito por:</h2>
+        <h3>Usuário: {{$pedido->user->name}}</h3>
+        <h3>Email do Usuário: {{$pedido->user->email}}</h3>
+        <h3>Pedido feito: {{$produto->created_at}}</h3>
+        @isset($pedido->data_entrega)
+        <p>Entregue em: {{$pedido->data_entrega}}</p>
+        @endisset
+    </div>
+    <div style="padding-top: 25px; text-align:center">
+        <h4 >Total do pedido: <span>{{$produto->getPreco()}}</span> </h4>
     </div>
     </div>
     @component('mail::subcopy')

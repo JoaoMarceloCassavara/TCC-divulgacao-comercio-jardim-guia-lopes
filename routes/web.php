@@ -36,7 +36,7 @@ Route::get('/', function () {
     $produtos = Produto::all();
     $cidades = Cidade::all();
     $empresas = Empresa::where('ativo', true)->get();
-    $empresas_destaques = EmpresaDestaque::all()->where('ativo', true);
+    $empresas_destaques = EmpresaDestaque::all();
     $empresas_famosas = Empresa::where('avaliacao', '>=', 4)->take(5)->where('ativo', true)->get();
     return view('welcome', compact('produtos', 'empresas', 'categoria_produtos', 'categoria_empresas', 'empresas_famosas','empresas_destaques','cidades'));
 })->name('welcome');
