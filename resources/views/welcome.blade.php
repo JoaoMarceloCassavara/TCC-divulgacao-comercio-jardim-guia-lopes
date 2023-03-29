@@ -5,9 +5,10 @@
         <h4>A procura de Produtores</h4>
     </header>
     @include('componentes.carrossel')
+    @include('componentes.carrosel_destaque_empresa')
 
 
-    <section class="pt-2 pb-5">
+    {{-- <section class="pt-2 pb-5">
         <div class="card_header_empresa_destaque rounded-3 border border-5 border border-dark">
 
                 <h4 class="py-2 text-center">Produtores destaques da Janela do produtor</h4>
@@ -24,7 +25,7 @@
                             <div class="ps-4">
                                 <p class="text-white  fs-5 pt-4 ">{{ $empresa_destaque->empresa->nome }}</p>
                                 <h6 class=" text-white">{{ $empresa_destaque->empresa?->categoria?->nome }}</h6>
-                                {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
+
                                 <label for="avaliacao" class="rating-label">
                                     <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
                                         max="5" step="0.5"
@@ -46,7 +47,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
     <header class="pt-5 ps-4">

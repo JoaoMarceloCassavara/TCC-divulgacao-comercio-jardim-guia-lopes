@@ -354,7 +354,18 @@ Route::middleware(['auth'])->group(function () {
         \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUser($user));
     });
 
-
+    Route::get('/empresa/{id}/ativar', function ($id, Request $request) {
+        $empresa = \App\Models\Empresa::find($id);
+				//TODO: se o usuario for admin e a empresa esta inativa
+                if($empresa->ativo == 0){
+                    $empresa->ativo = 1;
+                }
+                else{
+                    $empresa->ativo = 0;
+                }
+                $empresa->save();
+        return redirect()->back();
+    })->name('empresas.ativar');
 
 
 
