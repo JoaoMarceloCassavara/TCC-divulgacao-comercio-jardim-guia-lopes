@@ -51,7 +51,7 @@
                             <p class="">{{ $produto->empresa->nome }}</p>
                             <div class="ps-5">
                             <label for="avaliacao" class="rating-label">
-                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" disabled>
+                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao ?? 0}}" disabled>
                             </label>
                         </div>
                             <p class="pt-1">Preço {{ $produto->getPreco() }}
@@ -88,7 +88,7 @@
 
                                             <p class=" fw-bold fs-3">{{ $produto->nome }}</p >
                                                 <label for="avaliacao" class="rating-label">
-                                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" disabled>
+                                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao ?? 0}}" disabled>
                                                 </label>
                                             <div class="py-5">
                                             <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count()}}</p>
@@ -135,7 +135,7 @@
                                                 onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
                                                  <div class="ps-2 pt-3">
                                                     <label for="avaliacao" class="rating-label">
-                                                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->avaliacao}}" disabled>
+                                                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->avaliacao ?? 0}}" disabled>
                                                     </label>
                                             </div>
                                             </div>
@@ -197,7 +197,7 @@
                     <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
                     {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
                     <label for="avaliacao" class="rating-label">
-                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao}}" disabled>
+                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao ?? 0}}" disabled>
                     </label>
                     <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
                         href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i
@@ -274,7 +274,7 @@
 
                                     <p class=" fw-bold fs-3">{{ $produto->nome }}</p >
                                         <label for="avaliacao" class="rating-label">
-                                            <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" disabled>
+                                            <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao ?? 0}}" disabled>
                                         </label>
                                     <div class="py-5">
                                     <p class="fw-bold fs-5">Pedidos {{ $produto->pedidos->count()}}</p>
@@ -321,7 +321,7 @@
                                         onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
                                         <div class="ps-2 pt-3">
                                             <label for="avaliacao" class="rating-label">
-                                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->avaliacao}}" disabled>
+                                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$avaliacao->avaliacao ?? 0}}" disabled>
                                             </label>
                                     </div>
                                     </div>
