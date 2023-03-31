@@ -69,14 +69,19 @@ Route::post('/registrar_empresario', function (Request $request) {
 
 
 Route::get('/produto', function () {
-    $produtos = Produto::all();
+    $produtos = Produto::whereHas('empresa', function ($query) {
+        $query->where('ativo', 1);
+          })->get();
     $categoria_produtos = CategoriaProduto::all();
     return view('produto.index', compact('produtos', 'categoria_produtos'));
 })->name('produto');
 
 Route::get('/cidades{id}/produtos', function ($id) {
     $cidade = Cidade::find($id);
-    $produtos = Produto::where('cidade_id', $cidade->id)->get();
+    // $produtos = Produto::where('cidade_id', $cidade->id)->get();
+    $produtos = Produto::whereHas('empresa', function ($query) use ($cidade) {
+        $query->where('cidade_id', $cidade->id);
+          })->get();
 
     return view('produto.produtos_cidades' ,compact('cidade', 'produtos'));
 })->name('cidade_produto');
@@ -240,9 +245,10 @@ Route::middleware(['auth'])->group(function () {
             // return new \App\Mail\SendMailPedido($pedido);
             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
             // return new \App\Mail\SendMailUsuario($pedido);
-            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUsuario($pedido));
+
             $pedidos[] = $pedido;
         }
+        \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUsuario($pedidos));
         return view('pedido.index', compact('pedidos'));
     })->name('carrinho');
 
@@ -256,6 +262,17 @@ Route::middleware(['auth'])->group(function () {
         // return $pedidos;
         return view('pedido.listar_pedido', compact('pedidos'));
     })->name('listaPedido');
+
+    Route::get('/lista/pedidos/produtor', function () {
+        $pedidos = Pedido::whereHas('empresa', function ($query) {
+            $query->where('user_id', Auth::user()->id);
+    })->get();
+        // $produtos = Produto::all();
+        //  dd($pedidos->produtos()->get());
+
+        return $pedidos;
+        // return view('pedido.listar_pedido', compact('pedidos'));
+    })->name('listaPedidoProdutor');
 
 
     Route::get('/avaliar/pedido/{id}/produto/{produto_id}', function ($id, $produto_id) {

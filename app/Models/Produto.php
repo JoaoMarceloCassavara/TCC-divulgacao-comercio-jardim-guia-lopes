@@ -30,6 +30,7 @@ class Produto extends Model
         }
         return $query->where('user_id', $user->getKey());
     }
+   
 
     public function scopeEmpresa($query)
     {

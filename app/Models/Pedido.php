@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
 
 class Pedido extends Model
 {
@@ -19,8 +19,15 @@ class Pedido extends Model
         if ($user->hasRole('atendente')) {
             return $query;
         }
+        if ($user->hasRole('empresario')) {
+            return $query->whereHas('empresa', function ($query) {
+                $query->where('user_id', Auth::user()->id);
+        })->get();
+        }
+
         return $query->where('user_id', $user->getKey());
     }
+    
 
     public function empresa()
     {

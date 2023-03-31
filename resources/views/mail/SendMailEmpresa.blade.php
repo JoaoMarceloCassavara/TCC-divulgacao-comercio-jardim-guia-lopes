@@ -5,8 +5,8 @@
 
 <div style="display: flex; padding-top:40px; padding-bottom:40px;">
     <div style="background-color: #83A603;  border-radius: 10px; padding:10px">
-<img style=" border-radius: 10px;" src="{{ Voyager::image($empresa->foto) }}"width="170" height="150" alt="Imagem da Empresa"
-onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
+{{-- <img style=" border-radius: 10px;" src="{{ Voyager::image($empresa->foto) }}"width="170" height="150" alt="Imagem da Empresa"
+onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';"> --}}
 </div>
 <div style="padding-left: 15px">
 <h2>{{$empresa->nome}}</h2>

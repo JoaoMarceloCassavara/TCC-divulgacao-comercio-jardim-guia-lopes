@@ -13,16 +13,16 @@ class SendMailUsuario extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $pedido;
+    private $pedidos;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($pedido)
+    public function __construct($pedidos)
     {
-        $this->pedido = $pedido;
+        $this->pedidos = $pedidos;
     }
 
     /**
@@ -34,11 +34,11 @@ class SendMailUsuario extends Mailable
     {
 
         $this->subject('Janela do Produtor');
-        $this->to($this->pedido->user->email, $this->pedido->user->name);
+        $this->to($this->pedidos[0]->user->email, $this->pedidos[0]->user->name);
         // return $this->view( 'mail.SendMailpedido', [
         //     'pedido'=> $this->pedido
         return $this->markdown('mail.SendMailUsuario', [
-            'pedido'=> $this->pedido
+            'pedidos'=> $this->pedidos
         ]);
     }
 }
