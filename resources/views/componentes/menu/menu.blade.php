@@ -43,7 +43,7 @@
                       <a class="dropdown-item" href="{{ route('voyager.dashboard') }}">Painel</a>
                       <a class="dropdown-item" href="{{ route('listaPedido') }}">Meus Pedidos</a>
                       @can('add', new \App\Models\Empresa)
-                      <a class="dropdown-item" href="{{ route('listaPedido') }}">Pedidos Produtor</a>
+                      <a class="dropdown-item" href="{{ route('listaPedidoProdutor') }}">Pedidos do Produtor</a>
                       @endcan
                       <a class="dropdown-item" href="{{ route('logout') }}"
                           onclick="event.preventDefault();

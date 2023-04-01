@@ -12,10 +12,10 @@
   Clique aqui para visualizar os pedidos
 @endcomponent
 
+@foreach ($pedidos as $pedido)
 <h2 style="text-align: center; padding-top:20px; padding-bottom:20px;">Olá <span>{{$pedido->user->name}}</span> acaba de realizar um pedido</h2>
 <h4>Confira os produtos:</h4>
 @component('mail::subcopy')
-@foreach ($pedidos as $pedido)
 @foreach ($pedido->produtos as $produto)
 <div style="background-color:  rgba(232, 229, 212, 1);padding:30px; border-radius:10px; border: 5px solid green; ">
     <div style="text-align: center">

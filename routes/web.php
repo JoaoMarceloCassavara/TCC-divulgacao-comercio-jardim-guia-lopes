@@ -244,10 +244,11 @@ Route::middleware(['auth'])->group(function () {
             }
             // return new \App\Mail\SendMailPedido($pedido);
             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
-            // return new \App\Mail\SendMailUsuario($pedido);
+            // return new \App\Mail\SendMailUsuario($pedidos);
 
             $pedidos[] = $pedido;
         }
+        // return new \App\Mail\SendMailUsuario($pedidos);
         \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUsuario($pedidos));
         return view('pedido.index', compact('pedidos'));
     })->name('carrinho');
@@ -266,12 +267,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/lista/pedidos/produtor', function () {
         $pedidos = Pedido::whereHas('empresa', function ($query) {
             $query->where('user_id', Auth::user()->id);
-    })->get();
-        // $produtos = Produto::all();
-        //  dd($pedidos->produtos()->get());
+    })
+    ->orderByRaw('updated_at  DESC')
+    ->get();
 
-        return $pedidos;
-        // return view('pedido.listar_pedido', compact('pedidos'));
+        // return $pedidos;
+        return view('pedido.listar_pedido_empresa', compact('pedidos'));
     })->name('listaPedidoProdutor');
 
 
