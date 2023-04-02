@@ -84,6 +84,11 @@
 
                             @endforeach
                           </select>
+                          @error('cidade_id')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                         </div>
                 {{-- </div> --}}
 
@@ -108,6 +113,12 @@
 
                             @endforeach
                           </select>
+                          @error('categoria_empresa_id')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+
                         </div>
                 {{-- </div> --}}
 

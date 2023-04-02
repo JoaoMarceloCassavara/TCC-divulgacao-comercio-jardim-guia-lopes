@@ -34,7 +34,7 @@
 
         <div class="visualizar_informacao_empresa flex-grow-1 ps-3">
             <h5 class="fw-bold">Sobre o Negócio</h5>
-            <p class="text-md-start">{!! $empresa->descricao !!}</p>
+            <p class="text-md-start ">{!! $empresa->descricao !!}</p>
 
             <h6 class="fw-bold">Telefone</h6>
             <p class="">{{ $empresa->telefone }}</p>
@@ -296,7 +296,7 @@
                         </div>
                         <div class="pt-5 ps-3">
                             <h4>Descrição</h4>
-                            <p>{{ $produto->descricao }}</p>
+                            <p>{!! $produto->descricao !!}</p>
 
                         </div>
 
@@ -424,8 +424,8 @@
                 <div class="d-flex bd-highlight mb-3  m-4">
                     <div class="d-flex align-items-center">
                         <div class="py-5 flex-shrink-0">
-                            <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120"
-                                alt="Imagem avatar"
+                            <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="130" height="120"
+                                alt="Imagem avatar" class="rounded-circle "
                                 onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
                             <div class="ps-2 pt-3">
                                 <label for="avaliacao" class="rating-label">

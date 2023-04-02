@@ -5,7 +5,11 @@
         <h4>A procura de Produtores</h4>
     </header>
     @include('componentes.carrossel')
-    @include('componentes.carrosel_destaque_empresa')
+
+
+   @empty($empresas_destaques)
+    @include('componentes.carrossel_destaque_empresa')
+    @endempty
 
 
     {{-- <section class="pt-2 pb-5">
@@ -83,28 +87,10 @@
         @endforelse
     </section>
     <header class="pt-5 ps-4">
-        <h4>O que procura de Produtos</h4>
+        <h4>O que procura de Produtos ? </h4>
     </header>
-    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
-        @forelse ($categoria_produtos as $categoria_produto)
-            <a class="marcacao_a_remov text-black"
-                href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
-                <div class="card_categoria_produto rounded-3 p-5 m-3">
-                    <img src="{{ Voyager::image($categoria_produto->imagem) }}" width="120" height="95"
-                        class="rounded-3"
-                        alt="Imagem Da categoria Dos Produtos"onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
-                    <div class="text-center py-2">
-                        <p class="fs-5 card-title">{{ $categoria_produto->nome }}</p>
-                    </div>
-                </div>
-            </a>
-        @empty
-            <div class="ps-4">
-                <div class="alert alert-success " role="alert">
-                    <p class="text-center">Nenhuma categoria para Produtor cadastrada.</p>
-                </div>
-            </div>
-        @endforelse
+    <section class="d-flex flex-wrap pt-2">
+        @include('componentes.carrossel_categoria_produto')
     </section>
     <header class="pt-5 ps-4">
         <h4>Cidades</h4>

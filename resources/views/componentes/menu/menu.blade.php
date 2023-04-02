@@ -35,7 +35,7 @@
               <span class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      {{-- <img src="{{Voyager::image(Auth::user()->avatar )}}" alt=""> --}}
+                      <img src="{{Voyager::image(Auth::user()->avatar )}}" class="rounded-circle " width="45" height="40" alt="Avatar do usuario">
                       {{ Auth::user()->name }}
                   </a>
 
@@ -57,7 +57,7 @@
                   </div>
               </span>
           @endguest
-          <div class="carrinho mx-3">
+          <div class="carrinho mx-4 my-auto">
               <a id="carrinho" class="nav-link  position-relative"
                   data-bs-toggle="modal" data-bs-target="#carrinho-modal">
                   <i class="fa-solid fa-cart-shopping"></i>
