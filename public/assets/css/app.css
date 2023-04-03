@@ -1990,3 +1990,16 @@ background-color: rgba(232, 229, 212, 1);
     margin: 0 auto ;
     }
 /* Card empresa em destaque Fim */
+ /* Header Titulo todas as pagingas */
+ .header_titulo{
+ padding-left: 90px;
+ }
+ .card_empresa_section_position{
+    padding-left: 80px;
+ }
+ .card_produto_section_position{
+    padding-left: 80px;
+ }
+
+
+ /* Header Titulo todas as pagingas Fim */

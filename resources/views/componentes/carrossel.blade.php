@@ -73,12 +73,12 @@
 </div>
 <button class="carousel-control-prev  mr-5" type="button" data-bs-target="#carousel-categorias-empresas"
     data-bs-slide="prev">
-    <span class="carousel-control-prev-icon btn btn-dark rounded-circle" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon btn btn-dark " aria-hidden="true"></span>
     <span class="visually-hidden">Anterior</span>
 </button>
 <button class="carousel-control-next" type="button" data-bs-target="#carousel-categorias-empresas"
     data-bs-slide="next">
-    <span class="carousel-control-next-icon btn btn-dark rounded-circle" aria-hidden="true"></span>
+    <span class="carousel-control-next-icon btn btn-dark " aria-hidden="true"></span>
     <span class="visually-hidden">Proximo</span>
 </button>
 </div>

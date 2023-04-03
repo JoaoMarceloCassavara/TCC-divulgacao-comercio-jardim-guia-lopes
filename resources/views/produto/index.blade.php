@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    <header class="pt-5 ps-4">
+    {{-- <header class="pt-5 ps-4">
         <h4>A procura por Produtos</h4>
     </header>
 
@@ -24,13 +24,19 @@
             </div>
         </div>
         @endforelse
+    </section> --}}
+    <header class="pt-5 header_titulo pb-2">
+        <h4 >O que procura de Produtos ? </h4>
+    </header>
+    <section class="d-flex flex-wrap pt-2">
+        @include('componentes.carrossel_categoria_produto')
     </section>
 
 
-    <header class="pt-5 ps-4">
+    <header class="pt-5 header_titulo pb-2">
         <h4>Todos os produtos</h4>
     </header>
-    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
+    <section class="d-flex flex-wrap pt-2 pb-5 card_produto_section_position">
         @forelse ($produtos as $produto)
             <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
                 {{-- Final botao Modal --}}>

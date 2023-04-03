@@ -81,7 +81,9 @@ Route::get('/cidades{id}/produtos', function ($id) {
     // $produtos = Produto::where('cidade_id', $cidade->id)->get();
     $produtos = Produto::whereHas('empresa', function ($query) use ($cidade) {
         $query->where('cidade_id', $cidade->id);
-          })->get();
+          })->whereHas('empresa', function ($query) {
+            $query->where('ativo', 1);
+              })->get();
 
     return view('produto.produtos_cidades' ,compact('cidade', 'produtos'));
 })->name('cidade_produto');
@@ -126,7 +128,9 @@ Route::get('/empresa/{id}', function ($id) {
 
 Route::get('/categoria-produto/{id}', function ($id) {
     $categoria_produto = CategoriaProduto::find($id);
-    $produtos = Produto::where('categoria_produto_id', $categoria_produto->id)->get();
+    $produtos = Produto::where('categoria_produto_id', $categoria_produto->id)->whereHas('empresa', function ($query) {
+        $query->where('ativo', 1);
+          })->get();
     $produtos_famosos = Produto::where('avaliacao', '>=', 4)->take(5)->where('categoria_produto_id', $categoria_produto->id)->get();
     return view('produto.categoria', compact('produtos', 'categoria_produto', 'produtos_famosos'));
 })->name('produto.categoria');
@@ -141,7 +145,9 @@ Route::get('/categoria-empresa/{id}', function ($id) {
 
 Route::get('/filtro/pesquisa', function (Request $request) {
     //  dd($request->filtro);
-    $produtos = Produto::where('nome', 'LIKE', "%{$request->filtro}%")->get();
+    $produtos = Produto::where('nome', 'LIKE', "%{$request->filtro}%")->whereHas('empresa', function ($query) {
+        $query->where('ativo', 1);
+          })->get();
     $nome_cidade = "%{$request->filtro}%";
     $empresas = Empresa::whereHas('cidade', function($query) use ($nome_cidade) {
         $query->where('nome', 'LIKE',$nome_cidade);
@@ -256,7 +262,9 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/lista/pedidos', function () {
-        $pedidos = Pedido::where('user_id', Auth::user()->id)->get();
+        $pedidos = Pedido::where('user_id', Auth::user()->id)
+        ->orderByRaw('updated_at  DESC')
+    ->get();
         // $produtos = Produto::all();
         //  dd($pedidos->produtos()->get());
 

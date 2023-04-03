@@ -18,7 +18,7 @@
 
             <h4 class="fw-bold">{{$empresa->nome}}</h4>
             <div class="w-75">
-            <p class="fs5 text-break">{{$empresa->descricao}}</p>
+            <p class="fs5 text-break">{!! $empresa->descricao !!}</p>
         </div>
         </div>
     </div>
