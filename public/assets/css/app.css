@@ -2003,3 +2003,8 @@ background-color: rgba(232, 229, 212, 1);
 
 
  /* Header Titulo todas as pagingas Fim */
+ .card_pedido_empresario{
+    background-color: rgba(232, 229, 212, 1);
+width: 100vh;
+margin: 0 auto;
+ }

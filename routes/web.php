@@ -275,9 +275,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/lista/pedidos/produtor', function () {
         $pedidos = Pedido::whereHas('empresa', function ($query) {
             $query->where('user_id', Auth::user()->id);
+
+
     })
-    ->orderByRaw('updated_at  DESC')
-    ->get();
+   ->get();
+
+
 
         // return $pedidos;
         return view('pedido.listar_pedido_empresa', compact('pedidos'));
