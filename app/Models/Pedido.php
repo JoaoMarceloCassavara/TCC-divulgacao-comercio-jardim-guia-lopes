@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class Pedido extends Model
 {
+    protected $fillable = ['endereco'];
+
     // belong to empresa empresa_id
     // belong to usuario user_id
     //belongtomany pedido produto
@@ -27,7 +29,7 @@ class Pedido extends Model
 
         return $query->where('user_id', $user->getKey());
     }
-    
+
 
     public function empresa()
     {

@@ -39,7 +39,7 @@
                                 Empresa</a>
 
                             <a type="button" class="btn btn-danger d-block my-2 botao_conferir_produto marcacao_a_remov"
-                                href="{{ route('avaliarproduto', ['id' => $pedido->id, 'produto_id' => $produto->id]) }}">Adicionar
+                                href="{{ route('adicionarLocalizacao', ['id' => $pedido->id]) }}">Adicionar
                                 localização </a>
 
                             <h6 class="d-block my-2 fw-bold">Total do pedido {{ $produto->getPreco() }} </h6>

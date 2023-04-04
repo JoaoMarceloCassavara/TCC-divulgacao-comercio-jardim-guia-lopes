@@ -398,6 +398,19 @@ Route::middleware(['auth'])->group(function () {
 
 
 
+    Route::get('/localizacao/pedido{id}', function ($id) {
+        $pedido = Pedido::find($id);
+        return view('pedido.adicionar_localizacao', compact('pedido'));
+    })->name('adicionarLocalizacao');
+
+
+    Route::post('/adicionar/localizacao{id}/usuario', function (Request $request, $id) {
+
+        $pedido = Pedido::find($id);
+        $pedido->endereco_entrega = $request->endereco_entrega;
+        $pedido->save();
+        return redirect()->route('listaPedido');
+    })->name('salvarLocalizacaoUsuario');
 
 });
 
