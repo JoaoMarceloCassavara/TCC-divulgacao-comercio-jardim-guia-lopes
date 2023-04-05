@@ -55,6 +55,29 @@ class User extends \TCG\Voyager\Models\User //implements MustVerifyEmail
         return $query->where('id', $user->getKey());
     }
 
+    public function scopeAvaliacaoEmpresa($query)
+    {
+        $user = Auth::user();
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+        if ($user->hasRole('atendente')) {
+            return $query;
+        }
+        return $query->where('id', $user->getKey());
+    }
+    public function scopeAvaliacaoProduto($query)
+    {
+        $user = Auth::user();
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+        if ($user->hasRole('atendente')) {
+            return $query;
+        }
+        return $query->where('id', $user->getKey());
+    }
+
     /**
      * Relacionamento Muitos para muitos
      * The roles que pertencem ao usuario.

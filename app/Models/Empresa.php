@@ -38,8 +38,21 @@ class Empresa extends Model
         }
         return $query->where('user_id', $user->getKey());
     }
-   
 
+    public function scopeAvaliacaoEmpresa($query)
+    {
+        $user = Auth::user();
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+        if ($user->hasRole('atendente')) {
+            return $query;
+        }
+
+        return $query->where('user_id', $user->getKey());
+
+    
+    }
 /**
      * mapear relacionamento tem-um/pertence-a-um
      * usando Voyager
