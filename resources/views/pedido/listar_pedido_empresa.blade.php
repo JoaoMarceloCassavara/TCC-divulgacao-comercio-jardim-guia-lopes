@@ -28,7 +28,7 @@
                             <img src="{{ Voyager::image($produto->imagem) }}"width="170" height="150"
                                 class="border border-5  border border-success rounded-3 " alt="Imagem do produto Pedido">
                         </div>
-                        <div class="ps-3 ">
+                        <div class="ps-3 pt-2 ">
                             <h4>{{ $produto->nome }}</h4>
                             <div class="pt-3">
 
