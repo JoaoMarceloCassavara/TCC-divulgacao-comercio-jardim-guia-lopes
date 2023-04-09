@@ -249,12 +249,14 @@ Route::middleware(['auth'])->group(function () {
                 $itemPedido->save();
             }
             // return new \App\Mail\SendMailPedido($pedido);
+            // Enviar email ao usuario empresario quando for realizado um pedido
             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
             // return new \App\Mail\SendMailUsuario($pedidos);
 
             $pedidos[] = $pedido;
         }
         // return new \App\Mail\SendMailUsuario($pedidos);
+        // Enviar email ao usuario normal quando for realizado um pedido
         \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUsuario($pedidos));
         return view('pedido.index', compact('pedidos'));
     })->name('carrinho');
