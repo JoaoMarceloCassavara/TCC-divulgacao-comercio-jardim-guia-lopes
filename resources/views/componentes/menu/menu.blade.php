@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('welcome')}}">
-            <img src="/assets/images/logo_do_site/janela_do_produtor.png" alt="" width="90" height="64" class="rounded-3">
+            <img src="/assets/images/logo_do_site/logo.png" alt="" width="90" height="64" class="rounded-3">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

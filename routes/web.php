@@ -339,6 +339,12 @@ Route::middleware(['auth'])->group(function () {
         // $empresa = Empresa::find($empresa_id);
         $pedido = Pedido::find($id);
         $empresa = Empresa::find($empresa_id);
+        $avaliacao_empresa = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->where('user_id', Auth::user()->id)
+        ->first();
+   if( !isset($avaliacao_empresa)){
+    return redirect()->back()->with('info','Já foi feito uma avaliação do produtor para esse pedido!');
+
+   }
     //  dd($empresa);
 
         return view('pedido.avaliar_pedido_empresa', compact('pedido', 'empresa'));
@@ -422,5 +428,6 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

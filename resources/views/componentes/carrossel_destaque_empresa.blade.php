@@ -1,4 +1,4 @@
-<div class="card_header_empresa_destaque rounded-3 border border-5 border border-dark">
+<div class="card_header_empresa_destaque rounded-3 ">
 
     <h4 class="py-2 text-center">Produtores destaques da Janela do produtor</h4>
 
@@ -14,15 +14,15 @@
                         @endif
 
                         {{-- card empresa --}}
-                       
+
                         <div class="card_empresa_destaque d-flex align-items-center p-4">
                             <div>
-                                <img src="{{ Voyager::image($empresas_destaques[$posicao]->empresa->logo) }}"height="130"
+                                <img src="{{ Voyager::image($empresas_destaques[$posicao]?->empresa?->logo) }}"height="130"
                                     width="130" class="rounded-circle"
                                     alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
                             </div>
                             <div class="ps-4">
-                                <p class="text-white  fs-5 pt-4 ">{{ $empresas_destaques[$posicao]->empresa->nome }}</p>
+                                <p class="text-white  fs-5 pt-4 ">{{ $empresas_destaques[$posicao]?->empresa?->nome }}</p>
                                 <h6 class=" text-white">{{ $empresas_destaques[$posicao]->empresa?->categoria?->nome }}
                                 </h6>
 

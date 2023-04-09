@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('conteudo')
-    <header class="pt-5 header_titulo pb-2">
+<header class="my-5">
+    @include('componentes.carrossel_destaque_empresa')
+</header>
+
+    <header class="pt-3 header_titulo pb-2">
         <h4>A procura de Produtores</h4>
     </header>
     @include('componentes.carrossel')
 
 
-   {{-- @empty($empresas_destaques) --}}
-    @include('componentes.carrossel_destaque_empresa')
+    
+    {{-- @empty($empresas_destaques) --}}
+
     {{-- @endempty --}}
 
 
@@ -87,7 +92,7 @@
         @endforelse
     </section>
     <header class="pt-5 header_titulo pb-2">
-        <h4 >O que procura de Produtos ? </h4>
+        <h4>O que procura de Produtos ? </h4>
     </header>
     <section class="d-flex flex-wrap pt-2">
         @include('componentes.carrossel_categoria_produto')
@@ -95,8 +100,8 @@
     <header class="pt-5 header_titulo pb-2">
         <h4>Cidades</h4>
     </header>
-    @include('componentes.carrossel_cidades')
-    {{-- <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
+    {{-- @include('componentes.carrossel_cidades') --}}
+    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
         @forelse ($cidades as $cidade)
             <a class="marcacao_a_remov text-black" href="{{ route('cidade_produto', ['id' => $cidade->id]) }}">
                 <div class="m-3 card_cidade_mostrar pt-5  d-inline-block  rounded-3">
@@ -118,7 +123,7 @@
                 </div>
             </div>
         @endforelse
-    </section> --}}
+    </section>
 
     <header class="pt-5 header_titulo pb-2">
         <h4>Produtores</h4>
@@ -135,8 +140,8 @@
                     <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
                     {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
                     <label for="avaliacao" class="rating-label">
-                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                            max="5" step="0.5" value="{{ $empresa->avaliacao ?? 0 }}" disabled>
+                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5"
+                            step="0.5" value="{{ $empresa->avaliacao ?? 0 }}" disabled>
                     </label>
                     <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
                         href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i

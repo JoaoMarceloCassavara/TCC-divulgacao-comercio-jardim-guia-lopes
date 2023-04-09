@@ -25,7 +25,7 @@
 
                 <h4>{{$produto->nome}}</h4>
                 <p>{{$produto->empresa->nome}}</p>
-                <p>Entregue em 23/01/2022 às 14:25</p>
+                {{-- <p>Entregue</p> --}}
             </div>
         </div>
         <div class="py-5 ps-4">

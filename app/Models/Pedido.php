@@ -24,7 +24,7 @@ class Pedido extends Model
         if ($user->hasRole('empresario')) {
             return $query->whereHas('empresa', function ($query) {
                 $query->where('user_id', Auth::user()->id);
-        })->get();
+        });
         }
 
         return $query->where('user_id', $user->getKey());

@@ -3,7 +3,7 @@
 @section('conteudo')
 
 <header class="py-4 ps-4 ">
-    <h4 class="fw-bold">Avalie a empresa</h4>
+    <h4 class="fw-bold">Avalie o Produtor</h4>
 </header>
  <form method="POST" action="{{route('avaliacao.empresa.salvar')}}">
  @csrf
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="py-5 ps-4">
-        <h4 class="fw-bold">Classifique a empresa</h4>
+        <h4 class="fw-bold">Classifique o Produtor</h4>
 
         <div class="ps-4">
             <label for="avaliacao" class="rating-label">
@@ -38,7 +38,7 @@
 
         <div class="form-floating ">
             <textarea  name="descricao" class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px; width:800px"></textarea>
-            <label for="floatingTextarea2">Do que gostou da empresa? Compraria novamente os produtos dessa empresa? Alguma recomendação?</label>
+            <label for="floatingTextarea2">Do que gostou do produtor? Compraria novamente os produtos desse produtor? Alguma recomendação?</label>
         </div>
     </div>
     <hr>
