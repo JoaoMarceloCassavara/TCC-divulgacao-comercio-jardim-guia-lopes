@@ -28,7 +28,8 @@
                     <div class="card_lista_pedidos_produto py-5 d-flex justify-content-around">
                         <div class="d-flex">
                             <img src="{{ Voyager::image($produto->imagem) }}"width="150" height="150" class=""
-                                alt="Imagem do produto Pedido">
+                                alt="Imagem do produto Pedido"
+                                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
                             <div class="cold-m-8 ps-4">
                                 <h3>{{ $produto->nome }}</h3>
                                 <p>{{ $produto->empresa->nome }}</p>
