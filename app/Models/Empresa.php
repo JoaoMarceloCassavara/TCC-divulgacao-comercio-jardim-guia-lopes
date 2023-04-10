@@ -51,7 +51,7 @@ class Empresa extends Model
 
         return $query->where('user_id', $user->getKey());
 
-    
+
     }
 /**
      * mapear relacionamento tem-um/pertence-a-um
@@ -93,5 +93,7 @@ class Empresa extends Model
     {
         return $this->belongsTo(User::class,'user_id', 'id');
     }
+
+
 
 }

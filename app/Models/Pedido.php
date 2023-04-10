@@ -54,4 +54,11 @@ class Pedido extends Model
             //->withPivot('avaliacao','quantidade')
         ;
     }
+    public function avaliacoes()
+    {
+        return $this->hasMany(AvaliacaoEmpresa::class, 'pedido_id', 'id');
+    }
+
+
+
 }

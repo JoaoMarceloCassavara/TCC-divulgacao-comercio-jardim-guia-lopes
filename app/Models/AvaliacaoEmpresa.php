@@ -36,7 +36,7 @@ class AvaliacaoEmpresa extends Model
         return $query->where('user_id', $user->getKey());
     }
 
- 
+
 
      public function empresa()
      {
@@ -46,6 +46,10 @@ class AvaliacaoEmpresa extends Model
      public function usuario()
      {
          return $this->belongsTo(User::class,'user_id', 'id');
+     }
+     public function pedido()
+     {
+         return $this->belongsTo(Pedido::class,'pedido_id', 'id');
      }
 
 }
