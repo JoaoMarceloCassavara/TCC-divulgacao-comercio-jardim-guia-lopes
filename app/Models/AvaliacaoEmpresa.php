@@ -13,6 +13,7 @@ class AvaliacaoEmpresa extends Model
         'avaliacao',
         'descricao',
         'user_id',
+        'pedido_id',
     ];
 
     public function save(array $options = [])

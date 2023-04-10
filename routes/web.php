@@ -341,12 +341,12 @@ Route::middleware(['auth'])->group(function () {
         // $empresa = Empresa::find($empresa_id);
         $pedido = Pedido::find($id);
         $empresa = Empresa::find($empresa_id);
-        $avaliacao_empresa = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->where('user_id', Auth::user()->id)
-        ->first();
-   if( !isset($avaliacao_empresa)){
-    return redirect()->back()->with('info','Já foi feito uma avaliação do produtor para esse pedido!');
+//         $avaliacao_empresa = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->where('user_id', Auth::user()->id)
+//         ->first();
+//    if( !isset($avaliacao_empresa)){
+//     return redirect()->back()->with('info','Já foi feito uma avaliação do produtor para esse pedido!');
 
-   }
+//    }
     //  dd($empresa);
 
         return view('pedido.avaliar_pedido_empresa', compact('pedido', 'empresa'));
@@ -355,12 +355,17 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/avaliar/empresa/salvar', function (Request $request) {
         $empresa_id = $request->empresa_id;
-     //    dd($request);
+        $pedido_id = $request->pedido_id;
+        // dd($request);
          $usuario_logado = Auth::user();
-         $avaliacao_empresa = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->where('user_id', Auth::user()->id)
+         $avaliacao_empresa = AvaliacaoEmpresa::where('pedido_id', $pedido_id)->where('user_id', Auth::user()->id)
+         ->where('empresa_id', $empresa_id)
              ->firstOrNew(
+                ['pedido_id' => $pedido_id],
                  ['empresa_id' => $empresa_id],
                  ['user_id' =>  Auth::user()->id],
+
+
              );
          $avaliacao_empresa->descricao = $request->descricao;
          $avaliacao_empresa->avaliacao = $request->avaliacao;

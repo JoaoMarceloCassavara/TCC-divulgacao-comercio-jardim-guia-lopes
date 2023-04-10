@@ -8,6 +8,7 @@
  <form method="POST" action="{{route('avaliacao.empresa.salvar')}}">
  @csrf
  <input type="hidden" name="empresa_id" value="{{$empresa->id}}">
+ <input type="hidden" name="pedido_id" value="{{$pedido->id}}">
 
 <section class="py-1">
     <div class="card_avaliacao_empresa_add p-4 d-flex rounded-3 ms-5">
@@ -27,10 +28,19 @@
 
         <div class="ps-4">
             <label for="avaliacao" class="rating-label">
-                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$empresa->avaliacao}}" >
+                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"  min="0" max="5" step="0.5" value="{{$empresa->avaliacao}}" >
+                <output for="avaliacao" id="avaliacao-output">0</output>
             </label>
-        </div>
 
+        <script>
+            const avaliacaoInput = document.getElementById('avaliacao');
+            const avaliacaoOutput = document.getElementById('avaliacao-output');
+
+            avaliacaoInput.addEventListener('input', function() {
+                avaliacaoOutput.value = avaliacaoInput.value;
+            });
+        </script>
+</div>
     </div>
 
     <div class="py-4 ps-4">
