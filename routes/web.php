@@ -372,6 +372,7 @@ Route::middleware(['auth'])->group(function () {
 
          $avaliacao_empresa->save();
 
+         //problema ao tirar a media 
          $empresa = Empresa::find($empresa_id);
          if(empty($empresa->avaliacao)){
             $empresa->avaliacao = $request->avaliacao;
