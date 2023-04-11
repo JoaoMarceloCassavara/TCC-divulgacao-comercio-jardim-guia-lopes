@@ -348,7 +348,9 @@ Route::middleware(['auth'])->group(function () {
 
 //    }
     //  dd($empresa);
-
+    if ($pedido->avaliacaoempresa()->where('empresa_id', $empresa->id)->exists()) {
+        return redirect()->back()->with('info','Já foi feito uma avaliação do produtor para esse pedido!');
+    }
         return view('pedido.avaliar_pedido_empresa', compact('pedido', 'empresa'));
     })->name('avaliarempresa');
 
@@ -372,7 +374,7 @@ Route::middleware(['auth'])->group(function () {
 
          $avaliacao_empresa->save();
 
-         //problema ao tirar a media 
+         //problema ao tirar a media
          $empresa = Empresa::find($empresa_id);
          if(empty($empresa->avaliacao)){
             $empresa->avaliacao = $request->avaliacao;
