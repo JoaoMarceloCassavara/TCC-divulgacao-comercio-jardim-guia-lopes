@@ -293,17 +293,6 @@ Route::middleware(['auth'])->group(function () {
         $pedido = Pedido::find($id);
         $produto = Produto::find($produto_id);
 
-        // $produto = Produto::where('user_id',$pedido->id)->get();
-        // $produto->pivot->avaliacao;
-
-
-        // $pedido =Pedido::where('user_id',$produto->id)->get();
-        // return $pedido;
-        // return $produto;
-        // dd($pedido);
-        // dd($produto);
-
-
         return view('pedido.avaliar_pedido_produto', compact('pedido', 'produto'));
     })->name('avaliarproduto');
 
@@ -336,9 +325,6 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/avaliar/pedido/{id}/empresa/{empresa_id}', function ($id, $empresa_id) {
-        // $pedido = Pedido::where('user_id', Auth::user()->id)->get();
-        // $pedido = Pedido::find($id);
-        // $empresa = Empresa::find($empresa_id);
         $pedido = Pedido::find($id);
         $empresa = Empresa::find($empresa_id);
 //         $avaliacao_empresa = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->where('user_id', Auth::user()->id)
@@ -374,7 +360,7 @@ Route::middleware(['auth'])->group(function () {
 
          $avaliacao_empresa->save();
 
-         //problema ao tirar a media
+        //  problema ao tirar a media
          $empresa = Empresa::find($empresa_id);
          if(empty($empresa->avaliacao)){
             $empresa->avaliacao = $request->avaliacao;
@@ -382,8 +368,16 @@ Route::middleware(['auth'])->group(function () {
          $empresa->avaliacao = ($empresa->avaliacao + $request->avaliacao)/2;
 
          $empresa->save();
+    //   $pedido = Pedido::find($pedido_id);
+    //   if(empty($pedido->empresa_id)){
+    //     $pedido->avaliacao = $request->avaliacao;
+    //   }
+    //   $novaAvaliacao = ($pedido->avaliacao + $request->avaliacao) / 2;
 
-         return redirect()->route('listaPedido');
+    //         $empresa = Empresa::find($pedido->empresa_id);
+    //         $empresa->avaliacao = $novaAvaliacao;
+    //        $empresa->save();
+    //      return redirect()->route('listaPedido');
      })->name('avaliacao.empresa.salvar');
 
      Route::get('/enviar_email', function(){
