@@ -30,7 +30,7 @@ class Produto extends Model
         }
         return $query->where('user_id', $user->getKey());
     }
-   
+
 
     public function scopeEmpresa($query)
     {
@@ -43,6 +43,8 @@ class Produto extends Model
         }
         return $query->where('user_id', $user->getKey());
     }
+    
+    protected $fillable = ['video_curto'];
 
     public function categoria()
     {

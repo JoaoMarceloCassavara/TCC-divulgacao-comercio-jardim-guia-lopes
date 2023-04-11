@@ -292,7 +292,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/avaliar/pedido/{id}/produto/{produto_id}', function ($id, $produto_id) {
         $pedido = Pedido::find($id);
         $produto = Produto::find($produto_id);
-
         return view('pedido.avaliar_pedido_produto', compact('pedido', 'produto'));
     })->name('avaliarproduto');
 
