@@ -72,8 +72,9 @@
             {{-- Inicio modal --}}
             <!-- Modal -->
             <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
-                aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
+                aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true"
+                data-video-id="{{ $produto->video_id }}" data-produto-id="{{ $produto->id }}">
+                <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content modal-produto">
                         <div class="modal-header">
                             <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
@@ -137,7 +138,8 @@
                                         @endphp
                                         @if (!empty($videoId))
                                             <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe id="video-player" class="embed-responsive-item"
+                                                <iframe id="video-player" width="450" height="315"
+                                                    class="embed-responsive-item"
                                                     src="https://www.youtube.com/embed/{{ $videoId }}?enablejsapi=1"
                                                     frameborder="0" allowfullscreen></iframe>
                                             </div>
