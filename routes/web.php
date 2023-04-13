@@ -252,9 +252,9 @@ Route::middleware(['auth'])->group(function () {
                 $itemPedido->produto_id = $produto->id;
                 $itemPedido->save();
             }
-            return new \App\Mail\SendMailPedido($pedido);
+            // return new \App\Mail\SendMailPedido($pedido);
             // Enviar email ao usuario empresario quando for realizado um pedido
-            // \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
+            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
             // return new \App\Mail\SendMailUsuario($pedidos);
 
             $pedidos[] = $pedido;
