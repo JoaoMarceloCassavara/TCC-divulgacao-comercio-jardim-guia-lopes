@@ -21,7 +21,7 @@ onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/ima
     <p>Indentificação do produtor Telefone: {{$empresa->telefone}}</p>
 
 </div>
-@component('mail::button', ['url' =>'http://localhost:8000/admin/empresas'] )
+@component('mail::button', ['url' =>'http://localhost:8000/admin/empresas/'. $empresa->id] )
      Acesse o painel administrativo para mais informações
      @endcomponent
 @endcomponent

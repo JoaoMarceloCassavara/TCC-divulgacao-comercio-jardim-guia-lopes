@@ -32,6 +32,9 @@
     <div style="padding-top: 25px; text-align:center">
         <h4 >Total do pedido: <span>{{$produto->getPreco()}}</span> </h4>
     </div>
+    @component('mail::button', ['url' =>'http://localhost:8000/admin/pedidos/'. $pedido->id] )
+  Clique para visualizar
+  @endcomponent
     </div>
     @component('mail::subcopy')
 

@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -213,6 +214,9 @@ Route::middleware(['auth'])->group(function () {
             $empresa->save();
             // return new \App\Mail\SendMailEmpresa($empresa);
             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailEmpresa($empresa));
+            // return new \App\Mail\SendMailAddEmpresa($empresa);
+            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailAddEmpresa($empresa));
+
         }
         return redirect()->route('welcome')->with('success', 'Olá, sua empresa está sendo monitorada para verificação e posterior ativação. Qualquer novidade, entraremos em contato.');
     })->name('empresa.salvar');
@@ -248,9 +252,9 @@ Route::middleware(['auth'])->group(function () {
                 $itemPedido->produto_id = $produto->id;
                 $itemPedido->save();
             }
-            // return new \App\Mail\SendMailPedido($pedido);
+            return new \App\Mail\SendMailPedido($pedido);
             // Enviar email ao usuario empresario quando for realizado um pedido
-            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
+            // \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailPedido($pedido));
             // return new \App\Mail\SendMailUsuario($pedidos);
 
             $pedidos[] = $pedido;
@@ -385,10 +389,19 @@ Route::middleware(['auth'])->group(function () {
         // $user = new User();
         // $user->name = $request->name;
         // $user->email = $request->email;
+        $user = new stdClass();
+        $user->name = 'João Marcelo';
+        $user->email = 'joaomarcelocassavara@gmail.com';
 
-
-        //  return new \App\Mail\SendMailUser($user);
-        \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUser($user));
+        $empresa = new stdClass();
+        $empresa->user = $user;
+        $empresa->nome = 'joaozinho verduras';
+        $empresa->id = '45';
+        // $empresa->cidade->nome = '17';
+// return new \App\Mail\SendMailEmpresa($empresa);
+        // return new \App\Mail\SendMailAddEmpresa($empresa);
+         return new \App\Mail\SendMailUser($user);
+        // \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUser($user));
     });
 
     Route::get('/empresa/{id}/ativar', function ($id, Request $request) {
