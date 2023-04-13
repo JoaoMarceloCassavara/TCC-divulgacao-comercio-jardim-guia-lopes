@@ -214,7 +214,7 @@ Route::middleware(['auth'])->group(function () {
             // return new \App\Mail\SendMailEmpresa($empresa);
             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailEmpresa($empresa));
         }
-        return redirect()->route('home');
+        return redirect()->route('welcome')->with('success', 'Olá, sua empresa está sendo monitorada para verificação e posterior ativação. Qualquer novidade, entraremos em contato.');
     })->name('empresa.salvar');
 
 
