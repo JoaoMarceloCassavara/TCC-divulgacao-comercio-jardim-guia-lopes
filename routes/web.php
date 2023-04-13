@@ -279,8 +279,7 @@ Route::middleware(['auth'])->group(function () {
             $query->where('user_id', Auth::user()->id);
 
 
-    })
-   ->get();
+    })->get();
 
 
 

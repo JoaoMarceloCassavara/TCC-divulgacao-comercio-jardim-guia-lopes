@@ -29,15 +29,27 @@
             </div>
         </div>
         <div class="py-5 ps-4">
-            <h4 class="fw-bold">Classifique o produto</h4>
+            <h4 class="fw-bold">Classifique o Produto</h4>
 
             <div class="ps-4">
                 <label for="avaliacao" class="rating-label">
-                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{$produto->avaliacao}}" >
+                    <div class="d-flex">
+                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"  min="0" max="5" step="0.5" value="{{$produto->avaliacao}}" >
+                     <div>
+                    <output for="avaliacao" id="avaliacao-output"></output>
+                </div>
+                </div>
                 </label>
 
-            </div>
+            <script>
+                const avaliacaoInput = document.getElementById('avaliacao');
+                const avaliacaoOutput = document.getElementById('avaliacao-output');
 
+                avaliacaoInput.addEventListener('input', function() {
+                    avaliacaoOutput.value = avaliacaoInput.value;
+                });
+            </script>
+    </div>
         </div>
 
         <div class="py-4 ps-4">

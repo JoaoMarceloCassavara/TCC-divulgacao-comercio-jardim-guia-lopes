@@ -28,8 +28,12 @@
 
         <div class="ps-4">
             <label for="avaliacao" class="rating-label">
+                <div class="d-flex">
                 <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"  min="0" max="5" step="0.5" value="{{$empresa->avaliacao}}" >
-                <output for="avaliacao" id="avaliacao-output">0</output>
+                 <div>
+                <output for="avaliacao" id="avaliacao-output"></output>
+            </div>
+            </div>
             </label>
 
         <script>
