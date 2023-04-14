@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<div class="body-register">
+<img src="/assets/images/imagem_de_fundo/Imagem_login.jpg" alt="descrição da imagem" class="imagem-fullscreen-register">
 
-    <section class="index_padding">
+    <section >
         <div class="card-register p-3 mb-5 bg-body rounded">
                 <div class="text-center py-4"><h4 class="fw-bold">{{ __('Cadastre-se agora') }}</h4></div>
 
@@ -80,7 +80,10 @@
                     </form>
                 </div>
             </div>
-        </div>
+
             </section>
+            @section('rodape')
+
+@endsection
 
 @endsection

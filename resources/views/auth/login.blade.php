@@ -2,9 +2,9 @@
 @section('menu')
 
 @endsection
-@section('conteudo') 
-
-        <section class="body-login">
+@section('conteudo')
+<img src="/assets/images/imagem_de_fundo/Imagem_login.jpg" alt="descrição da imagem" class="imagem-fullscreen">
+        <section >
             <div class="card-login shadow p-3 mb-5 bg-body rounded">
 
                 <div class="text-center py-5"><h4 class="fw-bold">{{ __('Login') }}</h4></div>
@@ -85,5 +85,8 @@
 
             </div>
         </section>
+        @section('rodape')
+
+@endsection
 @endsection
 

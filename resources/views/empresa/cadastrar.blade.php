@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<div  class="body-register_empresario">
+<img src="/assets/images/imagem_de_fundo/Imagem_login.jpg" alt="descrição da imagem" class="imagem-fullscreen-register_empresario">
 
 <section class="d-flex justify-content-evenly">
 
@@ -142,5 +142,7 @@
 
 
 </section>
-</div>
+@section('rodape')
+
+@endsection
 @endsection
