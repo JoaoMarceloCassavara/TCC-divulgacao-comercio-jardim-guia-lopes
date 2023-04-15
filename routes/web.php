@@ -267,16 +267,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-    Route::get('/lista/pedidos', function () {
-        $pedidos = Pedido::where('user_id', Auth::user()->id)
-        ->orderByRaw('updated_at  DESC')
-    ->get();
-        // $produtos = Produto::all();
-        //  dd($pedidos->produtos()->get());
 
-        // return $pedidos;
-        return view('pedido.listar_pedido', compact('pedidos'));
-    })->name('listaPedido');
 
     Route::get('/lista/pedidos/produtor', function () {
         $pedidos = Pedido::whereHas('empresa', function ($query) {
@@ -302,12 +293,14 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/avaliar/produto/salvar', function (Request $request) {
        $produto_id = $request->produto_id;
+       $pedido_id = $request->pedido_id;
     //    dd($request);
         $usuario_logado = Auth::user();
-        $avaliacao_produto = AvaliacoesProduto::where('produto_id', $produto_id)->where('user_id', Auth::user()->id)
+        $avaliacao_produto = AvaliacoesProduto::where('pedido_id', $pedido_id)->where('produto_id', $produto_id)->where('user_id', Auth::user()->id)
             ->firstOrNew(
                 ['produto_id' => $produto_id],
                 ['user_id' =>  Auth::user()->id],
+                ['pedido_id' =>  $pedido_id],
             );
         $avaliacao_produto->descricao = $request->descricao;
         $avaliacao_produto->avaliacao = $request->avaliacao;
@@ -315,10 +308,11 @@ Route::middleware(['auth'])->group(function () {
         $avaliacao_produto->save();
 
         $produto = Produto::find($produto_id);
-        if(empty($produto->avaliacao)){
-           $produto->avaliacao = $request->avaliacao;
-        }
-        $produto->avaliacao = ($produto->avaliacao + $request->avaliacao)/2;
+        // if(empty($produto->avaliacao)){
+        //    $produto->avaliacao = $request->avaliacao;
+        // }
+        $produto->avaliacao = AvaliacoesProduto::where('empresa_id', $empresa_id)->avg('avaliacao');
+        // $produto->avaliacao = ($produto->avaliacao + $request->avaliacao)/2;
 
         $produto->save();
         return redirect()->route('listaPedido');
@@ -364,22 +358,12 @@ Route::middleware(['auth'])->group(function () {
 
         //  problema ao tirar a media
          $empresa = Empresa::find($empresa_id);
-         if(empty($empresa->avaliacao)){
-            $empresa->avaliacao = $request->avaliacao;
-         }
-         $empresa->avaliacao = ($empresa->avaliacao + $request->avaliacao)/2;
+
+         $empresa->avaliacao = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->avg('avaliacao');
 
          $empresa->save();
-    //   $pedido = Pedido::find($pedido_id);
-    //   if(empty($pedido->empresa_id)){
-    //     $pedido->avaliacao = $request->avaliacao;
-    //   }
-    //   $novaAvaliacao = ($pedido->avaliacao + $request->avaliacao) / 2;
 
-    //         $empresa = Empresa::find($pedido->empresa_id);
-    //         $empresa->avaliacao = $novaAvaliacao;
-    //        $empresa->save();
-    //      return redirect()->route('listaPedido');
+         return redirect()->route('listaPedido');
      })->name('avaliacao.empresa.salvar');
 
      Route::get('/enviar_email', function(){
@@ -445,4 +429,20 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// rotas dentro desse grupo, requerem autenticação do usuário para acessarem as páginas
+Route::middleware(['auth'])->group(function () {
+    //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+    Route::get('/lista/pedidos', function () {
+        $pedidos = Pedido::where('user_id', Auth::user()->id)
+        ->orderByRaw('updated_at  DESC')
+    ->get();
+        // $produtos = Produto::all();
+        //  dd($pedidos->produtos()->get());
+
+        // return $pedidos;
+        return view('pedido.listar_pedido', compact('pedidos'));
+    })->name('listaPedido');
+   });

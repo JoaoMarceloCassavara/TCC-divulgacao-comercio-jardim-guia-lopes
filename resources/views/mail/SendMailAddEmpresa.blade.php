@@ -49,7 +49,8 @@
     <h1>Sua empresa está sendo monitorada</h1>
     <p>Olá {{ $empresa->user->name }}, sua empresa {{ $empresa->nome }} foi cadastrada com sucesso e está sendo monitorada.</p>
     <p>Você pode acessar a plataforma para verificar o status de sua empresa a qualquer momento.</p>
-    @component('mail::button', ['url' => 'http://localhost:8000/admin/empresas/' . $empresa->id])
+    @component('mail::button', ['url' => env('APP_URL').'/admin/empresas/' . $empresa->id])
+    
 Clique aqui para visualizar os pedidos
 @endcomponent
 </div>

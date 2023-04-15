@@ -12,6 +12,7 @@ class AvaliacoesProduto extends Model
         'avaliacao',
         'descricao',
         'user_id',
+        'pedido_id',
     ];
     public function save(array $options = [])
     {
@@ -33,7 +34,7 @@ class AvaliacoesProduto extends Model
         }
         return $query->where('user_id', $user->getKey());
     }
-   
+
 
     public function produto()
     {
