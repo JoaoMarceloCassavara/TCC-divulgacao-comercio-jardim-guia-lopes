@@ -8,6 +8,7 @@
     <form method="POST" action="{{ route('avaliacao.produto.salvar') }}">
         @csrf
         <input type="hidden" name="produto_id" value="{{$produto->id}}">
+        <input type="hidden" name="pedido_id" value="{{$pedido->id}}">
     <section class="py-1">
         <div class="card_avaliacao_produto_add p-4 d-flex rounded-3 ms-5">
             <img src="{{ Voyager::image($produto->imagem) }}"width="150"

@@ -286,6 +286,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/avaliar/pedido/{id}/produto/{produto_id}', function ($id, $produto_id) {
         $pedido = Pedido::find($id);
         $produto = Produto::find($produto_id);
+        
+        if ($pedido->avaliacaoproduto()->where('produto_id', $produto->id)->exists()) {
+            return redirect()->back()->with('info','Já foi feito uma avaliação do produto para esse pedido!');
+        }
         return view('pedido.avaliar_pedido_produto', compact('pedido', 'produto'));
     })->name('avaliarproduto');
 
@@ -298,9 +302,10 @@ Route::middleware(['auth'])->group(function () {
         $usuario_logado = Auth::user();
         $avaliacao_produto = AvaliacoesProduto::where('pedido_id', $pedido_id)->where('produto_id', $produto_id)->where('user_id', Auth::user()->id)
             ->firstOrNew(
+                ['pedido_id' =>  $pedido_id],
                 ['produto_id' => $produto_id],
                 ['user_id' =>  Auth::user()->id],
-                ['pedido_id' =>  $pedido_id],
+
             );
         $avaliacao_produto->descricao = $request->descricao;
         $avaliacao_produto->avaliacao = $request->avaliacao;
@@ -311,7 +316,7 @@ Route::middleware(['auth'])->group(function () {
         // if(empty($produto->avaliacao)){
         //    $produto->avaliacao = $request->avaliacao;
         // }
-        $produto->avaliacao = AvaliacoesProduto::where('empresa_id', $empresa_id)->avg('avaliacao');
+        $produto->avaliacao = AvaliacoesProduto::where('produto_id', $produto_id)->avg('avaliacao');
         // $produto->avaliacao = ($produto->avaliacao + $request->avaliacao)/2;
 
         $produto->save();
@@ -434,7 +439,7 @@ Auth::routes(['verify' => true]);
 Route::middleware(['auth'])->group(function () {
     //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    
+
     Route::get('/lista/pedidos', function () {
         $pedidos = Pedido::where('user_id', Auth::user()->id)
         ->orderByRaw('updated_at  DESC')

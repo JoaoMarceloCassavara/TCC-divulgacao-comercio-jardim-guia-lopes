@@ -45,5 +45,9 @@ class AvaliacoesProduto extends Model
     {
         return $this->belongsTo(User::class,'user_id', 'id');
     }
+    public function pedido()
+    {
+        return $this->belongsTo(Pedido::class,'pedido_id', 'id');
+    }
 
 }

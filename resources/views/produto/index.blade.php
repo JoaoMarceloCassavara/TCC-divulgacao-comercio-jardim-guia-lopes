@@ -86,7 +86,7 @@
                                 <div class="modal-card-produto p-4 rounded-3">
                                     <img src="{{ Voyager::image($produto->imagem) }}" width="170" height="160"
                                         class="rounded-3" alt="Imagem do produto"
-                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
                                 </div>
 
                                 <div class="ps-4">
@@ -99,6 +99,12 @@
                                                 type="range" max="5" step="0.5"
                                                 value="{{ $produto->avaliacao ?? 0 }}" disabled>
                                         </label>
+                                        @isset($produto->avaliacao)
+                                        <h5 class="text-avaliacao-empresa"> {{ $produto->avaliacao }}</h5>
+                                    @endisset
+                                    @empty($produto->avaliacao)
+                                        <p class="text-avaliacao-empresa"> 0</p>
+                                    @endempty
 
                                         <div>
                                             <p class="text-decoration-underline text-success">

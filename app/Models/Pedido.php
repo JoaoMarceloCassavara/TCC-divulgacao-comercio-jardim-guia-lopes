@@ -58,6 +58,10 @@ class Pedido extends Model
     {
         return $this->hasMany(AvaliacaoEmpresa::class, 'pedido_id', 'id');
     }
+    public function avaliacaoproduto()
+    {
+        return $this->hasMany(AvaliacoesProduto::class, 'pedido_id', 'id');
+    }
 
 
 
