@@ -99,13 +99,17 @@
                                                 type="range" max="5" step="0.5"
                                                 value="{{ $produto->avaliacao ?? 0 }}" disabled>
                                         </label>
+                                        <div class="px-2">
                                         @isset($produto->avaliacao)
-                                        <h5 class="text-avaliacao-empresa"> {{ $produto->avaliacao }}</h5>
+                                        <p class="text-avaliacao-modal fw-bold">{{ number_format($produto->avaliacao, 1, '.', '') }}</p>
                                     @endisset
-                                    @empty($produto->avaliacao)
-                                        <p class="text-avaliacao-empresa"> 0</p>
-                                    @endempty
 
+                                    @empty($produto->avaliacao)
+
+                                        <h5 class="text-avaliacao-empresa">0.0</h5>
+
+                                    @endempty
+                                </div>
                                         <div>
                                             <p class="text-decoration-underline text-success">
                                                 ({{ $produto->avaliacoes->count() }} avaliações de clientes)
@@ -177,41 +181,39 @@
                             <p class="fw-bold fs-4">Avaliações</p>
                         </header>
                         @forelse ($produto->avaliacoes as $avaliacao)
-                            <div class=" rounded-3 shadow ms-3 me-3  mb-5 bg-body rounde">
-                                <div class="d-flex p-2 bd-highlight mb-3  m-3 ">
-                                    <div class="d-flex align-items-center">
-                                        <div class="pt-5 flex-shrink-0 ">
-                                            <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140"
-                                                height="120" alt="Imagem avatar" class="rounded-circle"
-                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
-                                            <div class="ps-2 pt-3">
-                                                <label for="avaliacao" class="rating-label">
-                                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao"
-                                                        type="range" max="5" step="0.5"
-                                                        value="{{ $avaliacao->avaliacao ?? 0 }}" disabled>
-                                                </label>
-                                            </div>
+                        <div class="rounded-3 shadow ms-3 me-3 mb-5 bg-body rounded">
+                            <div class="d-flex p-2 bd-highlight mb-3 m-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="pt-5 flex-shrink-0">
+                                        <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120" alt="Imagem avatar" class="rounded-circle" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+                                        <div class="ps-2 pt-3">
+                                            <label for="avaliacao" class="rating-label">
+                                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{ $avaliacao->avaliacao ?? 0 }}" disabled>
+                                            </label>
                                         </div>
-                                        <div class="ps-3">
-                                            <p class="text-break w-auto ">{{ $avaliacao->usuario->name }} </p>
-                                            {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
-
-
-                                            <p>{{ $avaliacao->updated_at }}</p>
-
-                                        </div>
-
                                     </div>
-
-                                    <div class="d-flex align-items-center w-50 p-3 ms-auto  ">
-
-                                        <p class="text-break">{{ $avaliacao->descricao }}</p>
-
+                                    <div class="ps-3" style="max-width: 200px;">
+                                        <p class="text-break" style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0;">{{ ($avaliacao->usuario->name) }}</p>
+                                        <p>{{ $avaliacao->updated_at->format('d/m/Y H:i:s') }}</p>
                                     </div>
-
+                                </div>
+                                <div class="d-flex align-items-start flex-grow-1 p-3 ms-3 mt-3" style="max-height: 120px; overflow-y: auto;">
+                                    <p class="text-break mb-0" style="font-size: 1.1rem; max-width: 450px;">{{ mb_substr($avaliacao->descricao, 0, 500) }}</p>
                                 </div>
 
                             </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

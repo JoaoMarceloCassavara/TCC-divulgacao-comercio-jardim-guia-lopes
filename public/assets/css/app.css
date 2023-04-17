@@ -1727,13 +1727,13 @@ margin:  auto
 
 /* Adicionar Avaliação Produto Fim */
 
-/* Adicionar avaliação empresa */
-.card_avaliacao_empresa_add{
+/* Mostar Avaliação produto text */
+.text-avaliacao-modal{
 
 }
 
 
-/* Adcionar avaliação empresa Fim */
+/*  Mostar Avaliação produto text */
 /* Rodape */
 .icone_rede_social_site{
 text-decoration: none;
@@ -1940,6 +1940,7 @@ background-color: rgba(232, 229, 212, 1);
 
 
  /* Header Titulo todas as pagingas Fim */
+ /* Listra pedido feito para empresa */
  .card_pedido_empresario{
     background-color: rgba(232, 229, 212, 1);
 width: 100vh;
@@ -1949,3 +1950,9 @@ margin: 0 auto;
  .card_lista_pedido_empresario{
     background-color: #83A603;
     }
+    /* Listra pedido feito para empresa fim */
+
+    /* Mostra avaliação do produto no modal */
+    
+    /* Mostra avaliação do produto no modal Fim */
+
