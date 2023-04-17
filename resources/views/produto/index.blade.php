@@ -203,22 +203,6 @@
 
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         @empty
                             <div class="ps-4">
                                 <div class="alert alert-success w-25" role="alert">

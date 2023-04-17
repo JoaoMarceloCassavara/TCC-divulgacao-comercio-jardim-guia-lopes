@@ -20,7 +20,7 @@
                     </label>
 
                     @isset($empresa->avaliacao)
-                        <h5 class="text-avaliacao-empresa"> {{ $empresa->avaliacao }}</h5>
+                        <h5 class="text-avaliacao-empresa">{{ number_format($empresa->avaliacao, 1, '.', '') }}</h5>
                     @endisset
                     @empty($empresa->avaliacao)
                         <p class="text-avaliacao-empresa"> 0</p>
@@ -252,120 +252,152 @@
         </div>
     </a>
     {{-- Inicio modal --}}
-    <!-- Modal -->
-    <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
-        aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl ">
-            <div class="modal-content modal-produto">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="d-flex ps-5 ">
-                        <div class="modal-card-produto p-4 rounded-3">
-                            <img src="{{ Voyager::image($produto->imagem) }}" width="170" height="160"
-                                class="rounded-3" alt="Imagem do produto"
-                                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+            <!-- Modal -->
+            <div class="modal fade" id="produto-modal-{{ $produto->id }}" tabindex="-1"
+                aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true"
+                data-video-id="{{ $produto->video_id }}" data-produto-id="{{ $produto->id }}">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content modal-produto">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
+                            <button type="button" id="produto-modal-{{ $produto->id }}Close" class="btn-close"
+                                data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <div class="modal-body">
+                            <div class="d-flex ps-5 ">
+                                <div class="modal-card-produto p-4 rounded-3">
+                                    <img src="{{ Voyager::image($produto->imagem) }}" width="170" height="160"
+                                        class="rounded-3" alt="Imagem do produto"
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+                                </div>
 
-                        <div class="ps-4">
+                                <div class="ps-4">
 
-                            <p class=" fw-bold fs-3">{{ $produto->nome }}</p>
-                            {{-- <input class="rating py-2" type="range" value="{{$produto->avaliacao}}" disabled> --}}
-                            <label for="avaliacao" class="rating-label">
-                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                                    max="5" step="0.5" value="{{ $produto->avaliacao ?? 0 }}" disabled>
-                            </label>
-                            <div class="py-2">
-                                <p class="fw-bold fs-6">Pedidos {{ $produto->pedidos->count() }}</p>
-                                <p class="pt-1 fw-bold fs-5">Preço {{ $produto->getPreco() }}
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="d-flex">
-                        <div class="pt-5 ps-4">
-                            @isset($produto->video_curto)
-                                <iframe width="300" height="290" src="{{ $produto->video_curto }}"
-                                    title="{{ $produto->nome }}" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
-                            @endisset
-                        </div>
-                        <div class="pt-5 ps-3">
-                            <h4>Descrição</h4>
-                            <p>{!! $produto->descricao !!}</p>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                    <button type="button" class="btn btn-dark " data-id="{{ $produto->id }}"
-                        data-imagem="{{ Voyager::image($produto->imagem) }}" data-preco="{{ $produto->preco }}"
-                        data-nome="{{ $produto->nome }}" onclick="adicionarItemNoCarrinho();">Adicionar ao
-                        carrinho</button>
-                </div>
-                <hr class="border border-dark ">
-
-                <header class="ps-3 py-4">
-                    <p class="fw-bold fs-4">Avaliações</p>
-                </header>
-                @forelse ($produto->avaliacoes as $avaliacao)
-                    <div class=" rounded-3 shadow ms-3 me-3  mb-5 bg-body rounde">
-                        <div class="d-flex p-2 bd-highlight mb-3  m-3 ">
-                            <div class="d-flex align-items-center">
-                                <div class="py-5 ">
-                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140"
-                                        height="120" alt="Imagem do produto" class="rounded-circle"
-                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
-                                    <div class="ps-2 pt-3">
+                                    <p class=" fw-bold fs-3">{{ $produto->nome }}</p>
+                                    <div class="d-flex">
+                                        {{-- <input class="rating py-2" type="range" value="{{$produto->avaliacao}}" disabled> --}}
                                         <label for="avaliacao" class="rating-label">
                                             <input class="rating rating--nojs" id="avaliacao" name="avaliacao"
                                                 type="range" max="5" step="0.5"
-                                                value="{{ $avaliacao->avaliacao ?? 0 }}" disabled>
+                                                value="{{ $produto->avaliacao ?? 0 }}" disabled>
                                         </label>
+                                        <div class="px-2">
+                                        @isset($produto->avaliacao)
+                                        <p class="text-avaliacao-modal fw-bold">{{ number_format($produto->avaliacao, 1, '.', '') }}</p>
+                                    @endisset
+
+                                    @empty($produto->avaliacao)
+
+                                        <h5 class="text-avaliacao-empresa">0.0</h5>
+
+                                    @endempty
+                                </div>
+                                        <div>
+                                            <p class="text-decoration-underline text-success">
+                                                ({{ $produto->avaliacoes->count() }} avaliações de clientes)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="py-2">
+                                        <p class="fw-bold fs-6">Pedidos {{ $produto->pedidos->count() }}</p>
+                                        <p class="pt-1 fw-bold fs-5">Preço {{ $produto->getPreco() }}
                                     </div>
                                 </div>
-                                <div class="ps-3">
-                                    <p class="text-break w-auto ">{{ $avaliacao->usuario->name }} </p>
-                                    {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
 
 
-                                    <p>{{ $avaliacao->updated_at }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <div class="pt-5 ps-4">
+                                    <script src="https://www.youtube.com/iframe_api"></script>
+                                    <script src="https://player.vimeo.com/api/player.js"></script>
+
+
+
+                                    @isset($produto->video_curto)
+                                        {{-- Rodar o video do youtube  --}}
+                                        @php
+                                            $videoUrl = $produto->video_curto;
+                                            $videoId = '';
+                                            if (!empty($videoUrl)) {
+                                                $parsedUrl = parse_url($videoUrl);
+                                                if (!empty($parsedUrl['query'])) {
+                                                    parse_str($parsedUrl['query'], $params);
+                                                    if (!empty($params['v'])) {
+                                                        $videoId = $params['v'];
+                                                    }
+                                                }
+                                            }
+                                        @endphp
+                                        @if (!empty($videoId))
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe id="video-player" width="450" height="315"
+                                                    class="embed-responsive-item"
+                                                    src="https://www.youtube.com/embed/{{ $videoId }}?enablejsapi=1"
+                                                    frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                        @endif
+                                        {{-- Rodar o video do youtube Fim --}}
+                                        <!-- Seção de scripts -->
+                                    @endisset
+
+
+                                </div>
+                                <div class="pt-5 ps-3">
+                                    <h4>Descrição</h4>
+                                    <p>{{ $produto->descricao }}</p>
 
                                 </div>
 
                             </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                            <button type="button" class="btn btn-dark " data-id="{{ $produto->id }}"
+                                data-imagem="{{ Voyager::image($produto->imagem) }}" data-preco="{{ $produto->preco }}"
+                                data-nome="{{ $produto->nome }}" onclick="adicionarItemNoCarrinho();">Adicionar ao
+                                carrinho</button>
+                        </div>
+                        <hr class="border border-dark ">
 
-                            <div class="d-flex align-items-center w-50 p-3 ms-auto  ">
-
-                                <p class="text-break">{{ $avaliacao->descricao }}</p>
+                        <header class="ps-3 py-4">
+                            <p class="fw-bold fs-4">Avaliações</p>
+                        </header>
+                        @forelse ($produto->avaliacoes as $avaliacao)
+                        <div class="rounded-3 shadow ms-3 me-3 mb-5 bg-body rounded">
+                            <div class="d-flex p-2 bd-highlight mb-3 m-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="pt-5 flex-shrink-0">
+                                        <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120" alt="Imagem avatar" class="rounded-circle" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+                                        <div class="ps-2 pt-3">
+                                            <label for="avaliacao" class="rating-label">
+                                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{ $avaliacao->avaliacao ?? 0 }}" disabled>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="ps-3" style="max-width: 200px;">
+                                        <p class="text-break" style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0;">{{ ($avaliacao->usuario->name) }}</p>
+                                        <p>{{ $avaliacao->updated_at->format('d/m/Y H:i:s') }}</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start flex-grow-1 p-3 ms-3 mt-3" style="max-height: 120px; overflow-y: auto;">
+                                    <p class="text-break mb-0" style="font-size: 1.1rem; max-width: 450px;">{{ mb_substr($avaliacao->descricao, 0, 500) }}</p>
+                                </div>
 
                             </div>
-
                         </div>
+                        @empty
+                            <div class="ps-4">
+                                <div class="alert alert-success w-25" role="alert">
+                                    <p class="text-center">Nenhuma avaliação cadastrada para esse produto.</p>
+                                </div>
+                            </div>
+                        @endforelse
 
                     </div>
-
-
-
-
-                @empty
-                    <p class="alert alert-success">Nenhuma avaliação cadastrada para esse produto</p>
-                @endforelse
-
+                </div>
             </div>
-        </div>
-    </div>
 
-    {{-- Final MOdal --}}
-
+            {{-- Final MOdal --}}
     @endforeach
     </section>
 @empty
