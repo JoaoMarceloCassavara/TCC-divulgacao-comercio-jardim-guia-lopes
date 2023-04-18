@@ -1,6 +1,4 @@
-
-
-
+@if(count($categoria_produtos) > 0)
 <div id="carrossel_categoria_produto" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
     <div class="carousel-inner">
         @for ($posicao = 0; $posicao < count($categoria_produtos); $posicao = $posicao + 4)
@@ -108,4 +106,4 @@
     <span class="visually-hidden">Proximo</span>
 </button>
 </div>
-
+@endif

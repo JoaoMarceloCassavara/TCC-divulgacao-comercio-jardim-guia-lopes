@@ -1,3 +1,4 @@
+@if(count($categoria_empresas) > 0)
 <div id="carousel-categorias-empresas" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         @for ($posicao = 0; $posicao < count($categoria_empresas); $posicao = $posicao + 4)
@@ -10,7 +11,7 @@
                 href="{{ route('empresa.categoria', ['id' => $categoria_empresas[$posicao]->id]) }}">
                 <div class="card_categoria_produto rounded-3 p-5 m-2">
                     <img src="{{ Voyager::image($categoria_empresas[$posicao]->imagem) }}" width="120" height="95" class="rounded-3"
-                        alt="Imagem Da categoria Dos Produtos" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
+                        alt="Imagem Da categoria Dos Produtos">
                     <div class="text-center py-2">
                         <p class="fs-5 card-title">{{ $categoria_empresas[$posicao]->nome }}</p>
                     </div>
@@ -21,7 +22,7 @@
                     href="{{ route('empresa.categoria', ['id' => $categoria_empresas[$posicao + 1]->id]) }}">
                     <div class="card_categoria_produto rounded-3 p-5 m-2">
                         <img src="{{ Voyager::image($categoria_empresas[$posicao +1]->imagem) }}" width="120" height="95" class="rounded-3"
-                            alt="Imagem Da categoria Dos Produtos" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
+                            alt="Imagem Da categoria Dos Produtos">
                         <div class="text-center py-2">
                             <p class="fs-5 card-title">{{ $categoria_empresas[$posicao +1]->nome }}</p>
                         </div>
@@ -34,7 +35,7 @@
 
                     <div class="card_categoria_produto rounded-3 p-5 m-2">
                         <img src="{{ Voyager::image($categoria_empresas[$posicao +2]->imagem) }}" width="120" height="95" class="rounded-3"
-                            alt="Imagem Da categoria Dos Produtos" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
+                            alt="Imagem Da categoria Dos Produtos">
                         <div class="text-center py-2">
                             <p class="fs-5 card-title">{{ $categoria_empresas[$posicao +2]->nome }}</p>
                         </div>
@@ -47,14 +48,13 @@
 
                     <div class="card_categoria_produto rounded-3 p-5 m-2">
                         <img src="{{ Voyager::image($categoria_empresas[$posicao +3]->imagem) }}" width="120" height="95" class="rounded-3"
-                            alt="Imagem Da categoria Dos Produtos" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
+                            alt="Imagem Da categoria Dos Produtos">
                         <div class="text-center py-2">
                             <p class="fs-5 card-title ">{{ $categoria_empresas[$posicao +3]->nome }}</p>
                         </div>
                     </div>
                 </a>
             @endif
-
     </div>
     @endfor
 </div>
@@ -69,3 +69,4 @@
     <span class="visually-hidden">Proximo</span>
 </button>
 </div>
+@endif

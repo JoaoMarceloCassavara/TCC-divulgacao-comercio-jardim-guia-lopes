@@ -1,3 +1,4 @@
+@if(count($empresas_destaques) > 0)
 <div class="card_header_empresa_destaque rounded-3 ">
 
     <h4 class="py-2 text-center">Produtores destaques da Janela do produtor</h4>
@@ -62,3 +63,4 @@
     </div>
 </div>
 </div>
+@endif

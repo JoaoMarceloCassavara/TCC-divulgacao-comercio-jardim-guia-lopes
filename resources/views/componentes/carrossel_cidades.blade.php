@@ -1,3 +1,4 @@
+@if(count($cidades) > 0)
 <div id="carrossel_cidades" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
     <div class="carousel-inner">
         @for ($posicao = 0; $posicao < count($cidades); $posicao = $posicao + 4)
@@ -97,3 +98,4 @@
     <span class="visually-hidden">Proximo</span>
 </button>
 </div>
+@endif
