@@ -120,7 +120,7 @@
     <section class="d-flex flex-wrap pt-2">
         @include('componentes.carrossel_categoria_produto')
     </section>
-    <header class="pt-5 header_titulo pb-2">
+    <header class="pt-3 header_titulo pb-2">
         <h4>Cidades</h4>
     </header>
     {{-- @include('componentes.carrossel_cidades') --}}

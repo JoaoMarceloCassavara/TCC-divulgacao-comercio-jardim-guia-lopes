@@ -1268,9 +1268,11 @@ background-color: rgba(64, 1, 1, 0.65);
     background: linear-gradient(rgba(219, 236, 156, 0.85)50%,
     rgba(236, 243, 211, 0.85) 50%);
     /* background-color: #83A603; */
-    width: 220px;
-    height:280px;
+    /* width: 220px; */
+    height:207px;
+    width: 200px;
 }
+
 
 
 .marcacao_a_remov {
@@ -1953,6 +1955,6 @@ margin: 0 auto;
     /* Listra pedido feito para empresa fim */
 
     /* Mostra avaliação do produto no modal */
-    
+
     /* Mostra avaliação do produto no modal Fim */
 

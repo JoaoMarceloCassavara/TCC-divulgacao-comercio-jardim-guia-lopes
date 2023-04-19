@@ -12,13 +12,13 @@
 
 
             <a class="marcacao_a_remov text-black" href="{{ route('produto.categoria', ['id' => $categoria_produtos[$posicao]->id]) }}">
-                <div class="m-3 card_categoria_produto pt-5  d-inline-block  rounded-3">
+                <div class="card_categoria_produto rounded-3 ps-4 pt-4 pe-4 m-3 ">
                     <div class="text-center d-block ">
-                        <img src="{{ Voyager::image($categoria_produtos[$posicao]->imagem) }}" width="120" height="100" class="rounded-3"
+                        <img src="{{ Voyager::image($categoria_produtos[$posicao]->imagem) }}" width="150" height="100" class="rounded-3"
                             alt="Imagem Da cidade"
                             onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
                     </div>
-                    <div class="text-center w-100 ps-3  pt-2 ">
+                    <div class="text-center pt-2 pb-4">
                         <p class="fs-5 text-break ">{{ $categoria_produtos[$posicao]->nome }}</p>
                     </div>
 
@@ -34,13 +34,13 @@
 
 
             <a class="marcacao_a_remov text-black" href="{{ route('produto.categoria', ['id' => $categoria_produtos[$posicao +1]->id]) }}">
-                <div class="m-3 card_categoria_produto pt-5  d-inline-block  rounded-3">
+                <div class="card_categoria_produto rounded-3 ps-4 pt-4 pe-4 m-3 ">
                     <div class="text-center d-block ">
-                        <img src="{{ Voyager::image($categoria_produtos[$posicao +1]->imagem) }}" width="120" height="100" class="rounded-3"
+                        <img src="{{ Voyager::image($categoria_produtos[$posicao +1]->imagem) }}" width="150" height="100" class="rounded-3"
                             alt="Imagem Da cidade"
                             onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
                     </div>
-                    <div class="text-center w-100 ps-3  pt-2 ">
+                    <div class="text-center pt-2 pb-4">
                         <p class="fs-5 text-break ">{{ $categoria_produtos[$posicao +1]->nome }}</p>
                     </div>
 
@@ -55,13 +55,13 @@
 
 
               <a class="marcacao_a_remov text-black" href="{{ route('produto.categoria', ['id' => $categoria_produtos[$posicao +2]->id]) }}">
-                <div class="m-3 card_categoria_produto pt-5  d-inline-block  rounded-3">
+                <div class="card_categoria_produto rounded-3 ps-4 pt-4 pe-4 m-3 ">
                     <div class="text-center d-block ">
-                        <img src="{{ Voyager::image($categoria_produtos[$posicao +2]->imagem) }}" width="120" height="100" class="rounded-3"
+                        <img src="{{ Voyager::image($categoria_produtos[$posicao +2]->imagem) }}" width="150" height="100" class="rounded-3"
                             alt="Imagem Da cidade"
                             onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
                     </div>
-                    <div class="text-center w-100 ps-3  pt-2 ">
+                    <div class="text-center pt-2 pb-4">
                         <p class="fs-5 text-break ">{{ $categoria_produtos[$posicao +2]->nome }}</p>
                     </div>
 
@@ -76,13 +76,13 @@
 
 
              <a class="marcacao_a_remov text-black" href="{{ route('produto.categoria', ['id' => $categoria_produtos[$posicao +3]->id]) }}">
-                <div class="m-3 card_categoria_produto pt-5  d-inline-block  rounded-3">
+                <div class="card_categoria_produto rounded-3 ps-4 pt-4 pe-4 m-3 ">
                     <div class="text-center d-block ">
-                        <img src="{{ Voyager::image($categoria_produtos[$posicao +3]->imagem) }}" width="120" height="100" class="rounded-3"
+                        <img src="{{ Voyager::image($categoria_produtos[$posicao +3]->imagem) }}" width="150" height="100" class="rounded-3"
                             alt="Imagem Da cidade"
                             onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
                     </div>
-                    <div class="text-center w-100 ps-3  pt-2 ">
+                    <div class="text-center pt-2 pb-4">
                         <p class="fs-5 text-break ">{{ $categoria_produtos[$posicao +3]->nome }}</p>
                     </div>
 

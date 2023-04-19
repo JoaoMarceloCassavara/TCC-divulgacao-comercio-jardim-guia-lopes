@@ -3,17 +3,17 @@
 @section('conteudo')
 
     {{-- <header class="pt-5 ps-4">
-        <h4>A procura por Produtos</h4>
+        <h4>O que voce está Procurando hoje?</h4>
     </header>
 
     <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
         @forelse ($categoria_produtos as $categoria_produto)
             <a class="marcacao_a_remov text-black" href="{{ route('produto.categoria', ['id' => $categoria_produto->id]) }}">
-                <div class="card_categoria_produto rounded-3 p-5 m-2">
-                    <img src="{{ Voyager::image($categoria_produto->imagem) }}" width="120" height="95" class="rounded-3"
+                <div class="card_categoria_produto rounded-3 ps-4 pt-4 pe-4 m-2 ">
+                    <img src="{{ Voyager::image($categoria_produto->imagem) }}" width="150" height="95" class="rounded-3"
                         alt="Imagem Da categoria Dos Produtos"
                         onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
-                    <div class="text-center py-2">
+                    <div class="text-center pt-2 pb-4">
                         <p class="fs-5 card-title">{{ $categoria_produto->nome }}</p>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
     </section>
 
 
-    <header class="pt-5 header_titulo pb-2">
+    <header class="pt-3 header_titulo pb-2">
         <h4>Todos os produtos</h4>
     </header>
     <section class="d-flex flex-wrap pt-2 pb-5 card_produto_section_position">
