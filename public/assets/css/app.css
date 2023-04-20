@@ -1269,8 +1269,8 @@ background-color: rgba(64, 1, 1, 0.65);
     rgba(236, 243, 211, 0.85) 50%);
     /* background-color: #83A603; */
     /* width: 220px; */
-    height:207px;
-    width: 200px;
+    /* height:207px;
+    width: 200px; */
 }
 
 
@@ -1521,6 +1521,9 @@ font-size: 18px;
 /*Fim Tela Tipo_register*/
 
 /* Modal Pedido */
+.modal-fullscreen {
+    height: fit-content;
+}
 
 .carrinho {
     margin-right: 30px;
@@ -1957,4 +1960,5 @@ margin: 0 auto;
     /* Mostra avaliação do produto no modal */
 
     /* Mostra avaliação do produto no modal Fim */
+
 

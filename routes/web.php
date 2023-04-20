@@ -100,12 +100,7 @@ Route::get('empresa/{id}/categoria_produto/{categoria_id}', function ($id, $cate
     return view('produto.visualizar', compact('empresa','produtos', 'categoria_produto'));
 })->name('vermaisproduto');
 
-
-Route::get('/empresa', function () {
-    $empresas = Empresa::where('ativo', true)->get();
-    $categoria_empresas = CategoriaEmpresa::all();
-    return view('empresa.index', compact('empresas', 'categoria_empresas'));
-})->name('empresa');
+Route::get('/empresa', [App\Http\Controllers\EmpresaController::class, 'index'])->name('empresa');
 
 
 Route::get('/empresa/{id}', function ($id) {
@@ -221,19 +216,23 @@ Route::middleware(['auth'])->group(function () {
         return redirect()->route('welcome')->with('success', 'Olá, sua empresa está sendo monitorada para verificação e posterior ativação. Qualquer novidade, entraremos em contato.');
     })->name('empresa.salvar');
 
-
+    // Route::post('/empresa/salvar', [App\Http\Controllers\EmpresaController::class, 'cadastro'])->name('empresa.salvar');
 
     Route::post('/carrinho', function (Request $request) {
         //criar vetor fazio com varialvel pedido vai guardar uma lista
         $pedidos = [];
         //criando um vetor fazio com variavel pedidosPorEmpresa que vai guardar uma empresa e uma lista de produtos
         $pedidosPorEmpresa = [];
+
+        $quantidadeProdutoPedidoPorEmpresa = [];
         //separar os produtos por empresa
-        foreach ($request->produtos as $produto_id) {
+        foreach ($request->produtos as $indice=>$produto_id) {
             //buscando por um produto com o (id)= $produto_id que esta sendo passado pelo request
             $produto = Produto::find($produto_id);
             //adiciona ao vetor pedidosPorEmpresa com a chave empresa id o produto
             $pedidosPorEmpresa[$produto->empresa()->first()->id][] = $produto;
+
+            $quantidadeProdutoPedidoPorEmpresa[$produto->empresa()->first()->id][] = $request->quantidades[$indice];
         }
         //para cada empresa criar um pedido
         foreach ($pedidosPorEmpresa as $empresa_id => $produtos) {
@@ -246,10 +245,11 @@ Route::middleware(['auth'])->group(function () {
             //Salva na tabela pedidos as colunas que foram prenchidas
             $pedido->save();
             //para cada produto criar iten pedido
-            foreach ($produtos as $produto) {
+            foreach ($produtos as $indice=>$produto) {
                 $itemPedido = new PedidoProduto();
                 $itemPedido->pedido_id = $pedido->id;
                 $itemPedido->produto_id = $produto->id;
+                $itemPedido->quantidade = $quantidadeProdutoPedidoPorEmpresa[$empresa_id][$indice];
                 $itemPedido->save();
             }
             // return new \App\Mail\SendMailPedido($pedido);
@@ -286,7 +286,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/avaliar/pedido/{id}/produto/{produto_id}', function ($id, $produto_id) {
         $pedido = Pedido::find($id);
         $produto = Produto::find($produto_id);
-        
+
         if ($pedido->avaliacaoproduto()->where('produto_id', $produto->id)->exists()) {
             return redirect()->back()->with('info','Já foi feito uma avaliação do produto para esse pedido!');
         }
