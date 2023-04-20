@@ -35,7 +35,8 @@
               <span class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      <img src="{{Voyager::image(Auth::user()->avatar )}}" class="rounded-circle " width="45" height="40" alt="Avatar do usuario">
+                      <img src="{{Voyager::image(Auth::user()->avatar )}}" class="rounded-circle " width="45" height="40" alt="Avatar do usuario"
+                      onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/user_default.png') }}';"     >
                       {{ Auth::user()->name }}
                   </a>
 

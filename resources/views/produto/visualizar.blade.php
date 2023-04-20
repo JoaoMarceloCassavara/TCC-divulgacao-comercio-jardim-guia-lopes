@@ -118,7 +118,7 @@
                                         <div class="py-5 ">
                                             <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140"
                                                 height="120" alt="Imagem do produto" class="rounded-circle"
-                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/images_usuario/foto_sem_icone.jpg') }}';">
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/user_default.png') }}';">
                                             <div class="ps-2 pt-3">
                                                 <label for="avaliacao" class="rating-label">
                                                     <input class="rating rating--nojs" id="avaliacao" name="avaliacao"

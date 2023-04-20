@@ -189,7 +189,7 @@
                                     <div class="pt-5 flex-shrink-0">
                                         <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140"
                                             height="120" alt="Imagem avatar" class="rounded-circle"
-                                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+                                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/user_default.png') }}';">
                                         <div class="ps-2 pt-3">
                                             <label for="avaliacao" class="rating-label">
                                                 <input class="rating rating--nojs" id="avaliacao" name="avaliacao"

@@ -163,7 +163,7 @@
                         <div class="d-flex p-2 bd-highlight mb-3 m-3">
                             <div class="d-flex align-items-center">
                                 <div class="pt-5 flex-shrink-0">
-                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120" alt="Imagem avatar" class="rounded-circle" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="140" height="120" alt="Imagem avatar" class="rounded-circle" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/user_default.png') }}';">
                                     <div class="ps-2 pt-3">
                                         <label for="avaliacao" class="rating-label">
                                             <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5" step="0.5" value="{{ $avaliacao->avaliacao ?? 0 }}" disabled>
