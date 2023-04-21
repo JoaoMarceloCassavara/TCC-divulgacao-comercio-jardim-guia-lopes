@@ -1962,3 +1962,10 @@ margin: 0 auto;
     /* Mostra avaliação do produto no modal Fim */
 
 
+    .embed-responsive-16by9 {
+        height: 300px;
+      }
+      .btn-cinza {
+        background-color: gray;
+      }
+
