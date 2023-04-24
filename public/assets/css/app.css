@@ -1697,16 +1697,24 @@ background-color: rgba(232, 229, 212, 1);
 
 
 /* Mostrar avalição da empresa */
-.card_avaliacao_empresa{
+/* .card_avaliacao_empresa{
     background-color: #a8b188;
     ;
 
 width: 170vh;
 margin:  auto
-}
-.section_body{
+} */
+/* .section_body{
     background-color: rgba(232, 229, 212, 1);
+} */
+.card_empresa_avaliacao{
+ max-width: 1600px;
 }
+.bg-color{
+ background-color: #c3bd87;
+}
+
+
 
 
 /* Mostrar avalição da empresa  Fim  */

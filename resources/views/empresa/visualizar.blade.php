@@ -444,52 +444,50 @@
 
         </section>
     @endisset
-
-
-
-    <section class="py-5 section_body">
-        <header class=" pb-3 ps-5">
-            <h4 class="fw-bold">Avaliações</h4>
+    <section>
+        <hr>
+        <header class="pt-2 header_titulo pb-2">
+            <p class="fw-bold fs-4">Avaliações</p>
         </header>
+
         @forelse ($empresa->avaliacoes as $avaliacao)
-            <div class="card_avaliacao_empresa rounded-3">
-                <div class="d-flex bd-highlight mb-3  m-4">
+        <div class="container card_empresa_avaliacao">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="rounded-3 shadow ms-3 me-3 mb-5  rounded  bg-color">
+                  <div class="d-flex p-2 bd-highlight mb-3 m-3">
                     <div class="d-flex align-items-center">
-                        <div class="py-5 flex-shrink-0">
-                            <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}" width="130" height="120"
-                                alt="Imagem avatar" class="rounded-circle "
-                                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/user_default.png') }}';">
-                            <div class="ps-2 pt-3">
-                                <label for="avaliacao" class="rating-label">
-                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                                        max="5" step="0.5" value="{{ $avaliacao->avaliacao ?? 0 }}" disabled>
-                                </label>
-                            </div>
+                      <div class="pt-5 flex-shrink-0">
+                        <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}"
+                          width="140" height="120" alt="Imagem avatar"
+                          class="rounded-circle"
+                          onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/user_default.png') }}';">
+                        <div class="ps-2 pt-3">
+                          <label for="avaliacao" class="rating-label">
+                            <input class="rating rating--nojs" id="avaliacao"
+                              name="avaliacao" type="range" max="5"
+                              step="0.5" value="{{ $avaliacao->avaliacao ?? 0 }}"
+                              disabled>
+                          </label>
                         </div>
-                        <div class="ps-3 pe-5">
-                            <p class="text-break w-auto">{{ $avaliacao->usuario->name }} </p>
-                            {{-- <p>{{ $avaliacao->avaliacao }}</p> --}}
-
-
-                            <p>{{ $avaliacao->updated_at }}</p>
-
-                        </div>
-
+                      </div>
+                      <div class="ps-3" style="max-width: 200px;">
+                        <p class="text-break"
+                          style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0;">
+                          {{ $avaliacao->usuario->name }}</p>
+                        <p>{{ $avaliacao->updated_at->format('d/m/Y H:i:s') }}</p>
+                      </div>
                     </div>
-
-                    <div class="d-flex align-items-center w-50 p-3 ms-auto">
-
-                        <p class="text-break">{{ $avaliacao->descricao }}</p>
-
+                    <div class="d-flex align-items-start flex-grow-1 p-3 ms-3 mt-3"
+                      style="max-height: 120px; overflow-y: auto;">
+                      <p class="text-break mb-0" style="font-size: 1.1rem; max-width: 450px;">
+                        {{ mb_substr($avaliacao->descricao, 0, 500) }}</p>
                     </div>
-
+                  </div>
                 </div>
-
+              </div>
             </div>
-
-
-
-
+          </div>
 
         @empty
         <div class="ps-4">
@@ -498,6 +496,7 @@
             </div>
         </div>
         @endforelse
+        <hr>
     </section>
     {{-- Produto por categoria final --}}
 @endsection
