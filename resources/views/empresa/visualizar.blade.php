@@ -413,35 +413,26 @@
             <header class="ps-5 pb-3">
                 <h4>Bibliografia do Produtor</h4>
             </header>
-            <div class="border border-dark border border-2 card-bibliografia rounded-3 ">
-                <div class="d-flex header-logo_nome pt-5">
-                    <div>
-                        <img src="{{ Voyager::image($empresa->logo) }}"width="110" height="110" alt="Logo da Empresa"
-                            class="rounded-circle border border-dark"
-                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
-                    </div>
-                    <div class="ps-4 pt-3">
-                        <h4 class="text-center">{{ $empresa->nome }}</h4>
-                        <p class="fw-bold ">{{ $empresa?->cidade?->nome }}</p>
-                    </div>
+            <div class="border border-dark card-bibliografia rounded-3">
+                <div class="row align-items-center py-4 px-md-3 px-0">
+                    <div class="col-md-1"></div> <!-- coluna vazia -->
+                  <div class="col-md-1 col-12 text-center">
+                    <img src="{{ Voyager::image($empresa->logo) }}" width="110" height="110" alt="Logo da Empresa" class="rounded-circle border border-dark img-fluid" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
+                  </div>
+                  <div class="col-md-9 col-12 pt-3 text-center text-md-start">
+                    <h4>{{ $empresa->nome }}</h4>
+                    <p class="fw-bold">{{ $empresa?->cidade?->nome }}</p>
+                  </div>
                 </div>
-
-                <div class="d-flex justify-content-evenly py-2 ">
-                    <div class="pt-4 ps-3 pe-3">
-                        <p class="text-md-start">{!! $empresa->bibliografia_produtor !!}</p>
-                    </div>
-                    <div class="pe-5 pb-5">
-                        <img src="{{ Voyager::image($empresa->foto) }}"width="550" height="500" class="rounded-3"
-                            alt="Imagem da Empresa"
-                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
-                    </div>
-
+                <div class="row">
+                  <div class="col-md-6 col-12 py-4 px-md-5 px-3">
+                    <p>{!! $empresa->bibliografia_produtor !!}</p>
+                  </div>
+                  <div class="col-md-6 col-12 py-3 px-md-5 px-3">
+                    <img src="{{ Voyager::image($empresa->foto) }}" class="rounded-3 img-fluid mx-auto d-block" alt="Imagem da Empresa" onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-fundo-empresa.png') }}';">
+                  </div>
                 </div>
-
-
-
-            </div>
-
+              </div>
         </section>
     @endisset
     <section>
