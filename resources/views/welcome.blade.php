@@ -85,9 +85,9 @@
     <header class="pt-5 header_titulo pb-2">
         <h4>Produtores Bem avaliados</h4>
     </header>
-    <section class=" d-flex flex-wrap pt-2 pb-5 card_empresa_section_position ">
+    <section class=" d-flex flex-wrap pt-2 pb-5 card_empresa_section_position">
         @forelse ($empresas_famosas as $empresa)
-            <div class="card_empresa d-flex align-items-center  m-3 p-4">
+            <div class="card_empresa d-flex align-items-center  m-1  p-4">
                 <div>
                     <img src="{{ Voyager::image($empresa->logo) }}"height="130" width="130" class="rounded-circle"
                         alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
@@ -107,7 +107,7 @@
                 </div>
             </div>
         @empty
-            <div class="header_titulo">
+            <div class="">
                 <div class="alert alert-success " role="alert">
                     <p class="text-center">Nenhum Produtor cadastrado.</p>
                 </div>
