@@ -165,7 +165,7 @@
                                 data-preco="{{ $produto->preco }}" data-nome="{{ $produto->nome }}"
                                 onclick="adicionarItemNoCarrinho();">Adicionar ao
                                 carrinho</button>
-                               
+
 
                         </div>
                         <hr class="border border-dark ">
@@ -198,8 +198,8 @@
                                             <p>{{ $avaliacao->updated_at->format('d/m/Y H:i:s') }}</p>
                                         </div>
                                     </div>
-                                    <div class="d-flex align-items-start flex-grow-1 p-3 ms-3 mt-3"
-                                        style="max-height: 120px; overflow-y: auto;">
+                                    <div class="d-flex align-items-start flex-grow-1 p-3 ms-3 mt-3 overflow-auto"
+                                        style="max-height: 120px;">
                                         <p class="text-break mb-0" style="font-size: 1.1rem; max-width: 450px;">
                                             {{ mb_substr($avaliacao->descricao, 0, 500) }}</p>
                                     </div>
