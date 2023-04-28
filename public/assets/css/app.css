@@ -1647,22 +1647,11 @@ visibility: hidden;
 
 
 /* Visualizar Empresa Topo */
-.visualizar_icones_empresa{
-
-
-}
-.visualizar_informacao_empresa{
-padding-top: 20px;
-}
-.logo_empresa{
-top: 300px;
-padding-left: 40%;
-}
-.nome_empresa_visualizar{
-padding-top: 7.2vh;
-}
-
-
+.descricao-container {
+    width: 100%;
+    max-width: 500px; /* altere o valor de acordo com a largura desejada */
+    height: 150px; /* altere o valor de acordo com a altura desejada */
+  }
 /* Visualizar Empresa Topo Fim */
 
 
