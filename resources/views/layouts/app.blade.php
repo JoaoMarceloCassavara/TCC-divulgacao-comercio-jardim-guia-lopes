@@ -117,8 +117,8 @@
         <div class="modal fade" id="carrinho-modal" tabindex="-1" aria-labelledby="carrinho-modalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title" id="carrinho-modalLabel">Carrinho de compras</h1>
+                    <div class="modal-header ms-4 me-4">
+                        <h2 class="modal-title" id="carrinho-modalLabel"><i class="fa-solid fa-cart-shopping fa-sm"></i>Carrinho de compras</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('carrinho') }}" method="POST">
@@ -131,8 +131,8 @@
                             <h4 class="text-center text-success">Total: <span id="valor-total">$ 0,00</span></h4>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-danger">Efetuar pedido</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-success">Efetuar pedido</button>
 
                         </div>
                     </form>
@@ -172,7 +172,7 @@
             var table =
                 `<thead class="descricao-pedido ">
                 <tr>
-                  <td class="fs-4 ps-5">Produtos</td><td class="text-white">Preço</td><td class="text-white">Quatidade</td><td class="text-white">Ações</td>
+                  <td class="ps-5 fs-4 "> Produtos</td> <td class="text-white">Preço</td> <td class="text-white">Quatidade</td> <td class="text-white">Ações</td>
                 </tr>
             </thead>
             <tbody>
