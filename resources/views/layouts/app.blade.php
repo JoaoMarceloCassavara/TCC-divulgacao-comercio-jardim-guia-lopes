@@ -200,10 +200,10 @@
                     </div>
                 </div>
             </div>
-       
+
     </td>
 
-    <td class="py-4">${formatarPreco(carrinho[propriedade].preco)}</td>
+    <td class="py-4 text-white">${formatarPreco(carrinho[propriedade].preco)}</td>
     <td class="py-4">
         <input type="number" name="quantidades[]" min="1" value="${carrinho[propriedade].quantidade ?? 1}">
     </td>
