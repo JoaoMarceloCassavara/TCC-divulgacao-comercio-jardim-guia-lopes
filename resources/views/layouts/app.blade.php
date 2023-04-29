@@ -118,7 +118,8 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header ms-4 me-4">
-                        <h2 class="modal-title" id="carrinho-modalLabel"><i class="fa-solid fa-cart-shopping fa-sm"></i>Carrinho de compras</h2>
+                        <h2 class="modal-title" id="carrinho-modalLabel"><i
+                                class="fa-solid fa-cart-shopping fa-sm"></i>Carrinho de compras</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('carrinho') }}" method="POST">
@@ -168,9 +169,9 @@
 
             //criando a tabela
             function preencherTabelaCarrinho(carrinho) {
-            atualizarBotaoCarrinho();
-            var table =
-                `<thead class="descricao-pedido ">
+                atualizarBotaoCarrinho();
+                var table =
+                    `<thead class="descricao-pedido ">
                 <tr>
                   <td class="ps-5 fs-4 "> Produtos</td> <td class="text-white">Preço</td> <td class="text-white">Quatidade</td> <td class="text-white">Ações</td>
                 </tr>
@@ -178,30 +179,41 @@
             <tbody>
 
             `;
-            for (var propriedade in carrinho) {
-                table +=
-                    `<tr class="cor-tbody">
-                    <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
+                for (var propriedade in carrinho) {
+                    table +=
+                        `<tr class="cor-tbody">
+    <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
 
-                       <td>
-                        <div class="d-flex ps-5 py-3">
-                            <div class="card_carrinho p-3 rounded-3">
-                            <img src="${carrinho[propriedade].imagem}"class="modal_imagem_pedido " width="250" >
-                          </div>
-                       <div class="ps-4 py-2">
-                       <p class="fs-5 text-white">${carrinho[propriedade].nome}</p>
-                       <p class="text-white">${carrinho[propriedade].descricao}</p>
-                        </div>
+    <td>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card_carrinho p-2 rounded-3 d-flex align-items-center justify-content-center">
+                        <img src="${carrinho[propriedade].imagem}" class="img-fluid"
+                            style="max-width: 150px; max-height: 150px;"
+                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
                     </div>
-                    </td>
+                </div>
+                <div class="col-md-8">
+                    <div class="ps-4 py-2">
+                        <p class="fs-5 text-white">${carrinho[propriedade].nome}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
 
-                    <td class="py-4">${formatarPreco(carrinho[propriedade].preco)}</td>
-                    <td class="py-4"> <input type="number" name="quantidades[]" min="1" value="${carrinho[propriedade].quantidade ?? 1}"> </td>
-                    <td class="py-4">
-                        <button class="btn btn-default" onclick="removerItemDoCarrinho(${propriedade});"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>`;
-            }
+    <td class="py-4">${formatarPreco(carrinho[propriedade].preco)}</td>
+    <td class="py-4">
+        <input type="number" name="quantidades[]" min="1" value="${carrinho[propriedade].quantidade ?? 1}">
+    </td>
+    <td class="py-4">
+        <button class="btn btn-default" onclick="removerItemDoCarrinho(${propriedade});"><i
+                class="fa-solid fa-trash"></i></button>
+    </td>
+
+</tr>`;
+                }
                 table += '</tbody>';
                 document.querySelector('#tabela-carrinho').innerHTML = table;
                 preencherTotal(carrinho);
@@ -288,7 +300,7 @@
     @show
 
     <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app.js') }}></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 
 </html>
