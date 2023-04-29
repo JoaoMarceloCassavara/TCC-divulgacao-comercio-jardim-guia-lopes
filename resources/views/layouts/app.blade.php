@@ -185,7 +185,7 @@
     <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
 
     <td>
-        <div class="container">
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="card_carrinho p-2 rounded-3 d-flex align-items-center justify-content-center">
@@ -200,7 +200,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+       
     </td>
 
     <td class="py-4">${formatarPreco(carrinho[propriedade].preco)}</td>
