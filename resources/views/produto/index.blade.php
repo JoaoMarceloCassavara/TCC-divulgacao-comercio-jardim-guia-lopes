@@ -158,11 +158,12 @@
                         </div>
 
                         <div class="modal-footer">
-                            <a type="button"  href="{{ route('empresa.visualizar', ['id' => $produto->empresa->id]) }}" class="btn btn-primary">Acessar Página do <br> Produtor: {{$produto->empresa->nome}}</a>
+                            <a type="button"  href="{{ route('empresa.visualizar', ['id' => $produto->empresa->id]) }}" class="btn btn-primary">Produtor: {{$produto->empresa->nome}}</a>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
                             <button type="button" class="btn btn-success" data-id="{{ $produto->id }}"
                                 data-imagem="{{ Voyager::image($produto->imagem) }}"
                                 data-preco="{{ $produto->preco }}" data-nome="{{ $produto->nome }}"
+                                data-cidade="{{ $produto->empresa->cidade->nome }}"
                                 onclick="adicionarItemNoCarrinho();">Adicionar ao
                                 carrinho</button>
 

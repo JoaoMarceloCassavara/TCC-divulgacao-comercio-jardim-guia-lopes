@@ -119,7 +119,7 @@
                 <div class="modal-content">
                     <div class="modal-header ms-4 me-4">
                         <h2 class="modal-title" id="carrinho-modalLabel"><i
-                                class="fa-solid fa-cart-shopping fa-sm"></i>Carrinho de compras</h2>
+                                class="fa-solid fa-cart-shopping fa-sm"></i> Carrinho de compras</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('carrinho') }}" method="POST">
@@ -130,6 +130,7 @@
 
                             </table>
                             <h4 class="text-center text-success">Total: <span id="valor-total">$ 0,00</span></h4>
+                            <h5 class="text-center carrinho_itens"></h5>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -165,6 +166,8 @@
                     total += parseFloat(carrinho[chave].preco);
                 }
                 document.getElementById("valor-total").innerHTML = formatarPreco(total);
+                document.querySelector(".carrinho_itens").innerHTML = `Itens no carrinho (${carrinho.length})`;
+
             }
 
             //criando a tabela
@@ -173,7 +176,7 @@
                 var table =
                     `<thead class="descricao-pedido ">
                 <tr>
-                  <td class="ps-5 fs-4 "> Produtos</td> <td class="text-white">Preço</td> <td class="text-white">Quatidade</td> <td class="text-white">Ações</td>
+                  <td class="ps-5 fs-4 text-white "> Produtos</td> <td class="text-white">Preço</td> <td class="text-white">Quatidade</td> <td class="text-white">Ações</td>
                 </tr>
             </thead>
             <tbody>
@@ -186,31 +189,40 @@
 
     <td>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card_carrinho p-2 rounded-3 d-flex align-items-center justify-content-center">
-                        <img src="${carrinho[propriedade].imagem}" class="img-fluid"
-                            style="max-width: 150px; max-height: 150px;"
-                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="ps-4 py-2">
-                        <p class="fs-5 text-white">${carrinho[propriedade].nome}</p>
-                    </div>
-                </div>
-            </div>
+        <div class="row">
+    <div class="col-lg-4 col-md-6">
+        <div class="card_carrinho p-2 rounded-3 d-flex align-items-center justify-content-center">
+            <img src="${carrinho[propriedade].imagem}" class="img-fluid"
+                style="max-width: 150px; max-height: 150px;"
+                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6">
+        <div class="ps-4 py-2">
+            <p class="fs-5 text-white">${carrinho[propriedade].nome}</p>
+            <p class="fs-5 text-white">${carrinho[propriedade].cidade}</p>
+        </div>
+    </div>
+</div>
+
+
+
 
     </td>
 
     <td class="py-4 text-white">${formatarPreco(carrinho[propriedade].preco)}</td>
-    <td class="py-4">
-        <input type="number" name="quantidades[]" min="1" value="${carrinho[propriedade].quantidade ?? 1}">
-    </td>
-    <td class="py-4">
-        <button class="btn btn-default" onclick="removerItemDoCarrinho(${propriedade});"><i
-                class="fa-solid fa-trash"></i></button>
-    </td>
+<td class="py-4">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-success" type="button" onclick="decrementarQuantidade(${propriedade})"><i class="fa-solid fa-minus"></i></button>
+    <input type="number" class="form-control text-center d-flex align-items-center justify-content-center" name="quantidades[]" min="1" value="${carrinho[propriedade].quantidade ?? 1}" style="width: 50px; min-width: 50px;">
+    <button class="btn btn-success" type="button" onclick="incrementarQuantidade(${propriedade})"><i class="fa-solid fa-plus"></i></button>
+  </div>
+</td>
+<td class="py-4">
+  <button class="btn btn-default btn-sm" onclick="removerItemDoCarrinho(${propriedade});"><i class="fa-solid fa-trash"></i></button>
+</td>
+
+
 
 </tr>`;
                 }
@@ -298,7 +310,20 @@
             carregarCarrinho();
         </script>
     @show
+<script>
+    function incrementarQuantidade(index) {
+    const inputQuantidade = document.getElementsByName('quantidades[]')[index];
+    inputQuantidade.value = parseInt(inputQuantidade.value) + 1;
+}
 
+function decrementarQuantidade(index) {
+    const inputQuantidade = document.getElementsByName('quantidades[]')[index];
+    if (parseInt(inputQuantidade.value) > 1) {
+        inputQuantidade.value = parseInt(inputQuantidade.value) - 1;
+    }
+}
+
+</script>
     <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
