@@ -116,4 +116,21 @@ class PedidoController extends Controller
 
         return view('pedido.listar_pedido_empresa', compact('pedidos'));
     }
+
+
+    // Adicionar localização ao pedido
+
+    public function loacalizacaoPedido($id) {
+        $pedido = Pedido::find($id);
+        return view('pedido.adicionar_localizacao', compact('pedido'));
+    }
+
+    public function adicionarLocalizacaoPedido (Request $request, $id) {
+
+        $pedido = Pedido::find($id);
+        $pedido->endereco_entrega = $request->endereco_entrega;
+        $pedido->save();
+        return redirect()->route('listaPedido');
+    }
+    // Adicionar localização ao pedido FIm 
 }

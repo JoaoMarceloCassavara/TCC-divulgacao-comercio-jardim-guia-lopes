@@ -115,7 +115,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-                                                <button type="submit" data-id="{{ $produto->id }}"
+                                                <button type="submit"
                                                     class="botao-register-empresario btn btn-danger">Continuar</button>
                                             </div>
                                         </form>

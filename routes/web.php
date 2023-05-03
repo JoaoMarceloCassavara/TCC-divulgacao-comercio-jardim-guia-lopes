@@ -30,6 +30,7 @@ use Illuminate\Validation\Rule;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//<---------- Tela inicial ---------->
 
 Route::get('/', function () {
     $categoria_produtos = CategoriaProduto::all();
@@ -39,184 +40,108 @@ Route::get('/', function () {
     $empresas = Empresa::where('ativo', true)->get();
     $empresas_destaques = EmpresaDestaque::all();
     $empresas_famosas = Empresa::where('avaliacao', '>=', 4)->take(5)->where('ativo', true)->get();
-    return view('welcome', compact('produtos', 'empresas', 'categoria_produtos', 'categoria_empresas', 'empresas_famosas','empresas_destaques','cidades'));
+    return view('welcome', compact('produtos', 'empresas', 'categoria_produtos', 'categoria_empresas', 'empresas_famosas', 'empresas_destaques', 'cidades'));
 })->name('welcome');
-
-
-
-Route::get('/tipo_register', function () {
-    return view('auth.tipo_register');
-})->name('auth.tipo_register');
-
-Route::get('/registrar_empresario', function () {
-    $cidades = Cidade::all();
-    return view('auth.registrar_empresario', compact('cidades'));
-})->name('auth.registrar_empresario');
-
-Route::post('/registrar_empresario', function (Request $request) {
-    //    dd($request);
-    $create_user = new CreateNewUser();
-    $usuario = $create_user->create($request->all());
-    $role = \App\Models\Role::where('name', '=', 'empresario')->first();
-    $usuario->role_id = $role->id;
-    $usuario->cidade_id = $request->cidade_id;
-    $usuario->save();
-    return redirect()->route('empresa.cadastrar');
-})->name('register.empresario');
+//<---------- Tela inicial Fim  ---------->
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
-
-
-Route::get('/produto', function () {
-    $produtos = Produto::whereHas('empresa', function ($query) {
-        $query->where('ativo', 1);
-          })->get();
-    $categoria_produtos = CategoriaProduto::all();
-    return view('produto.index', compact('produtos', 'categoria_produtos'));
-})->name('produto');
-
-Route::get('/cidades{id}/produtos', function ($id) {
-    $cidade = Cidade::find($id);
-    // $produtos = Produto::where('cidade_id', $cidade->id)->get();
-    $produtos = Produto::whereHas('empresa', function ($query) use ($cidade) {
-        $query->where('cidade_id', $cidade->id);
-          })->whereHas('empresa', function ($query) {
-            $query->where('ativo', 1);
-              })->get();
-
-    return view('produto.produtos_cidades' ,compact('cidade', 'produtos'));
-})->name('cidade_produto');
-
-
-Route::get('empresa/{id}/categoria_produto/{categoria_id}', function ($id, $categoria_id) {
-    $empresa = Empresa::find($id);
-    $categoria_produto = CategoriaProduto::find($categoria_id);
-    $produtos = Produto::where('categoria_produto_id', $categoria_produto->id)->where('empresa_id', $id)->get();
-
-    // dd($categoria_produto);
-
-    return view('produto.visualizar', compact('empresa','produtos', 'categoria_produto'));
-})->name('vermaisproduto');
-
+//<---------- Rotas para empresa ---------->
+// Rotas publicas
 Route::get('/empresa', [App\Http\Controllers\EmpresaController::class, 'listarEmpresas'])->name('empresa');
-
-
-Route::get('/empresa/{id}', function ($id) {
-    $limite = 5;
-    $empresa = Empresa::find($id);
-    $categorias = [];
-    // $categorias_produtos = Produto::joinRelationship('categoria')->get();
-    $categorias_produtos = $empresa->produtos()
-        ->with('empresa')
-        ->join('categoria_produtos', 'categoria_produtos.id', '=', 'produtos.categoria_produto_id')
-        ->get(['categoria_produtos.*']);
-    //dd($categorias_produtos);
-    foreach ($categorias_produtos as $categoria) {
-        $categorias[$categoria->nome] = Produto::where('categoria_produto_id', $categoria->id)->where('empresa_id', $id)->take($limite)->get();
-    }
-    $produtos = Produto::where('empresa_id', $empresa->id)->get();
-
-    return view('empresa.visualizar', compact('empresa', 'produtos', 'categorias'));
-})->name('empresa.visualizar');
-
-
-Route::get('/categoria-produto/{id}', function ($id) {
-    $categoria_produto = CategoriaProduto::find($id);
-    $produtos = Produto::where('categoria_produto_id', $categoria_produto->id)->whereHas('empresa', function ($query) {
-        $query->where('ativo', 1);
-          })->get();
-    $produtos_famosos = Produto::where('avaliacao', '>=', 4)->take(5)->where('categoria_produto_id', $categoria_produto->id)->get();
-    return view('produto.categoria', compact('produtos', 'categoria_produto', 'produtos_famosos'));
-})->name('produto.categoria');
-
-Route::get('/categoria-empresa/{id}', function ($id) {
-    $categoria_empresa = CategoriaEmpresa::find($id);
-    $empresas = Empresa::where('categoria_empresa_id', $categoria_empresa->id)->where('ativo', true)->get();
-    return view('empresa.categoria', compact('empresas', 'categoria_empresa'));
-})->name('empresa.categoria');
+Route::get('/empresa/{id}', [App\Http\Controllers\EmpresaController::class, 'empresaId'])->name('empresa.visualizar');
+Route::get('/categoria-empresa/{id}', [App\Http\Controllers\CategoriaController::class, 'categoriaEmpresa'])->name('empresa.categoria');
+Route::get('empresa/{id}/categoria_produto/{categoria_id}', [App\Http\Controllers\CategoriaController::class, 'categoriaPorEmpresa'])->name('vermaisproduto');
 
 
 
-Route::get('/filtro/pesquisa', function (Request $request) {
-    //  dd($request->filtro);
-    $produtos = Produto::where('nome', 'LIKE', "%{$request->filtro}%")->whereHas('empresa', function ($query) {
-        $query->where('ativo', 1);
-          })->get();
-    $nome_cidade = "%{$request->filtro}%";
-    $empresas = Empresa::whereHas('cidade', function($query) use ($nome_cidade) {
-        $query->where('nome', 'LIKE',$nome_cidade);
-    })->orWhere('nome', 'LIKE', "%{$request->filtro}%")->get();
-    $categorias = CategoriaProduto::where('nome', 'LIKE', "%{$request->filtro}%")->get();
-    // $cidades = Cidade::where('nome', 'LIKE', "%{$request->filtro}%")->get();
-    // dd($categorias, $empresas, $produtos);
-    // dd($cidades);
+// Registar usuario empresario
+Route::get('/registrar_empresario', [App\Http\Controllers\EmpresaController::class, 'registrarUserEmpresario'])->name('auth.registrar_empresario');
+Route::post('/registrar_empresario', [App\Http\Controllers\EmpresaController::class, 'cadastrarUserEmpresario'])->name('register.empresario');
+// Registar usuario empresario Fim
 
-    return view('busca', compact('produtos', 'empresas','categorias'));
-})->name('filtro');
+
+// Rotas publicas Fim
 
 
 
-// Route::get('/empresas/buscar', function (Request $request) {
-
-//     //  dd($request->filtro);
-//     $categoria_empresas =App\Models\CategoriaEmpresa::where('nome', 'LIKE',"{$request->filtro}%")->get();
-//     $empresas =App\Models\Empresa::where('nome', 'LIKE',"{$request->filtro}%")->get();
-// // dd($livros);
-//     return view('empresa.index',compact('empresas','categoria_empresas'));
-// })->name('pesquisas.buscar');
-
-Route::get('/fale_conosco', function () {
-    return view('rodape.fale_conosco');
-})->name('fale_conosco');
-
-Route::get('/quem_somos', function () {
-    return view('rodape.quem_somos');
-})->name('quem_somos');
-
-Route::get('/saiba_mais', function () {
-    return view('rodape.saiba_mais');
-})->name('saiba_mais');
-
-
-
-
-
-
-// Rota para permitidas apenas para usuários autenticados
+// rotas dentro desse grupo, requerem autenticação do usuário para acessarem as páginas
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/registrar_empresa', function () {
-        $categoria_empresas = CategoriaEmpresa::all();
-        $cidades = Cidade::all();
-        return view('empresa.cadastrar', compact('categoria_empresas', 'cidades'));
-    })->name('empresa.cadastrar');
-    Route::post('/empresa/salvar', function (Request $request) {
-        $quantidadeEmpresaCadastradas = Empresa::where('user_id', Auth::user()->id)->count();
-        if ($quantidadeEmpresaCadastradas == 0) {
+    //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
+    Route::get('/empresa/{id}/ativar', [App\Http\Controllers\EmpresaController::class, 'empresaAtiva'])->name('empresas.ativar');
 
-            $empresa = new Empresa();
-            $empresa->user_id = Auth::user()->id;
-            $empresa->cnpj = $request->cnpj;
-            $empresa->cpf = $request->cpf;
-            $empresa->endereco = $request->endereco;
-            $empresa->telefone = $request->telefone;
-            $empresa->nome = $request->nome;
-            $empresa->categoria_empresa_id = $request->categoria_empresa_id;
-            $empresa->cidade_id = $request->cidade_id;
-            //    dd($empresa);
-            $empresa->save();
-            // return new \App\Mail\SendMailEmpresa($empresa);
-            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailEmpresa($empresa));
-            // return new \App\Mail\SendMailAddEmpresa($empresa);
-            \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailAddEmpresa($empresa));
 
-        }
-        return redirect()->route('welcome')->with('success', 'Olá, sua empresa está sendo monitorada para verificação e posterior ativação. Qualquer novidade, entraremos em contato.');
-    })->name('empresa.salvar');
+    // Rota de registrar empresa
+    Route::get('/registrar_empresa', [App\Http\Controllers\EmpresaController::class, 'registrarEmpresa'])->name('empresa.cadastrar');
+    Route::post('/empresa/salvar', [App\Http\Controllers\EmpresaController::class, 'cadastrarEmpresa'])->name('empresa.salvar');
+    // Rota de registrar empresa fim
 
-    // Route::post('/empresa/salvar', [App\Http\Controllers\EmpresaController::class, 'cadastro'])->name('empresa.salvar');
+
+    // Rota de avaliar empresa
+    Route::get('/avaliar/pedido/{id}/empresa/{empresa_id}', [App\Http\Controllers\AvaliacaoController::class, 'avaliarEmpresa'])->name('avaliarempresa');
+    Route::post('/avaliar/empresa/salvar', [App\Http\Controllers\AvaliacaoController::class, 'salvarAvaliacaoEmpresa'])->name('avaliacao.empresa.salvar');
+    // rota de avaliar empresa fim
+
+
+});
+//<---------- Rotas para empresa Fim ---------->
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// <---------- Rotas para Produto ---------->
+
+// Rotas publicas
+Route::get('/produto', [App\Http\Controllers\ProdutoController::class, 'listarProdutos'])->name('produto');
+Route::get('/categoria-produto/{id}', [App\Http\Controllers\CategoriaController::class, 'categoriaProduto'])->name('produto.categoria');
+Route::get('/cidades{id}/produtos', [App\Http\Controllers\ProdutoController::class, 'cidadePorProduto'])->name('cidade_produto');
+// Rotas publicas FIm
+
+// rotas dentro desse grupo, requerem autenticação do usuário para acessarem as páginas
+Route::middleware(['auth'])->group(function () {
+
+    //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
+
+    Route::get('/avaliar/pedido/{id}/produto/{produto_id}', [App\Http\Controllers\AvaliacaoController::class, 'avaliarProduto'])->name('avaliarproduto');
+    Route::post('/avaliar/produto/salvar', [App\Http\Controllers\AvaliacaoController::class, 'salvarAvaliacaoProduto'])->name('avaliacao.produto.salvar');
+});
+// <---------- Rotas para Produto Fim ---------->
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//<---------- Rotas para pedidos ---------->
+// Rotas publicas
+//
+// Rotas publicas FIm
+
+
+// rotas dentro desse grupo, requerem autenticação do usuário para acessarem as páginas
+Route::middleware(['auth'])->group(function () {
+
+    //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
+    Route::get('/lista/pedidos', [App\Http\Controllers\PedidoController::class, 'listarPedidosDoUser'])->name('listaPedido');
+
+    Route::get('/lista/pedidos/produtor', [App\Http\Controllers\PedidoController::class, 'listarPedidosParaProdutor'])->name('listaPedidoProdutor');
+
+
+    Route::get('/localizacao/pedido{id}', [App\Http\Controllers\PedidoController::class, 'loacalizacaoPedido'])->name('adicionarLocalizacao');
+    Route::post('/adicionar/localizacao{id}/usuario', [App\Http\Controllers\PedidoController::class, 'adicionarLocalizacaoPedido'])->name('salvarLocalizacaoUsuario');
+});
+//<---------- Rotas para pedidos fim ---------->
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//<---------- Rota do carrinho e da pagina home ---------->
+// rotas dentro desse grupo, requerem autenticação do usuário para acessarem as páginas
+Route::middleware(['auth'])->group(function () {
+    //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+    // Rota do carrinho
+
 
     Route::post('/carrinho', function (Request $request) {
         //criar vetor fazio com varialvel pedido vai guardar uma lista
@@ -226,7 +151,7 @@ Route::middleware(['auth'])->group(function () {
 
         $quantidadeProdutoPedidoPorEmpresa = [];
         //separar os produtos por empresa
-        foreach ($request->produtos as $indice=>$produto_id) {
+        foreach ($request->produtos as $indice => $produto_id) {
             //buscando por um produto com o (id)= $produto_id que esta sendo passado pelo request
             $produto = Produto::find($produto_id);
             //adiciona ao vetor pedidosPorEmpresa com a chave empresa id o produto
@@ -245,7 +170,7 @@ Route::middleware(['auth'])->group(function () {
             //Salva na tabela pedidos as colunas que foram prenchidas
             $pedido->save();
             //para cada produto criar iten pedido
-            foreach ($produtos as $indice=>$produto) {
+            foreach ($produtos as $indice => $produto) {
                 $itemPedido = new PedidoProduto();
                 $itemPedido->pedido_id = $pedido->id;
                 $itemPedido->produto_id = $produto->id;
@@ -265,113 +190,74 @@ Route::middleware(['auth'])->group(function () {
         return view('pedido.index', compact('pedidos'));
     })->name('carrinho');
 
+    // Rota do carrinho FIm
+});
+
+//<---------- Rota do carrinho e da pagina home Fim  ---------->
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//<---------- Rota de tipo de registro de usuario ---------->
+Route::get('/tipo_register', function () {
+    return view('auth.tipo_register');
+})->name('auth.tipo_register');
+//<---------- Rota de tipo de registro de usuario Fim ---------->
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-
-    Route::get('/lista/pedidos/produtor', function () {
-        $pedidos = Pedido::whereHas('empresa', function ($query) {
-            $query->where('user_id', Auth::user()->id);
-
-
+//<---------- Rota do filtro de pesquisa ---------->
+Route::get('/filtro/pesquisa', function (Request $request) {
+    //  dd($request->filtro);
+    $produtos = Produto::where('nome', 'LIKE', "%{$request->filtro}%")->whereHas('empresa', function ($query) {
+        $query->where('ativo', 1);
     })->get();
+    $nome_cidade = "%{$request->filtro}%";
+    $empresas = Empresa::whereHas('cidade', function ($query) use ($nome_cidade) {
+        $query->where('nome', 'LIKE', $nome_cidade);
+    })->orWhere('nome', 'LIKE', "%{$request->filtro}%")->get();
+    $categorias = CategoriaProduto::where('nome', 'LIKE', "%{$request->filtro}%")->get();
+    // $cidades = Cidade::where('nome', 'LIKE', "%{$request->filtro}%")->get();
+    // dd($categorias, $empresas, $produtos);
+    // dd($cidades);
+
+    return view('busca', compact('produtos', 'empresas', 'categorias'));
+})->name('filtro');
+//<---------- Rota do filtro de pesquisa Fim ---------->
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+//<---------- Rotas do rodapé ---------->
+Route::get('/fale_conosco', function () {
+    return view('rodape.fale_conosco');
+})->name('fale_conosco');
 
-        // return $pedidos;
-        return view('pedido.listar_pedido_empresa', compact('pedidos'));
-    })->name('listaPedidoProdutor');
+Route::get('/quem_somos', function () {
+    return view('rodape.quem_somos');
+})->name('quem_somos');
 
+Route::get('/saiba_mais', function () {
+    return view('rodape.saiba_mais');
+})->name('saiba_mais');
 
-    Route::get('/avaliar/pedido/{id}/produto/{produto_id}', function ($id, $produto_id) {
-        $pedido = Pedido::find($id);
-        $produto = Produto::find($produto_id);
-
-        if ($pedido->avaliacaoproduto()->where('produto_id', $produto->id)->exists()) {
-            return redirect()->back()->with('info','Já foi feito uma avaliação do produto para esse pedido!');
-        }
-        return view('pedido.avaliar_pedido_produto', compact('pedido', 'produto'));
-    })->name('avaliarproduto');
-
-
-
-    Route::post('/avaliar/produto/salvar', function (Request $request) {
-       $produto_id = $request->produto_id;
-       $pedido_id = $request->pedido_id;
-    //    dd($request);
-        $usuario_logado = Auth::user();
-        $avaliacao_produto = AvaliacoesProduto::where('pedido_id', $pedido_id)->where('produto_id', $produto_id)->where('user_id', Auth::user()->id)
-            ->firstOrNew(
-                ['pedido_id' =>  $pedido_id],
-                ['produto_id' => $produto_id],
-                ['user_id' =>  Auth::user()->id],
-
-            );
-        $avaliacao_produto->descricao = $request->descricao;
-        $avaliacao_produto->avaliacao = $request->avaliacao;
-
-        $avaliacao_produto->save();
-
-        $produto = Produto::find($produto_id);
-        // if(empty($produto->avaliacao)){
-        //    $produto->avaliacao = $request->avaliacao;
-        // }
-        $produto->avaliacao = AvaliacoesProduto::where('produto_id', $produto_id)->avg('avaliacao');
-        // $produto->avaliacao = ($produto->avaliacao + $request->avaliacao)/2;
-
-        $produto->save();
-        return redirect()->route('listaPedido');
-    })->name('avaliacao.produto.salvar');
+//<---------- Rotas do rodapé Fim ---------->
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
 
-    Route::get('/avaliar/pedido/{id}/empresa/{empresa_id}', function ($id, $empresa_id) {
-        $pedido = Pedido::find($id);
-        $empresa = Empresa::find($empresa_id);
-//         $avaliacao_empresa = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->where('user_id', Auth::user()->id)
-//         ->first();
-//    if( !isset($avaliacao_empresa)){
-//     return redirect()->back()->with('info','Já foi feito uma avaliação do produtor para esse pedido!');
+Auth::routes();
+Auth::routes(['verify' => true]);
 
-//    }
-    //  dd($empresa);
-    if ($pedido->avaliacaoempresa()->where('empresa_id', $empresa->id)->exists()) {
-        return redirect()->back()->with('info','Já foi feito uma avaliação do produtor para esse pedido!');
-    }
-        return view('pedido.avaliar_pedido_empresa', compact('pedido', 'empresa'));
-    })->name('avaliarempresa');
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    Route::post('/avaliar/empresa/salvar', function (Request $request) {
-        $empresa_id = $request->empresa_id;
-        $pedido_id = $request->pedido_id;
-        // dd($request);
-         $usuario_logado = Auth::user();
-         $avaliacao_empresa = AvaliacaoEmpresa::where('pedido_id', $pedido_id)->where('user_id', Auth::user()->id)
-         ->where('empresa_id', $empresa_id)
-             ->firstOrNew(
-                ['pedido_id' => $pedido_id],
-                 ['empresa_id' => $empresa_id],
-                 ['user_id' =>  Auth::user()->id],
-
-
-             );
-         $avaliacao_empresa->descricao = $request->descricao;
-         $avaliacao_empresa->avaliacao = $request->avaliacao;
-
-         $avaliacao_empresa->save();
-
-        //  problema ao tirar a media
-         $empresa = Empresa::find($empresa_id);
-
-         $empresa->avaliacao = AvaliacaoEmpresa::where('empresa_id', $empresa_id)->avg('avaliacao');
-
-         $empresa->save();
-
-         return redirect()->route('listaPedido');
-     })->name('avaliacao.empresa.salvar');
-
-     Route::get('/enviar_email', function(){
+//<---------- Rota de exemplo ---------->
+// Rota para permitidas apenas para usuários autenticados
+Route::middleware(['auth'])->group(function () {
+    Route::get('/enviar_email', function () {
         $user = new stdClass();
         $user->name = 'João Marcelo';
         $user->email = 'joaomarcelocassavara@gmail.com';
@@ -387,67 +273,12 @@ Route::middleware(['auth'])->group(function () {
         $empresa->nome = 'joaozinho verduras';
         $empresa->id = '45';
         // $empresa->cidade->nome = '17';
-// return new \App\Mail\SendMailEmpresa($empresa);
+        // return new \App\Mail\SendMailEmpresa($empresa);
         // return new \App\Mail\SendMailAddEmpresa($empresa);
-         return new \App\Mail\SendMailUser($user);
+        return new \App\Mail\SendMailUser($user);
         // \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUser($user));
     });
+    //<---------- Rota de exemplo ---------->
 
-    Route::get('/empresa/{id}/ativar', function ($id, Request $request) {
-        $empresa = \App\Models\Empresa::find($id);
-				//TODO: se o usuario for admin e a empresa esta inativa
-                if($empresa->ativo == 0){
-                    $empresa->ativo = 1;
-                }
-                else{
-                    $empresa->ativo = 0;
-                }
-                $empresa->save();
-        return redirect()->back();
-    })->name('empresas.ativar');
-
-
-
-    Route::get('/localizacao/pedido{id}', function ($id) {
-        $pedido = Pedido::find($id);
-        return view('pedido.adicionar_localizacao', compact('pedido'));
-    })->name('adicionarLocalizacao');
-
-
-    Route::post('/adicionar/localizacao{id}/usuario', function (Request $request, $id) {
-
-        $pedido = Pedido::find($id);
-        $pedido->endereco_entrega = $request->endereco_entrega;
-        $pedido->save();
-        return redirect()->route('listaPedido');
-    })->name('salvarLocalizacaoUsuario');
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
 });
-
-
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-Auth::routes();
-Auth::routes(['verify' => true]);
-
-
-// rotas dentro desse grupo, requerem autenticação do usuário para acessarem as páginas
-Route::middleware(['auth'])->group(function () {
-    //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-    Route::get('/lista/pedidos', function () {
-        $pedidos = Pedido::where('user_id', Auth::user()->id)
-        ->orderByRaw('updated_at  DESC')
-    ->get();
-        // $produtos = Produto::all();
-        //  dd($pedidos->produtos()->get());
-
-        // return $pedidos;
-        return view('pedido.listar_pedido', compact('pedidos'));
-    })->name('listaPedido');
-   });
