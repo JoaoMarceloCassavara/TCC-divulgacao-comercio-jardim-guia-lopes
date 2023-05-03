@@ -104,8 +104,12 @@ Route::middleware(['auth'])->group(function () {
 
     //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
 
+
+// Rotas de avaliar produto
     Route::get('/avaliar/pedido/{id}/produto/{produto_id}', [App\Http\Controllers\AvaliacaoController::class, 'avaliarProduto'])->name('avaliarproduto');
     Route::post('/avaliar/produto/salvar', [App\Http\Controllers\AvaliacaoController::class, 'salvarAvaliacaoProduto'])->name('avaliacao.produto.salvar');
+    // Rotas de avaliar produto Fim
+
 });
 // <---------- Rotas para Produto Fim ---------->
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,13 +125,17 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
 
     //Aqui vão as rotas que devem ser acessada apenas depois do usuario logar
+
+    // Rota de listagem de pedido
     Route::get('/lista/pedidos', [App\Http\Controllers\PedidoController::class, 'listarPedidosDoUser'])->name('listaPedido');
-
     Route::get('/lista/pedidos/produtor', [App\Http\Controllers\PedidoController::class, 'listarPedidosParaProdutor'])->name('listaPedidoProdutor');
+   // Rota de listagem de pedido FIm
 
-
+// Rota de adicionar localiação ao pedido
     Route::get('/localizacao/pedido{id}', [App\Http\Controllers\PedidoController::class, 'loacalizacaoPedido'])->name('adicionarLocalizacao');
     Route::post('/adicionar/localizacao{id}/usuario', [App\Http\Controllers\PedidoController::class, 'adicionarLocalizacaoPedido'])->name('salvarLocalizacaoUsuario');
+    // Rota de adicionar localiação ao pedido FIm
+
 });
 //<---------- Rotas para pedidos fim ---------->
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
