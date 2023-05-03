@@ -100,7 +100,7 @@ Route::get('empresa/{id}/categoria_produto/{categoria_id}', function ($id, $cate
     return view('produto.visualizar', compact('empresa','produtos', 'categoria_produto'));
 })->name('vermaisproduto');
 
-Route::get('/empresa', [App\Http\Controllers\EmpresaController::class, 'index'])->name('empresa');
+Route::get('/empresa', [App\Http\Controllers\EmpresaController::class, 'listarEmpresas'])->name('empresa');
 
 
 Route::get('/empresa/{id}', function ($id) {
