@@ -29,9 +29,9 @@
     <header class="pt-5 header_titulo pb-2">
         <h4>O que procura de Produtos ? </h4>
     </header>
-    <section class="d-flex flex-wrap pt-2">
+
         @include('componentes.carrossel_categoria_produto')
-    </section>
+ 
 
 
     <header class="pt-3 header_titulo pb-2">
