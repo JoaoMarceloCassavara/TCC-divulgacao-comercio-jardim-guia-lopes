@@ -31,7 +31,7 @@
 
     <section class="py-5 position-relative" style="height: 70vh;">
         <div class="text-center pb-2">
-            <h4>Descubra os sabores da sua região! </h4>
+            <h4>Descubra os sabores da sua região!</h4>
         </div>
         <div class="text-center ms-5 me-5">
             <img src="/assets/images/Imagens para o site/Rectangle 42.png" alt="Imagem de fundo do card cidade"
@@ -66,11 +66,22 @@
         {{-- Possivel botão para ver mais cidades fim --}}
     </section>
 
-
-
-
-
     <section class="pt-1 pb-5">
+        <div class="text-center">
+            <h4>Compre com nossos produtores em destaques.</h4>
+        </div>
+        <div class="d-flex">
+            <div>
+                <img src="/assets/images/Imagens para o site/6.png" width="404" height="327" class="rounded-circle"
+                    alt="Imagem ilustrativa para produtores destaques da janela do produtor ">
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="py-5">
         <div class="text-center">
             <h4>Na Janela do Produtor, você encontra os melhores produtos do comércio local.</h4>
         </div>
@@ -79,13 +90,22 @@
                 <img src="/assets/images/Imagens para o site/Sample 9 1.png" width="404" height="327"
                     class="rounded-circle" alt="Imagem ilustrativa para categoria do produto">
             </div>
-
-            <div>
-
-            </div>
-
-
         </div>
 
     </section>
+
+    <section class="py-5">
+        <div class="text-center">
+            <h4>Conheça os produtores bem avaliados da janela do produor.</h4>
+        </div>
+        <div class="d-flex">
+            <div>
+                <img src="/assets/images/Imagens para o site/5.png" width="404" height="327" class="rounded-circle"
+                    alt="Imagem ilustrativa para produtores bem avaliados da janela do produtor ">
+            </div>
+
+        </div>
+    </section>
+
+
 @endsection
