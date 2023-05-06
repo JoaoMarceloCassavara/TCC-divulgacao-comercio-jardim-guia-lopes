@@ -1961,3 +1961,10 @@ margin: 0 auto;
         background-color: gray;
       }
 
+/* Card de mostrar cidade  */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+/* Card de mostrar cidade Fim  */
