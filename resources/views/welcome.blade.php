@@ -29,29 +29,35 @@
         </header>
     @endif
     <section class="py-5 position-relative">
-        <div class="text-center"><h4 >Descubra os sabores da sua região! </h4></div>
+        <div class="text-center pb-2">
+            <h4>Descubra os sabores da sua região! </h4>
+        </div>
         <div class="text-center ms-5 me-5">
-          <img src="/assets/images/Imagens para o site/Rectangle 42.png" alt="Imagem de fundo do card cidade" class="img-fluid w-100">
+            <img src="/assets/images/Imagens para o site/Rectangle 42.png" alt="Imagem de fundo do card cidade"
+                class="img-fluid w-100">
         </div>
 
-        <div class="card-container position-absolute top-0 start-50 translate-middle-x" style="padding-top: 15vh">
-          <div class="d-flex flex-wrap justify-content-center">
-            <div class="card-grid">
-                @foreach ($cidades as $cidade)
-                  <a href="{{ route('cidade_produto', ['id' => $cidade->id]) }}">
-                    <div class="card bg-dark">
-                        <img src="{{ Voyager::image($cidade->imagem) }}" width="165" height="143" class="rounded-3" alt="Imagem da Cidade: {{ $cidade->nome }}">
-                        <div class="card-img-overlay d-flex align-items-end text-center pt-5">
-                          <h5 class="card-title text-truncate">{{ $cidade->nome }}</h5>
-                        </div>
-                    </div>
-                  </a>
-                @endforeach
-              </div>
-          </div>
+        <div class="card-container position-absolute top-0 start-50 translate-middle-x" style="padding-top: 16vh">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card-grid">
+                    @foreach ($cidades as $cidade)
+                        <a href="{{ route('cidade_produto', ['id' => $cidade->id]) }}">
+                            <div class="card bg-dark">
+                                <img src="{{ Voyager::image($cidade->imagem) }}" width="165" height="143"
+                                    class="rounded-3" alt="Imagem da Cidade: {{ $cidade->nome }}">
+                                <div class="card-img-overlay d-flex align-items-end text-center pt-5">
+                                    <h5 class="card-title text-truncate">{{ $cidade->nome }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
         </div>
-      </section>
-
-
+        {{-- Possivel botão para ver mais cidades
+        <div class="mt-5 me-5 d-flex justify-content-end">
+           <a class="text-black fw-bold" href="">Ver tudo <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        Possivel botão para ver mais cidades fim --}}
+    </section>
 @endsection
-
