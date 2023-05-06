@@ -28,7 +28,8 @@
             </div>
         </header>
     @endif
-    <section class="py-5 position-relative">
+
+    <section class="py-5 position-relative" style="height: 70vh;">
         <div class="text-center pb-2">
             <h4>Descubra os sabores da sua região! </h4>
         </div>
@@ -37,7 +38,8 @@
                 class="img-fluid w-100">
         </div>
 
-        <div class="card-container position-absolute top-0 start-50 translate-middle-x" style="padding-top: 16vh">
+        <div class="card-container position-absolute top-0 start-50 translate-middle-x"
+            style="padding-top: 16vh; padding-bottom: 5rem;">
             <div class="d-flex flex-wrap justify-content-center">
                 <div class="card-grid">
                     @foreach ($cidades as $cidade)
@@ -54,10 +56,36 @@
                 </div>
             </div>
         </div>
-        {{-- Possivel botão para ver mais cidades
-        <div class="mt-5 me-5 d-flex justify-content-end">
-           <a class="text-black fw-bold" href="">Ver tudo <i class="fa-solid fa-chevron-right"></i></a>
+
+        {{-- Possivel botão para ver mais cidades --}}
+        {{-- <div class="position-relative mt-5">
+            <div class="me-5 d-flex justify-content-end">
+                <a class="text-black fw-bold" href="">Ver tudo <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </div> --}}
+        {{-- Possivel botão para ver mais cidades fim --}}
+    </section>
+
+
+
+
+
+    <section class="pt-1 pb-5">
+        <div class="text-center">
+            <h4>Na Janela do Produtor, você encontra os melhores produtos do comércio local.</h4>
         </div>
-        Possivel botão para ver mais cidades fim --}}
+        <div class="d-flex">
+            <div>
+                <img src="/assets/images/Imagens para o site/Sample 9 1.png" width="404" height="327"
+                    class="rounded-circle" alt="Imagem ilustrativa para categoria do produto">
+            </div>
+
+            <div>
+
+            </div>
+
+
+        </div>
+
     </section>
 @endsection
