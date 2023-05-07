@@ -85,27 +85,31 @@
         <div class="text-center">
             <h4>Na Janela do Produtor, você encontra os melhores produtos do comércio local.</h4>
         </div>
-        <div class="d-flex">
-            <div>
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
                 <img src="/assets/images/Imagens para o site/Sample 9 1.png" width="404" height="327"
-                    class="rounded-circle" alt="Imagem ilustrativa para categoria do produto">
+                    class="rounded-circle img-fluid" alt="Imagem ilustrativa para categoria do produto">
             </div>
-        </div>
+            <div class="col-12 col-md-6">
+                @include('componentes.carrossel')
+                <div>
+    </div>
+</section>
 
-    </section>
-
-    <section class="py-5">
+   <section class="py-5">
         <div class="text-center">
             <h4>Conheça os produtores bem avaliados da janela do produor.</h4>
         </div>
-        <div class="d-flex">
-            <div>
-                <img src="/assets/images/Imagens para o site/5.png" width="404" height="327" class="rounded-circle"
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+                    <img src="/assets/images/Imagens para o site/5.png" width="404" height="327" class="rounded-circle img-fluid"
                     alt="Imagem ilustrativa para produtores bem avaliados da janela do produtor ">
             </div>
-
-        </div>
-    </section>
+            <div class="col-12 col-md-6">
+                @include('componentes.carrossel')
+                <div>
+    </div>
+</section>
 
     <section class="py-5">
         <div class="text-center pb-4">
