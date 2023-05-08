@@ -46,7 +46,8 @@
                         <a href="{{ route('cidade_produto', ['id' => $cidade->id]) }}">
                             <div class="card bg-dark">
                                 <img src="{{ Voyager::image($cidade->imagem) }}" width="165" height="143"
-                                    class="rounded-3" alt="Imagem da Cidade: {{ $cidade->nome }}">
+                                    class="rounded-3" alt="Imagem da Cidade: {{ $cidade->nome }}"
+                                    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
                                 <div class="card-img-overlay d-flex align-items-end text-center pt-5">
                                     <h5 class="card-title text-truncate">{{ $cidade->nome }}</h5>
                                 </div>
@@ -66,20 +67,39 @@
         {{-- Possivel botão para ver mais cidades fim --}}
     </section>
 
-    <section class="pt-1 pb-5">
+
+    <section class="py-5">
         <div class="text-center">
             <h4>Compre com nossos produtores em destaques.</h4>
         </div>
-        <div class="d-flex">
-            <div>
-                <img src="/assets/images/Imagens para o site/6.png" width="404" height="327" class="rounded-circle"
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+                <img src="/assets\images/Imagens para o site/6.png" width="404" height="327"
+                    class="rounded-circle img-fluid"
                     alt="Imagem ilustrativa para produtores destaques da janela do produtor ">
             </div>
-
-        </div>
+            <div class="col-12 col-md-6">
+                @include('componentes.carrossel_destaque_empresa')
+                <div>
+                </div>
     </section>
 
 
+    <section class="py-5">
+        <div class="text-center">
+            <h4>Conheça os produtores bem avaliados da Janela do Produtor.</h4>
+        </div>
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+                <img src="/assets/images/Imagens para o site/4.png" width="404" height="327"
+                    class="rounded-circle img-fluid"
+                    alt="Imagem ilustrativa para produtores bem avaliados da janela do produtor ">
+            </div>
+            <div class="col-12 col-md-6">
+                @include('componentes.carrossel_empresa_famosas')
+                <div>
+                </div>
+    </section>
 
     <section class="py-5">
         <div class="text-center">
@@ -87,33 +107,34 @@
         </div>
         <div class="d-flex justify-content-center align-items-center flex-wrap">
             <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
-                <img src="/assets/images/Imagens para o site/Sample 9 1.png" width="404" height="327"
-                    class="rounded-circle img-fluid" alt="Imagem ilustrativa para categoria do produto">
+                <img src="/assets/images/Imagens para o site/5.png" width="404" height="327"
+                    class="rounded-circle img-fluid" alt="Imagem ilustrativa para categoria do produtos">
             </div>
             <div class="col-12 col-md-6">
-                @include('componentes.carrossel')
+                @include('componentes.carrossel_categoria_produto')
                 <div>
-    </div>
-</section>
+                </div>
+    </section>
 
-   <section class="py-5">
+    <section class="py-5">
         <div class="text-center">
-            <h4>Conheça os produtores bem avaliados da janela do produor.</h4>
+            <h4>Na Janela do Produtor, você encontra os melhores produtores locais do comércio.</h4>
         </div>
         <div class="d-flex justify-content-center align-items-center flex-wrap">
             <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
-                    <img src="/assets/images/Imagens para o site/5.png" width="404" height="327" class="rounded-circle img-fluid"
-                    alt="Imagem ilustrativa para produtores bem avaliados da janela do produtor ">
+                <img src="\assets\images\Imagens para o site\Sample 9 1.png" width="404" height="327"
+                    class="rounded-circle img-fluid" alt="Imagem ilustrativa para categoria de empresas">
             </div>
             <div class="col-12 col-md-6">
                 @include('componentes.carrossel')
                 <div>
-    </div>
-</section>
+                </div>
+    </section>
+
 
     <section class="py-5">
         <div class="text-center pb-4">
-            <h4>Veja mais produtos que podem te interessar.</h4>
+            <h4>Veja mais produtores que podem interessar a você.</h4>
         </div>
         <div class=" d-flex flex-wrap pt-2 pb-5 card_empresa_section_position">
             @forelse ($empresas as $empresa)
@@ -127,8 +148,8 @@
                         <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
                         {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
                         <label for="avaliacao" class="rating-label">
-                            <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range" max="5"
-                                step="0.5" value="{{ $empresa->avaliacao ?? 0 }}" disabled>
+                            <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
+                                max="5" step="0.5" value="{{ $empresa->avaliacao ?? 0 }}" disabled>
                         </label>
                         <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
                             href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i
@@ -143,9 +164,7 @@
                     </div>
                 </div>
             @endforelse
-            </div>
+        </div>
 
     </section>
-
-
 @endsection
