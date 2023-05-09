@@ -49,7 +49,7 @@
     <div class="imagem_de_fundo">
         <section class="py-5">
             <div class="text-center py-3 ">
-                <h3 class="h4-algumacoisa">Na Janela do Produtor, você encontra os melhores produtos do comércio local.</h3>
+                <h3 class="h4-texto-url-image">Na Janela do Produtor, você encontra os melhores produtos do comércio local.</h3>
                 <hr class=" hr-grande ">
             </div>
             @include('componentes.carrossel_categoria_produto')

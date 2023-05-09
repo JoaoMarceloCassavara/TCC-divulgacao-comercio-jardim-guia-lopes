@@ -1970,6 +1970,8 @@ margin: 0 auto;
   }
 
 /* Card de mostrar cidade Fim  */
+
+/* Tela inicial css */
 .imagem_de_fundo{
     background: url('/assets/images/Imagens de fundo Tela inicial/Imagens para o site 9.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -1989,7 +1991,7 @@ margin: 0 auto;
 
 }
 
-.h4-algumacoisa{
+.h4-texto-url-image{
     color: #fff;
     opacity: 1.5;
 
@@ -2001,4 +2003,4 @@ background-color: #ced4da;
 .card-wrapper .card_empresa_destaque {
     margin: 0 10px;
   }
-
+/* Tela inicial css  Fim*/
