@@ -29,142 +29,114 @@
         </header>
     @endif
 
-
-
-    <section class="py-5">
-        <div class="text-center">
-            <h4>Compre com nossos produtores em destaques.</h4>
-        </div>
-        <div class="d-flex justify-content-center align-items-center flex-wrap">
-            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
-                <img src="/assets\images/Imagens para o site/6.png" width="404" height="327"
-                    class="rounded-circle img-fluid"
-                    alt="Imagem ilustrativa para produtores destaques da janela do produtor ">
+    {{-- <img src="/assets\images/Imagens para o site/6.png" alt="" class="imagem-fullscreen"> --}}
+    <div class="body-pagina-inicial ">
+        <section class="py-5">
+            <div class="text-center py-4">
+                <h4>Compre com nossos produtores em destaques.</h4>
             </div>
-            <div class="col-12 col-md-6">
-                @include('componentes.carrossel_destaque_empresa')
-                <div>
-                </div>
-    </section>
+            @include('componentes.carrossel_destaque_empresa')
+        </section>
 
-
-    <section class="py-5">
-        <div class="text-center">
-            <h4>Conheça os produtores bem avaliados da Janela do Produtor.</h4>
-        </div>
-        <div class="d-flex justify-content-center align-items-center flex-wrap">
-            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
-                <img src="/assets/images/Imagens para o site/4.png" width="404" height="327"
-                    class="rounded-circle img-fluid"
-                    alt="Imagem ilustrativa para produtores bem avaliados da janela do produtor ">
+        <section class="py-5">
+            <div class="text-center py-4">
+                <h4>Conheça os produtores bem avaliados da Janela do Produtor.</h4>
             </div>
-            <div class="col-12 col-md-6">
-                @include('componentes.carrossel_empresa_famosas')
-                <div>
-                </div>
-    </section>
+            @include('componentes.carrossel_empresa_famosas')
+        </section>
+    </div>
 
-    <section class="py-5">
-        <div class="text-center">
-            <h4>Na Janela do Produtor, você encontra os melhores produtos do comércio local.</h4>
-        </div>
-        <div class="d-flex justify-content-center align-items-center flex-wrap">
-            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
-                <img src="/assets/images/Imagens para o site/5.png" width="404" height="327"
-                    class="rounded-circle img-fluid" alt="Imagem ilustrativa para categoria do produtos">
+    <div class="imagem_de_fundo">
+        <section class="py-5">
+            <div class="text-center py-3 ">
+                <h3 class="h4-algumacoisa">Na Janela do Produtor, você encontra os melhores produtos do comércio local.</h3>
+                <hr class=" hr-grande ">
             </div>
-            <div class="col-12 col-md-6">
-                @include('componentes.carrossel_categoria_produto')
-                <div>
-                </div>
-    </section>
+            @include('componentes.carrossel_categoria_produto')
+        </section>
+    </div>
 
-    <section class="py-5">
-        <div class="text-center">
-            <h4>Na Janela do Produtor, você encontra os melhores produtores locais do comércio.</h4>
-        </div>
-        <div class="d-flex justify-content-center align-items-center flex-wrap">
-            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
-                <img src="\assets\images\Imagens para o site\Sample 9 1.png" width="404" height="327"
-                    class="rounded-circle img-fluid" alt="Imagem ilustrativa para categoria de empresas">
+    <div class="body-pagina-inicial">
+        <section class="py-5">
+            <div class="text-center pb-4">
+                <h4>Na Janela do Produtor, você encontra os melhores produtores locais do comércio.</h4>
             </div>
-            <div class="col-12 col-md-6">
-                @include('componentes.carrossel')
-                <div>
-                </div>
-    </section>
+            @include('componentes.carrossel')
+        </section>
 
-    <section class="py-5 position-relative" style="height: 70vh;">
-        <div class="text-center pb-2">
-            <h4>Descubra os sabores da sua região!</h4>
-        </div>
-        <div class="text-center ms-5 me-5">
-            <img src="/assets/images/Imagens para o site/Rectangle 42.png" alt="Imagem de fundo do card cidade"
-                class="img-fluid w-100">
-        </div>
+        <section class="py-5 position-relative" style="height: 70vh;">
+            <div class="text-center pb-2">
+                <h4>Descubra os sabores da sua região!</h4>
+            </div>
+            <div class="text-center ms-5 me-5">
+                <img src="/assets/images/Imagens para o site/Rectangle 42.png" alt="Imagem de fundo do card cidade"
+                    class="img-fluid w-100">
+            </div>
 
-        <div class="card-container position-absolute top-0 start-50 translate-middle-x"
-            style="padding-top: 16vh; padding-bottom: 5rem;">
-            <div class="d-flex flex-wrap justify-content-center">
-                <div class="card-grid">
-                    @foreach ($cidades as $cidade)
-                        <a href="{{ route('cidade_produto', ['id' => $cidade->id]) }}">
-                            <div class="card bg-dark">
-                                <img src="{{ Voyager::image($cidade->imagem) }}" width="165" height="143"
-                                    class="rounded-3" alt="Imagem da Cidade: {{ $cidade->nome }}"
-                                    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
-                                <div class="card-img-overlay d-flex align-items-end text-center pt-5">
-                                    <h5 class="card-title text-truncate">{{ $cidade->nome }}</h5>
+            <div class="card-container position-absolute top-0 start-50 translate-middle-x"
+                style="padding-top: 16vh; padding-bottom: 5rem;">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="card-grid">
+                        @foreach ($cidades as $cidade)
+                            <a href="{{ route('cidade_produto', ['id' => $cidade->id]) }}">
+                                <div class="card bg-dark">
+                                    <img src="{{ Voyager::image($cidade->imagem) }}" width="165" height="143"
+                                        class="rounded-3" alt="Imagem da Cidade: {{ $cidade->nome }}"
+                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/imagem-categoria.png') }}';">
+                                    <div class="card-img-overlay d-flex align-items-end text-center pt-5">
+                                        <h5 class="card-title text-truncate">{{ $cidade->nome }}</h5>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    @endforeach
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
 
-        {{-- Possivel botão para ver mais cidades --}}
-        {{-- <div class="position-relative mt-5">
+            {{-- Possivel botão para ver mais cidades --}}
+            {{-- <div class="position-relative mt-5">
             <div class="me-5 d-flex justify-content-end">
                 <a class="text-black fw-bold" href="">Ver tudo <i class="fa-solid fa-chevron-right"></i></a>
             </div>
         </div> --}}
-        {{-- Possivel botão para ver mais cidades fim --}}
-    </section>
+            {{-- Possivel botão para ver mais cidades fim --}}
+        </section>
 
-    <section class="py-5">
-        <div class="text-center pb-4">
-            <h4>Veja mais produtores que podem interessar a você.</h4>
-        </div>
-        <div class=" d-flex flex-wrap pt-2 pb-5 card_empresa_section_position">
-            @forelse ($empresas as $empresa)
-                <div class="card_empresa d-flex align-items-center  m-1  p-4">
-                    <div>
-                        <img src="{{ Voyager::image($empresa->logo) }}"height="130" width="130" class="rounded-circle"
-                            alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
+        <section class="py-5">
+            <div class="text-center pb-4">
+                <h4>Veja mais produtores que podem interessar a você.</h4>
+            </div>
+            <div class=" d-flex flex-wrap pt-2 pb-5 card_empresa_section_position">
+                @forelse ($empresas as $empresa)
+                    <div class="card_empresa d-flex align-items-center  m-1  p-4">
+                        <div>
+                            <img src="{{ Voyager::image($empresa->logo) }}"height="130" width="130"
+                                class="rounded-circle"
+                                alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
+                        </div>
+                        <div class="ps-4">
+                            <p class="text-white  fs-5 pt-4 ">{{ $empresa->nome }}</p>
+                            <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
+                            {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
+                            <label for="avaliacao" class="rating-label">
+                                <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
+                                    max="5" step="0.5" value="{{ $empresa->avaliacao ?? 0 }}" disabled>
+                            </label>
+                            <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
+                                href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i
+                                    class="fa-sharp fa-solid fa-shop"></i> Confira os produtos
+                            </a>
+                        </div>
                     </div>
-                    <div class="ps-4">
-                        <p class="text-white  fs-5 pt-4 ">{{ $empresa->nome }}</p>
-                        <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
-                        {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
-                        <label for="avaliacao" class="rating-label">
-                            <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
-                                max="5" step="0.5" value="{{ $empresa->avaliacao ?? 0 }}" disabled>
-                        </label>
-                        <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
-                            href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i
-                                class="fa-sharp fa-solid fa-shop"></i> Confira os produtos
-                        </a>
+                @empty
+                    <div class="">
+                        <div class="alert alert-success " role="alert">
+                            <p class="text-center">Nenhum Produtor cadastrado.</p>
+                        </div>
                     </div>
-                </div>
-            @empty
-                <div class="">
-                    <div class="alert alert-success " role="alert">
-                        <p class="text-center">Nenhum Produtor cadastrado.</p>
-                    </div>
-                </div>
-            @endforelse
-        </div>
+                @endforelse
+            </div>
 
-    </section>
+        </section>
+    </div>
 @endsection

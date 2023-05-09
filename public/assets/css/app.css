@@ -1265,8 +1265,9 @@ background-color: rgba(64, 1, 1, 0.65);
 
 } */
 .card_categoria_produto{
-    background: linear-gradient(rgba(219, 236, 156, 0.85)50%,
-    rgba(236, 243, 211, 0.85) 50%);
+    background: linear-gradient(rgba(219, 236, 156, 0.95) 50%, rgba(236, 243, 211, 0.95) 50%);
+
+
     /* background-color: #83A603; */
     /* width: 220px; */
     /* height:207px;
@@ -1969,3 +1970,35 @@ margin: 0 auto;
   }
 
 /* Card de mostrar cidade Fim  */
+.imagem_de_fundo{
+    background: url('/assets/images/Imagens de fundo Tela inicial/Imagens para o site 9.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.9;
+
+
+}
+
+.hr-grande{
+    opacity: 0.9;
+    border-width: 3px;
+    color: white;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+
+.h4-algumacoisa{
+    color: #fff;
+    opacity: 1.5;
+
+}
+.body-pagina-inicial{
+background-color: #ced4da;
+
+}
+.card-wrapper .card_empresa_destaque {
+    margin: 0 10px;
+  }
+
