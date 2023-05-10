@@ -1961,15 +1961,18 @@ background-color: rgba(232, 229, 212, 1);
 
  /* Header Titulo todas as pagingas Fim */
  /* Listra pedido feito para empresa */
- .card_pedido_empresario{
+.card_pedido_empresario {
     background-color: rgba(232, 229, 212, 1);
-width: 100vh;
-margin: 0 auto;
- }
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    /* padding: 1rem; */
+}
 
- .card_lista_pedido_empresario{
+.card_lista_pedido_empresario {
     background-color: #83A603;
-    }
+}
+
     /* Listra pedido feito para empresa fim */
 
     /* Mostra avaliação do produto no modal */
