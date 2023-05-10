@@ -1663,16 +1663,38 @@ height: 245px;
 /* Card da Empresa Fim */
 
 /* Card Lista de Pedidos */
-.card_lista_pedidos{
-background-color: #83A603;
-border-radius: 10px 10px 0px 0px;
-width: 120vh;
-margin: 0 auto;
-}
-.card_lista_pedidos_produto{
-background-color: rgba(232, 229, 212, 1);
+.card_lista_pedidos {
+    background-color: #83A603;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px; /* Altere o valor conforme desejado */
+    margin: 0 auto;
 
 }
+
+
+.card_lista_pedidos_produto {
+    background-color: rgba(232, 229, 212, 1);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.card_lista_pedidos_produto img {
+    width: 150px;
+    height: 150px;
+}
+
+.card_lista_pedidos_produto .d-flex {
+    align-items: center;
+}
+
+.card_lista_pedidos_produto .ps-4 {
+    flex: 1;
+}
+
+
+
+
 /* .card_pedido_email{
     background-color: rgba(232, 229, 212, 1);
 
