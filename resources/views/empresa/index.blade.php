@@ -1,35 +1,15 @@
 @extends('layouts.app')
 
 @section('conteudo')
-<header class="pt-5 header_titulo pb-2">
-    <h4>A procura de Produtores</h4>
-</header>
-@include('componentes.carrossel')
-    {{-- <header class="pt-5 ps-4">
-        <h4>A procura de Produtores</h4>
-    </header>
-    <section class="d-flex flex-wrap pt-2 pb-5 ps-5">
-        @forelse ($categoria_empresas as $categoria_empresa)
-            <a class="marcacao_a_remov text-black" href="{{ route('empresa.categoria', ['id' => $categoria_empresa->id]) }}">
-                <div class="card_categoria_produto rounded-3 p-5 m-2">
-                    <img src="{{ Voyager::image($categoria_empresa->imagem) }}" width="120" height="95" class="rounded-3"
-                        alt="Imagem Da categoria Dos Produtos"onerror="this.onerror=null;this.src='{{ asset('assets/images/exemplos/4.jpg') }}';">
-                    <div class="text-center py-2">
-                        <p class="fs-5 card-title">{{ $categoria_empresa->nome }}</p>
-                    </div>
-                </div>
-            </a>
-        @empty
-        <div class="ps-4">
-            <div class="alert alert-success " role="alert">
-              <p class="text-center">Nenhuma categoria para Produtor cadastrada.</p>
-            </div>
-        </div>
-        @endforelse
-    </section> --}}
-    <header class="pt-5 header_titulo pb-2">
-        <h4>Produtores</h4>
-    </header>
+<section class="py-5">
+    <div class="text-center pb-4">
+        <h4>Na Janela do Produtor, você encontra os melhores produtores locais do comércio.</h4>
+    </div>
+    @include('componentes.carrossel')
+</section>
+<div class="text-center  py-5 ">
+    <h4 class="">Veja mais produtos que podem interessar a você.</h4>
+</div>
     <section class=" d-flex flex-wrap pt-2 pb-5 card_empresa_section_position">
         @forelse ($empresas as $empresa)
             <div class="card_empresa d-flex align-items-center  m-1  p-4">

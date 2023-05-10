@@ -26,17 +26,18 @@
         </div>
         @endforelse
     </section> --}}
-    <header class="pt-5 header_titulo pb-2">
-        <h4>O que procura de Produtos ? </h4>
-    </header>
+    <section class="py-5">
+        <div class="text-center pb-3 ">
+            <h4 class="">Na Janela do Produtor, você encontra os melhores produtos do comércio local.</h4>
 
+        </div>
         @include('componentes.carrossel_categoria_produto')
- 
+    </section>
 
+    <div class="text-center  py-5 ">
+        <h4 class="">Veja mais produtos que podem interessar a você.</h4>
 
-    <header class="pt-3 header_titulo pb-2">
-        <h4>Todos os produtos</h4>
-    </header>
+    </div>
     <section class="d-flex flex-wrap pt-2 pb-5 card_produto_section_position">
         @forelse ($produtos as $produto)
             <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
