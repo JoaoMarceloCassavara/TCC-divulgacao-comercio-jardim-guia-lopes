@@ -2004,15 +2004,24 @@ background-color: rgba(232, 229, 212, 1);
 /* Card de mostrar cidade Fim  */
 
 /* Tela inicial css */
-.imagem_de_fundo{
+.imagem_de_fundo {
+    position: relative;
+  }
+
+  .imagem_de_fundo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: url('/assets/images/Imagens de fundo Tela inicial/Imagens para o site 9.jpg') no-repeat center center fixed;
     background-size: cover;
     background-position: center;
     z-index: -1;
-    opacity: 0.9;
+    opacity: 0.5; /* Defina a opacidade desejada aqui */
+  }
 
-
-}
 
 .hr-grande{
     opacity: 0.9;
