@@ -1419,13 +1419,17 @@ font-size: 18px;
 
 /* Cadastro Cliente */
 .card-register {
-
     margin: 0 auto;
-    width: 50% ;
-    /* width: 676px; */
+    width: 50%;
     height: 600px;
-    /* left: 255px; */
-    /* top: 154px; */
+}
+
+/* Estilos para telas com largura menor ou igual a 768px */
+@media (max-width: 668px) {
+    .card-register {
+        width: 80%;
+        height: auto;
+    }
 }
 
 .imagem-fullscreen-register {
@@ -1596,26 +1600,56 @@ margin: 10px;
 
 
 }
-.cadastro_empresario{
-background-color: rgba(255, 255, 255, 1);
-border-radius: 27px;
-height: 700px;
-width: 40%;
+.cadastro_empresario {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 27px;
+    height: 700px;
+    width: 40%;
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    .cadastro_empresario {
+        width: 50%; /* ou qualquer outra largura desejada */
+        padding-left: 20px;
+        padding-right: 20px;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 15px;
+    }
+}
+@media (max-width: 768px) {
+    .nome-logo {
+        width: 50%; /* ou qualquer outra largura desejada */
+        margin-top: 60px;
+    }
 }
 
 
-.text-register-empresario{
+
+
+/* .logo_do_site{
+margin-left: 45px;
+} */
+.text-register-empresario {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 50px;
+    font-size: 40px;
     line-height: 61px;
     text-align: center;
 
     color: #000000;
+    text-align: center;
 }
-.logo_do_site{
-margin-left: 45px;
+
+/* Estilos para telas com largura menor ou igual a 768px */
+@media (max-width: 768px) {
+    .text-register-empresario {
+        font-size: 30px;
+    }
 }
 
 .register-itens-empresario {
@@ -1633,7 +1667,7 @@ margin-left: 45px;
  }
 
  .botao-register-empresario {
-    width: 180px;
+  
     background-color: #400101;
 }
       /* Fim Cadastro Empresario */
