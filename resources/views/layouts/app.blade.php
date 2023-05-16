@@ -127,7 +127,7 @@
                         @csrf
                         <div class="modal-body">
 
-                            <table id="tabela-carrinho" class="table">
+                            <table id="tabela-carrinho" class="table text-white align-middle">
 
                             </table>
                             <h4 class="text-center text-success">Total: <span id="valor-total">$ 0,00</span></h4>
@@ -177,49 +177,45 @@
                 var table =
                     `<thead class="descricao-pedido ">
                 <tr>
-                  <td class="ps-5 fs-4 text-white "> Produtos</td> <td class="text-white">Preço</td> <td class="text-white">Quatidade</td> <td class="text-white">Ações</td>
+                  <th class="ps-5 fs-4"> Produtos</th>
+                  <th class="">Preço</th>
+                  <th class="">Quantidade</th>
+                  <th class="">Ações</th>
                 </tr>
             </thead>
-            <tbody>
-
-            `;
+            <tbody class="cor-tbody">`;
                 for (var propriedade in carrinho) {
                     table +=
-                        `<tr class="cor-tbody">
+                        `<tr>
     <input type="hidden" name="produtos[]" value="${carrinho[propriedade].id}">
 
-    <td>
-
-        <div class="row">
-    <div class="col-lg-4 col-md-6">
-        <div class="card_carrinho p-2 rounded-3 d-flex align-items-center justify-content-center">
-            <img src="${carrinho[propriedade].imagem}" class="img-fluid"
-                style="max-width: 150px; max-height: 150px;"
-                onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
-        </div>
-    </div>
-    <div class="col-lg-8 col-md-6">
-        <div class="ps-4 py-2">
-            <p class="fs-5 text-white">${carrinho[propriedade].nome}</p>
-            <p class="fs-5 text-white">${carrinho[propriedade].cidade}</p>
-        </div>
-    </div>
+    <td><div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="card_carrinho p-2 rounded-3 d-flex align-items-center justify-content-center">
+  <img src="${carrinho[propriedade].imagem}" class="img-fluid"
+       style="max-width: 150px; height: 120px;"
+       onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
 </div>
 
+        </div>
+        <div class="col-lg-8 col-md-6">
+            <div class="ps-4 py-2 fs-5">
+                <p>${carrinho[propriedade].nome}</p>
+                <p>${carrinho[propriedade].cidade}</p>
+            </div>
+        </div>
+    </div></td>
 
+    <td class="text-truncate ">${formatarPreco(carrinho[propriedade].preco)}</td>
 
-
-    </td>
-
-    <td class="py-4 text-white">${formatarPreco(carrinho[propriedade].preco)}</td>
-<td class="py-4">
-  <div class="input-group input-group-sm">
-    <button class="btn btn-success" type="button" onclick="decrementarQuantidade(${propriedade})"><i class="fa-solid fa-minus"></i></button>
-    <input type="number" class="form-control text-center d-flex align-items-center justify-content-center" name="quantidades[]" min="1" value="${carrinho[propriedade].quantidade ?? 1}" style="width: 50px; min-width: 50px;">
-    <button class="btn btn-success" type="button" onclick="incrementarQuantidade(${propriedade})"><i class="fa-solid fa-plus"></i></button>
+<td>
+  <div class="input-group input-group-sm quantidade">
+    <button style="position: absolute; left:0;" class="btn btn-success" type="button" onclick="decrementarQuantidade(${propriedade})"><i class="fa-solid fa-minus"></i></button>
+    <input type="number" class="form-control text-center" name="quantidades[]" min="1" value="${carrinho[propriedade].quantidade ?? 1}" style="width: 50px; min-width: 50px;">
+    <button style="position: absolute; right:0;" class="btn btn-success" type="button" onclick="incrementarQuantidade(${propriedade})"><i class="fa-solid fa-plus"></i></button>
   </div>
 </td>
-<td class="py-4">
+<td>
   <button class="btn btn-default btn-sm" onclick="removerItemDoCarrinho(${propriedade});"><i class="fa-solid fa-trash"></i></button>
 </td>
 
