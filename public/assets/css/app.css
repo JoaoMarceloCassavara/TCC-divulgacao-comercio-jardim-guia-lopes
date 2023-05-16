@@ -1353,12 +1353,18 @@ background-color: rgba(64, 1, 1, 0.85);
 
 .card-login {
     margin: 0 auto;
-    width: 50% ;
-    /* width: 676px; */
+    width: 50%;
     height: 700px;
-    /* left: 255px; */
-    /* top: 154px; */
 }
+
+/* Estilos para telas com largura menor ou igual a 768px */
+@media (max-width: 768px) {
+    .card-login {
+        width: 80%;
+        height: auto;
+    }
+}
+
   .imagem-fullscreen-login {
         position: fixed;
         top: 0;
