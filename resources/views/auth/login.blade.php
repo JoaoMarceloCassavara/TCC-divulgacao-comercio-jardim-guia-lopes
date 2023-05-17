@@ -16,7 +16,7 @@
                         {{-- <div class="row mb-3"> --}}
                         {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> --}}
 
-                        <div class="col-md-6 login-itens-align pt-5 pb-2">
+                        <div class="col-md-6 col-sm-12  login-itens-align pt-5 pb-2">
                             <input id="email" type="email" placeholder="Email"
                                 class="form-control login-itens @error('email') is-invalid @enderror" name="email"
                                 value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -32,7 +32,7 @@
                         {{-- <div class="row mb-3"> --}}
                         {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
-                        <div class="col-md-6 login-itens-align py-2">
+                        <div class="col-md-6 col-sm-12  login-itens-align py-2">
                             <input id="password" type="password" placeholder="Senha"
                                 class="form-control  login-itens @error('password') is-invalid @enderror" name="password"
                                 required autocomplete="current-password">
@@ -46,7 +46,7 @@
                         {{-- </div> --}}
 
                         <div class="row mb-3 me-lembrar">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 col-sm-12  offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                         {{ old('remember') ? 'checked' : '' }}>
