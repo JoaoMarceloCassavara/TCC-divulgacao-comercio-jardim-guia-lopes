@@ -36,7 +36,7 @@
                 </div>
 
             </div>
-            
+
             <div class="col-md-6">
                 <div class="visualizar_informacao_empresa flex-grow-1 ps-3 my-4">
                     <h5 class="fw-bold">Sobre o Negócio</h5>
@@ -384,7 +384,7 @@
                                 onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
                         </div>
                         <div class="col-md-9 col-12 pt-3 text-center text-md-start">
-                            <h4>{{ $empresa->nome }}</h4>
+                            <h4>{{ $empresa?->user?->name }}</h4>
                             <p class="fw-bold">{{ $empresa?->cidade?->nome }}</p>
                         </div>
                     </div>

@@ -2060,7 +2060,8 @@ background-color: rgba(232, 229, 212, 1);
     background-size: cover;
     background-position: center;
     z-index: -1;
-    opacity: 0.5; /* Defina a opacidade desejada aqui */
+    /* opacity: 0.5; Defina a opacidade desejada aqui */
+    filter: brightness(0.7); /* Valor entre 0 e 1, quanto menor, mais escuro */
   }
 
 
@@ -2079,7 +2080,7 @@ background-color: rgba(232, 229, 212, 1);
 
 }
 .body-pagina-inicial{
-background-color: #ced4da;
+/* background-color: #ced4da; */
 
 }
 .card-wrapper .card_empresa_destaque {
