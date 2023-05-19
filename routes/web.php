@@ -217,13 +217,43 @@ Route::get('/tipo_register', function () {
 //<---------- Rota do filtro de pesquisa ---------->
 Route::get('/filtro/pesquisa', function (Request $request) {
     //  dd($request->filtro);
-    $produtos = Produto::where('nome', 'LIKE', "%{$request->filtro}%")->whereHas('empresa', function ($query) {
-        $query->where('ativo', 1);
-    })->get();
+
+    // $produtos = Produto::where('nome', 'LIKE', "%{$request->filtro}%")->whereHas('empresa', function ($query) {
+    //     $query->where('ativo', 1);
+    // })->get();
+
+
     $nome_cidade = "%{$request->filtro}%";
-    $empresas = Empresa::whereHas('cidade', function ($query) use ($nome_cidade) {
-        $query->where('nome', 'LIKE', $nome_cidade);
-    })->orWhere('nome', 'LIKE', "%{$request->filtro}%")->get();
+
+    // $empresas = Empresa::whereHas('cidade', function ($query) use ($nome_cidade) {
+    //     $query->where('nome', 'LIKE', $nome_cidade);
+    // })->orWhere('nome', 'LIKE', "%{$request->filtro}%")->get();
+
+    $empresas = Empresa::where('ativo', true)
+    ->where(function ($query) use ($nome_cidade, $request) {
+        $query->whereHas('cidade', function ($query) use ($nome_cidade) {
+            $query->where('nome', 'LIKE', $nome_cidade);
+        })
+        ->orWhere('nome', 'LIKE', "%{$request->filtro}%");
+    })
+    ->get();
+
+    $produtos = Produto::where(function ($query) use ($request, $nome_cidade) {
+        $query->where('nome', 'LIKE', "%{$request->filtro}%")
+            ->orWhere(function ($query) use ($nome_cidade) {
+                $query->whereHas('empresa', function ($query) {
+                    $query->where('ativo', true);
+                })
+                ->whereHas('empresa.cidade', function ($query) use ($nome_cidade) {
+                    $query->where('nome', 'LIKE', "%{$nome_cidade}%");
+                });
+            });
+        })
+        ->whereHas('empresa', function ($query) {
+            $query->where('ativo', true);
+        })
+        ->get();
+
     $categorias = CategoriaProduto::where('nome', 'LIKE', "%{$request->filtro}%")->get();
     // $cidades = Cidade::where('nome', 'LIKE', "%{$request->filtro}%")->get();
     // dd($categorias, $empresas, $produtos);
