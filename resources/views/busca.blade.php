@@ -8,7 +8,7 @@
                     Todos
                 @endempty
             </span> </h4>
-        
+
 
     </header>
     <!-- Tabs navs -->
@@ -24,6 +24,10 @@
         <li class="nav-item" role="presentation">
             <a class="nav-link text-success" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab"
                 aria-controls="ex1-tabs-3" aria-selected="false">Categorias</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-success" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab"
+                aria-controls="ex1-tabs-4" aria-selected="false">Cidades</a>
         </li>
     </ul>
     <!-- Tabs navs -->
@@ -391,145 +395,399 @@
 
                 </section>
             </div>
+            <div class="tab-pane fade" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+                @forelse ($cidades as $cidade)
+                    <div class=" d-flex flex-wrap pt-2 pb-5 card_empresa_section_position">
+                        @foreach ($cidade
+                ?->empresas()->where('ativo', true)->get() as $empresa)
+                            <div class="card_empresa d-flex align-items-center  m-1  p-4">
+                                <div>
+                                    <img src="{{ Voyager::image($empresa->logo) }}"height="130" width="130"
+                                        class="rounded-circle"
+                                        alt="Logo Empresa"onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-da-empresa.png') }}';">
+                                </div>
+                                <div class="ps-4">
+                                    <p class="text-white  fs-5 pt-4 ">{{ $empresa->nome }}</p>
+                                    <h6 class=" text-white">{{ $empresa?->categoria?->nome }}</h6>
+                                    {{-- <input class="rating py-2" type="range" value="{{$empresa->avaliacao}}" disabled> --}}
+                                    <label for="avaliacao" class="rating-label">
+                                        <input class="rating rating--nojs" id="avaliacao" name="avaliacao" type="range"
+                                            max="5" step="0.5" value="{{ $empresa->avaliacao ?? 0 }}" disabled>
+                                    </label>
+                                    <a type="button" class="btn btn-danger botao_conferir_produto marcacao_a_remov"
+                                        href="{{ route('empresa.visualizar', ['id' => $empresa->id]) }}"><i
+                                            class="fa-sharp fa-solid fa-shop"></i> Confira os produtos
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
-        </div>
-        <!-- Tabs content -->
+                @empty
+                    <div class="">
+                        <div class="alert alert-success " role="alert">
+                            <p class="text-center">Nenhum Produtor cadastrado para cidade:{{ request()->filtro }}.</p>
+                        </div>
+                    </div>
+                @endforelse
 
-        <script type="text/javascript" src="{{ asset('/vendor/mdb5/core.min.js') }}"></script>
+                {{-- Ver produtos pela cidade justo que a cidade esta na empresa que o produto pertence  --}}
+
+                @forelse ($cidades as $cidade)
+                    <section class="d-flex flex-wrap pt-2 pb-5 card_produto_section_position">
+                        @foreach ($cidade
+                ?->empresas()->where('ativo', true)->get() as $empresa)
+                            @foreach ($empresa->produtos as $produto)
+                                <a {{-- botao Modal --}} data-bs-toggle="modal"
+                                    data-bs-target="#produto-modal-{{ $produto->id }}" {{-- Final botao Modal --}}>
+                                    <div class="card-link m-2 p-4">
+
+                                        <img src="{{ Voyager::image($produto->imagem) }}" width="220" height="180"
+                                            class="rounded-2" alt="Imagem do produto"
+                                            onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+
+                                        <div class="p-1 text-center">
+                                            <h5 class="pt-3">{{ $produto->nome }}</h5>
+                                            <p class="">{{ $produto->empresa->nome }}</p>
+
+                                            <div class="ps-5 ">
+                                                <label for="avaliacao" class="rating-label">
+                                                    <input class="rating rating--nojs" id="avaliacao" name="avaliacao"
+                                                        type="range" max="5" step="0.5"
+                                                        value="{{ $produto->avaliacao ?? 0 }}" disabled>
+                                                </label>
+                                            </div>
+                                            <p class="pt-1">Preço {{ $produto->getPreco() }}
+                                                {{-- @isset($produto->avaliacao)
+                                            <span class="text-warning ps-1 "><i class="fa-sharp fa-solid fa-star"></i> {{$produto->avaliacao}}</span>
+                                            @endisset
+                                            @empty($produto->avaliacao)
+                                         <span class="text-warning ps-1"><i class="fa-sharp fa-solid fa-star"></i> 0</span>
+                                           @endempty --}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                {{-- Inicio modal --}}
+                                <!-- Modal -->
+
+                                <div class="modal fade" id="produto-modal-{{ $produto->id }}" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1"
+                                    aria-labelledby="produto-modal-{{ $produto->id }}Label" aria-hidden="true"
+                                    data-produto-id="{{ $produto->id }}" data-video-id="{{ $produto->video_id }}">
+                                    <div class="modal-dialog modal-xl" role="document">
+                                        <div class="modal-content modal-produto">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto
+                                                </h5>
+                                                <button type="button" id="produto-modal-{{ $produto->id }}Close"
+                                                    class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-4">
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="modal-card-produto p-4 rounded-3 ">
+                                                                <img src="{{ Voyager::image($produto->imagem) }}"
+                                                                    class="rounded-3 img-fluid" width="190" height="180"
+                                                                    alt="Imagem do produto"
+                                                                    onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/foto-do-produto.png') }}';">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <p class="fw-bold fs-3">{{ $produto->nome }}</p>
+                                                        <div class="d-flex align-items-center">
+                                                            <label for="avaliacao" class="rating-label me-2">
+                                                                <input class="rating rating--nojs" id="avaliacao"
+                                                                    name="avaliacao" type="range" max="5"
+                                                                    step="0.5" value="{{ $produto->avaliacao ?? 0 }}"
+                                                                    disabled>
+                                                            </label>
+                                                            <div class="px-2">
+                                                                @isset($produto->avaliacao)
+                                                                    <p class="text-avaliacao-modal fw-bold">
+                                                                        {{ number_format($produto->avaliacao, 1, '.', '') }}</p>
+                                                                @endisset
+                                                                @empty($produto->avaliacao)
+                                                                    <h5 class="text-avaliacao-empresa">0.0</h5>
+                                                                @endempty
+                                                            </div>
+                                                            <div>
+                                                                <p class="text-decoration-underline text-success">
+                                                                    ({{ $produto->avaliacoes->count() }} avaliações de
+                                                                    clientes)
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <p class="fw-bold fs-6 mb-1">Pedidos
+                                                                {{ $produto->pedidos->count() }}</p>
+                                                            <p class="fw-bold fs-5">Preço {{ $produto->getPreco() }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    @isset($produto->video_curto)
+                                                        <div class="col-md-6">
+                                                            <script src="https://www.youtube.com/iframe_api"></script>
+                                                            <script src="https://player.vimeo.com/api/player.js"></script>
+                                                            @php
+                                                                $videoUrl = $produto->video_curto;
+                                                                $videoId = '';
+                                                                if (!empty($videoUrl)) {
+                                                                    $parsedUrl = parse_url($videoUrl);
+                                                                    if (!empty($parsedUrl['query'])) {
+                                                                        parse_str($parsedUrl['query'], $params);
+                                                                        if (!empty($params['v'])) {
+                                                                            $videoId = $params['v'];
+                                                                        }
+                                                                    }
+                                                                }
+                                                            @endphp
+                                                            @if (!empty($videoId))
+                                                                <div class="embed-responsive embed-responsive-16by9">
+                                                                    <iframe id="video-player"
+                                                                        class="embed-responsive-item w-100 h-100"
+                                                                        src="https://www.youtube.com/embed/{{ $videoId }}?enablejsapi=1"
+                                                                        frameborder="0" allowfullscreen></iframe>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                        @else
+                                                            <div class="col-md-12 ps-5">
+                                                            @endisset
+                                                            <h4>Descrição</h4>
+                                                            <p style="max-height: 120px; overflow-y: auto;">
+                                                                {{ $produto->descricao }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <a type="button"
+                                                        href="{{ route('empresa.visualizar', ['id' => $produto->empresa->id]) }}"
+                                                        class="btn btn-primary">Produtor: {{ $produto->empresa->nome }}</a>
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Voltar</button>
+                                                    <button type="button" class="btn btn-success"
+                                                        data-id="{{ $produto->id }}"
+                                                        data-imagem="{{ Voyager::image($produto->imagem) }}"
+                                                        data-preco="{{ $produto->preco }}" data-nome="{{ $produto->nome }}"
+                                                        data-cidade="{{ $produto->empresa->cidade->nome }}"
+                                                        onclick="adicionarItemNoCarrinho();">Adicionar ao
+                                                        carrinho</button>
+
+
+                                                </div>
+                                                <hr class="border border-dark ">
+
+                                                <header class="ps-3 py-4">
+                                                    <p class="fw-bold fs-4">Avaliações</p>
+                                                </header>
+                                                @forelse ($produto->avaliacoes as $avaliacao)
+                                                    <div class="rounded-3 shadow ms-3 me-3 mb-5 bg-body rounded">
+                                                        <div class="d-flex p-2 bd-highlight mb-3 m-3">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="pt-5 flex-shrink-0">
+                                                                    <img src="{{ Voyager::image($avaliacao->usuario->avatar) }}"
+                                                                        width="140" height="120" alt="Imagem avatar"
+                                                                        class="rounded-circle"
+                                                                        onerror="this.onerror=null;this.src='{{ asset('assets/images/imagens-default/user_default.png') }}';">
+                                                                    <div class="ps-2 pt-3">
+                                                                        <label for="avaliacao" class="rating-label">
+                                                                            <input class="rating rating--nojs" id="avaliacao"
+                                                                                name="avaliacao" type="range"
+                                                                                max="5" step="0.5"
+                                                                                value="{{ $avaliacao->avaliacao ?? 0 }}"
+                                                                                disabled>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="ps-3" style="max-width: 200px;">
+                                                                    <p class="text-break"
+                                                                        style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0;">
+                                                                        {{ $avaliacao->usuario->name }}</p>
+                                                                    <p>{{ $avaliacao->updated_at->format('d/m/Y H:i:s') }}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex align-items-start flex-grow-1 p-3 ms-3 mt-3 overflow-auto"
+                                                                style="max-height: 120px;">
+                                                                <p class="text-break mb-0"
+                                                                    style="font-size: 1.1rem; max-width: 450px;">
+                                                                    {{ mb_substr($avaliacao->descricao, 0, 500) }}</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                @empty
+                                                    <div class="ps-4">
+                                                        <div class="alert alert-success w-25" role="alert">
+                                                            <p class="text-center">Nenhuma avaliação cadastrada para esse
+                                                                produto.</p>
+                                                        </div>
+                                                    </div>
+                                                @endforelse
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Final MOdal --}}
+                            @endforeach
+                        @endforeach
+                    </section>
+
+                    @empty
+                        <div class="ps-4">
+                            <div class="alert alert-success " role="alert">
+                                <p class="text-center">Nenhum Produto cadastrado para cidade:{{ request()->filtro }}.</p>
+                            </div>
+                        </div>
+                    @endforelse
+
+                </div>
+
+            </div>
+            <!-- Tabs content -->
+
+            <script type="text/javascript" src="{{ asset('/vendor/mdb5/core.min.js') }}"></script>
 
 
 
-        <script type="text/javascript" src="{{ asset('/vendor/mdb5/search.min.js') }}"></script>
-        <script src="{{ asset('/vendor/mdb5/main.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/vendor/mdb5/search.min.js') }}"></script>
+            <script src="{{ asset('/vendor/mdb5/main.min.js') }}"></script>
 
 
-        <script>
-            let isSidenavHidden = false;
-            isSidenavHidden = false;
-            const sidenav = document.getElementById('mdb-sidenav');
-            const instance = mdb.Sidenav.getInstance(sidenav);
+            <script>
+                let isSidenavHidden = false;
+                isSidenavHidden = false;
+                const sidenav = document.getElementById('mdb-sidenav');
+                const instance = mdb.Sidenav.getInstance(sidenav);
 
 
-            let innerWidth = null;
+                let innerWidth = null;
 
-            const setMode = () => {
-                if (window.innerWidth === innerWidth) return;
+                const setMode = () => {
+                    if (window.innerWidth === innerWidth) return;
 
-                innerWidth = window.innerWidth;
-                const isFrontPage = 0;
+                    innerWidth = window.innerWidth;
+                    const isFrontPage = 0;
 
-                if (innerWidth <= 1440 || isFrontPage || isSidenavHidden) {
-                    instance.changeMode('over');
-                    instance.hide();
-                    return;
+                    if (innerWidth <= 1440 || isFrontPage || isSidenavHidden) {
+                        instance.changeMode('over');
+                        instance.hide();
+                        return;
+                    }
+                    instance.changeMode('side');
+                    instance.show();
+                };
+
+                if (sidenav) {
+                    window.addEventListener('resize', setMode);
+                    setMode();
                 }
-                instance.changeMode('side');
-                instance.show();
-            };
-
-            if (sidenav) {
-                window.addEventListener('resize', setMode);
-                setMode();
-            }
 
 
 
-            function mdbScrollSpyTo(e) {
-                e.preventDefault();
-                const hash = e.target.getAttribute('href');
-                const target = document.getElementById(hash.substring(1));
+                function mdbScrollSpyTo(e) {
+                    e.preventDefault();
+                    const hash = e.target.getAttribute('href');
+                    const target = document.getElementById(hash.substring(1));
 
-                window.scroll({
-                    top: target.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-
-                if (history.pushState) {
-                    history.pushState(null, null, hash);
-                } else {
-                    location.hash = hash;
-                }
-            }
-
-            document.querySelectorAll('#scrollspy .menu-sidebar a').forEach((link) => {
-                link.addEventListener('click', mdbScrollSpyTo, false);
-            });
-
-
-            if (window.location.hash) {
-                const target = document.getElementById(window.location.hash.substring(1));
-
-                setTimeout(function() {
                     window.scroll({
-                        top: 0
-                    });
-
-                    setTimeout(() => {
-                        window.scroll({
-                            top: target.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }, 1000);
-                }, 1);
-            }
-
-
-
-
-            window.addEventListener("load", (event) => {
-                const locationHash = window.location.hash;
-                const scrollTop = () => {
-                    window.scrollTo({
-                        top: 0,
+                        top: target.offsetTop - 100,
                         behavior: 'smooth'
                     });
-                }
 
-                if (locationHash === "#docsTabsAPI") {
-                    const apiTab = document.querySelector('#docs-nav-pills a[href="#docsTabsAPI"]');
-
-                    if (apiTab) {
-                        const apiTabsInstance = new mdb.Tab(apiTab);
-
-                        apiTabsInstance.show();
-                        scrollTop();
-                    }
-                } else if (locationHash === "#docsTabsOverview") {
-                    scrollTop();
-                } else if (["#topTemplates", "#newTemplates", "#trendingTemplates"].indexOf(locationHash) !== -1) {
-                    const templateTab = document.querySelector('#templates-nav-pills a[href="' + locationHash + '"]');
-
-                    if (templateTab) {
-                        const templateTabsInstance = new mdb.Tab(templateTab);
-
-                        templateTabsInstance.show();
-                        scrollTop();
+                    if (history.pushState) {
+                        history.pushState(null, null, hash);
+                    } else {
+                        location.hash = hash;
                     }
                 }
 
-                const navPills = document.querySelectorAll('#docs-nav-pills a[data-mdb-toggle="tab"]');
+                document.querySelectorAll('#scrollspy .menu-sidebar a').forEach((link) => {
+                    link.addEventListener('click', mdbScrollSpyTo, false);
+                });
 
-                if (navPills.length) {
-                    navPills.forEach((el) => {
-                        el.addEventListener('click', (e) => {
-                            window.location.hash = e.target.hash;
 
-                            scrollTop();
+                if (window.location.hash) {
+                    const target = document.getElementById(window.location.hash.substring(1));
+
+                    setTimeout(function() {
+                        window.scroll({
+                            top: 0
                         });
-                    });
+
+                        setTimeout(() => {
+                            window.scroll({
+                                top: target.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }, 1000);
+                    }, 1);
                 }
 
-                const templatePills = document.querySelectorAll('#templates-nav-pills a[data-mdb-toggle="pill"]');
 
-                if (templatePills.length) {
-                    templatePills.forEach((el) => {
-                        el.addEventListener('click', (e) => {
-                            window.location.hash = e.target.hash;
 
-                            scrollTop();
+
+                window.addEventListener("load", (event) => {
+                    const locationHash = window.location.hash;
+                    const scrollTop = () => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
                         });
-                    });
-                }
-            });
-        </script>
-    @endsection
+                    }
+
+                    if (locationHash === "#docsTabsAPI") {
+                        const apiTab = document.querySelector('#docs-nav-pills a[href="#docsTabsAPI"]');
+
+                        if (apiTab) {
+                            const apiTabsInstance = new mdb.Tab(apiTab);
+
+                            apiTabsInstance.show();
+                            scrollTop();
+                        }
+                    } else if (locationHash === "#docsTabsOverview") {
+                        scrollTop();
+                    } else if (["#topTemplates", "#newTemplates", "#trendingTemplates"].indexOf(locationHash) !== -1) {
+                        const templateTab = document.querySelector('#templates-nav-pills a[href="' + locationHash + '"]');
+
+                        if (templateTab) {
+                            const templateTabsInstance = new mdb.Tab(templateTab);
+
+                            templateTabsInstance.show();
+                            scrollTop();
+                        }
+                    }
+
+                    const navPills = document.querySelectorAll('#docs-nav-pills a[data-mdb-toggle="tab"]');
+
+                    if (navPills.length) {
+                        navPills.forEach((el) => {
+                            el.addEventListener('click', (e) => {
+                                window.location.hash = e.target.hash;
+
+                                scrollTop();
+                            });
+                        });
+                    }
+
+                    const templatePills = document.querySelectorAll('#templates-nav-pills a[data-mdb-toggle="pill"]');
+
+                    if (templatePills.length) {
+                        templatePills.forEach((el) => {
+                            el.addEventListener('click', (e) => {
+                                window.location.hash = e.target.hash;
+
+                                scrollTop();
+                            });
+                        });
+                    }
+                });
+            </script>
+        @endsection
