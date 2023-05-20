@@ -15,8 +15,11 @@
     </div>
 
      <div class="cadastro_empresario ">
-        <div class="text-center py-5"><h4 class="fw-bold">{{ __('Cadastre-se Empreendedor') }}</h4></div>
+        <div class="text-center pt-5"><h4 class="fw-bold">{{ __('Cadastre-se Empreendedor') }}</h4></div>
+        <div class="text-center pb-5">
+            <a href="{{route('tutorial_produtor')}}">Guia passo a passo para o processo de cadastro</a>
 
+        </div>
         <div class="card-body">
             <form method="POST" action="{{ route('register.empresario') }}">
                 @csrf

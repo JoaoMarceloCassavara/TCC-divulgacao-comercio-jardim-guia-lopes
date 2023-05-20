@@ -45,7 +45,11 @@ Route::get('/', function () {
 //<---------- Tela inicial Fim  ---------->
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+// Tutorial de cadastro do produtor
+Route::get('/tutorial_cadastro', function(){
+    return view('tutorial_produtor');
+})->name('tutorial_produtor');
+// Tutorial de cadastro do produtor FIm 
 
 
 //<---------- Rotas para empresa ---------->
