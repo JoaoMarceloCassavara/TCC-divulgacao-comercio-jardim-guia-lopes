@@ -68,8 +68,8 @@
                         @enderror
                     </div>
                     <div class="col-md-6 col-sm-12 register-itens-empresario-align py-2">
-                        <select class="form-select" aria-label="Default select example" name="cidade_id" id="cidade_id" >
-                            <option selected>Selecione a Cidade</option>
+                        <select class="form-select" aria-label="Default select example" name="cidade_id" id="cidade_id"required >
+                            <option value="" selected>Selecione a Cidade</option>
                             @foreach ( $cidades as $cidade )
                             <option value="{{$cidade->id}}">{{$cidade->nome}}</option>
 
@@ -97,20 +97,19 @@
                         @enderror
                     </div>
                     <div class="col-md-6 col-sm-12 register-itens-empresario-align py-2">
-                        <select class="form-select" aria-label="Default select example" name="categoria_empresa_id" id="categoria_empresa_id" >
-                            <option selected>Selecione a categoria </option>
-                            @foreach ( $categoria_empresas as $categoria_empresa )
-                            <option value="{{$categoria_empresa->id}}">{{$categoria_empresa->nome}}</option>
-
+                        <select class="form-select" aria-label="Default select example" name="categoria_empresa_id" id="categoria_empresa_id" required>
+                            <option value="" selected>Selecione a categoria</option>
+                            @foreach ($categoria_empresas as $categoria_empresa)
+                                <option value="{{ $categoria_empresa->id }}">{{ $categoria_empresa->nome }}</option>
                             @endforeach
-                          </select>
-                          @error('categoria_empresa_id')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
+                        </select>
+                        @error('categoria_empresa_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-                        </div>
                 {{-- </div> --}}
 
                 {{-- <div class="row mb-3">
