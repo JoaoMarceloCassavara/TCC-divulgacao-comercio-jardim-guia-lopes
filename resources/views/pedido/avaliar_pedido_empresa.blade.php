@@ -49,7 +49,7 @@
             </script>
         </div>
         <div class="py-4 ps-4">
-            <h4 class="fw-bold">Conte-nos mais sobre o que achou?</h4>
+            <h4 class="fw-bold">Conte-nos mais sobre o que achou.</h4>
             <div class="form-floating">
                 <textarea id="texto" rows="5" cols="50" maxlength="500" name="descricao"
                     class="form-control textarea-avaliacao" placeholder="Leave a comment here" id="floatingTextarea2"
