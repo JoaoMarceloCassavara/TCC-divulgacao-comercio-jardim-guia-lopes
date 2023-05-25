@@ -159,6 +159,15 @@ class EmpresaController extends Controller
     }
 
     public function cadastrarEmpresa (Request $request) {
+        $validator = Validator::make($request->all(), [
+            'cpf' => 'required|cpf',
+            'cnpj' => 'required|cnpj',
+        ]);
+
+        if ($validator->fails()) {
+            // Lógica de tratamento quando a validação falha
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $quantidadeEmpresaCadastradas = Empresa::where('user_id', Auth::user()->id)->count();
         if ($quantidadeEmpresaCadastradas == 0) {
 

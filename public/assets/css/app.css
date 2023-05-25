@@ -1958,7 +1958,8 @@ width: 190vh;
     padding-top: 7.5vh;
 }
 .categoria-imagem-categoria{
-width: 170vh;
+max-width: 170vh;
+min-width: 100vh;
 }
 
 /* Categorias  Fim*/
