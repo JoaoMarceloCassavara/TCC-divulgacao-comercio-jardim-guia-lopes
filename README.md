@@ -47,10 +47,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 #### Instalando as dependências
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/USUARIO/REPOSITORIO.git>
+$ git clone <https://github.com/JoaoMarceloCassavara/TCC-divulgacao-comercio-jardim-guia-lopes.git>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd cardapio-web
+$ cd TCC-divulgacao-comercio-jardim-guia-lopes
 
 # Instale as dependências composer
 $ composer install
@@ -60,10 +60,10 @@ $ npm install && npm run dev
 ```
 #### Configurando o projeto
 1. Faça uma cópia do arquivo `.env.example` e renomeie para `.env`:
-2. Crie um banco de dados
+2. Crie um banco de dados ou baixe o banco `cd database` e `cd dumb`, abaixe o banco com a data mais recente.
 > Sugestão MariaDB ou MySQL: definição de collation: **utf8mb4_general_ci**
 
-3. Configure a conexão com os dados do banco de dados no arquivo `.env`:
+1. Configure a conexão com os dados do banco de dados no arquivo `.env`:
 ```php  
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -112,15 +112,16 @@ php artisan tinker
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Laravel](https://laravel.com/docs)
-- [Node.js](https://nodejs.org/en/)
 - [Bootstrap](https://getbootstrap.com/)
-- [JQuery](https://jquery.com/)
+- [PHP]()
 
 As seguintes dependências foram incluidas no projeto:
 - [Módulo de linguagem Português do Brasil (pt_BR) para Laravel](https://github.com/lucascudo/laravel-pt-BR-localization)
 - [Laravel Fortify](https://github.com/laravel/fortify)
 - [Laravel Permission](https://github.com/spatie/laravel-permission)
 - [Laravel UI](https://github.com/laravel/ui)
+- [Composer]()
+- [Voyager]()
 ---
 ## 💪 Como contribuir para o projeto
 
