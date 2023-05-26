@@ -11,43 +11,47 @@
 
 ## 💻 Sobre o projeto
 
-Na Janela do produtor, permite os produtores locais venderem seus produtos no sistema web de divulgação. O sistema permite o produtor cadastrar sua empresa e cadastrar seus produtos. Já os clientes , facilidade na hora de comprar um produto de seu agrado com produtores e seus produtos naturais.
+O projeto intitulado Janela do produtor foi desenvolvido para o Trabalho de Conclusão de Curso do Instituto Federal de Mato Grosso do Sul (IFMS) Campus Jardim, como exigência parcial para obtenção do título de Técnico em Informática.
+
+Este projeto têm como objetivo a divulgação de produtos oriundos da economia local, intermediando a interação entre consumidores e produtores locais promovendo um canal direto para venda. Permite os produtores locais venderem seus produtos no sistema web de divulgação. O sistema permite o produtor cadastrar sua empresa e cadastrar seus produtos. Já os clientes , facilidade na hora de comprar um produto de seu agrado com produtores e seus produtos naturais.
 
 ----
 
 ## ⚙️ Funcionalidades
 
 
-- [ ] Os usuários Empresários tem acesso ao menu administrativo, onde podem:
-  - [ ] gerenciar sua empresa
-  - [ ] gerenciar seus produtos
-  - [ ] visualizar as categorias 
-  - [ ] e visualizar os seus pedidos e pedidos para empresa do usuário.
+- [ ] Os usuários do tipo Empresário (Produtor Local) tem acesso ao menu administrativo, onde podem:
+  - [X] Gerenciar sua empresa
+  - [X] Gerenciar seus produtos
+  - [X] Visualizar as categorias 
+  - [X] Visualizar pedidos feito pelos consumidores para sua empresa.
   
-- [ ] Os usuários Atendente tem acesso ao menu administrativo, onde podem:
-  - [ ] efetuar pagamento.
-  - [ ] gerenciar produtos.
-  - [ ] atualizar as empresas(editar).
+- [ ] Os usuários do tipo Atendente tem acesso ao menu administrativo, onde podem:
+  - [X] Informar pagamento de pedido.
+  - [X] Gerenciar produtos.
+  - [X] Atualizar informações das empresas.
+  - [X] Adicionar empresas em destaque.
   
-- [ ] Os usuários normais tem acesso ao menu administrativo, onde podem:
-  - [ ] gerenciar suas avaliações das empresas.
-  - [ ] gerenciar suas avaliações dos produtos.
-  - [ ] visualizar os pedidos realizado pelo usuario.
+- [ ] Os usuários do tipo Padrâo tem acesso ao menu administrativo, onde podem:
+  - [X] Avaliar empresa após efetuado pedido.
+  - [X] Avaliar os produtos de um pedido efetuado.
+  - [X] Visualizar os seus pedidos realizados.
 
 ---
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com) e [Laravel](https://laravel.com/docs/8.x/installation).
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com) e [Laravel](https://laravel.com/docs/installation).
 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
 ### 🎲 Rodando o Projeto 
 
 #### Instalando as dependências
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/JoaoMarceloCassavara/TCC-divulgacao-comercio-jardim-guia-lopes.git>
+$ git clone https://github.com/JoaoMarceloCassavara/TCC-divulgacao-comercio-jardim-guia-lopes.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd TCC-divulgacao-comercio-jardim-guia-lopes
@@ -55,12 +59,10 @@ $ cd TCC-divulgacao-comercio-jardim-guia-lopes
 # Instale as dependências composer
 $ composer install
 
-# Instale as dependências npm (frontend)
-$ npm install && npm run dev
 ```
 #### Configurando o projeto
 1. Faça uma cópia do arquivo `.env.example` e renomeie para `.env`:
-2. Crie um banco de dados ou baixe o banco `cd database` e `cd dumb`, abaixe o banco com a data mais recente.
+2. Crie um banco de dados e baixe o arquivo do dump de banco na pasta [database/dump](./database/dump/), baixe o sql de criação do banco mais recente ([backup-latest.sql](./database/dump/backup-latest.sql)).
 > Sugestão MariaDB ou MySQL: definição de collation: **utf8mb4_general_ci**
 
 1. Configure a conexão com os dados do banco de dados no arquivo `.env`:
@@ -77,9 +79,6 @@ $ npm install && npm run dev
 # Criação de nova chave de criptografia da aplicação:
 php artisan key:generate
     
-# Criação das tabelas e inserção dos dados no banco de dados:
-php artisan migrate:fresh --force --seed
-
 # Execute a aplicação em modo de desenvolvimento
 php artisan serve
 
@@ -113,15 +112,14 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Laravel](https://laravel.com/docs)
 - [Bootstrap](https://getbootstrap.com/)
-- [PHP]()
+- [PHP](https://www.php.net/)
 
 As seguintes dependências foram incluidas no projeto:
 - [Módulo de linguagem Português do Brasil (pt_BR) para Laravel](https://github.com/lucascudo/laravel-pt-BR-localization)
 - [Laravel Fortify](https://github.com/laravel/fortify)
-- [Laravel Permission](https://github.com/spatie/laravel-permission)
 - [Laravel UI](https://github.com/laravel/ui)
-- [Composer]()
-- [Voyager]()
+- [Laravel Legends pt-br-validator](https://github.com/LaravelLegends/pt-br-validator)
+- [Voyager](https://voyager.devdojo.com/)
 ---
 ## 💪 Como contribuir para o projeto
 
