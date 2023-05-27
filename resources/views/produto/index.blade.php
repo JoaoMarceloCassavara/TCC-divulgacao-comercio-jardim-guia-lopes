@@ -81,7 +81,8 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
                             <button type="button" id="produto-modal-{{ $produto->id }}Close" class="btn-close"
-                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                data-bs-dismiss="modal" aria-label="Close"
+                                onclick="stopVideo('produto-modal-{{ $produto->id }}')"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row mb-3">
@@ -113,7 +114,8 @@
                                     </div>
                                     <div>
                                         <p class="text-decoration-underline text-success">
-                                            ({{ $produto->avaliacoes->count() }} avaliações de clientes)</p>
+                                            ({{ $produto->avaliacoes->count() }} avaliações de clientes)
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="py-2">
@@ -142,7 +144,8 @@
                                     @endphp
                                     @if (!empty($videoId))
                                         <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe id="video-player" class="embed-responsive-item w-100 h-100"
+                                            <iframe width="450" height="315"
+                                                class="video-player pb-5 embed-responsive-item"
                                                 src="https://www.youtube.com/embed/{{ $videoId }}?enablejsapi=1"
                                                 frameborder="0" allowfullscreen></iframe>
                                         </div>
@@ -159,7 +162,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <a type="button"  href="{{ route('empresa.visualizar', ['id' => $produto->empresa->id]) }}" class="btn btn-primary">Produtor: {{$produto->empresa->nome}}</a>
+                            <a type="button" href="{{ route('empresa.visualizar', ['id' => $produto->empresa->id]) }}"
+                                class="btn btn-primary">Produtor: {{ $produto->empresa->nome }}</a>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
                             <button type="button" class="btn btn-success" data-id="{{ $produto->id }}"
                                 data-imagem="{{ Voyager::image($produto->imagem) }}"
@@ -232,4 +236,13 @@
             {{-- @endif --}}
     @endforelse
 </section>
+<script>
+    function stopVideo(seletor) {
+        //obter o iframe com o video
+        let iframe = document.getElementById(seletor)
+            .querySelector('.video-player');
+        //mudar o source do iframe (forçar um reload)
+        iframe.src = iframe.src;
+    }
+</script>
 @endsection
