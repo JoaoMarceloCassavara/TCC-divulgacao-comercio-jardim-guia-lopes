@@ -281,7 +281,7 @@
             <section class="d-flex flex-wrap pt-2 pb-5 card_produto_section_position">
                 @forelse ($categorias as $categoria)
                     @foreach ($categoria?->produtos as $produto)
-                    <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
+                    <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-categoria-{{ $produto->id }}"
                         {{-- Final botao Modal --}}>
                         <div class="card-link m-2 p-4">
 
@@ -314,16 +314,16 @@
                     {{-- Inicio modal --}}
             <!-- Modal -->
 
-            <div class="modal fade" id="produto-modal-{{ $produto->id }}" data-bs-backdrop="static"
-                data-bs-keyboard="false" tabindex="-1" aria-labelledby="produto-modal-{{ $produto->id }}Label"
+            <div class="modal fade" id="produto-modal-categoria-{{ $produto->id }}" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-labelledby="produto-modal-categoria-{{ $produto->id }}Label"
                 aria-hidden="true" data-produto-id="{{ $produto->id }}" data-video-id="{{ $produto->video_id }}">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content modal-produto">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
-                            <button type="button" id="produto-modal-{{ $produto->id }}Close" class="btn-close"
+                            <h5 class="modal-title" id="produto-modal-categoria-{{ $produto->id }}Label">Produto</h5>
+                            <button type="button" id="produto-modal-categoria-{{ $produto->id }}Close" class="btn-close"
                                 data-bs-dismiss="modal" aria-label="Close"
-                                onclick="stopVideo('produto-modal-{{ $produto->id }}')"></button>
+                                onclick="stopVideo('produto-modal-categoria-{{ $produto->id }}')"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row mb-3">
@@ -533,7 +533,7 @@
                         @foreach ($cidade
                 ?->empresas()->where('ativo', true)->get() as $empresa)
                             @foreach ($empresa->produtos as $produto)
-                            <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-{{ $produto->id }}"
+                            <a {{-- botao Modal --}} data-bs-toggle="modal" data-bs-target="#produto-modal-cidade-{{ $produto->id }}"
                                 {{-- Final botao Modal --}}>
                                 <div class="card-link m-2 p-4">
 
@@ -565,16 +565,16 @@
  {{-- Inicio modal --}}
             <!-- Modal -->
 
-            <div class="modal fade" id="produto-modal-{{ $produto->id }}" data-bs-backdrop="static"
-                data-bs-keyboard="false" tabindex="-1" aria-labelledby="produto-modal-{{ $produto->id }}Label"
+            <div class="modal fade" id="produto-modal-cidade-{{ $produto->id }}" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-labelledby="produto-modal-cidade-{{ $produto->id }}Label"
                 aria-hidden="true" data-produto-id="{{ $produto->id }}" data-video-id="{{ $produto->video_id }}">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content modal-produto">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="produto-modal-{{ $produto->id }}Label">Produto</h5>
-                            <button type="button" id="produto-modal-{{ $produto->id }}Close" class="btn-close"
+                            <h5 class="modal-title" id="produto-modal-cidade-{{ $produto->id }}Label">Produto</h5>
+                            <button type="button" id="produto-modal-cidade-{{ $produto->id }}Close" class="btn-close"
                                 data-bs-dismiss="modal" aria-label="Close"
-                                onclick="stopVideo('produto-modal-{{ $produto->id }}')"></button>
+                                onclick="stopVideo('produto-modal-cidade-{{ $produto->id }}')"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row mb-3">

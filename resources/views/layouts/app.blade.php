@@ -321,7 +321,7 @@ function decrementarQuantidade(index) {
 }
 
 </script>
-    <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 
