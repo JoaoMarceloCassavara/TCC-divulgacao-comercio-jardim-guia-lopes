@@ -471,7 +471,7 @@
 
                     <div class="ps-4">
                         <div class="alert alert-success " role="alert">
-                        <p class="alert alert-success">Não encontrado nenhum Produto com o nome: {{ request()->filtro }}</p>
+                        <p class="alert alert-success">Não encontrado nenhuma Categoria com o nome: {{ request()->filtro }}</p>
                     </div>
                 </div>
                     @endforelse
