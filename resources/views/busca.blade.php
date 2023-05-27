@@ -481,12 +481,12 @@
                 </section>
             </div>
             <div class="tab-pane fade" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+                @forelse ($cidades as $cidade)
                 <header>
                     <div class="text-center pb-4">
-                        <h4>Em busca de produtores da sua região</h4>
+                        <h4>Em busca de produtos da sua região: {{$cidade->nome}}</h4>
                     </div>
                 </header>
-                @forelse ($cidades as $cidade)
                     <div class=" d-flex flex-wrap pt-2 pb-5 card_empresa_section_position">
                         @foreach ($cidade
                 ?->empresas()->where('ativo', true)->get() as $empresa)
@@ -522,12 +522,13 @@
                 @endforelse
 
                 {{-- Ver produtos pela cidade justo que a cidade esta na empresa que o produto pertence  --}}
+
+                @forelse ($cidades as $cidade)
                 <header>
                     <div class="text-center pb-4">
-                        <h4>Em busca de produtos da sua região</h4>
+                        <h4>Em busca de produtos da sua região: {{$cidade->nome}}</h4>
                     </div>
                 </header>
-                @forelse ($cidades as $cidade)
                     <section class="d-flex flex-wrap pt-2 pb-5 card_produto_section_position">
                         @foreach ($cidade
                 ?->empresas()->where('ativo', true)->get() as $empresa)
