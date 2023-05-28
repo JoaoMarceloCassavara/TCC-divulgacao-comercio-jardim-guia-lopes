@@ -167,7 +167,9 @@
                                 <div class="modal-footer">
                                     <a type="button" href="{{ route('empresa.visualizar', ['id' => $produto->empresa->id]) }}"
                                         class="btn btn-primary">Produtor: {{ $produto->empresa->nome }}</a>
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
+                                        <button  type="button" id="produto-modal-{{ $produto->id }}Close" class="btn btn-danger"
+                                            data-bs-dismiss="modal" aria-label="Close"
+                                            onclick="stopVideo('produto-modal-{{ $produto->id }}')">Voltar</button>
                                     <button type="button" class="btn btn-success" data-id="{{ $produto->id }}"
                                         data-imagem="{{ Voyager::image($produto->imagem) }}"
                                         data-preco="{{ $produto->preco }}" data-nome="{{ $produto->nome }}"
@@ -405,7 +407,9 @@
                         <div class="modal-footer">
                             <a type="button" href="{{ route('empresa.visualizar', ['id' => $produto->empresa->id]) }}"
                                 class="btn btn-primary">Produtor: {{ $produto->empresa->nome }}</a>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
+                                <button  type="button" id="produto-modal-categoria-{{ $produto->id }}Close" class="btn btn-danger"
+                                    data-bs-dismiss="modal" aria-label="Close"
+                                    onclick="stopVideo('produto-modal-categoria-{{ $produto->id }}')">Voltar</button>
                             <button type="button" class="btn btn-success" data-id="{{ $produto->id }}"
                                 data-imagem="{{ Voyager::image($produto->imagem) }}"
                                 data-preco="{{ $produto->preco }}" data-nome="{{ $produto->nome }}"
@@ -656,7 +660,9 @@
                         <div class="modal-footer">
                             <a type="button" href="{{ route('empresa.visualizar', ['id' => $produto->empresa->id]) }}"
                                 class="btn btn-primary">Produtor: {{ $produto->empresa->nome }}</a>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
+                                <button  type="button" id="produto-modal-cidade-{{ $produto->id }}Close" class="btn btn-danger"
+                                    data-bs-dismiss="modal" aria-label="Close"
+                                    onclick="stopVideo('produto-modal-cidade-{{ $produto->id }}')">Voltar</button>
                             <button type="button" class="btn btn-success" data-id="{{ $produto->id }}"
                                 data-imagem="{{ Voyager::image($produto->imagem) }}"
                                 data-preco="{{ $produto->preco }}" data-nome="{{ $produto->nome }}"
