@@ -13,7 +13,8 @@
 
 O projeto intitulado Janela do produtor foi desenvolvido para o Trabalho de Conclusão de Curso do Instituto Federal de Mato Grosso do Sul (IFMS) Campus Jardim, como exigência parcial para obtenção do título de Técnico em Informática.
 
-Este projeto têm como objetivo a divulgação de produtos oriundos da economia local, intermediando a interação entre consumidores e produtores locais promovendo um canal direto para venda. Permite os produtores locais venderem seus produtos no sistema web de divulgação. O sistema permite o produtor cadastrar sua empresa e cadastrar seus produtos. Já os clientes , facilidade na hora de comprar um produto de seu agrado com produtores e seus produtos naturais.
+Este projeto têm como objetivo a divulgação de produtos oriundos da economia local, intermediando a interação entre consumidores e produtores locais promovendo um canal direto para venda. Permite os produtores locais venderem seus produtos no sistema web de divulgação. O sistema permite o produtor cadastrar sua empresa e cadastrar seus produtos. Já os clientes , facilidade na hora de comprar um produto de seu agrado com produtores e seus produtos naturais.</br>
+Documento do Trabalho de conclução de curso (TCC) [Coimbra-e-Cassavara-(2023)_TCC](/docs/Coimbra-e-Cassavara-(2023)_TCC.pdf)
 
 ----
 
